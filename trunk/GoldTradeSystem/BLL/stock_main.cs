@@ -69,9 +69,9 @@ namespace GoldTradeNaming.BLL
         /// 获得销售报表
         /// </summary>
         /// <returns></returns>
-        public DataSet getSalesReprot()
+        public DataSet getSalesReprot(string time_from, string time_to)
         {
-            return dal.getSalesReport();
+            return dal.getSalesReport(time_from, time_to);
         }
 
          ///<summary>
@@ -83,7 +83,10 @@ namespace GoldTradeNaming.BLL
         ///<param name="tag">变更标记， 0-增加，1-减少</param>
         ///<param name="mount">库存变更量</param>
         ///<returns name="tmp_tag">true:执行成功，false:执行失败</returns>
-        public bool stock_chang(string fran_id, int product_type_id, int product_kind_id, int tag, int mount)
+        ///modify date:20090511
+        ///modifier:yiyong
+        ///modify content:int product_kind_id----->decimal product_kind_id
+        public bool stock_chang(string fran_id, int product_type_id, decimal product_kind_id, int tag, int mount)
         {
             return dal.stock_chang(fran_id, product_type_id, product_kind_id, tag, mount);
         }
