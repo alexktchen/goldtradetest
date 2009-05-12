@@ -1,0 +1,15 @@
+E:\新建文件夹 (2)\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\新建文件夹 (2)\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
