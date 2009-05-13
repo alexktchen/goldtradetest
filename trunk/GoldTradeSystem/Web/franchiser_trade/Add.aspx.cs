@@ -330,9 +330,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
-                lblCanUseMoney.Text = Convert.ToInt32(money_use) + "元";
+                lblCanUseMoney.Text = Convert.ToDecimal(money_use) + "元";
                 lblTotalWeight.Text = iTotalWeight + "克";
-                lblTotalMoney.Text = Convert.ToInt32(iTotalMoney) + "元";
+                lblTotalMoney.Text = Convert.ToDecimal(iTotalMoney) + "元";
                 btnSubmit.Enabled = true;
                 MessageBox.Show(this, "保存成功，请点提交确认交易！");
             }
@@ -390,9 +390,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
-                lblCanUseMoney.Text = Convert.ToInt32(money_use) + "元";
+                lblCanUseMoney.Text = Convert.ToDecimal(money_use) + "元";
                 lblTotalWeight.Text = iTotalWeight + "克";
-                lblTotalMoney.Text = Convert.ToInt32(iTotalMoney) + "元";
+                lblTotalMoney.Text = Convert.ToDecimal(iTotalMoney) + "元";
                 btnSubmit.Enabled = true;
                 MessageBox.Show(this, "保存成功，请点提交确认交易！");
             }
