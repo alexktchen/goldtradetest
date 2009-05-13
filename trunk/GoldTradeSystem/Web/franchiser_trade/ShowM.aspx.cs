@@ -123,6 +123,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
         {
             txttrade_id.Text = "";
             txtfranchiser_code.Text = "";
+            txtfranchiser_name.Text = "";
             gvTrade.SelectedIndex = -1;
             lblQueryMsg.Text = "";
         }
@@ -155,9 +156,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
             else
             {
-                strWhere.Append("a.franchiser_code like N'%");
+                strWhere.Append("a.franchiser_code = N'");
                 strWhere.Append(this.txtfranchiser_code.Text.Trim());
-                strWhere.Append("%' ");
+                strWhere.Append("' ");
             }
             if (this.txttrade_id.Text.Trim() == "")
             {
@@ -165,9 +166,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
             else
             {
-                strWhere.Append(" AND a.trade_id like N'%");
+                strWhere.Append(" AND a.trade_id = N'");
                 strWhere.Append(this.txttrade_id.Text.Trim());
-                strWhere.Append("%'");
+                strWhere.Append("'");
             }
             if (this.txtfranchiser_name.Text.Trim() == "")
             {
@@ -175,9 +176,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
             else
             {
-                strWhere.Append(" AND b.franchiser_name like N'%");
+                strWhere.Append(" AND b.franchiser_name = N'");
                 strWhere.Append(this.txtfranchiser_name.Text.Trim());
-                strWhere.Append("%'");
+                strWhere.Append("'");
             }
             return bll.GetTradeByM(strWhere.ToString());
         }

@@ -13,7 +13,7 @@ namespace GoldTradeNaming.Model
         // private decimal _tradeAddPrice;
 
 
-        private int _tradeTotalWeight;
+        private decimal _tradeTotalWeight;
         private decimal _tradeTotalMoney;
         private string _tradeState;
         private string _insUser;
@@ -75,7 +75,7 @@ namespace GoldTradeNaming.Model
         //        _tradeAddPrice = value;
         //    }
         //}
-        public int TradeTotalWeight
+        public decimal TradeTotalWeight
         {
             get
             {
@@ -160,14 +160,14 @@ namespace GoldTradeNaming.Model
     {
         private int _tradeId;
         private int _productID;
-        private int _productSpecID;
+        private decimal _productSpecID;
 
         private decimal _realtimeBasePrice;
         private decimal _tradeAddPrice;
         private decimal _goldTradePrice;
         private decimal _tradeMoney;
-        private int _tradeWeight;
-        private int _stockleft;
+        private decimal _tradeWeight;
+        private decimal _stockleft;
         private int _tradeamount;
 
         //private string _productNum;
@@ -258,7 +258,7 @@ namespace GoldTradeNaming.Model
                 _productID = value;
             }
         }
-        public int ProductSpecID
+        public decimal ProductSpecID
         {
             get
             {
@@ -269,7 +269,7 @@ namespace GoldTradeNaming.Model
                 _productSpecID = value;
             }
         }
-        public int TradeWeight
+        public decimal TradeWeight
         {
             get
             {
@@ -280,7 +280,7 @@ namespace GoldTradeNaming.Model
                 _tradeWeight = value;
             }
         }
-        public int StockLeft
+        public decimal StockLeft
         {
             get
             {

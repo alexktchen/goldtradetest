@@ -41,7 +41,8 @@
                                 DataFormatString="{0:#0.00}">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="stock_num" HeaderText="库存数量" ItemStyle-HorizontalAlign="Center">
+                            <asp:BoundField DataField="stock_num" HeaderText="库存数量" ItemStyle-HorizontalAlign="Center"
+                                DataFormatString="{0:#0}">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="stock_left" HeaderText="库存重量(克)" ItemStyle-HorizontalAlign="Center">
@@ -100,7 +101,8 @@
                                 DataFormatString="{0:#0.00}">
                                 <ItemStyle HorizontalAlign="Center" Wrap="false"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="stock_num" HeaderText="库存数量" ItemStyle-HorizontalAlign="Center">
+                            <asp:BoundField DataField="stock_num" HeaderText="库存数量" ItemStyle-HorizontalAlign="Center"
+                                DataFormatString="{0:#0}">
                                 <ItemStyle HorizontalAlign="Center" Wrap="false"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="stock_left" HeaderText="库存重量(克)" ItemStyle-HorizontalAlign="Center">
@@ -136,10 +138,10 @@
         </table>
     </div>
     <div align="center" runat="server" id="divBtn">
-        <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" 
-            Style="cursor: pointer;" ToolTip="请保存后提交" />
-        <asp:Button ID="btnSubmit" runat="server" Text="提交" OnClick="btnSubmit_Click" 
-            Style="cursor: pointer;" ToolTip="请先保存再提交" /><br />
+        <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" Style="cursor: pointer;"
+            ToolTip="请保存后提交" />
+        <asp:Button ID="btnSubmit" runat="server" Text="提交" OnClick="btnSubmit_Click" Style="cursor: pointer;"
+            ToolTip="请先保存再提交" /><br />
         <cc1:ConfirmButtonExtender ID="ConfirmButtonExtender2" runat="server" TargetControlID="btnSubmit"
             DisplayModalPopupID="ModalPopupExtender1" />
         <br />

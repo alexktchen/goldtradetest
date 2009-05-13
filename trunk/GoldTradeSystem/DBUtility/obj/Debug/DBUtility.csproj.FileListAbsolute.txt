@@ -13,3 +13,8 @@ E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\bin\Debu
 E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
 E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
 E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb

@@ -15,13 +15,13 @@ using GoldTradeNaming.Model;
 using System.Text.RegularExpressions;
 namespace GoldTradeNaming.Web.franchiser_trade
 {
-    public partial class Add:System.Web.UI.Page
+    public partial class Add : System.Web.UI.Page
     {
         GoldTradeNaming.BLL.franchiser_trade bll = new GoldTradeNaming.BLL.franchiser_trade();
         //    GoldTradeNaming.BLL.realtime_price bllPrice = new GoldTradeNaming.BLL.realtime_price();
         //   GoldTradeNaming.BLL.franchiser_info bllInfo = new GoldTradeNaming.BLL.franchiser_info();     
 
-        protected void Page_LoadComplete(object sender,EventArgs e)
+        protected void Page_LoadComplete(object sender, EventArgs e)
         {
 
             //(Master.FindControl("lblOrderOrTrade") as Label).Text = "点价可用余额：";
@@ -29,11 +29,11 @@ namespace GoldTradeNaming.Web.franchiser_trade
         }
 
 
-        protected void Page_Load(object sender,EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                if(Session["fran"] == null || Session["fran"].ToString() == "")
+                if (Session["fran"] == null || Session["fran"].ToString() == "")
                 {
                     Response.Clear();
                     Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
@@ -56,12 +56,12 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 DataSet ds = GetGoldStock(franchiser_code);
                 gvTrade.DataSource = ds;
                 gvTrade.DataBind();
-                JoinCells(gvTrade,0);
+                JoinCells(gvTrade, 0);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
                 return false;
             }
         }
@@ -74,12 +74,12 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 DataSet ds = GetSilverStock(franchiser_code);
                 gvTrade2.DataSource = ds;
                 gvTrade2.DataBind();
-                JoinCells(gvTrade2,0);
+                JoinCells(gvTrade2, 0);
                 return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
                 return false;
             }
         }
@@ -92,35 +92,35 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 DataSet ds = GetGoldStock(franchiser_code);
                 gvTrade.DataSource = ds;
                 gvTrade.DataBind();
-                JoinCells(gvTrade,0);
+                JoinCells(gvTrade, 0);
 
                 ds = GetSilverStock(franchiser_code);
                 gvTrade2.DataSource = ds;
                 gvTrade2.DataBind();
-                JoinCells(gvTrade2,0);
+                JoinCells(gvTrade2, 0);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
             }
         }
         /// <summary>
         /// 合并单元格
         /// </summary>
         /// <param name="iCellNO">第几列</param>
-        public void JoinCells(Anthem.GridView agv,int iCellNO)
+        public void JoinCells(Anthem.GridView agv, int iCellNO)
         {
-            for(int i = agv.Rows.Count - 1;i > 0;i--)
+            for (int i = agv.Rows.Count - 1; i > 0; i--)
             {
                 int j = i - 1;
                 string s1 = agv.Rows[i].Cells[iCellNO].Text.Trim();
                 string s2 = agv.Rows[j].Cells[iCellNO].Text.Trim();
 
-                if(s1 == s2)
+                if (s1 == s2)
                 {
                     int nSpan = 1;
                     nSpan = agv.Rows[i].Cells[iCellNO].RowSpan;
-                    if(nSpan == 0)
+                    if (nSpan == 0)
                         nSpan = 1;
                     nSpan++;
                     agv.Rows[i].Cells[iCellNO].Visible = false;
@@ -129,9 +129,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
         }
 
-        protected void ibGold_Click(object sender,ImageClickEventArgs e)
+        protected void ibGold_Click(object sender, ImageClickEventArgs e)
         {
-            if(showGoldGrid())
+            if (showGoldGrid())
             {
                 divSilver.Visible = false;
                 divBtn.Visible = true;
@@ -141,9 +141,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
         }
 
-        protected void ibSilver_Click(object sender,ImageClickEventArgs e)
+        protected void ibSilver_Click(object sender, ImageClickEventArgs e)
         {
-            if(showSilverGrid())
+            if (showSilverGrid())
             {
                 divSilver.Visible = true;
                 divBtn.Visible = true;
@@ -154,7 +154,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
         }
 
 
-        protected void ProdNumChg(object sender,EventArgs e)
+        protected void ProdNumChg(object sender, EventArgs e)
         {
             try
             {
@@ -162,16 +162,16 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 GridViewRow drv = (GridViewRow)t.NamingContainer;
                 int rowIndex = drv.RowIndex;
 
-                int iPro_spec = Convert.ToInt32(gvTrade.Rows[rowIndex].Cells[1].Text.Replace("g","").Replace(" ","").Trim());
-                decimal base_price = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[2].Text.Replace("元/g","").Replace(" ",""));
-                decimal add_price = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[3].Text.Replace("元/g","").Replace(" ",""));
-                if(!IsNum(t.Text.Trim()))
+                decimal iPro_spec = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[1].Text.Replace("g", "").Replace(" ", "").Trim());
+                decimal base_price = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[2].Text.Replace("元/g", "").Replace(" ", ""));
+                decimal add_price = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[3].Text.Replace("元/g", "").Replace(" ", ""));
+                if (!IsNum(t.Text.Trim()))
                 {
                     t.Text = "";
                     ((Label)gvTrade.Rows[rowIndex].FindControl("lblProdWht")).Text = "0 g";
                     ((Label)gvTrade.Rows[rowIndex].FindControl("lblMoneyCount")).Text = "0 元";
                 }
-                if(Convert.ToInt32(gvTrade.Rows[rowIndex].Cells[4].Text.Trim()) < Convert.ToInt32(t.Text.Trim()))
+                if (Convert.ToInt32(gvTrade.Rows[rowIndex].Cells[4].Text.Trim()) < Convert.ToInt32(t.Text.Trim()))
                 {
                     t.Text = "";
                     ((Label)gvTrade.Rows[rowIndex].FindControl("lblProdWht")).Text = "0 g";
@@ -183,13 +183,13 @@ namespace GoldTradeNaming.Web.franchiser_trade
                     ((Label)gvTrade.Rows[rowIndex].FindControl("lblMoneyCount")).Text = (Convert.ToInt32(t.Text.Trim()) * iPro_spec * (base_price + add_price)).ToString() + "元";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
             }
         }
 
-        protected void ProdNumChg2(object sender,EventArgs e)
+        protected void ProdNumChg2(object sender, EventArgs e)
         {
             try
             {
@@ -197,16 +197,16 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 GridViewRow drv = (GridViewRow)t.NamingContainer;
                 int rowIndex = drv.RowIndex;
 
-                int iPro_spec = Convert.ToInt32(gvTrade2.Rows[rowIndex].Cells[1].Text.Replace("g","").Replace(" ",""));
-                decimal base_price = Convert.ToDecimal(gvTrade2.Rows[rowIndex].Cells[2].Text.Replace("元/g","").Replace(" ",""));
+                decimal iPro_spec = Convert.ToDecimal(gvTrade2.Rows[rowIndex].Cells[1].Text.Replace("g", "").Replace(" ", ""));
+                decimal base_price = Convert.ToDecimal(gvTrade2.Rows[rowIndex].Cells[2].Text.Replace("元/g", "").Replace(" ", ""));
                 //    decimal add_price = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[3].Text.Trim());
-                if(!IsNum(t.Text.Trim()))
+                if (!IsNum(t.Text.Trim()))
                 {
                     t.Text = "";
                     ((Label)gvTrade2.Rows[rowIndex].FindControl("lblProdWht2")).Text = "0 g";
                     ((Label)gvTrade2.Rows[rowIndex].FindControl("lblMoneyCount2")).Text = "0 元";
                 }
-                if(Convert.ToInt32(gvTrade2.Rows[rowIndex].Cells[3].Text.Trim()) < Convert.ToInt32(t.Text.Trim()))
+                if (Convert.ToInt32(gvTrade2.Rows[rowIndex].Cells[3].Text.Trim()) < Convert.ToInt32(t.Text.Trim()))
                 {
                     t.Text = "";
                     ((Label)gvTrade2.Rows[rowIndex].FindControl("lblProdWht2")).Text = "0 g";
@@ -218,9 +218,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
                     ((Label)gvTrade2.Rows[rowIndex].FindControl("lblMoneyCount2")).Text = (Convert.ToInt32(t.Text.Trim()) * iPro_spec * (base_price)).ToString() + "元";
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
             }
         }
 
@@ -231,7 +231,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
         /// <returns></returns>
         bool IsNum(string strIn)
         {
-            return Regex.IsMatch(strIn,@"^\d+$");
+            return Regex.IsMatch(strIn, @"^\d+$");
         }
 
 
@@ -246,49 +246,49 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         }
 
-        protected void btnSubmit_Click(object sender,EventArgs e)
+        protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if(hfType.Value == "0")
+            if (hfType.Value == "0")
                 SubmitGoldTrade();
-            else if(hfType.Value == "1")
+            else if (hfType.Value == "1")
                 SubmitSilverTrade();
         }
 
-        protected void btnSave_Click(object sender,EventArgs e)
+        protected void btnSave_Click(object sender, EventArgs e)
         {
-            if(!CheckInput())
+            if (!CheckInput())
             {
-                MessageBox.Show(this,"请输入交易数量");
+                MessageBox.Show(this, "请输入交易数量");
                 return;
             }
             DataSet ds = bll.GetTradetime();
-            if(ds != null && ds.Tables[0].Rows.Count > 0)
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
                 DateTime dtFrom = Convert.ToDateTime(ds.Tables[0].Rows[0]["dtFrom"].ToString().Trim());
                 DateTime dtTo = Convert.ToDateTime(ds.Tables[0].Rows[0]["dtTo"].ToString().Trim());
-                if(dtFrom.CompareTo(DateTime.Now) > 0 || dtTo.CompareTo(DateTime.Now) < 0)
+                if (dtFrom.CompareTo(DateTime.Now) > 0 || dtTo.CompareTo(DateTime.Now) < 0)
                 {
-                    MessageBox.Show(this,"现在不是交易时间,不能交易");
+                    MessageBox.Show(this, "现在不是交易时间,不能交易");
                     return;
                 }
             }
-            if(hfType.Value == "0")
+            if (hfType.Value == "0")
                 SaveGoldTrade();
-            else if(hfType.Value == "1")
+            else if (hfType.Value == "1")
                 SaveSilverTrade();
         }
 
         private void SaveGoldTrade()
         {
             string sCurPrice;//,trade_add_price;
-            if(!GetCurPriceInfo(out sCurPrice))
+            if (!GetCurPriceInfo(out sCurPrice))
                 return;
 
             try
             {
                 string tradeNum = "";
 
-                int iTotalWeight = 0;
+                decimal iTotalWeight = 0;
                 decimal iTotalMoney = 0;
                 TradeInfo trInfo = new TradeInfo();
 
@@ -296,15 +296,15 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 ProductInfo proInfo;
                 DataSet ds = null;
-                for(int i = 0;i < gvTrade.Rows.Count;i++)
+                for (int i = 0; i < gvTrade.Rows.Count; i++)
                 {
                     tradeNum = ((TextBox)gvTrade.Rows[i].FindControl("txtProdNum")).Text.Trim();
-                    if(tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
+                    if (tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
                     {
                         proInfo = new ProductInfo();
 
                         proInfo.ProductID = Convert.ToInt32(gvTrade.DataKeys[i].Value.ToString().Trim());
-                        proInfo.ProductSpecID = Convert.ToInt32(gvTrade.Rows[i].Cells[1].Text.Replace("g","").Replace(" ",""));
+                        proInfo.ProductSpecID = Convert.ToDecimal(gvTrade.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
 
 
                         proInfo.RealTimeBasePrice = Convert.ToDecimal(sCurPrice);       //基础金价              
@@ -319,26 +319,26 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         iTotalMoney += proInfo.TradeMoney;
                         iTotalWeight += proInfo.TradeWeight;
 
-                        proInfo.StockLeft = (Convert.ToInt32(gvTrade.Rows[i].Cells[4].Text.Replace(" ","")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//交易完所剩库存
+                        proInfo.StockLeft = (Convert.ToDecimal(gvTrade.Rows[i].Cells[4].Text.Replace(" ", "")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//交易完所剩库存
                         proInfos.Add(proInfo);
                     }
                 }
 
                 string fran_name;
-                decimal fran_money,assure_money,money_use;
+                decimal fran_money, assure_money, money_use;
                 string fran_code = Session["fran"].ToString().Trim();
 
-                GetMoneyLeft(fran_code,out fran_name,out fran_money,out assure_money,out money_use);
+                GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
                 lblCanUseMoney.Text = Convert.ToInt32(money_use) + "元";
                 lblTotalWeight.Text = iTotalWeight + "克";
                 lblTotalMoney.Text = Convert.ToInt32(iTotalMoney) + "元";
                 btnSubmit.Enabled = true;
-                MessageBox.Show(this,"保存成功，请点提交确认交易！");
+                MessageBox.Show(this, "保存成功，请点提交确认交易！");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
             }
 
         }
@@ -349,22 +349,22 @@ namespace GoldTradeNaming.Web.franchiser_trade
             {
                 string tradeNum = "";
 
-                int iTotalWeight = 0;
+                decimal iTotalWeight = 0;
                 decimal iTotalMoney = 0;
                 TradeInfo trInfo = new TradeInfo();
                 List<ProductInfo> proInfos = new List<ProductInfo>();
                 ProductInfo proInfo;
                 DataSet ds = null;
 
-                for(int i = 0;i < gvTrade2.Rows.Count;i++)
+                for (int i = 0; i < gvTrade2.Rows.Count; i++)
                 {
                     tradeNum = ((TextBox)gvTrade2.Rows[i].FindControl("txtProdNum2")).Text.Trim();
-                    if(tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
+                    if (tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
                     {
                         proInfo = new ProductInfo();
 
                         proInfo.ProductID = Convert.ToInt32(gvTrade2.DataKeys[i].Value.ToString().Trim());
-                        proInfo.ProductSpecID = Convert.ToInt32(gvTrade2.Rows[i].Cells[1].Text.Replace("g","").Replace(" ",""));
+                        proInfo.ProductSpecID = Convert.ToDecimal(gvTrade2.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
 
 
                         // proInfo.RealTimeBasePrice = Convert.ToDecimal(sCurPrice);       //基础金价              
@@ -379,39 +379,40 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         iTotalMoney += proInfo.TradeMoney;
                         iTotalWeight += proInfo.TradeWeight;
 
-                        proInfo.StockLeft = (Convert.ToInt32(gvTrade2.Rows[i].Cells[3].Text.Replace(" ","")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//所剩交易完剩库存
+                        int aaa = Convert.ToInt32(gvTrade2.Rows[i].Cells[3].Text.Replace(" ", "")) - proInfo.TradeAmount;
+                        proInfo.StockLeft = (Convert.ToInt32(gvTrade2.Rows[i].Cells[3].Text.Replace(" ", "")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//所剩交易完剩库存
                         proInfos.Add(proInfo);
                     }
                 }
                 string fran_name;
-                decimal fran_money,assure_money,money_use;
+                decimal fran_money, assure_money, money_use;
                 string fran_code = Session["fran"].ToString().Trim();
 
-                GetMoneyLeft(fran_code,out fran_name,out fran_money,out assure_money,out money_use);
+                GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
                 lblCanUseMoney.Text = Convert.ToInt32(money_use) + "元";
                 lblTotalWeight.Text = iTotalWeight + "克";
                 lblTotalMoney.Text = Convert.ToInt32(iTotalMoney) + "元";
                 btnSubmit.Enabled = true;
-                MessageBox.Show(this,"保存成功，请点提交确认交易！");
+                MessageBox.Show(this, "保存成功，请点提交确认交易！");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,ex.Message);
+                MessageBox.Show(this, ex.Message);
             }
         }
 
         private void SubmitGoldTrade()
         {
             string sCurPrice;//,trade_add_price;
-            if(!GetCurPriceInfo(out sCurPrice))
+            if (!GetCurPriceInfo(out sCurPrice))
                 return;
 
             try
             {
                 string tradeNum = "";
 
-                int iTotalWeight = 0;
+                decimal iTotalWeight = 0;
                 decimal iTotalMoney = 0;
                 TradeInfo trInfo = new TradeInfo();
 
@@ -419,15 +420,15 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 ProductInfo proInfo;
                 DataSet ds = null;
-                for(int i = 0;i < gvTrade.Rows.Count;i++)
+                for (int i = 0; i < gvTrade.Rows.Count; i++)
                 {
                     tradeNum = ((TextBox)gvTrade.Rows[i].FindControl("txtProdNum")).Text.Trim();
-                    if(tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
+                    if (tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
                     {
                         proInfo = new ProductInfo();
 
                         proInfo.ProductID = Convert.ToInt32(gvTrade.DataKeys[i].Value.ToString().Trim());
-                        proInfo.ProductSpecID = Convert.ToInt32(gvTrade.Rows[i].Cells[1].Text.Replace("g","").Replace(" ",""));
+                        proInfo.ProductSpecID = Convert.ToDecimal(gvTrade.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
 
 
                         proInfo.RealTimeBasePrice = Convert.ToDecimal(sCurPrice);       //基础金价              
@@ -442,7 +443,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         iTotalMoney += proInfo.TradeMoney;
                         iTotalWeight += proInfo.TradeWeight;
 
-                        proInfo.StockLeft = (Convert.ToInt32(gvTrade.Rows[i].Cells[4].Text.Replace(" ","")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//交易完所剩库存
+                        proInfo.StockLeft = (Convert.ToInt32(gvTrade.Rows[i].Cells[4].Text.Replace(" ", "")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//交易完所剩库存
                         proInfos.Add(proInfo);
                     }
                 }
@@ -460,36 +461,36 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 trInfo.UpdUser = Session["fran"].ToString();
 
                 string fran_name;
-                decimal fran_money,assure_money,money_use;
+                decimal fran_money, assure_money, money_use;
                 string fran_code = Session["fran"].ToString().Trim();
 
-                GetMoneyLeft(fran_code,out fran_name,out fran_money,out assure_money,out money_use);
+                GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
-                if(money_use > 0 && money_use >= trInfo.TradeTotalMoney)
+                if (money_use > 0 && money_use >= trInfo.TradeTotalMoney)
                 {
-                    if(bll.AddTrandeInfo(proInfos,trInfo,hfType.Value))
+                    if (bll.AddTrandeInfo(proInfos, trInfo, hfType.Value))
                     {
                         showGoldGrid();
                         btnSubmit.Enabled = false;
 
-                        MessageBox.ShowAndRedirect(this,"提交成功...","../franchiser_trade/Add.aspx");
+                        MessageBox.ShowAndRedirect(this, "提交成功...", "../franchiser_trade/Add.aspx");
 
                     }
                     else
-                        MessageBox.Show(this,"提交失败");
+                        MessageBox.Show(this, "提交失败");
 
                 }
                 else
                 {
-                    MessageBox.Show(this,"你的余额不够");
+                    MessageBox.Show(this, "你的余额不够");
                 }
 
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,"提交错误" + ex.Message);
+                MessageBox.Show(this, "提交错误" + ex.Message);
             }
         }
 
@@ -499,22 +500,22 @@ namespace GoldTradeNaming.Web.franchiser_trade
             {
                 string tradeNum = "";
 
-                int iTotalWeight = 0;
+                decimal iTotalWeight = 0;
                 decimal iTotalMoney = 0;
                 TradeInfo trInfo = new TradeInfo();
                 List<ProductInfo> proInfos = new List<ProductInfo>();
                 ProductInfo proInfo;
                 DataSet ds = null;
 
-                for(int i = 0;i < gvTrade2.Rows.Count;i++)
+                for (int i = 0; i < gvTrade2.Rows.Count; i++)
                 {
                     tradeNum = ((TextBox)gvTrade2.Rows[i].FindControl("txtProdNum2")).Text.Trim();
-                    if(tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
+                    if (tradeNum != "" && Convert.ToInt32(tradeNum) != 0)
                     {
                         proInfo = new ProductInfo();
 
                         proInfo.ProductID = Convert.ToInt32(gvTrade2.DataKeys[i].Value.ToString().Trim());
-                        proInfo.ProductSpecID = Convert.ToInt32(gvTrade2.Rows[i].Cells[1].Text.Replace("g","").Replace(" ",""));
+                        proInfo.ProductSpecID = Convert.ToDecimal(gvTrade2.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
 
 
                         // proInfo.RealTimeBasePrice = Convert.ToDecimal(sCurPrice);       //基础金价              
@@ -529,7 +530,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         iTotalMoney += proInfo.TradeMoney;
                         iTotalWeight += proInfo.TradeWeight;
 
-                        proInfo.StockLeft = (Convert.ToInt32(gvTrade2.Rows[i].Cells[3].Text.Replace(" ","")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//所剩交易完剩库存
+                        proInfo.StockLeft = (Convert.ToInt32(gvTrade2.Rows[i].Cells[3].Text.Replace(" ", "")) - proInfo.TradeAmount) * proInfo.ProductSpecID;//所剩交易完剩库存
                         proInfos.Add(proInfo);
                     }
                 }
@@ -546,14 +547,14 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 trInfo.UpdUser = Session["fran"].ToString();
 
                 string fran_name;
-                decimal fran_money,assure_money,money_use;
+                decimal fran_money, assure_money, money_use;
                 string fran_code = Session["fran"].ToString().Trim();
 
-                GetMoneyLeft(fran_code,out fran_name,out fran_money,out assure_money,out money_use);
+                GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
-                if(money_use > 0 && money_use >= trInfo.TradeTotalMoney)
+                if (money_use > 0 && money_use >= trInfo.TradeTotalMoney)
                 {
-                    if(bll.AddTrandeInfo(proInfos,trInfo,hfType.Value))
+                    if (bll.AddTrandeInfo(proInfos, trInfo, hfType.Value))
                     {
                         showSilverGrid();
                         btnSubmit.Enabled = false;
@@ -561,23 +562,23 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         //Franchiser master = new Franchiser();
                         //master.LoadData();
 
-                        MessageBox.ShowAndRedirect(this,"提交成功...","../franchiser_trade/Add.aspx");
+                        MessageBox.ShowAndRedirect(this, "提交成功...", "../franchiser_trade/Add.aspx");
                     }
                     else
-                        MessageBox.Show(this,"提交失败");
+                        MessageBox.Show(this, "提交失败");
 
                 }
                 else
                 {
-                    MessageBox.Show(this,"你的余额不够");
+                    MessageBox.Show(this, "你的余额不够");
                 }
 
 
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(this,"提交错误" + ex.Message);
+                MessageBox.Show(this, "提交错误" + ex.Message);
             }
         }
 
@@ -587,20 +588,20 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         private bool CheckInput()
         {
-            if(hfType.Value == "0")
+            if (hfType.Value == "0")
             {
-                for(int i = 0;i < gvTrade.Rows.Count;i++)
+                for (int i = 0; i < gvTrade.Rows.Count; i++)
                 {
-                    if(((TextBox)gvTrade.Rows[i].FindControl("txtProdNum")).Text.Trim() != "")
+                    if (((TextBox)gvTrade.Rows[i].FindControl("txtProdNum")).Text.Trim() != "")
                         return true;
                 }
                 return false;
             }
-            else if(hfType.Value == "1")
+            else if (hfType.Value == "1")
             {
-                for(int i = 0;i < gvTrade2.Rows.Count;i++)
+                for (int i = 0; i < gvTrade2.Rows.Count; i++)
                 {
-                    if(((TextBox)gvTrade2.Rows[i].FindControl("txtProdNum2")).Text.Trim() != "")
+                    if (((TextBox)gvTrade2.Rows[i].FindControl("txtProdNum2")).Text.Trim() != "")
                         return true;
                 }
                 return false;
@@ -611,16 +612,16 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         private void InitControl()
         {
-            divSilver.Style.Add("display","none");
-            divGold.Style.Add("display","none");
-            divBtn.Style.Add("display","none");
+            divSilver.Style.Add("display", "none");
+            divGold.Style.Add("display", "none");
+            divBtn.Style.Add("display", "none");
         }
 
 
 
-        protected void gvTrade_DataBound(object sender,EventArgs e)
+        protected void gvTrade_DataBound(object sender, EventArgs e)
         {
-            for(int i = 0;i < gvTrade.Rows.Count;i++)
+            for (int i = 0; i < gvTrade.Rows.Count; i++)
             {
                 gvTrade.Rows[i].Cells[1].Text = gvTrade.Rows[i].Cells[1].Text.Trim() + "g";
                 // gvTrade.Rows[i].Cells[2].Text = gvTrade.Rows[i].Cells[2].Text.Trim() + " 元/g";
@@ -629,9 +630,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
         }
 
-        protected void gvTrade2_DataBound(object sender,EventArgs e)
+        protected void gvTrade2_DataBound(object sender, EventArgs e)
         {
-            for(int i = 0;i < gvTrade2.Rows.Count;i++)
+            for (int i = 0; i < gvTrade2.Rows.Count; i++)
             {
                 gvTrade2.Rows[i].Cells[1].Text = gvTrade2.Rows[i].Cells[1].Text.Trim() + "g";
                 //   gvTrade2.Rows[i].Cells[2].Text = gvTrade2.Rows[i].Cells[1].Text.Trim() + " 元/g";
@@ -647,7 +648,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
         /// <param name="fran_name"></param>
         /// <param name="fran_money"></param>
         /// <param name="money_use"></param>
-        private void GetMoneyLeft(string fran_code,out string fran_name,out decimal fran_money,out decimal assure_money,out decimal money_use)
+        private void GetMoneyLeft(string fran_code, out string fran_name, out decimal fran_money, out decimal assure_money, out decimal money_use)
         {
             fran_name = "";
             fran_money = 0;
@@ -687,7 +688,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
             catch
             {
-                MessageBox.Show(this,"读取账面余额失败");
+                MessageBox.Show(this, "读取账面余额失败");
                 fran_name = "";
                 assure_money = 0;
                 fran_money = 0;
@@ -722,7 +723,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
             catch
             {
-                MessageBox.Show(this,"读取最新价格失败");
+                MessageBox.Show(this, "读取最新价格失败");
                 sCurPrice = "";
                 return false;
             }

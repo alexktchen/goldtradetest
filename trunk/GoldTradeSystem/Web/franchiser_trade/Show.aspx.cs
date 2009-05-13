@@ -30,15 +30,14 @@ namespace GoldTradeNaming.Web.franchiser_trade
                     Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
                     Response.End();
                     return;
-                }             
+                }
 
-                bool bl = GetTradeList(Session["fran"].ToString().Trim(), "", DateTime.Now.AddMonths(-1), DateTime.Now,true);
+                bool bl = GetTradeList(true);
                 if (bl)
                 {
                     divTradeDesc.Style.Add("display", "none");
                     divTrade.Style.Add("display", "block");
                 }
-
             }
 
         }
@@ -103,51 +102,66 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         protected void btnQuery_Click(object sender, EventArgs e)
         {
-            string franchiser_code = Session["fran"].ToString().Trim();
-            string trade_id = txttrade_id.Text;
-            DateTime dtFrom = Convert.ToDateTime("2000/01/01");
-            DateTime dtTo = DateTime.Now;
-            string errMsg = "";
-            // string sType = drpType.SelectedValue.ToString();
-            if (txtBeginDate.Text.Trim() != "")
-            {
-                try
-                {
-                    dtFrom = Convert.ToDateTime(txtBeginDate.Text.Trim());
-                }
-                catch
-                {
-                    errMsg += "起始日期输入错误！";
-                }
-            }
-            if (txtEndDate.Text.Trim() != "")
-            {
-                try
-                {
-                    dtTo = Convert.ToDateTime(txtEndDate.Text.Trim());
-                }
-                catch
-                {
-                    errMsg += "终止日期输入错误！";
-                }
-            }
-            if (errMsg != "")
-            {
-                MessageBox.Show(this, errMsg);
-                return;
-            }
-            if (GetTradeList(franchiser_code, trade_id, dtFrom, dtTo, false))
+            if (GetTradeList(false))
             {
                 divTradeDesc.Style.Add("display", "none");
                 divTrade.Style.Add("display", "block");
             }
         }
 
-        private bool GetTradeList(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
+        private bool GetTradeList(bool isInit)
         {
+            string franchiser_code = Session["fran"].ToString().Trim();
+            StringBuilder strWhere = new StringBuilder();
+            DateTime dtFrom = new DateTime(2000, 1, 1);
+            DateTime dtTo = DateTime.Now;
+            strWhere.Append(" franchiser_code ='" + franchiser_code + "' ");
+            if (isInit)
+            {
+            }
+            else
+            {
+                if (this.txttrade_id.Text.Trim() == "")
+                {
+                    strWhere.Append(" AND 1=1");
+                }
+                else
+                {
+                    strWhere.Append(" AND trade_id = N'");
+                    strWhere.Append(this.txttrade_id.Text.Trim());
+                    strWhere.Append("'");
+                }
+                if (txtBeginDate.Text.Trim() != "")
+                {
+                    try
+                    {
+                        dtFrom = Convert.ToDateTime(txtBeginDate.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show(this, "请输入正确的时间格式");
+                        return false;
+                    }
+                }
+
+                if (txtEndDate.Text.Trim() != "")
+                {
+                    try
+                    {
+                        dtTo = Convert.ToDateTime(txtEndDate.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show(this, "请输入正确的时间格式");
+                        return false;
+                    }
+                }
+                strWhere.Append("AND trade_time between '" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' ");
+            }
+            strWhere.Append(" order by trade_time desc; ");
             try
             {
-                DataSet ds = bll.GetAllTrade(franchiser_code, trade_id, dtFrom, dtTo, isInit);
+                DataSet ds = bll.GetAllTrade(strWhere.ToString(), isInit);
                 gvTrade.DataSource = ds;
                 gvTrade.DataBind();
                 Session["gvTrade"] = ds;

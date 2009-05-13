@@ -59,20 +59,20 @@ namespace GoldTradeNaming.BLL
         /// <param name="trade_id"></param>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public int ConfirmCancle(string trade_id, string franchiser_code)
-        {
-            return dal.ConfirmCancle(trade_id, franchiser_code);
-        }
+        //public int ConfirmCancle(string trade_id, string franchiser_code)
+        //{
+        //    return dal.ConfirmCancle(trade_id, franchiser_code);
+        //}
 
         /// <summary>
         /// 供应商取消交易 by yuxiaowei
         /// </summary>
         /// <param name="franchiser_trade"></param>
         /// <returns></returns>
-        public int CancleTradeInfo(string trade_id, string reason)
-        {
-            return dal.CancleTradeInfo(trade_id, reason);
-        }
+        //public int CancleTradeInfo(string trade_id, string reason)
+        //{
+        //    return dal.CancleTradeInfo(trade_id, reason);
+        //}
 
         /// <summary>
         /// 增加交易记录 by yuxiaowei
@@ -95,10 +95,14 @@ namespace GoldTradeNaming.BLL
         /// <param name="dtTo"></param>
         /// <param name="isInit">是否第一次进入页面</param>
         /// <returns></returns>
-        public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
+        public DataSet GetAllTrade(string strWhere,bool isInit)
         {
-            return dal.GetAllTrade(franchiser_code, trade_id, dtFrom, dtTo, isInit);
+            return dal.GetAllTrade(strWhere,isInit);
         }
+        //public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
+        //{
+        //    return dal.GetAllTrade(franchiser_code, trade_id, dtFrom, dtTo, isInit);
+        //}
         /// <summary>
         /// 获取交易详细记录  by yuxiaowei
         /// </summary>
