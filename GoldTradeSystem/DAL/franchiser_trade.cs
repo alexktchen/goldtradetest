@@ -24,7 +24,7 @@ namespace GoldTradeNaming.DAL
         /// <returns></returns>
         public int TradeCount(DateTime dt)
         {
-            string strQuery = string.Format("select count(trade_id) from franchiser_trade where trade_time between '" + dt.ToString("yyyy/MM/dd") + "' and '" + dt.ToString("yyyy/MM/dd 23:59:59") + "' ");
+            string strQuery = string.Format("select count(trade_id) from franchiser_trade where trade_time between '" + dt.ToString("yyyy/MM/dd") + "' and '" + dt.ToString("yyyy/MM/dd 23:59:59") + "'");
             try
             {
                 DataSet ds = DbHelperSQL.Query(strQuery.ToString());
@@ -34,8 +34,8 @@ namespace GoldTradeNaming.DAL
             {
                 return 0;
             }
-            
-         
+
+
         }
         /// <summary>
         /// 获得最新交易时间  by yuxiaowei
@@ -95,48 +95,46 @@ namespace GoldTradeNaming.DAL
         /// <param name="trade_id"></param>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public int ConfirmCancle(string trade_id, string franchiser_code)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("update a set a.stock_left=a.stock_left+b.trade_weight/b.product_spec_id from stock_main a inner join franchiser_trade_desc b on a.product_id =b.product_id ");
-            strSql.Append(" where trade_id=@trade_id;  ");
+        //public int ConfirmCancle(string trade_id, string franchiser_code)
+        //{
+        //    StringBuilder strSql = new StringBuilder();
+        //    strSql.Append("update a set a.stock_left=a.stock_left+b.trade_weight/b.product_spec_id from stock_main a inner join franchiser_trade_desc b on a.product_id =b.product_id ");
+        //    strSql.Append(" where trade_id=@trade_id;  ");
 
-            strSql.Append("update a set a.franchiser_balance_money=a.franchiser_balance_money+b.trade_total_money from franchiser_info a inner join franchiser_trade b on a.franchiser_code=b.franchiser_code ");
-            strSql.Append(" where a.franchiser_code=@franchiser_code and b.trade_id=@trade_id;  ");
-
-
-            strSql.Append("update franchiser_trade set trade_state='2' ");
-            strSql.Append(" where franchiser_code=@franchiser_code and trade_id=@trade_id ");
+        //    strSql.Append("update a set a.franchiser_balance_money=a.franchiser_balance_money+b.trade_total_money from franchiser_info a inner join franchiser_trade b on a.franchiser_code=b.franchiser_code ");
+        //    strSql.Append(" where a.franchiser_code=@franchiser_code and b.trade_id=@trade_id;  ");
 
 
-            SqlParameter[] parameters = {
-					new SqlParameter("@trade_id", SqlDbType.NVarChar,50),
-                    new SqlParameter("@franchiser_code", SqlDbType.NVarChar,100)};
-            parameters[0].Value = trade_id;
-            parameters[1].Value = franchiser_code;
-            return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+        //    strSql.Append("update franchiser_trade set trade_state='2' ");
+        //    strSql.Append(" where franchiser_code=@franchiser_code and trade_id=@trade_id ");
 
-        }
+
+        //    SqlParameter[] parameters = {
+        //            new SqlParameter("@trade_id", SqlDbType.NVarChar,50),
+        //            new SqlParameter("@franchiser_code", SqlDbType.NVarChar,100)};
+        //    parameters[0].Value = trade_id;
+        //    parameters[1].Value = franchiser_code;
+        //    return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+        //}
 
         /// <summary>
         /// 供应商取消交易 by yuxiaowei //取消
         /// </summary>
         /// <param name="franchiser_trade"></param>
         /// <returns></returns>
-        public int CancleTradeInfo(string trade_id, string reason)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("update franchiser_trade set trade_state='1',canceled_reason=@canceled_reason ");
-            strSql.Append(" where trade_id=@trade_id ");
-            SqlParameter[] parameters = {
-					new SqlParameter("@trade_id", SqlDbType.NVarChar,50),
-                    new SqlParameter("@canceled_reason", SqlDbType.NVarChar,100)};
-            parameters[0].Value = trade_id;
-            parameters[1].Value = reason;
+        //public int CancleTradeInfo(string trade_id, string reason)
+        //{
+        //    StringBuilder strSql = new StringBuilder();
+        //    strSql.Append("update franchiser_trade set trade_state='1',canceled_reason=@canceled_reason ");
+        //    strSql.Append(" where trade_id=@trade_id ");
+        //    SqlParameter[] parameters = {
+        //            new SqlParameter("@trade_id", SqlDbType.NVarChar,50),
+        //            new SqlParameter("@canceled_reason", SqlDbType.NVarChar,100)};
+        //    parameters[0].Value = trade_id;
+        //    parameters[1].Value = reason;
 
-            return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
-
-        }
+        //    return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+        //}
 
         /// <summary>
         /// 增加交易记录 by yuxiaowei
@@ -175,7 +173,7 @@ namespace GoldTradeNaming.DAL
                             new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),             
                             new SqlParameter("@realtime_base_price", SqlDbType.Money,50),                        
                           //  new SqlParameter("@trade_add_price", SqlDbType.Money,8),
-                            new SqlParameter("@trade_total_weight", SqlDbType.Int,4),              
+                            new SqlParameter("@trade_total_weight", SqlDbType.Money,8),              
                             new SqlParameter("@trade_total_money", SqlDbType.Money,8),
                             new SqlParameter("@trade_state", SqlDbType.NVarChar,50),
                             new SqlParameter("@ins_user", SqlDbType.NVarChar,50),
@@ -214,18 +212,18 @@ namespace GoldTradeNaming.DAL
                                 SqlParameter[] parameters2 = {                
                                     new SqlParameter("@trade_id2", SqlDbType.Int,4),
                                     new SqlParameter("@product_id", SqlDbType.Int,4),
-                                    new SqlParameter("@product_spec_id", SqlDbType.Int,4),
+                                    new SqlParameter("@product_spec_id", SqlDbType.Money,8),
 
-                                    new SqlParameter("@realtime_base_price", SqlDbType.Int,4),
-                                    new SqlParameter("@trade_add_price", SqlDbType.Int,4),
-                                    new SqlParameter("@gold_trade_price", SqlDbType.Int,4),
+                                    new SqlParameter("@realtime_base_price", SqlDbType.Money,8),
+                                    new SqlParameter("@trade_add_price", SqlDbType.Money,8),
+                                    new SqlParameter("@gold_trade_price", SqlDbType.Money,8),
 
                                     new SqlParameter("@trade_amount", SqlDbType.Int,4),
-                                    new SqlParameter("@trade_weight", SqlDbType.Int,4),
-                                    new SqlParameter("@trade_money", SqlDbType.Int,4),
+                                    new SqlParameter("@trade_weight", SqlDbType.Money,8),
+                                    new SqlParameter("@trade_money", SqlDbType.Money,8),
                                     new SqlParameter("@ins_user2", SqlDbType.NVarChar,50),
                                     new SqlParameter("@upd_user2", SqlDbType.NVarChar,50),
-                                    new SqlParameter("@stockleft", SqlDbType.Int,4),
+                                    new SqlParameter("@stockleft", SqlDbType.Money,8),
                                     new SqlParameter("@franchiser_code2", SqlDbType.NVarChar,50)
                                                           };
                                 parameters2[0].Value = maxID;
@@ -292,7 +290,7 @@ namespace GoldTradeNaming.DAL
                             new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),             
                             //new SqlParameter("@realtime_base_price", SqlDbType.Money,50),                        
                           //  new SqlParameter("@trade_add_price", SqlDbType.Money,8),
-                            new SqlParameter("@trade_total_weight", SqlDbType.Int,4),              
+                            new SqlParameter("@trade_total_weight", SqlDbType.Money,8),              
                             new SqlParameter("@trade_total_money", SqlDbType.Money,8),
                             new SqlParameter("@trade_state", SqlDbType.NVarChar,50),
                             new SqlParameter("@ins_user", SqlDbType.NVarChar,50),
@@ -331,18 +329,18 @@ namespace GoldTradeNaming.DAL
                                 SqlParameter[] parameters2 = {                
                                     new SqlParameter("@trade_id2", SqlDbType.Int,4),
                                     new SqlParameter("@product_id", SqlDbType.Int,4),
-                                    new SqlParameter("@product_spec_id", SqlDbType.Int,4),
+                                    new SqlParameter("@product_spec_id", SqlDbType.Money,8),
 
                                   //  new SqlParameter("@realtime_base_price", SqlDbType.Int,4),
                                  //   new SqlParameter("@trade_add_price", SqlDbType.Int,4),
                                     new SqlParameter("@gold_trade_price", SqlDbType.Int,4),
 
                                     new SqlParameter("@trade_amount", SqlDbType.Int,4),
-                                    new SqlParameter("@trade_weight", SqlDbType.Int,4),
-                                    new SqlParameter("@trade_money", SqlDbType.Int,4),
+                                    new SqlParameter("@trade_weight", SqlDbType.Money,8),
+                                    new SqlParameter("@trade_money", SqlDbType.Money,8),
                                     new SqlParameter("@ins_user2", SqlDbType.NVarChar,50),
                                     new SqlParameter("@upd_user2", SqlDbType.NVarChar,50),
-                                    new SqlParameter("@stockleft", SqlDbType.Int,4),
+                                    new SqlParameter("@stockleft", SqlDbType.Money,8),
                                     new SqlParameter("@franchiser_code2", SqlDbType.NVarChar,50)
                                                           };
                                 parameters2[0].Value = maxID;
@@ -395,17 +393,26 @@ namespace GoldTradeNaming.DAL
         /// <param name="dtTo"></param>
         /// <param name="isInit">是否第一次进入页面</param>
         /// <returns></returns>
-        public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
-        {
+        public DataSet GetAllTrade(string strWhere, bool isInit)
+        {      
             string strQuery = "";
             if (isInit)
-                strQuery = string.Format(@"select top 50 * from franchiser_trade where franchiser_code='" + franchiser_code + "' and trade_id like '%" + trade_id + @"%'
-                                             order by trade_time desc; ");
+                strQuery = string.Format(@"select top 50 * from franchiser_trade where " + strWhere + " ");
             else
-                strQuery = string.Format(@"select *  from franchiser_trade where franchiser_code='" + franchiser_code + "' and trade_id like '%" + trade_id + @"%'
-                                             and trade_time between '" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' order by trade_time desc; ");
+                strQuery = string.Format(@"select * from franchiser_trade where " + strWhere + " ");
+
             return DbHelperSQL.Query(strQuery);
         }
+        //        public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
+        //        {
+        //            string strQuery = "";
+        //            if (isInit)
+        //                strQuery = string.Format(@"select top 50 * from franchiser_trade where franchiser_code='" + franchiser_code + "' order by trade_time desc; ");
+        //            else
+        //                strQuery = string.Format(@"select *  from franchiser_trade where franchiser_code='" + franchiser_code + "' and trade_id like '" + trade_id + @"'
+        //                                             and trade_time between '" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' order by trade_time desc; ");
+        //            return DbHelperSQL.Query(strQuery);
+        //        }
 
 
         /// <summary>
@@ -456,7 +463,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
         {
             string strSql = string.Format(@"select sum(a.[count]*(b.trade_add_price+c.realtime_base_price)) as goldValue  from 
                                             (
-                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
+                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) as [count] from franchiser_order_desc
                                                 where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
                                                 and franchiser_code=N'" + franchiser_code + @"') 
                                                 and product_id in (select product_type_id from product_type where type='0')
@@ -491,7 +498,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
         {
             string strSql = string.Format(@"select sum(a.[count]*b.trade_add_price) as silverValue from 
                                             (
-                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
+                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) as [count] from franchiser_order_desc
                                                 where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
                                                 and franchiser_code=N'" + franchiser_code + @"') 
                                                 and product_id in (select product_type_id from product_type where type='1')
