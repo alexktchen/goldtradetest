@@ -8,11 +8,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GoldTradeNaming.Web.franchiser_trade {
-    
-    
-    public partial class Add {
-        
+namespace GoldTradeNaming.Web.franchiser_trade
+{
+
+
+    public partial class Add
+    {
+
         /// <summary>
         /// divType 控件。
         /// </summary>
@@ -21,7 +23,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divType;
-        
+
         /// <summary>
         /// ibGold 控件。
         /// </summary>
@@ -30,7 +32,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ibGold;
-        
+
         /// <summary>
         /// ibSilver 控件。
         /// </summary>
@@ -39,7 +41,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ibSilver;
-        
+
         /// <summary>
         /// hfType 控件。
         /// </summary>
@@ -48,7 +50,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hfType;
-        
+
         /// <summary>
         /// ScriptManager1 控件。
         /// </summary>
@@ -57,7 +59,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// divGold 控件。
         /// </summary>
@@ -66,7 +68,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGold;
-        
+
         /// <summary>
         /// gvTrade 控件。
         /// </summary>
@@ -75,7 +77,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::Anthem.GridView gvTrade;
-        
+
         /// <summary>
         /// divSilver 控件。
         /// </summary>
@@ -84,7 +86,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSilver;
-        
+
         /// <summary>
         /// gvTrade2 控件。
         /// </summary>
@@ -93,7 +95,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::Anthem.GridView gvTrade2;
-        
+
         /// <summary>
         /// divBtn 控件。
         /// </summary>
@@ -102,7 +104,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBtn;
-        
+
         /// <summary>
         /// btnSave 控件。
         /// </summary>
@@ -111,7 +113,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSave;
-        
+
         /// <summary>
         /// btnSubmit 控件。
         /// </summary>
@@ -120,7 +122,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmit;
-        
+
         /// <summary>
         /// ConfirmButtonExtender2 控件。
         /// </summary>
@@ -129,7 +131,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::AjaxControlToolkit.ConfirmButtonExtender ConfirmButtonExtender2;
-        
+
         /// <summary>
         /// ModalPopupExtender1 控件。
         /// </summary>
@@ -138,7 +140,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
-        
+
         /// <summary>
         /// PNL 控件。
         /// </summary>
@@ -147,7 +149,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PNL;
-        
+
         /// <summary>
         /// lblCanUseMoney 控件。
         /// </summary>
@@ -156,7 +158,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCanUseMoney;
-        
+
         /// <summary>
         /// lblTotalWeight 控件。
         /// </summary>
@@ -165,7 +167,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalWeight;
-        
+
         /// <summary>
         /// lblTotalMoney 控件。
         /// </summary>
@@ -174,7 +176,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalMoney;
-        
+
         /// <summary>
         /// ButtonOk 控件。
         /// </summary>
@@ -183,7 +185,7 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonOk;
-        
+
         /// <summary>
         /// ButtonCancel 控件。
         /// </summary>
