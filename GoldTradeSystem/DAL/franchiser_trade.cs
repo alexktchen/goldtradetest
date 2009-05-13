@@ -157,7 +157,7 @@ namespace GoldTradeNaming.DAL
                         SqlCommand cmd = new SqlCommand();
                         try
                         {
-                            int maxID = GetMaxId();
+                            int maxID = CommBaseDAL.GetNextTradeId();
 
                             int result = 0;
                             StringBuilder strSql = new StringBuilder();
@@ -274,7 +274,7 @@ namespace GoldTradeNaming.DAL
                         SqlCommand cmd = new SqlCommand();
                         try
                         {
-                            int maxID = GetMaxId();
+                            int maxID = CommBaseDAL.GetNextTradeId();
 
                             int result = 0;
                             StringBuilder strSql = new StringBuilder();
