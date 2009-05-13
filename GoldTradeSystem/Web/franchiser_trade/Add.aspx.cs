@@ -179,8 +179,8 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 }
                 else
                 {
-                    ((Label)gvTrade.Rows[rowIndex].FindControl("lblProdWht")).Text = (Convert.ToInt32(t.Text.Trim()) * iPro_spec).ToString() + "g";
-                    ((Label)gvTrade.Rows[rowIndex].FindControl("lblMoneyCount")).Text = (Convert.ToInt32(t.Text.Trim()) * iPro_spec * (base_price + add_price)).ToString() + "元";
+                    ((Label)gvTrade.Rows[rowIndex].FindControl("lblProdWht")).Text = decimal.Round((Convert.ToInt32(t.Text.Trim()) * iPro_spec), 4).ToString() + "g";
+                    ((Label)gvTrade.Rows[rowIndex].FindControl("lblMoneyCount")).Text = decimal.Round((Convert.ToInt32(t.Text.Trim()) * iPro_spec * (base_price + add_price)), 4).ToString() + "元";
                 }
             }
             catch (Exception ex)
@@ -214,8 +214,8 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 }
                 else
                 {
-                    ((Label)gvTrade2.Rows[rowIndex].FindControl("lblProdWht2")).Text = (Convert.ToInt32(t.Text.Trim()) * iPro_spec).ToString() + "g";
-                    ((Label)gvTrade2.Rows[rowIndex].FindControl("lblMoneyCount2")).Text = (Convert.ToInt32(t.Text.Trim()) * iPro_spec * (base_price)).ToString() + "元";
+                    ((Label)gvTrade2.Rows[rowIndex].FindControl("lblProdWht2")).Text = decimal.Round((Convert.ToInt32(t.Text.Trim()) * iPro_spec), 4).ToString() + "g";
+                    ((Label)gvTrade2.Rows[rowIndex].FindControl("lblMoneyCount2")).Text = decimal.Round((Convert.ToInt32(t.Text.Trim()) * iPro_spec * (base_price)), 4).ToString() + "元";
                 }
             }
             catch (Exception ex)
@@ -330,9 +330,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
-                lblCanUseMoney.Text = Convert.ToDecimal(money_use) + "元";
+                lblCanUseMoney.Text = decimal.Round(Convert.ToDecimal(money_use), 4) + "元";
                 lblTotalWeight.Text = iTotalWeight + "克";
-                lblTotalMoney.Text = Convert.ToDecimal(iTotalMoney) + "元";
+                lblTotalMoney.Text = decimal.Round(Convert.ToDecimal(iTotalMoney), 4) + "元";
                 btnSubmit.Enabled = true;
                 MessageBox.Show(this, "保存成功，请点提交确认交易！");
             }
@@ -390,9 +390,10 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
 
-                lblCanUseMoney.Text = Convert.ToDecimal(money_use) + "元";
+                lblCanUseMoney.Text = decimal.Round(Convert.ToDecimal(money_use), 4) + "元";
                 lblTotalWeight.Text = iTotalWeight + "克";
-                lblTotalMoney.Text = Convert.ToDecimal(iTotalMoney) + "元";
+                lblTotalMoney.Text = decimal.Round(Convert.ToDecimal(iTotalMoney), 4) + "元";
+
                 btnSubmit.Enabled = true;
                 MessageBox.Show(this, "保存成功，请点提交确认交易！");
             }

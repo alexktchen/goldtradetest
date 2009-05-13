@@ -33,12 +33,10 @@
                             <asp:BoundField DataField="product_spec_weight" HeaderText="规格(克)" ItemStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="realtime_base_price" HeaderText="基础金价(元/克)" ItemStyle-HorizontalAlign="Center"
-                                DataFormatString="{0:#0.00}">
+                            <asp:BoundField DataField="realtime_base_price" HeaderText="基础金价(元/克)" ItemStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="trade_add_price" HeaderText="交易加价(元/克)" ItemStyle-HorizontalAlign="Center"
-                                DataFormatString="{0:#0.00}">
+                            <asp:BoundField DataField="trade_add_price" HeaderText="交易加价(元/克)" ItemStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="stock_num" HeaderText="库存数量" ItemStyle-HorizontalAlign="Center"
@@ -97,8 +95,7 @@
                             <asp:BoundField DataField="product_spec_weight" HeaderText="规格(克)" ItemStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center" Wrap="false"></ItemStyle>
                             </asp:BoundField>
-                            <asp:BoundField DataField="price" HeaderText="价格(元/克)" ItemStyle-HorizontalAlign="Center"
-                                DataFormatString="{0:#0.00}">
+                            <asp:BoundField DataField="price" HeaderText="价格(元/克)" ItemStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center" Wrap="false"></ItemStyle>
                             </asp:BoundField>
                             <asp:BoundField DataField="stock_num" HeaderText="库存数量" ItemStyle-HorizontalAlign="Center"

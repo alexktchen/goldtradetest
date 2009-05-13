@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true"
     CodeBehind="ShowM.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_trade.ShowM"
     Title="查看交易" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -54,7 +55,7 @@
                                         <asp:BoundField DataField="franchiser_name" HeaderText="经销商名称" />
                                         <asp:BoundField DataField="trade_time" HeaderText="交易时间" />
                                         <asp:BoundField DataField="trade_total_weight" HeaderText="交易总重量" Visible="false" />
-                                        <asp:BoundField DataField="trade_total_money" HeaderText="交易总金额" DataFormatString="{0:#0.00}" />
+                                        <asp:BoundField DataField="trade_total_money" HeaderText="交易总金额" />
                                         <asp:CommandField CancelText="取消" DeleteText="刪除" EditText="編輯" SelectText="查看" ShowSelectButton="True"
                                             UpdateText="更新" ShowCancelButton="False" ShowDeleteButton="False" HeaderText="操作" />
                                     </Columns>
@@ -87,13 +88,13 @@
                                     <RowStyle BackColor="#F7F7DE" />
                                     <Columns>
                                         <asp:BoundField DataField="trade_id" HeaderText="交易单编号" />
-                                        <asp:BoundField DataField="product_id" HeaderText="产品类别ID"  Visible="false"/>
+                                        <asp:BoundField DataField="product_id" HeaderText="产品类别ID" Visible="false" />
                                         <asp:BoundField DataField="product_type_name" HeaderText="产品类别名称" />
                                         <asp:BoundField DataField="product_spec_id" HeaderText="产品规格" />
                                         <asp:BoundField DataField="trade_amount" HeaderText="交易数量" />
                                         <asp:BoundField DataField="trade_weight" HeaderText="交易重量" Visible="false" />
-                                        <asp:BoundField DataField="gold_trade_price" HeaderText="结算单价" DataFormatString="{0:#0.00}" />
-                                        <asp:BoundField DataField="trade_money" HeaderText="交易金额" DataFormatString="{0:#0.00}" />
+                                        <asp:BoundField DataField="gold_trade_price" HeaderText="结算单价" />
+                                        <asp:BoundField DataField="trade_money" HeaderText="交易金额" />
                                     </Columns>
                                     <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
                                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
