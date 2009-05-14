@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.Master" AutoEventWireup="true" CodeBehind="receive.aspx.cs" Inherits="GoldTradeNaming.Web.stock_main.receive" Title="无标题页" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.Master" AutoEventWireup="true" CodeBehind="receive.aspx.cs" Inherits="GoldTradeNaming.Web.stock_main.receive" Title="确认收货" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

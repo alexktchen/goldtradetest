@@ -26,4 +26,5 @@
         <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
         <RowStyle BackColor="#F7F7DE" />
     </anthem:GridView>
+    <input type="button" value="关闭" onclick="window.close()" />
 </asp:Content>

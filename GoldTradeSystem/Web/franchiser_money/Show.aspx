@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="display: none">
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" EnableScriptGlobalization="true"runat="server">
         </asp:ScriptManager>
     </div> 
 

@@ -25,29 +25,14 @@
                         <td>
                             <asp:HyperLink ID="HyperLink1" NavigateUrl="franchiser_order/Modify.aspx?type=1" runat="server"></asp:HyperLink>
                           
-                        </td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
                             <asp:HyperLink ID="HyperLink2" NavigateUrl="send_main/Show.aspx" runat="server"></asp:HyperLink>
+                          <asp:HyperLink ID="HyperLink3"  NavigateUrl="franchiser_trade/ShowM.aspx" runat="server"></asp:HyperLink>
+                          
                         </td>
                         <td>
                             &nbsp;</td>
                     </tr>
-                    <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            <asp:HyperLink ID="HyperLink3"  NavigateUrl="franchiser_trade/ShowM.aspx" runat="server"></asp:HyperLink>
-                        </td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                </table>
+                    </table>
                 </fieldset>
             </td>
             <td height="25" align="left" class="style2">

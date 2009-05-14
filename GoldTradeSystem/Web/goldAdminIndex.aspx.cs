@@ -33,15 +33,21 @@ namespace GoldTradeNaming.Web
 
         private void loadData()
         {
+            bool hasNewMsg = false;
             StringBuilder sb = new StringBuilder();
-                     
+
             sb.Append(" franchiser_order_state='0'");
 
             GoldTradeNaming.BLL.franchiser_order bll = new GoldTradeNaming.BLL.franchiser_order();
             DataSet ds = bll.GetList(sb.ToString());
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
-                this.HyperLink1.Text = "有"+ ds.Tables[0].Rows.Count.ToString()+"张订单待确认。";
+                this.HyperLink1.Text = "有" + ds.Tables[0].Rows.Count.ToString() + "张订单待确认。";
+                hasNewMsg = true;
+            }
+            else
+            {
+                this.HyperLink1.Visible = false;
             }
 
             sb = new StringBuilder();
@@ -52,6 +58,11 @@ namespace GoldTradeNaming.Web
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 this.HyperLink2.Text = "有" + ds.Tables[0].Rows.Count.ToString() + "张订单待发货。";
+                hasNewMsg = true;
+            }
+            else
+            {
+                this.HyperLink2.Visible = false;
             }
 
 
@@ -60,7 +71,20 @@ namespace GoldTradeNaming.Web
             if (count > 0)
             {
                 this.HyperLink3.Text = "今天已有" + count.ToString() + "笔交易。";
+                hasNewMsg = true;
             }
+            else{
+                this.HyperLink3.Visible = false;
+            }
+
+            if (!hasNewMsg)
+            {
+                this.HyperLink1.Visible = false;
+                this.HyperLink1.NavigateUrl = "";
+                this.HyperLink1.Text = "现在没有最新消息。";
+            }
+
+
             //sb = new StringBuilder();
             //sb.Append(" franchiser_order_state='1");
 

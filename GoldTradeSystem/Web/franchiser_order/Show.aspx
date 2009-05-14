@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true"
     CodeBehind="Show.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_order.Show"
-    Title="在线订货系统" %>
+    Title="我的订单" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -10,7 +10,7 @@
     </div>
     <table style="width: 100%;">
         <tr>
-            <td style="width: 24%;">
+            <td style="width: 20%;">
                 &nbsp;
             </td>
             <td align="right">
@@ -20,7 +20,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 24%">
+            <td style="width: 20%">
                 &nbsp;
             </td>
             <td>

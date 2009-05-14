@@ -19,6 +19,9 @@ namespace GoldTradeNaming.Web.Controls
             {
                 MenuItem mt = null;
 
+                mt = new MenuItem("· 返回首页", "", "", "~/franchiser_index.aspx");
+                this.RightMenu.Items.Add(mt);
+
                 mt = new MenuItem("· 我的订单", "", "", "~/franchiser_order/Show.aspx");
                 this.RightMenu.Items.Add(mt);
 
