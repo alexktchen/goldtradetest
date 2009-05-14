@@ -14,22 +14,13 @@ namespace GoldTradeNaming.Web.stock_main {
     public partial class franchiserStockShow {
         
         /// <summary>
-        /// txtProudctName 控件。
+        /// Label8 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProudctName;
-        
-        /// <summary>
-        /// txtProductSpec 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductSpec;
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
         /// showData 控件。

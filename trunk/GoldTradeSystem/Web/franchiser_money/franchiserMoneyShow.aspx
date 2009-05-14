@@ -1,39 +1,32 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true" CodeBehind="franchiserMoneyShow.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_money.franchiserMoneyShow" Title="我的账户" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true" CodeBehind="franchiserMoneyShow.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_money.franchiserMoneyShow" Title="我的入账" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 <div style="display: none">
-        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" EnableScriptGlobalization="true" runat="server">
         </asp:ScriptManager>
     </div> 
     <table style="width:100%;">
-     <tr>
-            <td style="width: 20%">
-                &nbsp;</td>
-            <td style="width: 60%" align="right">
-              
-            </td>
-            <td style="width: 20%">
-                &nbsp;</td>
-        </tr>
         <tr>
-            <td>
+            <td style="width:20%">
                 &nbsp;</td>
             <td>
+             <fieldset>
+                    <legend>我的入帐</legend>
                 <div>
                      <table style="width:100%;">
                     <tr>
-                        <td  style="width:30%" align="right">
-                          经销商编号</td>
+                        <td align="right" class="style1">
+                          </td>
                         <td  style="width:70%" align="left">
-                            <asp:TextBox ID="txtfran_id" runat="server" Width="200px" BackColor="Silver" 
+                            <asp:TextBox ID="txtfran_id" runat="server" Width="200px" BackColor="Silver"  Visible="false"
                                 BorderColor="Silver" ReadOnly="True" ></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" style="width: 30%">
+                        <td align="right" class="style1">
                             入账时间</td>
                         <td align="left">
                             <asp:TextBox ID="txttime_from" runat="server"></asp:TextBox>
@@ -48,17 +41,18 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" style="width: 50%">
+                        <td align="right" class="style1">
+                            &nbsp;</td>
+                        <td align="left">
                             <asp:Button ID="query" runat="server" Text="查询" onclick="query_Click" />
                         </td>
-                        <td>
-                            &nbsp;</td>
                     </tr>
                 </table>
             
-            </div>   
+            </div>  
+            </fieldset> 
            </td>
-            <td>
+            <td style="width:20%"">
                 &nbsp;</td>
         </tr>
         <tr>
@@ -91,5 +85,15 @@
         </tr>
     </table>
 
+
+</asp:Content>
+<asp:Content ID="Content2" runat="server" contentplaceholderid="head">
+
+    <style type="text/css">
+        .style1
+        {
+            width: 42%;
+        }
+    </style>
 
 </asp:Content>

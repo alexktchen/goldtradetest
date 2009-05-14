@@ -1,6 +1,6 @@
 <%@ Page Language="C#" MasterPageFile="~/Franchiser.Master" AutoEventWireup="true"
     CodeBehind="Add.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_trade.Add"
-    Title="增加页" %>
+    Title="在线交易" %>
 
 <%@ Register Assembly="Anthem" Namespace="Anthem" TagPrefix="anthem" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>

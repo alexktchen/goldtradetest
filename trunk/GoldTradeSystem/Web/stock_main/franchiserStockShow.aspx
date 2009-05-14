@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true" CodeBehind="franchiserStockShow.aspx.cs" Inherits="GoldTradeNaming.Web.stock_main.franchiserStockShow" Title="显示库存" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true" CodeBehind="franchiserStockShow.aspx.cs" Inherits="GoldTradeNaming.Web.stock_main.franchiserStockShow" Title="我的库存" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
 
@@ -6,52 +6,12 @@
      <tr>
             <td style="width: 20%">
                 &nbsp;</td>
-            <td style="width: 60%" align="right">
+            <td style="width: 60%" align="center">
+              
+                <asp:Label ID="Label8" runat="server" Text="您的库存信息如下："></asp:Label>
               
             </td>
             <td style="width: 20%">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                <fieldset>
-                 <legend></legend>
-                <div>
-                    <table style="width:100%;">
-                     
-                        <tr>
-                             <td style="width: 50%" align="right">
-                                 &nbsp;</td>
-                            <td>
-                                <asp:TextBox ID="txtProudctName" runat="server" Width="200px" 
-                                    BackColor="White"  Visible="False" ReadOnly="false" ></asp:TextBox>
-                             </td>
-                        </tr>
-                        
-                        <tr>
-                          <td style="width: 50%" align="right">
-                               &nbsp;</td>
-                            <td>
-                               <asp:TextBox ID="txtProductSpec" runat="server" Width="200px"
-                               BackColor="White" Visible="False" ReadOnly="false" ></asp:TextBox></td>
-                        </tr>
-                        <tr>
-                        <td style="width:50%" align="right">
-                        
-                            &nbsp;</td>
-                        <td tyle="width: 50%" align="left">
-                        
-                            &nbsp;</td>
-                        </tr>
-                    </table>
-                    </div>
-                </fieldset>
-                
-                
-                </td>
-            <td>
                 &nbsp;</td>
         </tr>
         <tr>

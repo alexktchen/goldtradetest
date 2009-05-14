@@ -32,17 +32,26 @@ namespace GoldTradeNaming.Web
 
         private void loadData()
         {
+            bool hasNewMsg = false;
+           
             string strWhere = "AND (franchiser_info.franchiser_code = '" + Convert.ToString(Session["fran"]) + "')";
             GoldTradeNaming.BLL.send_main bll = new GoldTradeNaming.BLL.send_main();
             DataSet ds = bll.GetListByFranID(strWhere);
             if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
+                hasNewMsg = true;
                 this.lblSendInfo.Text = "(1) 您有" + ds.Tables[0].Rows.Count.ToString() + "张收货单待确认。";
             }
             else
             {
                 this.lblSendInfo.Text = "";
             }
+            if (!hasNewMsg)
+            {
+                this.lblSendInfo.NavigateUrl = "";
+                this.lblSendInfo.Text = "现在没有最新消息。";
+            }
+           
         }
     }
 }

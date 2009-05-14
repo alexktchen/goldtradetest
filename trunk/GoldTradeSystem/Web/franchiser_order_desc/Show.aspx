@@ -38,8 +38,8 @@ Inherits="GoldTradeNaming.Web.franchiser_order_desc.Show" Title="¶©»õÏµÍ³--¶©µ¥Ï
             <RowStyle BackColor="#F7F7DE" />
         </anthem:GridView>
         
-	   
+	       
 	</td></tr>
 </table>
-
+<input type="button" value="¹Ø±Õ" onclick="window.close()" />
 </asp:Content>
