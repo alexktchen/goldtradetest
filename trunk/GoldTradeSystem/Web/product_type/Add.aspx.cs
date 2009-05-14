@@ -312,22 +312,48 @@ namespace GoldTradeNaming.Web.product_type
 
                 if (this.type == "0")
                 {
-                    if (!PageValidate.IsNumber(this.txtproduct_type_id.Text.Trim()))
+                    try
                     {
-                        strErr += "product_type_id不是数字\\n";
+                        Convert.ToDecimal(this.txtproduct_spec_weight.Text.Trim());
+                        
                     }
-                    if (!PageValidate.IsDecimal(this.txtproduct_spec_weight.Text.Trim()))
+                    catch
                     {
-                        strErr += "product_spec_weight不是数字\\n";
+                        strErr += "产品规格不是数字\\n";
                     }
-                    if (!PageValidate.IsDecimal(this.txtorder_add_price.Text.Trim()))
+
+                    try
                     {
-                        strErr += "order_add_price不是数字\\n";
+                        Convert.ToDecimal(this.txtorder_add_price.Text.Trim());
+                       
                     }
-                    if (!PageValidate.IsDecimal(this.txttrade_add_price.Text.Trim()))
+                    catch
                     {
-                        strErr += "trade_add_price不是数字\\n";
+                        strErr += "订货加价不是数字\\n";
                     }
+                    
+                    try
+                    {
+                        Convert.ToDecimal(this.txttrade_add_price.Text.Trim());
+                        
+                    }
+                    catch
+                    {
+                        strErr += "销售加价不是数字\\n";
+                    }
+                    
+                    //if (!PageValidate.IsDecimal(this.txtproduct_spec_weight.Text.Trim()))
+                    //{
+                    //    strErr += "product_spec_weight不是数字\\n";
+                    //}
+                    //if (!PageValidate.IsDecimal(this.txtorder_add_price.Text.Trim()))
+                    //{
+                    //    strErr += "order_add_price不是数字\\n";
+                    //}
+                    //if (!PageValidate.IsDecimal(this.txttrade_add_price.Text.Trim()))
+                    //{
+                    //    strErr += "trade_add_price不是数字\\n";
+                    //}
                 }
                 else if (this.type == "1")
                 {
