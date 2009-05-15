@@ -10,9 +10,9 @@
     </div> 
     <table style="width:100%;">
         <tr>
-            <td style="width:20%">
-                &nbsp;</td>
             <td>
+                &nbsp;</td>
+            <td style="width:80%">
              <fieldset>
                     <legend>我的入帐</legend>
                 <div>
@@ -52,7 +52,7 @@
             </div>  
             </fieldset> 
            </td>
-            <td style="width:20%"">
+            <td >
                 &nbsp;</td>
         </tr>
         <tr>
@@ -73,6 +73,7 @@
                         <asp:BoundField DataField="franchiser_name" HeaderText="经销商名称" />
                         <asp:BoundField DataField="franchiser_added_money" HeaderText="入帐金额" />
                         <asp:BoundField DataField="added_time" HeaderText="入帐时间" />
+                        <asp:BoundField DataField="checked" HeaderText="是否审核" />
                     </Columns>
                     <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
