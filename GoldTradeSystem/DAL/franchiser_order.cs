@@ -610,7 +610,10 @@ namespace GoldTradeNaming.DAL
             strSql.Append(@"select franchiser_order_id,franchiser_code,franchiser_order_trans_type,
 franchiser_order_address,franchiser_order_postcode,franchiser_order_handle_man,
 franchiser_order_handle_tel,franchiser_order_handle_phone,franchiser_order_price,
-franchiser_order_time,franchiser_order_state,franchiser_order_amount_money,
+franchiser_order_time,state= ( case     franchiser_order_state when '0' then '已订'  
+	 when  '1' then '未发完' 
+  when '2' then '已发完'  end
+),franchiser_order_amount_money,
 canceled_reason,ins_user,ins_date,upd_user,upd_date ");
             strSql.Append(" FROM franchiser_order ");
             if (strWhere.Trim() != "")
@@ -630,7 +633,11 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
                                         franchiser_order_handle_tel,franchiser_order_handle_phone,
                                         franchiser_order_price,
                                         franchiser_order_time,
-                                        franchiser_order_state,franchiser_order_amount_money,
+                                        state= ( case     franchiser_order_state when '0' then '已订'  
+	 when  '1' then '未发完' 
+  when '2' then '已发完'  end
+)
+,franchiser_order_amount_money,
                                         canceled_reason,ins_user,ins_date,upd_user,upd_date 
                                         FROM franchiser_order where franchiser_code=@franchiser_code order by franchiser_order_id desc ");
             SqlParameter[] parameters = {
