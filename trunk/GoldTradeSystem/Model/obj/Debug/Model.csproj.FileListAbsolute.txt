@@ -23,3 +23,8 @@ C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\b
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
