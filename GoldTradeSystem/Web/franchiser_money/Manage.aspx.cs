@@ -121,6 +121,18 @@ namespace GoldTradeNaming.Web.franchiser_money
                     showDate.DataKeyNames = new string[] { "id" };
                     showDate.Visible = true;
 
+                    for (int i = 0; i < showDate.Rows.Count;i++ ) {
+                        if (showDate.Rows[i].Cells[5].Text.Trim().Equals("ÒÑÉóºË")) {
+
+                            showDate.Rows[i].Cells[6].Enabled = false;
+                        }
+                    
+                    
+                    }
+
+
+
+
                 }
 
 

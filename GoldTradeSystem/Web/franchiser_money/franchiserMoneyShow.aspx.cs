@@ -51,6 +51,18 @@ namespace GoldTradeNaming.Web.franchiser_money
                 }
                 else
                 {
+                    foreach (DataRow row in ds.Tables[0].Rows)
+                    {
+                        if (row["checked"].ToString().Trim() == "0")
+                        {
+                            row["checked"] = "已审核";
+                        }
+                        else
+                        {
+                            row["checked"] = "未审核";
+                        }
+                    }
+
                     showData.PageIndex = 0;
                     showData.DataSource = ds;
                     showData.DataBind();
