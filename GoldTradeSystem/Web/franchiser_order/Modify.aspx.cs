@@ -20,24 +20,27 @@ namespace GoldTradeNaming.Web.franchiser_order
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"] == null || Session["admin"].ToString() == "")
+            {
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/AdminLogin.aspx");
+                return;
+            }
+
+            if (Session["admin"] == null || Session["admin"].ToString() == ""
+                   || !checkright())
+            {
+                Response.Clear();
+                Response.Write("<script defer>window.alert('" + "您没有权限操作该功能！\\n请重新登录或与管理员联系" + "');history.back();</script>");
+                Response.End();
+                return;
+            }
+
             if (!Page.IsPostBack)
             {
-                if (Session["admin"] == null || Session["admin"].ToString() == "" 
-                    || Request.Params["type"] == null || Request.Params["type"].Trim() == ""
-                    || !checkright()
-                    )
-                {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    return;
-                }
-                else
-                {
-                    ViewState["oprType"] = Request.Params["type"].ToString();
-                    ShowInfo();
-                }
-
+                ViewState["oprType"] = Request.Params["type"].ToString();
+                ShowInfo();
                 GetRecentData();
             }
         }
@@ -87,20 +90,20 @@ namespace GoldTradeNaming.Web.franchiser_order
         {
             if (ViewState["oprType"].ToString() == "0" )
             {
-                this.GridView1.Columns[10].Visible = false;
                 this.GridView1.Columns[11].Visible = false;
+                this.GridView1.Columns[12].Visible = false;
             }
             if (ViewState["oprType"].ToString() == "1")
             {
                 this.drpfranchiser_order_state.SelectedIndex = 0;
                 this.drpfranchiser_order_state.Enabled = false;
-                this.GridView1.Columns[11].Visible = false;
+                this.GridView1.Columns[12].Visible = false;
             }
             if (ViewState["oprType"].ToString() == "2")
             {
                 this.drpfranchiser_order_state.SelectedIndex = 0;
                 this.drpfranchiser_order_state.Enabled = false;
-                this.GridView1.Columns[10].Visible = false;
+                this.GridView1.Columns[11].Visible = false;
             }
         }
 

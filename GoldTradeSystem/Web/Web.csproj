@@ -415,13 +415,6 @@
     <Compile Include="product_type\Modify_index.aspx.designer.cs">
       <DependentUpon>Modify_index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="send_desc\send_product_show.aspx.cs">
-      <DependentUpon>send_product_show.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="send_desc\send_product_show.aspx.designer.cs">
-      <DependentUpon>send_product_show.aspx</DependentUpon>
-    </Compile>
     <Compile Include="send_desc\send_produc_show.aspx.cs">
       <DependentUpon>send_produc_show.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -754,7 +747,6 @@
     <Content Include="rl\lang\zh-tw.js" />
     <Content Include="rl\My97DatePicker.htm" />
     <Content Include="rl\WdatePicker.js" />
-    <Content Include="send_desc\send_product_show.aspx" />
     <Content Include="send_desc\send_produc_show.aspx" />
     <Content Include="send_main\send_cancel.aspx" />
     <Content Include="stock_main\franchiserStockShow.aspx" />

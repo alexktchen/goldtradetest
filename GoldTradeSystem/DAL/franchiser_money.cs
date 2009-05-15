@@ -173,6 +173,7 @@ namespace GoldTradeNaming.DAL
 
                 strQuery.Append("'" + time_to.Trim() + " 23:59:59'");
             }
+            strQuery.Append(" order by franchiser_money.ins_date  Desc ");
 
 
             return DbHelperSQL.Query(strQuery.ToString());

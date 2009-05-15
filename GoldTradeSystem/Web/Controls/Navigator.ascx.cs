@@ -43,7 +43,7 @@ namespace GoldTradeNaming.Web.Controls
                 mt = new MenuItem("· 我的入帐", "", "", "~/franchiser_money/franchiserMoneyShow.aspx");
                 this.RightMenu.Items.Add(mt);
 
-                mt = new MenuItem("· 修改密码", "", "", "~/User_Login/IA100edit.htm");
+                mt = new MenuItem("· 修改密码", "", "", "javascript:window.showModalDialog('../User_Login/IA100edit.htm')");   
                 this.RightMenu.Items.Add(mt);
 
                 mt = new MenuItem("· 退出系统", "", "", "~/User_Login/flogin.aspx");

@@ -3,6 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   <div align="center">
     <anthem:GridView ID="GridView2" runat="server" 
            AutoGenerateColumns="False" AutoUpdateAfterCallBack="True" 
             BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
@@ -27,4 +28,5 @@
         <RowStyle BackColor="#F7F7DE" />
     </anthem:GridView>
     <input type="button" value="关闭" onclick="window.close()" />
+    </div>
 </asp:Content>

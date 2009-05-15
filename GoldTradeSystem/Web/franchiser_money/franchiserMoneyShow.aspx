@@ -75,7 +75,7 @@
                         <asp:BoundField DataField="added_time" HeaderText="入帐时间" />
                         <asp:BoundField DataField="checked" HeaderText="是否审核" />
                     </Columns>
-                    <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
+                    <PagerStyle ForeColor="Black" HorizontalAlign="Center" BackColor="#F7F7DE" />
                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                     <AlternatingRowStyle BackColor="White" />

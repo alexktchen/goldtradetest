@@ -79,7 +79,7 @@ namespace GoldTradeNaming.Web
 
             if (!hasNewMsg)
             {
-                this.HyperLink1.Visible = false;
+                this.HyperLink1.Visible = true;
                 this.HyperLink1.NavigateUrl = "";
                 this.HyperLink1.Text = "现在没有最新消息。";
             }

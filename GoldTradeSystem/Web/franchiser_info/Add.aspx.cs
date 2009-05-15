@@ -20,18 +20,24 @@ namespace GoldTradeNaming.Web.franchiser_info
 
         protected void Page_Load(object sender,EventArgs e)
         {
-            if(!IsPostBack)
+            if (Session["admin"] == null || Session["admin"].ToString() == "")
             {
-                if (Session["admin"] == null || Session["admin"].ToString() == "" || !CommBaseBLL.HasRight(Convert.ToInt32(Session["admin"]), Model.Authority.AddFran.ToString()))
-                {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    return;
-                }             
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/AdminLogin.aspx");
+                return;
+            }
 
-
-                //    lbSearch.Attributes.Add("onclick","location.href='Show.aspx';return false;");
+            if (Session["admin"] == null || Session["admin"].ToString() == ""
+                   || !GoldTradeNaming.BLL.CommBaseBLL.HasRight(Convert.ToInt32(Session["admin"]), Model.Authority.AddFran.ToString()))
+            {
+                Response.Clear();
+                Response.Write("<script defer>window.alert('" + "您没有权限操作该功能！\\n请重新登录或与管理员联系" + "');history.back();</script>");
+                Response.End();
+                return;
+            }
+            if(!IsPostBack)
+            {           
                 btnAdd.Attributes.Add("onclick","return confirm('" + "確定要提交?" + "')");
                 InitCtrl();
             }

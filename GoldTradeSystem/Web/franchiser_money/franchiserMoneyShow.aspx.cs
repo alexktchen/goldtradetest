@@ -19,23 +19,18 @@ namespace GoldTradeNaming.Web.franchiser_money
         private readonly GoldTradeNaming.BLL.franchiser_money bll = new GoldTradeNaming.BLL.franchiser_money();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["fran"] == null || Session["fran"].ToString() == "")
+            {
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/flogin.aspx");
+                return;
+            }
             if (!Page.IsPostBack)
             {
-                if (Session["fran"] == null || Session["fran"].ToString() == "")
-                {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    showData.Visible = false;
-                    return;
-                }
-                else
-                {
-                    string fran_id = Session["fran"].ToString();
-                    txtfran_id.Text = fran_id;
-                    showInformation(fran_id,"","","");
-                }
-
+                string fran_id = Session["fran"].ToString();
+                txtfran_id.Text = fran_id;
+                showInformation(fran_id, "", "", "");
             }
         }
         private void showInformation(string fran_id, string add_money, string time_from, string time_to)
@@ -43,7 +38,7 @@ namespace GoldTradeNaming.Web.franchiser_money
             try
             {
                 DataSet ds = bll.queryAction(fran_id, add_money, time_from, time_to);
-                //Session["data"] = ds;
+                Session["data"] = ds;
                 if (ds == null || ds.Tables[0].Rows.Count == 0)
                 {
                     Response.Write("<script type='text/javascript'>alert('查无数据，请确定查询条件是否正确');</script>");
@@ -62,7 +57,6 @@ namespace GoldTradeNaming.Web.franchiser_money
                             row["checked"] = "未审核";
                         }
                     }
-
                     showData.PageIndex = 0;
                     showData.DataSource = ds;
                     showData.DataBind();
@@ -72,8 +66,7 @@ namespace GoldTradeNaming.Web.franchiser_money
             }
             catch
             {
-                //MessageBox.Show(this, "查询出错！");
-                throw new Exception("查询出错");
+                MessageBox.Show(this, "查询出错！");
             }
 
         }
@@ -112,7 +105,11 @@ namespace GoldTradeNaming.Web.franchiser_money
 
         protected void showData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            DataSet ds = (DataSet)Session["data"];
+            showData.PageIndex = e.NewPageIndex;
+            showData.Visible = true;
+            showData.DataSource = ds;
+            showData.DataBind();
         }
 
         protected void showData_RowDeleting(object sender, GridViewDeleteEventArgs e)

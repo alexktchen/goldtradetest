@@ -36,7 +36,7 @@ namespace GoldTradeNaming.Web.Controls
                         mt = new MenuItem("· 在线发货", "", "", "~/send_main/Show.aspx");
                         this.RightMenu.Items.Add(mt);
 
-                        mt = new MenuItem("· 查看交易", "", "", "~/franchiser_trade/ShowM.aspx");
+                        mt = new MenuItem("· 查看交易", "", "", "~/franchiser_trade/ShowM.aspx");   
                         this.RightMenu.Items.Add(mt);
 
                         mt = new MenuItem("· 修改实时金价", "", "", "~/realtime_price/Add.aspx");
@@ -48,10 +48,10 @@ namespace GoldTradeNaming.Web.Controls
                         mt = new MenuItem("· 修改库存", "", "", "~/stock_main/Show.aspx");
                         this.RightMenu.Items.Add(mt);
 
-                        mt = new MenuItem("· 修改密码", "", "", "~/User_Login/IA100edit.htm");
+                        mt = new MenuItem("· 修改密码", "", "", "javascript:window.showModalDialog('../User_Login/IA100edit.htm')");                       
                         this.RightMenu.Items.Add(mt);
 
-                        mt = new MenuItem("· 退出系统", "", "", "~/User_Login/AdminLogin.aspx");
+                        mt = new MenuItem("· 退出系统", "", "", "~/User_Login/AdminLogin.aspx");                    
                         this.RightMenu.Items.Add(mt);
 
 
