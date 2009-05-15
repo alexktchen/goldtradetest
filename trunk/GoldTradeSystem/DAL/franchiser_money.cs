@@ -121,7 +121,7 @@ namespace GoldTradeNaming.DAL
         public DataSet queryAction(string fran_id, string add_money, string time_from, string time_to)
         {
             StringBuilder strQuery = new StringBuilder();
-            strQuery.Append(" SELECT     franchiser_money.id, franchiser_money.franchiser_code ,  franchiser_info.franchiser_name,   franchiser_money.franchiser_added_money, franchiser_money.added_time, franchiser_money.ins_user, franchiser_money.ins_date,       franchiser_money.upd_user, franchiser_money.upd_date ");
+            strQuery.Append(" SELECT     franchiser_money.id, franchiser_money.franchiser_code ,  franchiser_info.franchiser_name,   franchiser_money.franchiser_added_money, franchiser_money.added_time, franchiser_money.ins_user, franchiser_money.ins_date,       franchiser_money.upd_user, franchiser_money.upd_date, franchiser_money.checked ");
             strQuery.Append(" FROM franchiser_info INNER JOIN       franchiser_money ON        franchiser_info.franchiser_code = franchiser_money.franchiser_code");
             strQuery.Append(" where  ");
             if (fran_id == "")
