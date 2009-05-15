@@ -2,6 +2,7 @@
 
 <%
     //随机数生成
+    Session.Clear();
     Random randomGenerator = new Random(DateTime.Now.Millisecond);
     String RndStr = "";
     for (int i = 0; i < 32; i++)

@@ -17,21 +17,18 @@ namespace GoldTradeNaming.Web.franchiser_trade
         GoldTradeNaming.BLL.franchiser_trade bll = new GoldTradeNaming.BLL.franchiser_trade();
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
-            //(Master.FindControl("lblOrderOrTrade") as Label).Text = "点价可用余额：";
-            //   (Master.FindControl("lblTitle") as Label).Text = "详细信息";
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["fran"] == null || Session["fran"].ToString() == "")
+            {
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/flogin.aspx");
+                return;
+            }
             if (!Page.IsPostBack)
             {
-                if (Session["fran"] == null || Session["fran"].ToString() == "")
-                {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    return;
-                }
-
                 bool bl = GetTradeList(true);
                 if (bl)
                 {

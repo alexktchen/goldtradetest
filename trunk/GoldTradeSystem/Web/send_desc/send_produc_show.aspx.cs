@@ -20,27 +20,23 @@ namespace GoldTradeNaming.Web.send_desc
         private readonly GoldTradeNaming.BLL.send_desc bll = new GoldTradeNaming.BLL.send_desc();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["fran"] == null || Session["fran"].ToString() == "")
+            {
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/flogin.aspx");
+                return;
+            }
             if (!Page.IsPostBack)
             {
-                if (Session["fran"] == null || Session["fran"].ToString() == "")
+                string fran_id = Session["fran"].ToString();
+                if (Request.Params["sendid"] != null && Request.Params["sendid"].Trim() != "")
                 {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    showData.Visible = false;
-                    return;
-                }
-                else
-                {
-                    string fran_id = Session["fran"].ToString();
-                    if (Request.Params["sendid"] != null && Request.Params["sendid"].Trim() != "")
-                    {
-                        string send_id = Request.Params["sendid"].ToString();
-                        showInformation(send_id);
-                        this.txtFranchiserName.Text = this.bll.getFranName(fran_id);
-                        this.txtTotalWeight.Text = this.bll.getSendAmountWeight(send_id);
-                        this.txtSendId.Text = send_id;
-                    }
+                    string send_id = Request.Params["sendid"].ToString();
+                    showInformation(send_id);
+                    this.txtFranchiserName.Text = this.bll.getFranName(fran_id);
+                    this.txtTotalWeight.Text = this.bll.getSendAmountWeight(send_id);
+                    this.txtSendId.Text = send_id;
                 }
             }
         }

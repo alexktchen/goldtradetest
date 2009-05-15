@@ -79,6 +79,7 @@
                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
+                <input type="button" onclick="javascript:window.close()" value="关闭" />
             </td>
             <td>
                 &nbsp;</td>

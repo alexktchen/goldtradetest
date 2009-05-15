@@ -74,36 +74,29 @@ namespace GoldTradeNaming.Web.franchiser_money
             get { return _rs; }
         
         }
+
+
         /// <summary>
         /// 绑定showData
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
         public void dataBind(int tag)
         {
-
             try
             {
                 string[] p = (string[])Session["paramer"];
-                DataSet ds = bll.queryAction(p[0], p[1], p[2], p[3], p[4],tag);
-                //if (Session["page"] == null)
-                //{
-                //    Session["page"] = ds;
-                //}
-                //else {
-                //    Session.Remove("page");
-                //    Session["page"] = ds;
-                
-                //}
-
+                DataSet ds = bll.queryAction(p[0], p[1], p[2], p[3], p[4],tag); 
 
                 if (ds == null || ds.Tables[0].Rows.Count == 0)
                 {
-                    Response.Write("<script type='text/javascript'>alert('查无数据，请确定查询条件是否正确');</script>");
+                    Label2.Text = "暂无数据！";
                     showDate.Visible = false;
                 }
                 else
                 {
+                    Label2.Text = "";
                     foreach (DataRow row in ds.Tables[0].Rows)
                     {
                         if (row["checked"].ToString().Trim() == "0")
@@ -125,55 +118,48 @@ namespace GoldTradeNaming.Web.franchiser_money
                         if (showDate.Rows[i].Cells[5].Text.Trim().Equals("已审核")) {
 
                             showDate.Rows[i].Cells[6].Enabled = false;
-                        }
-                    
-                    
+                        }                    
                     }
-
-
-
-
                 }
-
-
-
             }
             catch
             {
                 MessageBox.Show(this, "绑定出错！");
-            }
-        
-        
-
+            }     
         }
-
-
-
-
-
 
         protected void Page_LoadComplete(object sender, EventArgs e)
         {
             (Master.FindControl("lblTitle") as Label).Text = "审核入帐";
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["admin"] == null || Session["admin"].ToString() == "")
+            {
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/AdminLogin.aspx");
+                return;
+            }
+
+            if (Session["admin"] == null || Session["admin"].ToString() == ""
+                   || !GoldTradeNaming.BLL.CommBaseBLL.HasRight(Convert.ToInt32(Session["admin"]), Model.Authority.CheckAddMoney.ToString()))
+            {
+                Response.Clear();
+                Response.Write("<script defer>window.alert('" + "您没有权限操作该功能！\\n请重新登录或与管理员联系" + "');history.back();</script>");
+                Response.End();
+                return;
+            }
             if (!Page.IsPostBack)
             {
-                if (Session["admin"] == null || Session["admin"].ToString() == ""
-                    || !GoldTradeNaming.BLL.CommBaseBLL.HasRight(Convert.ToInt32(Session["admin"]), Model.Authority.CheckAddMoney.ToString()))
-                {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    return;
-                }
+                this.drpIsCheck.SelectedValue = "1"; string check = drpIsCheck.Text.Trim();
+                this.drpIsCheck.Enabled = false;
                 if (Session["paramer"] == null)
                 {
-                    string[] paramer = { "", "", "", "", "" };
+                    string[] paramer = { "", "", "", "", check };
                     Session["paramer"] = paramer;
                 }
-               
 
                 this.dataBind(0);
             }

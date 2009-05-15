@@ -90,6 +90,7 @@
             <td>
                 &nbsp;</td>
             <td style="width: 83%">
+                <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                 <asp:GridView ID="showDate" runat="server" Width="100%" AllowPaging="True" 
                     BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
                     CellPadding="4" AutoGenerateColumns="False" 
@@ -105,6 +106,13 @@
                         <asp:BoundField DataField="franchiser_added_money" HeaderText="ÈëÕÊ½ð¶î" />
                         <asp:BoundField DataField="added_time" HeaderText="ÈëÕÊÊ±¼ä" />
                         <asp:BoundField DataField="checked" HeaderText="ÊÇ·ñÉóºË" />
+                        
+                      <%--  <asp:TemplateField>
+                        <ItemTemplate>
+                        <asp:LinkButton ID="del" CommandName="CmdDEL" Text="É¾³ý" runat="server" ></asp:LinkButton>
+                        </ItemTemplate>
+                        </asp:TemplateField>--%>
+                        
                         <asp:CommandField DeleteText="&lt;div id=&quot;de&quot; onclick=&quot;JavaScript:return confirm('È·¶¨É¾³ýÂð£¿')&quot;&gt;É¾³ý&lt;/div&gt; " 
                             ShowDeleteButton="True" />
                         <asp:CommandField EditText="&lt;div id=&quot;de&quot; onclick=&quot;JavaScript:return confirm('È·¶¨ÉóºËÂð£¿')&quot;&gt;ÉóºË&lt;/div&gt; " 

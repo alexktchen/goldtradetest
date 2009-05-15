@@ -1,7 +1,6 @@
 <publishData>
   <publishTarget publishUrl="E:\WebSite\">
-    <file relUrl="send_desc/send_produc_show.aspx" publishTime="04/27/2009 21:32:24" />
-    <file relUrl="goldtrade_IA100/Add.aspx" publishTime="04/26/2009 23:03:47" />
+    <file relUrl="send_desc/send_produc_show.aspx" publishTime="05/15/2009 21:24:36" />
     <file relUrl="product_type/Add_index.aspx" publishTime="05/08/2009 00:24:34" />
     <file relUrl="bin/AjaxControlToolkit.dll" publishTime="04/04/2009 14:13:15" />
     <file relUrl="Controls/checkright.ascx" publishTime="04/14/2009 21:15:34" />
@@ -10,125 +9,123 @@
     <file relUrl="sys_admin_authority/Show.aspx" publishTime="05/08/2009 21:14:34" />
     <file relUrl="image/bglogo.bmp" publishTime="04/12/2009 21:18:00" />
     <file relUrl="App_Themes/Green2Theme/Default.css" publishTime="02/09/2008 14:15:20" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Model.dll.svn-base" publishTime="05/13/2009 22:22:45" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Model.dll.svn-base" publishTime="05/14/2009 23:18:42" />
     <file relUrl="Controls/App_LocalResources/Navigator.ascx.resx" publishTime="04/03/2009 02:07:01" />
-    <file relUrl="send_desc/send_product_show.aspx" publishTime="04/20/2009 22:32:49" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Web.pdb.svn-base" publishTime="05/14/2009 21:24:01" />
-    <file relUrl="Franchiser.Master" publishTime="04/23/2009 00:11:16" />
-    <file relUrl="User_Login/IA100edit.htm" publishTime="04/27/2009 00:21:09" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Web.pdb.svn-base" publishTime="05/15/2009 21:26:49" />
+    <file relUrl="bin/GoldTradeNaming.Model.pdb" publishTime="05/15/2009 21:34:32" />
+    <file relUrl="User_Login/IA100edit.htm" publishTime="05/15/2009 21:17:57" />
     <file relUrl="image/foot_bg.gif" publishTime="04/13/2009 19:37:00" />
     <file relUrl="bin/Anthem.dll" publishTime="11/22/2006 14:11:14" />
     <file relUrl="rl/config.js" publishTime="04/22/2008 00:00:00" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DAL.dll.svn-base" publishTime="05/15/2009 21:26:51" />
     <file relUrl="bin/.svn/text-base/Anthem.dll.svn-base" publishTime="05/12/2009 23:46:29" />
     <file relUrl="send_desc/Show.aspx" publishTime="04/26/2009 20:55:23" />
-    <file relUrl="franchiser_order/Show.aspx" publishTime="05/14/2009 22:55:49" />
+    <file relUrl="franchiser_order/Show.aspx" publishTime="05/15/2009 20:51:58" />
     <file relUrl="image/dengl_2.gif" publishTime="04/14/2009 15:11:00" />
-    <file relUrl="product_type/Modify_index.aspx" publishTime="05/08/2009 00:20:32" />
     <file relUrl="App_Themes/RedTheme/Default.css" publishTime="02/09/2008 14:15:22" />
     <file relUrl="bin/LTP.Common.dll" publishTime="07/15/2008 22:23:44" />
-    <file relUrl="goldAdminIndex.aspx" publishTime="05/14/2009 22:27:45" />
+    <file relUrl="goldAdminIndex.aspx" publishTime="05/15/2009 20:58:00" />
     <file relUrl="image/dengl_1_r3_c2.gif" publishTime="04/14/2009 15:23:00" />
     <file relUrl="image/dengl_1_r1_c1_r2_c3.gif" publishTime="04/14/2009 15:24:00" />
     <file relUrl="image/shij.gif" publishTime="04/13/2009 21:12:00" />
     <file relUrl="image/dengl_1_r1_c1_r1_c2.gif" publishTime="04/14/2009 15:24:00" />
-    <file relUrl="bin/GoldTradeNaming.Model.dll" publishTime="05/14/2009 22:50:14" />
     <file relUrl="image/leftlist_head.jpg" publishTime="04/21/2009 23:45:00" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.Web.dll.svn-base" publishTime="05/13/2009 22:22:44" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.Web.dll.svn-base" publishTime="05/15/2009 21:26:50" />
     <file relUrl="bin/.svn/prop-base/LTP.Common.dll.svn-base" publishTime="05/12/2009 23:44:23" />
     <file relUrl="rl/lang/zh-cn.js" publishTime="10/21/2008 00:00:00" />
     <file relUrl="User_Login/fverify.aspx" publishTime="05/03/2009 18:09:24" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.BLL.pdb.svn-base" publishTime="05/13/2009 22:22:45" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.BLL.pdb.svn-base" publishTime="05/15/2009 21:26:51" />
     <file relUrl="image/Logo.bmp" publishTime="04/04/2009 14:28:00" />
-    <file relUrl="franchiser_money/Show.aspx" publishTime="05/14/2009 21:42:05" />
-    <file relUrl="bin/GoldTradeNaming.DBUtility.dll" publishTime="05/14/2009 22:50:14" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DBUtility.pdb.svn-base" publishTime="05/13/2009 22:08:05" />
+    <file relUrl="franchiser_money/Show.aspx" publishTime="05/15/2009 21:26:48" />
+    <file relUrl="bin/GoldTradeNaming.DBUtility.dll" publishTime="05/15/2009 21:34:32" />
+    <file relUrl="goldtrade_db_admin/Add.aspx" publishTime="04/26/2009 23:05:29" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DBUtility.pdb.svn-base" publishTime="05/14/2009 23:18:44" />
     <file relUrl="bin/.svn/text-base/LTP.Accounts.dll.svn-base" publishTime="05/12/2009 23:48:15" />
     <file relUrl="image/foot.gif" publishTime="04/13/2009 19:19:00" />
     <file relUrl="product_type/Modify.aspx" publishTime="05/08/2009 00:22:56" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DAL.pdb.svn-base" publishTime="05/13/2009 23:11:35" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DAL.pdb.svn-base" publishTime="05/15/2009 21:26:50" />
     <file relUrl="realtime_price/Show.aspx" publishTime="05/10/2009 17:46:30" />
-    <file relUrl="User_Login/flogin.aspx" publishTime="04/26/2009 16:58:43" />
+    <file relUrl="User_Login/flogin.aspx" publishTime="05/15/2009 21:54:41" />
     <file relUrl="image/logoleft.bmp" publishTime="04/12/2009 21:18:00" />
+    <file relUrl="franchiser_order_desc/Show_Admin.aspx" publishTime="05/15/2009 22:22:18" />
     <file relUrl="sys_login_info/Show.aspx" publishTime="04/26/2009 20:53:20" />
     <file relUrl="image/nei_r1_c2.gif" publishTime="04/13/2009 19:52:00" />
-    <file relUrl="bin/.svn/entries" publishTime="05/14/2009 21:24:28" />
+    <file relUrl="bin/.svn/entries" publishTime="05/15/2009 21:27:03" />
     <file relUrl="franchiser_trade/TradeTime.aspx" publishTime="05/10/2009 18:31:24" />
-    <file relUrl="Controls/copyright.ascx" publishTime="04/14/2009 21:15:45" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.BLL.pdb.svn-base" publishTime="05/15/2009 21:26:51" />
     <file relUrl="App_Themes/GreenTheme/Control.skin" publishTime="02/09/2008 14:15:20" />
     <file relUrl="image/dengl_1_r2_c2.gif" publishTime="04/14/2009 15:23:00" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.Web.pdb.svn-base" publishTime="05/13/2009 22:22:43" />
-    <file relUrl="goldtrade_db_admin/Add.aspx" publishTime="04/26/2009 23:05:29" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.Web.pdb.svn-base" publishTime="05/15/2009 21:26:49" />
+    <file relUrl="goldtrade_IA100/Add.aspx" publishTime="04/26/2009 23:03:47" />
     <file relUrl="image/Calendar_scheduleHS.png" publishTime="04/26/2009 10:55:00" />
     <file relUrl="image/dengl_1_r1_c1_r2_c2.gif" publishTime="04/14/2009 15:24:00" />
-    <file relUrl="bin/GoldTradeNaming.Model.pdb" publishTime="05/14/2009 22:50:14" />
     <file relUrl="goldtrade_db_admin/Show.aspx" publishTime="04/26/2009 23:05:06" />
     <file relUrl="image/suo.gif" publishTime="04/13/2009 21:04:00" />
     <file relUrl="product_type/Show.aspx" publishTime="05/08/2009 00:25:08" />
+    <file relUrl="image/top1.gif" publishTime="06/10/2007 00:00:00" />
     <file relUrl="App_Themes/PurpleTheme/Default.css" publishTime="02/09/2008 14:15:22" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DBUtility.pdb.svn-base" publishTime="05/12/2009 23:44:23" />
+    <file relUrl="Franchiser.Master" publishTime="04/23/2009 00:11:16" />
     <file relUrl="image/dengl_1_r1_c1_r3_c2.gif" publishTime="04/14/2009 15:24:00" />
     <file relUrl="franchiser_info/ShowNoEdit.aspx" publishTime="05/08/2009 00:50:17" />
     <file relUrl="bin/.svn/text-base/MySql.Data.dll.svn-base" publishTime="05/12/2009 23:47:25" />
     <file relUrl="image/jishu.gif" publishTime="04/13/2009 20:12:00" />
     <file relUrl="goldtrade_IA100/Modify.aspx" publishTime="04/26/2009 23:03:35" />
-    <file relUrl="css/css.css" publishTime="04/25/2009 21:50:06" />
     <file relUrl="bin/.svn/prop-base/MySql.Data.dll.svn-base" publishTime="05/12/2009 23:44:23" />
     <file relUrl="stock_main/Modify.aspx" publishTime="04/26/2009 19:14:08" />
     <file relUrl="image/shouy.gif" publishTime="04/13/2009 21:04:00" />
     <file relUrl="product_type/Add.aspx" publishTime="05/11/2009 00:57:12" />
-    <file relUrl="bin/.svn/all-wcprops" publishTime="05/14/2009 21:24:28" />
+    <file relUrl="bin/.svn/all-wcprops" publishTime="05/15/2009 21:26:51" />
     <file relUrl="bin/.svn/prop-base/AjaxControlToolkit.dll.svn-base" publishTime="05/12/2009 23:44:23" />
     <file relUrl="rl/My97DatePicker.htm" publishTime="10/20/2008 00:00:00" />
     <file relUrl="image/1_2.jpg" publishTime="04/17/2009 21:37:00" />
-    <file relUrl="bin/GoldTradeNaming.DBUtility.pdb" publishTime="05/14/2009 22:50:14" />
-    <file relUrl="image/top1.gif" publishTime="06/10/2007 00:00:00" />
+    <file relUrl="image/dengl_1_r1_c2.gif" publishTime="04/14/2009 15:23:00" />
+    <file relUrl="bin/GoldTradeNaming.DBUtility.pdb" publishTime="05/15/2009 21:34:32" />
+    <file relUrl="franchiser_info/Add.aspx" publishTime="04/26/2009 22:46:30" />
     <file relUrl="franchiser_info/Show.aspx" publishTime="04/26/2009 22:46:02" />
     <file relUrl="stock_main/franchiserStockShow.aspx" publishTime="05/14/2009 22:09:28" />
     <file relUrl="franchiser_trade/ShowM.aspx" publishTime="05/13/2009 22:40:29" />
     <file relUrl="bin/LtpPageControl.dll" publishTime="05/24/2007 22:44:46" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Web.dll.svn-base" publishTime="05/14/2009 21:24:14" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Web.dll.svn-base" publishTime="05/15/2009 21:26:50" />
     <file relUrl="stock_main/ShowNoEdit.aspx" publishTime="05/08/2009 21:01:17" />
     <file relUrl="image/1_1.jpg" publishTime="04/17/2009 21:37:00" />
     <file relUrl="Controls/Navigator.ascx" publishTime="04/14/2009 23:36:09" />
     <file relUrl="User_Login/lib/setup.exe" publishTime="04/04/2009 15:34:51" />
-    <file relUrl="bin/GoldTradeNaming.DAL.pdb" publishTime="05/14/2009 22:50:15" />
+    <file relUrl="bin/GoldTradeNaming.DAL.pdb" publishTime="05/16/2009 00:16:10" />
     <file relUrl="bin/LTP.Accounts.dll" publishTime="10/01/2007 17:07:34" />
     <file relUrl="User_Login/Init.htm" publishTime="04/04/2009 15:28:32" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Model.pdb.svn-base" publishTime="05/13/2009 22:22:45" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.Model.pdb.svn-base" publishTime="05/14/2009 23:18:30" />
     <file relUrl="franchiser_trade/Add.aspx" publishTime="05/14/2009 22:09:13" />
-    <file relUrl="Web.config" publishTime="05/13/2009 22:43:43" />
+    <file relUrl="Web.config" publishTime="05/16/2009 00:17:01" />
     <file relUrl="image/menu_bg.gif" publishTime="04/22/2009 10:45:00" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DAL.dll.svn-base" publishTime="05/13/2009 22:22:45" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DAL.dll.svn-base" publishTime="05/15/2009 21:26:51" />
     <file relUrl="franchiser_info/OrderInfo.aspx" publishTime="05/03/2009 17:59:46" />
     <file relUrl="App_Themes/GreenTheme/Default.css" publishTime="02/09/2008 14:15:20" />
-    <file relUrl="franchiser_money/Manage.aspx" publishTime="05/14/2009 21:36:28" />
+    <file relUrl="franchiser_money/Manage.aspx" publishTime="05/15/2009 23:53:04" />
     <file relUrl="User_Login/AdminVerify.aspx" publishTime="04/06/2009 00:18:15" />
     <file relUrl="image/dengl_bg.gif" publishTime="04/14/2009 16:02:00" />
     <file relUrl="bin/.svn/text-base/LTP.Common.dll.svn-base" publishTime="05/12/2009 23:47:44" />
     <file relUrl="App_Themes/PurpleTheme/Control.skin" publishTime="02/09/2008 14:15:22" />
     <file relUrl="image/bit06.gif" publishTime="04/22/2009 11:05:00" />
     <file relUrl="image/leftlist_bg.jpg" publishTime="04/21/2009 21:14:00" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.BLL.dll.svn-base" publishTime="05/13/2009 23:12:06" />
-    <file relUrl="bin/GoldTradeNaming.DAL.dll" publishTime="05/14/2009 22:50:15" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.BLL.dll.svn-base" publishTime="05/15/2009 21:26:50" />
+    <file relUrl="bin/GoldTradeNaming.DAL.dll" publishTime="05/16/2009 00:16:10" />
     <file relUrl="bin/MySql.Data.dll" publishTime="02/07/2008 16:18:26" />
     <file relUrl="franchiser_order/myModify.aspx" publishTime="04/26/2009 20:59:30" />
     <file relUrl="goldtrade_IA100/Show.aspx" publishTime="04/26/2009 23:04:03" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.BLL.dll.svn-base" publishTime="05/13/2009 22:22:44" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.BLL.dll.svn-base" publishTime="05/15/2009 21:26:50" />
     <file relUrl="js/goldjs.js" publishTime="04/21/2009 21:20:52" />
     <file relUrl="Global.asax" publishTime="04/02/2009 22:18:09" />
     <file relUrl="bin/.svn/prop-base/GoldTradeNaming.Model.pdb.svn-base" publishTime="05/13/2009 22:22:45" />
     <file relUrl="image/leftlist_bottom.jpg" publishTime="04/21/2009 21:14:00" />
-    <file relUrl="franchiser_info/Add.aspx" publishTime="04/26/2009 22:46:30" />
     <file relUrl="User_Login/gold_AdminLogin.aspx" publishTime="04/21/2009 22:13:11" />
     <file relUrl="image/dengl_1.gif" publishTime="04/14/2009 15:11:00" />
-    <file relUrl="image/dengl_1_r1_c1_r2_c1.gif" publishTime="04/14/2009 15:24:00" />
     <file relUrl="User_Login/AdminChgPswd.aspx" publishTime="04/26/2009 21:39:37" />
     <file relUrl="User_Login/AgreeProtol.aspx" publishTime="05/03/2009 18:09:46" />
     <file relUrl="franchiser_order/Add.aspx" publishTime="04/19/2009 11:36:18" />
     <file relUrl="App_Themes/BlueTheme/Control.skin" publishTime="02/09/2008 14:15:20" />
-    <file relUrl="bin/GoldTradeNaming.BLL.pdb" publishTime="05/14/2009 22:50:15" />
-    <file relUrl="franchiser_money/franchiserMoneyShow.aspx" publishTime="05/14/2009 22:55:57" />
-    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DAL.pdb.svn-base" publishTime="05/13/2009 22:22:44" />
+    <file relUrl="bin/GoldTradeNaming.BLL.pdb" publishTime="05/16/2009 00:16:11" />
+    <file relUrl="franchiser_money/franchiserMoneyShow.aspx" publishTime="05/16/2009 00:21:17" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DAL.pdb.svn-base" publishTime="05/15/2009 21:26:50" />
     <file relUrl="image/nei_bg.gif" publishTime="04/23/2009 02:41:00" />
     <file relUrl="realtime_price/Add.aspx" publishTime="04/26/2009 22:44:46" />
     <file relUrl="send_main/Show.aspx" publishTime="05/11/2009 23:22:18" />
@@ -138,13 +135,13 @@
     <file relUrl="App_Themes/BlueTheme/Default.css" publishTime="02/09/2008 14:15:20" />
     <file relUrl="rl/lang/zh-tw.js" publishTime="10/21/2008 00:00:00" />
     <file relUrl="bin/.svn/text-base/LtpPageControl.dll.svn-base" publishTime="05/12/2009 23:53:47" />
-    <file relUrl="franchiser_order_desc/Show.aspx" publishTime="05/14/2009 21:49:43" />
+    <file relUrl="franchiser_order_desc/Show.aspx" publishTime="05/15/2009 21:24:02" />
     <file relUrl="franchiser_order_desc/SalesReport.aspx" publishTime="05/10/2009 23:59:48" />
-    <file relUrl="franchiser_order_desc/Show_Admin.aspx" publishTime="05/14/2009 21:48:54" />
+    <file relUrl="bin/GoldTradeNaming.Model.dll" publishTime="05/15/2009 21:34:32" />
     <file relUrl="rl/calendar.js" publishTime="12/03/2008 21:22:00" />
     <file relUrl="rl/WdatePicker.js" publishTime="01/13/2009 09:26:00" />
     <file relUrl="image/dengl_1_r1_c3.gif" publishTime="04/14/2009 15:23:00" />
-    <file relUrl="bin/GoldTradeNaming.BLL.dll" publishTime="05/14/2009 22:50:15" />
+    <file relUrl="bin/GoldTradeNaming.BLL.dll" publishTime="05/16/2009 00:16:11" />
     <file relUrl="MasterPage.master" publishTime="04/26/2009 20:50:20" />
     <file relUrl="bin/.svn/prop-base/Anthem.dll.svn-base" publishTime="05/12/2009 23:44:23" />
     <file relUrl="franchiser_info/StockInfo.aspx" publishTime="05/03/2009 14:44:53" />
@@ -152,14 +149,16 @@
     <file relUrl="image/daoh_bg.gif" publishTime="04/13/2009 19:29:00" />
     <file relUrl="Default.aspx" publishTime="04/27/2009 23:27:28" />
     <file relUrl="image/dengl_1_r1_c1_r1_c1.gif" publishTime="04/14/2009 15:24:00" />
+    <file relUrl="Controls/copyright.ascx" publishTime="04/14/2009 21:15:45" />
     <file relUrl="bin/.svn/prop-base/LtpPageControl.dll.svn-base" publishTime="05/12/2009 23:44:23" />
-    <file relUrl="bin/GoldTradeNaming.Web.pdb" publishTime="05/14/2009 23:12:52" />
+    <file relUrl="bin/GoldTradeNaming.Web.pdb" publishTime="05/16/2009 00:20:20" />
     <file relUrl="image/dengl_1_r2_c3.gif" publishTime="04/14/2009 15:23:00" />
     <file relUrl="image/head_bg.gif" publishTime="04/13/2009 21:00:00" />
     <file relUrl="stock_main/Show.aspx" publishTime="05/08/2009 20:57:44" />
     <file relUrl="image/head_1.gif" publishTime="04/13/2009 19:21:00" />
     <file relUrl="stock_main/stockModifyLog.aspx" publishTime="04/29/2009 20:19:49" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.BLL.pdb.svn-base" publishTime="05/13/2009 23:11:52" />
+    <file relUrl="css/css.css" publishTime="04/25/2009 21:50:06" />
+    <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DBUtility.pdb.svn-base" publishTime="05/12/2009 23:44:23" />
     <file relUrl="image/dengl_1_r2_c1.gif" publishTime="04/14/2009 15:23:00" />
     <file relUrl="franchiser_trade/Show.aspx" publishTime="05/14/2009 23:12:30" />
     <file relUrl="stock_main/receive.aspx" publishTime="05/14/2009 22:09:36" />
@@ -176,20 +175,20 @@
     <file relUrl="send_main/send_cancel.aspx" publishTime="04/26/2009 20:55:07" />
     <file relUrl="image/dengl_1_r1_c1.gif" publishTime="04/14/2009 15:23:00" />
     <file relUrl="image/anl.gif" publishTime="04/13/2009 20:31:00" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DBUtility.dll.svn-base" publishTime="05/13/2009 22:08:16" />
+    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DBUtility.dll.svn-base" publishTime="05/14/2009 23:19:07" />
     <file relUrl="image/dengl_1_r1_c1_r1_c3.gif" publishTime="04/14/2009 15:24:00" />
     <file relUrl="franchiser_order/Add_Type.aspx" publishTime="05/11/2009 22:35:40" />
-    <file relUrl="franchiser_order/Modify.aspx" publishTime="05/11/2009 23:11:37" />
-    <file relUrl="image/dengl_1_r1_c2.gif" publishTime="04/14/2009 15:23:00" />
+    <file relUrl="product_type/Modify_index.aspx" publishTime="05/08/2009 00:20:32" />
+    <file relUrl="franchiser_order/Modify.aspx" publishTime="05/15/2009 20:55:52" />
     <file relUrl="App_Themes/DefaultThemes/css.css" publishTime="04/14/2009 01:17:54" />
     <file relUrl="franchiser_order_desc/Add_submit.aspx" publishTime="04/26/2009 22:55:37" />
     <file relUrl="franchiser_index.aspx" publishTime="04/29/2009 07:10:47" />
     <file relUrl="App_Themes/Green2Theme/Control.skin" publishTime="02/09/2008 14:15:20" />
     <file relUrl="franchiser_info/MoneyInfo.aspx" publishTime="05/03/2009 14:31:17" />
-    <file relUrl="bin/GoldTradeNaming.Web.dll" publishTime="05/14/2009 23:12:52" />
+    <file relUrl="bin/GoldTradeNaming.Web.dll" publishTime="05/16/2009 00:20:20" />
     <file relUrl="App_Themes/RedTheme/Control.skin" publishTime="02/09/2008 14:15:22" />
-    <file relUrl="User_Login/AdminLogin.aspx" publishTime="04/26/2009 15:25:11" />
-    <file relUrl="bin/.svn/text-base/GoldTradeNaming.DAL.dll.svn-base" publishTime="05/13/2009 23:11:46" />
+    <file relUrl="User_Login/AdminLogin.aspx" publishTime="05/15/2009 21:54:32" />
+    <file relUrl="image/dengl_1_r1_c1_r2_c1.gif" publishTime="04/14/2009 15:24:00" />
     <file relUrl="bin/.svn/prop-base/GoldTradeNaming.DBUtility.dll.svn-base" publishTime="05/12/2009 23:44:23" />
   </publishTarget>
 </publishData>

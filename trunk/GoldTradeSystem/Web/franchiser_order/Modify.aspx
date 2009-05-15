@@ -46,7 +46,7 @@
                                 <td align="left">
                                     <asp:DropDownList ID="drpfranchiser_order_state" runat="server">
                                         <asp:ListItem Value="0">已订</asp:ListItem>
-                                        <asp:ListItem Value="1">发货中</asp:ListItem>
+                                        <asp:ListItem Value="1">未发完</asp:ListItem>
                                         <asp:ListItem Value="2">已发完</asp:ListItem>
                                         <asp:ListItem Value="3" Selected="True">全部</asp:ListItem>
                                   
@@ -83,6 +83,7 @@
                         <asp:HyperLinkField HeaderText="订单号" DataNavigateUrlFields="franchiser_order_id"
                             DataNavigateUrlFormatString="../franchiser_order_desc/Show_Admin.aspx?id={0}" Target="_blank" DataTextField="franchiser_order_id" />
                         <asp:BoundField DataField="franchiser_order_time" HeaderText="订货时间" />
+                          <asp:BoundField DataField="state" HeaderText="订单状态" />
                         <asp:BoundField DataField="franchiser_order_amount_money" HeaderText="订单总额" />
                         <asp:BoundField DataField="franchiser_order_trans_type" HeaderText="运输方式" />
                         <asp:BoundField DataField="franchiser_order_address" HeaderText="收货地址" />

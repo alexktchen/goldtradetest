@@ -21,22 +21,21 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
         private List<GoldTradeNaming.Model.franchiser_order_desc> orderdescList;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["fran"] == null || Session["fran"].ToString() == "")
+            {
+                Session.Clear();
+                Response.Clear();
+                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/flogin.aspx");
+                return;
+            }
             if (!Page.IsPostBack)
             {
-                if (Session["fran"] == null || Session["fran"].ToString() == "")
-                {
-                    Response.Clear();
-                    Response.Write("<script defer>window.alert('" + "您没有权限登录本系统！\\n请重新登录或与管理员联系" + "');history.back();</script>");
-                    Response.End();
-                    return;
-                }
                 if (!(Session["orderdesclist"] == null || Session["orderdesclist"].ToString() == ""))
                 {
                     LoadProduct();
                 }
                 else
                 {
-
                     LoadOrderInfo();
                 }
             }
