@@ -53,3 +53,14 @@ C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+D:\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
