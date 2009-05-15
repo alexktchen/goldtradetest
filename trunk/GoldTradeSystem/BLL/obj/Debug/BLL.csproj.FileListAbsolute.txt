@@ -63,3 +63,16 @@ C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\BLL\bin
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\BLL\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\BLL\obj\Debug\GoldTradeNaming.BLL.dll
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\BLL\obj\Debug\GoldTradeNaming.BLL.pdb
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.BLL.dll
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.BLL.pdb
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\LTP.Common.dll
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\MySql.Data.dll
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\goldtradetest\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\BLL\obj\Debug\ResolveAssemblyReference.cache
+D:\goldtradetest\GoldTradeSystem\BLL\obj\Debug\GoldTradeNaming.BLL.dll
+D:\goldtradetest\GoldTradeSystem\BLL\obj\Debug\GoldTradeNaming.BLL.pdb
