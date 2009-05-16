@@ -3,6 +3,17 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .style1
+        {
+            width: 36%;
+        }
+        .style2
+        {
+            height: 3px;
+            width: 36%;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style="display: none">
@@ -31,36 +42,36 @@
             
                 <table style="width:100%;">
                     <tr>
-                        <td  style="width:50%" align="right">
+                        <td align="right" class="style1">
                           经销商编号</td>
                         <td  style="width:50%" align="left">
-                            <asp:TextBox ID="txtfran_id" runat="server" Width="200px" ></asp:TextBox>
+                            <asp:TextBox ID="txtfran_id" runat="server" Width="164px" ></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" style="width: 50%; height: 3px;">
+                        <td align="right" class="style2">
                             入帐金额</td>
                         <td align="left" style="height: 3px">
-                            <asp:TextBox ID="txtadd_money" runat="server" Width="200px"></asp:TextBox>
+                            <asp:TextBox ID="txtadd_money" runat="server" Width="164px"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" style="width: 50%">
+                        <td align="right" class="style1">
                             入账时间</td>
                         <td align="left">
-                            <asp:TextBox ID="txttime_from" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txttime_from" runat="server" Width="70px"></asp:TextBox>
                             <cc1:CalendarExtender ID="dtTo_CalendarExtender" runat="server" Enabled="True" 
                                Format="yyyy-MM-dd"   TargetControlID="txttime_from">
                             </cc1:CalendarExtender>
-                            <asp:Label ID="Label1" runat="server" Text="~"></asp:Label>
-                            <asp:TextBox ID="txtTime_to" runat="server"></asp:TextBox>
+                            ~
+                            <asp:TextBox ID="txtTime_to" runat="server" Width="70px"></asp:TextBox>
                             <cc1:CalendarExtender ID="txtTimeTo0_CalendarExtender" runat="server" 
                                  Format="yyyy-MM-dd"  Enabled="True" TargetControlID="txtTime_to">
                             </cc1:CalendarExtender>
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" style="width: 50%">
+                        <td align="right" class="style1">
                             审核状态</td>
                         <td align="left">
                             <asp:DropDownList ID="drpIsCheck" runat="server">
@@ -71,7 +82,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="right" style="width: 50%">
+                        <td align="right" class="style1">
                             <asp:Button ID="query" runat="server" Text="查询" onclick="query_Click" />
                         </td>
                         <td align="left">
@@ -108,7 +119,7 @@
                         <asp:CommandField DeleteText="&lt;div id=&quot;de&quot; onclick=&quot;JavaScript:return confirm('确定删除吗？')&quot;&gt;删除&lt;/div&gt; " 
                             ShowDeleteButton="True" HeaderText="操作" Visible="False" />
                     </Columns>
-                    <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
+                    <PagerStyle ForeColor="Black" HorizontalAlign="Center" BackColor="#F7F7DE" />
                     <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                     <AlternatingRowStyle BackColor="White" />
