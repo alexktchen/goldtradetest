@@ -743,9 +743,17 @@
     <Content Include="product_type\Modify_index.aspx" />
     <Content Include="rl\calendar.js" />
     <Content Include="rl\config.js" />
+    <Content Include="rl\lang\en.js" />
     <Content Include="rl\lang\zh-cn.js" />
     <Content Include="rl\lang\zh-tw.js" />
     <Content Include="rl\My97DatePicker.htm" />
+    <Content Include="rl\skin\datePicker.gif" />
+    <Content Include="rl\skin\default\datepicker.css" />
+    <Content Include="rl\skin\default\img.gif" />
+    <Content Include="rl\skin\WdatePicker.css" />
+    <Content Include="rl\skin\whyGreen\bg.jpg" />
+    <Content Include="rl\skin\whyGreen\datepicker.css" />
+    <Content Include="rl\skin\whyGreen\img.gif" />
     <Content Include="rl\WdatePicker.js" />
     <Content Include="send_desc\send_produc_show.aspx" />
     <Content Include="send_main\send_cancel.aspx" />
