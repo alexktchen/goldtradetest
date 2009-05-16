@@ -175,7 +175,12 @@ namespace GoldTradeNaming.Model
         /// <summary>
         /// 在线发货
         /// </summary>
-        Send
+        Send,
+
+        /// <summary>
+        /// 查看发货
+        /// </summary>
+        SendShow
 
         #endregion
     }

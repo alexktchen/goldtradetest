@@ -37,6 +37,11 @@ namespace GoldTradeNaming.BLL
             return dal.ConfirmReceive(franId, OrderId, SendId);
         }
 
+        public DataSet GetSendInfo(string where)
+        {
+            return dal.GetSendInfo(where);
+        }
+
         #endregion
 
 		private readonly GoldTradeNaming.DAL.send_main dal=new GoldTradeNaming.DAL.send_main();

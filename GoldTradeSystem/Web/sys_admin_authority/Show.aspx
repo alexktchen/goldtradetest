@@ -170,6 +170,19 @@
                                 <asp:CheckBox ID="ckbCheckAddMoney" Text="审核入账 " runat="server" />
                             </td>
                         </tr>
+                        <tr>
+                            <td rowspan="2">
+                                发货管理&nbsp;
+                            </td>
+                            <td colspan="1" align="left">
+                                <asp:CheckBox ID="ckbSend" Text="在线发货" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" colspan="1">
+                                <asp:CheckBox ID="ckbSendShow" Text="查看发货" runat="server" />
+                                </td>
+                        </tr>
                     </table>
                 </td>
                 <td>
@@ -256,14 +269,7 @@
                                 <asp:CheckBox ID="ckbViewStockLog" Text="查看库存修改记录" runat="server" />
                             </td>
                         </tr>
-                        <tr>
-                            <td rowspan="1">
-                                在线发货
-                            </td>
-                            <td colspan="1" align="left">
-                                <asp:CheckBox ID="ckbSend" Text="在线发货" runat="server" />
-                            </td>
-                        </tr>
+                        
                     </table>
                 </td>
             </tr>
