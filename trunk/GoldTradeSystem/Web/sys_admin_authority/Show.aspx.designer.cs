@@ -221,6 +221,24 @@ namespace GoldTradeNaming.Web.sys_admin_authority {
         protected global::System.Web.UI.WebControls.CheckBox ckbCheckAddMoney;
         
         /// <summary>
+        /// ckbSend 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ckbSend;
+        
+        /// <summary>
+        /// ckbSendShow 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ckbSendShow;
+        
+        /// <summary>
         /// ckbViewFran 控件。
         /// </summary>
         /// <remarks>
@@ -345,15 +363,6 @@ namespace GoldTradeNaming.Web.sys_admin_authority {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox ckbViewStockLog;
-        
-        /// <summary>
-        /// ckbSend 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ckbSend;
         
         /// <summary>
         /// btnSave 控件。

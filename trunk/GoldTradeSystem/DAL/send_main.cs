@@ -492,6 +492,40 @@ namespace GoldTradeNaming.DAL
             return rtn;
         }
 
+
+        /// <summary>
+        /// 获得收货主表信息
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
+        public DataSet GetSendInfo(string strWhere)
+        {
+            string strSql = @"SELECT send_main.send_id, send_main.franchiser_order_id,
+
+
+franchiser_name=(select franchiser_info.franchiser_name from franchiser_info 
+     			where franchiser_info.franchiser_code = 
+			( select franchiser_order.franchiser_code 
+			from franchiser_order where franchiser_order.franchiser_order_id=send_main.franchiser_order_id)),
+send_main.send_time, 
+state=( case send_main.send_state when '0' then '未收货' 
+	 when '1' then '已收货' end),
+
+   send_main.send_amount_weight, franchiser_info.franchiser_code
+                            FROM franchiser_info INNER JOIN
+                                  franchiser_order ON 
+                                  franchiser_info.franchiser_code = franchiser_order.franchiser_code INNER JOIN
+                                  send_main ON 
+                                  franchiser_order.franchiser_order_id = send_main.franchiser_order_id
+                            ";
+
+            if (!string.IsNullOrEmpty(strWhere))
+                strSql += " Where " + strWhere;
+            string strSort = "order by send_id desc";
+            return DbHelperSQL.Query(strSql.ToString()  + strSort);
+        }
+
+
         #endregion
 
 
@@ -696,6 +730,11 @@ namespace GoldTradeNaming.DAL
 			return DbHelperSQL.Query(strSql.ToString());
 		}
 
+        /// <summary>
+        /// 获得收货主表信息（未确认）
+        /// </summary>
+        /// <param name="strWhere"></param>
+        /// <returns></returns>
         public DataSet GetListByFranID(string strWhere)
         {
             string strSql = @"SELECT send_main.send_id, send_main.franchiser_order_id, send_main.send_time, 

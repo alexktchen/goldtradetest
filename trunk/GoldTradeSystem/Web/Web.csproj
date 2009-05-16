@@ -422,12 +422,33 @@
     <Compile Include="send_desc\send_produc_show.aspx.designer.cs">
       <DependentUpon>send_produc_show.aspx</DependentUpon>
     </Compile>
+    <Compile Include="send_desc\ShowAdmin.aspx.cs">
+      <DependentUpon>ShowAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_desc\ShowAdmin.aspx.designer.cs">
+      <DependentUpon>ShowAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="send_main\myReceive.aspx.cs">
+      <DependentUpon>myReceive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_main\myReceive.aspx.designer.cs">
+      <DependentUpon>myReceive.aspx</DependentUpon>
+    </Compile>
     <Compile Include="send_main\send_cancel.aspx.cs">
       <DependentUpon>send_cancel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="send_main\send_cancel.aspx.designer.cs">
       <DependentUpon>send_cancel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="send_main\ShowAdmin.aspx.cs">
+      <DependentUpon>ShowAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_main\ShowAdmin.aspx.designer.cs">
+      <DependentUpon>ShowAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="stock_main\franchiserStockShow.aspx.cs">
       <DependentUpon>franchiserStockShow.aspx</DependentUpon>
@@ -756,7 +777,10 @@
     <Content Include="rl\skin\whyGreen\img.gif" />
     <Content Include="rl\WdatePicker.js" />
     <Content Include="send_desc\send_produc_show.aspx" />
+    <Content Include="send_desc\ShowAdmin.aspx" />
+    <Content Include="send_main\myReceive.aspx" />
     <Content Include="send_main\send_cancel.aspx" />
+    <Content Include="send_main\ShowAdmin.aspx" />
     <Content Include="stock_main\franchiserStockShow.aspx" />
     <Content Include="stock_main\receive.aspx" />
     <Content Include="stock_main\ShowNoEdit.aspx" />

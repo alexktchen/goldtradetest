@@ -103,6 +103,31 @@ function ShowFLT(i) {
                                     </table>
                                 </td>
                             </tr>
+                             <tr>
+                                <td style="padding-left: 20px"  height="28">
+                                    <img height="9" src="../image/bit06.gif" width="8" align="middle"/>
+                                    <a onclick="javascript:ShowFLT(9)" href="javascript:void(null)">发货管理</a>
+                                </td>
+                            </tr>
+                             <tr id="LM9" style="display: none">
+                                <td>
+                                    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+                                        <tr id="tr5" runat = "server">
+                                            <td style="padding-left: 40px" height="28">
+                                                <img height="7" src="../image/bit06.gif" width="8" align="middle"/>
+                                                <asp:HyperLink ID="HyperLink25"  NavigateUrl="~/send_main/ShowAdmin.aspx" runat="server">查看发货</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        
+                                        <tr id="tr6" runat="server">
+                                            <td style="padding-left: 40px" height="28">
+                                                <img height="7" src="../image/bit06.gif" width="8" align="middle">
+                                                <asp:HyperLink ID="HyperLink26" NavigateUrl="~~/send_main/Show.aspx"  runat="server">在线发货</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
                                <tr>
                                 <td style="padding-left: 20px"  height="28">
                                     <img height="9" src="../image/bit06.gif" width="8" align="middle">
