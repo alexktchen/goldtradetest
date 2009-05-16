@@ -8,8 +8,10 @@
             <td style="width: 24%;">
                 &nbsp;
             </td>
-            <td align="right">
-                &nbsp;</td>
+            <td align="center">
+                                <asp:Label ID="lblfranchiser_name" runat="server" Text="经销商名称："></asp:Label>
+                                <asp:TextBox ID="txtfranchiser_name" runat="server" ReadOnly="True"></asp:TextBox>
+                            </td>
             <td style="width: 20%;">
                 &nbsp;
             </td>

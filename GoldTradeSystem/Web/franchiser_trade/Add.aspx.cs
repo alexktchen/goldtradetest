@@ -702,7 +702,11 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
             // fran_money = balance_money - stockValue - unReceiveValue;//包括担保款
             fran_money = balance_money;
-            money_use = fran_money - assure_money;          //不包括担保款
+
+            //update by tianjie 0516:波儿公说要减去库存中银的价值
+
+            GoldTradeNaming.BLL.CommBaseBLL commBLL = new GoldTradeNaming.BLL.CommBaseBLL();
+            money_use = fran_money - assure_money - commBLL.GetSilverStockValue(fran_code);         //不包括担保款
         }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace GoldTradeNaming.Web.franchiser_info
                 StringBuilder sb = new StringBuilder();
 
                 sb.Append(" franchiser_code='" + Request.Params["id"].ToString() + "'");
-
+                this.txtfranchiser_name.Text = Request.Params["name"].ToString();
                 GoldTradeNaming.BLL.franchiser_order bll = new GoldTradeNaming.BLL.franchiser_order();
                 DataSet ds = bll.GetList(sb.ToString());
                 Session["datasrc"] = ds;

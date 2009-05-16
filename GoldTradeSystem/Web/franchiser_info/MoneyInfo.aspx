@@ -17,7 +17,7 @@
             </td>
             <td align="right" style="width:80%">
                 <fieldset>
-            <legend>查询</legend>
+            <legend>入帐信息</legend>
             <div>
             
                 <table style="width:100%;">
