@@ -28,11 +28,15 @@ namespace GoldTradeNaming.Web.franchiser_order
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
+            Session.Remove("OrderMain");
+            Session.Remove("orderdesclist");
             Response.Redirect("~/franchiser_order/Add.aspx?prodtype=0");
         }
 
         protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
         {
+            Session.Remove("OrderMain");
+            Session.Remove("orderdesclist");
             Response.Redirect("~/franchiser_order/Add.aspx?prodtype=1");
         }
     }
