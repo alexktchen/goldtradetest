@@ -214,7 +214,7 @@ namespace GoldTradeNaming.DAL
 
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("update franchiser_info set ");
+            strSql.Append("update franchiser_info with(TABLOCKX) set ");
             if (tag == 0)
             {
                 strSql.Append("franchiser_balance_money= franchiser_balance_money +" + franchiser_balance_money);

@@ -60,7 +60,7 @@ namespace GoldTradeNaming.Web.franchiser_order
             DataSet ds = bll.GetList(sb.ToString());
 
             if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0) lblMsg.Text = "暂无数据。";
-            
+            else lblMsg.Text = "";
                 Session["datasrc"] = ds;
                 this.GridView1.DataSource = Session["datasrc"] as DataSet;
                 this.GridView1.DataBind();
@@ -138,6 +138,7 @@ namespace GoldTradeNaming.Web.franchiser_order
             GoldTradeNaming.BLL.franchiser_order bll = new GoldTradeNaming.BLL.franchiser_order();
             DataSet ds = bll.GetList(sb.ToString());
             if (ds == null || ds.Tables.Count == 0 || ds.Tables[0].Rows.Count == 0) lblMsg.Text = "查无数据。";
+            else lblMsg.Text = "";
            
                 Session["datasrc"] = ds;
                 this.GridView1.DataSource = Session["datasrc"] as DataSet;

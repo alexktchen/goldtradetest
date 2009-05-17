@@ -141,20 +141,23 @@ namespace GoldTradeNaming.Web.send_desc
 
                     senddescList.Add(sdone);
                 }
-
-                GoldTradeNaming.BLL.send_main bll = new GoldTradeNaming.BLL.send_main();
-                if (bll.SaveSendInfo(sendmain, senddescList))
-                {
-                    MessageBox.ShowAndRedirect(this, "发货成功！请等待经销商确认...", "../send_main/Show.aspx");
-                }
+                if (sendmain.send_amount_weight <= 0) MessageBox.Show(this, "发货总重量为0！");
                 else
                 {
-                    MessageBox.Show(this, "发货失败，请重新操作！");
+                    GoldTradeNaming.BLL.send_main bll = new GoldTradeNaming.BLL.send_main();
+                    if (bll.SaveSendInfo(sendmain, senddescList))
+                    {
+                        MessageBox.ShowAndRedirect(this, "发货成功！请等待经销商确认...", "../send_main/Show.aspx");
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "发货失败，请重新操作！");
+                    }
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show(this, "保存时发生错误，请联系管理员！");
+                MessageBox.Show(this, "保存时发生错误:"+ex.Message);
             }
         }
 
