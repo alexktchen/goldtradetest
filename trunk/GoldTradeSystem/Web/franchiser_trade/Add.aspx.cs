@@ -551,8 +551,8 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 string fran_code = Session["fran"].ToString().Trim();
 
                 GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
-
-                if (money_use > 0 && money_use >= trInfo.TradeTotalMoney)
+                GoldTradeNaming.BLL.CommBaseBLL commBLL = new GoldTradeNaming.BLL.CommBaseBLL();
+                if (money_use + commBLL.GetSilverStockValue(fran_code) > 0 && money_use + commBLL.GetSilverStockValue(fran_code) >= trInfo.TradeTotalMoney)
                 {
                     if (bll.AddTrandeInfo(proInfos, trInfo, hfType.Value))
                     {
