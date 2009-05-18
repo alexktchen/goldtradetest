@@ -12,7 +12,8 @@ namespace GoldTradeNaming.DAL
 	public class send_main
 	{
         #region add by tianjie
-        
+
+        private static readonly object _sysn = new object();
         /// <summary>
         /// 得到订单信息
         /// </summary>
@@ -81,51 +82,51 @@ namespace GoldTradeNaming.DAL
         /// <returns></returns>
         public bool SaveSendInfo(GoldTradeNaming.Model.send_main sm, List<GoldTradeNaming.Model.send_desc> sdlst)
         {
-            using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+            lock (_sysn)
             {
-                conn.Open();
-                using (SqlTransaction trans = conn.BeginTransaction())
+                using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
                 {
-                    try
+                    conn.Open();
+                    using (SqlTransaction trans = conn.BeginTransaction())
                     {
-                        int result = 0;
+                        try
+                        {
+                            int result = 0;
 
-                        SqlCommand cmd = new SqlCommand();
+                            SqlCommand cmd = new SqlCommand();
 
-                        decimal OrderAmount = GetOrderAmount(sm.franchiser_order_id);
-                        decimal SendAmount = GetSendAmount(sm.franchiser_order_id);
-                        string newOrderState = SendAmount + sm.send_amount_weight == OrderAmount ? "2" : "1";
+                            decimal OrderAmount = GetOrderAmount(sm.franchiser_order_id);
+                            decimal SendAmount = GetSendAmount(sm.franchiser_order_id);
+                            string newOrderState = SendAmount + sm.send_amount_weight == OrderAmount ? "2" : "1";
 
-                        if (SendAmount + sm.send_amount_weight > OrderAmount) throw new Exception("重复发货！");
-
-
-                        //更改订单状态
-                        StringBuilder updOrderStateSql = new StringBuilder();
-                        updOrderStateSql.Append("update franchiser_order ");
-                        updOrderStateSql.Append(" set franchiser_order_state = @new_order_state ");
-                        updOrderStateSql.Append(" where franchiser_order_id = @franchiser_order_id");
-                        SqlParameter[] parameters0 = {	
+                            if (SendAmount + sm.send_amount_weight > OrderAmount) throw new Exception("重复发货！");
+                            
+                            //更改订单状态
+                            StringBuilder updOrderStateSql = new StringBuilder();
+                            updOrderStateSql.Append("update franchiser_order ");
+                            updOrderStateSql.Append(" set franchiser_order_state = @new_order_state ");
+                            updOrderStateSql.Append(" where franchiser_order_id = @franchiser_order_id");
+                            SqlParameter[] parameters0 = {	
                             new SqlParameter("@new_order_state",SqlDbType.NVarChar,50),
 		                    new SqlParameter("@franchiser_order_id", SqlDbType.Int,4)
                             };
-                        parameters0[0].Value = newOrderState;
-                        parameters0[1].Value = sm.franchiser_order_id;
-                        cmd.CommandText = updOrderStateSql.ToString();
-                        cmd.Transaction = trans;
-                        cmd.Connection = conn;
-                        cmd.Parameters.AddRange(parameters0);
-                        result += cmd.ExecuteNonQuery();
-
-
-                        //保存发货主表信息
-                        cmd = new SqlCommand();
-                        int nextsendid = DbHelperSQL.GetMaxID("send_id", "send_main");
-                        StringBuilder sb = new StringBuilder();
-                        sb.Append("insert into send_main(");
-                        sb.Append("franchiser_order_id,send_time,send_amount_weight,send_state,ins_user,upd_user,canceled_reason,send_id)");
-                        sb.Append(" values (");
-                        sb.Append("@franchiser_order_id,getdate(),@send_amount_weight,@send_state,@ins_user,@upd_user,@canceled_reason,@send_id)");
-                        SqlParameter[] parameters = {	
+                            parameters0[0].Value = newOrderState;
+                            parameters0[1].Value = sm.franchiser_order_id;
+                            cmd.CommandText = updOrderStateSql.ToString();
+                            cmd.Transaction = trans;
+                            cmd.Connection = conn;
+                            cmd.Parameters.AddRange(parameters0);
+                            result += cmd.ExecuteNonQuery();
+                            
+                            //保存发货主表信息
+                            cmd = new SqlCommand();
+                            int nextsendid = DbHelperSQL.GetMaxID("send_id", "send_main");
+                            StringBuilder sb = new StringBuilder();
+                            sb.Append("insert into send_main(");
+                            sb.Append("franchiser_order_id,send_time,send_amount_weight,send_state,ins_user,upd_user,canceled_reason,send_id)");
+                            sb.Append(" values (");
+                            sb.Append("@franchiser_order_id,getdate(),@send_amount_weight,@send_state,@ins_user,@upd_user,@canceled_reason,@send_id)");
+                            SqlParameter[] parameters = {	
                             new SqlParameter("@franchiser_order_id",SqlDbType.Int,4),
 		                    new SqlParameter("@send_amount_weight", SqlDbType.Decimal,4),
 		                    new SqlParameter("@send_state", SqlDbType.NVarChar,50),
@@ -134,52 +135,53 @@ namespace GoldTradeNaming.DAL
 		                    new SqlParameter("@canceled_reason", SqlDbType.NVarChar,100),
                             new SqlParameter("@send_id",SqlDbType.Int,4)
                             };
-                        parameters[0].Value = sm.franchiser_order_id;
-                        parameters[1].Value = sm.send_amount_weight;
-                        parameters[2].Value = sm.send_state;
-                        parameters[3].Value = sm.ins_user;
-                        parameters[4].Value = sm.upd_user;
-                        parameters[5].Value = sm.canceled_reason;
-                        parameters[6].Value = nextsendid;
-                        cmd.CommandText = sb.ToString();
-                        cmd.Transaction = trans;
-                        cmd.Connection = conn;
-                        cmd.Parameters.AddRange(parameters);
-                        result += cmd.ExecuteNonQuery();
+                            parameters[0].Value = sm.franchiser_order_id;
+                            parameters[1].Value = sm.send_amount_weight;
+                            parameters[2].Value = sm.send_state;
+                            parameters[3].Value = sm.ins_user;
+                            parameters[4].Value = sm.upd_user;
+                            parameters[5].Value = sm.canceled_reason;
+                            parameters[6].Value = nextsendid;
+                            cmd.CommandText = sb.ToString();
+                            cmd.Transaction = trans;
+                            cmd.Connection = conn;
+                            cmd.Parameters.AddRange(parameters);
+                            result += cmd.ExecuteNonQuery();
 
-                        //保存发货细表信息
-                        foreach (GoldTradeNaming.Model.send_desc sd in sdlst)
-                        {
-                            //if()
-                           
-                            StringBuilder sb1 = new StringBuilder();
-                            sb1.Append("select product_unreceived from franchiser_order_desc  ");
-                            sb1.Append(" where franchiser_order_id=@franchiser_order_id ");
-                            sb1.Append(" and product_id=@product_id and product_spec_id=@product_spec_id");
-                            SqlParameter[] parameters_sb1 = {					     
+                            //保存发货细表信息
+                            foreach (GoldTradeNaming.Model.send_desc sd in sdlst)
+                            {
+                                //if()
+
+                                StringBuilder sb1 = new StringBuilder();
+                                sb1.Append("select product_unreceived from franchiser_order_desc  ");
+                                sb1.Append(" where franchiser_order_id=@franchiser_order_id ");
+                                sb1.Append(" and product_id=@product_id and product_spec_id=@product_spec_id");
+                                SqlParameter[] parameters_sb1 = {					     
 				                new SqlParameter("@franchiser_order_id", SqlDbType.Int,4),
 				                new SqlParameter("@product_id", SqlDbType.Int,4),
 				                new SqlParameter("@product_spec_id", SqlDbType.Decimal,4)
 				               };
-                            parameters_sb1[0].Value = sm.franchiser_order_id;
-                            parameters_sb1[1].Value = sd.product_id;
-                            parameters_sb1[2].Value = sd.product_spec_id;
-                           
-                            DataSet ds = DbHelperSQL.Query(sb1.ToString(),parameters_sb1);
-                            if(ds!=null&&ds.Tables.Count>0&&ds.Tables[0].Rows.Count>0)
-                            {
-                                decimal unreceive = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+                                parameters_sb1[0].Value = sm.franchiser_order_id;
+                                parameters_sb1[1].Value = sd.product_id;
+                                parameters_sb1[2].Value = sd.product_spec_id;
+                                cmd = new SqlCommand();
+                                cmd.CommandText = sb1.ToString();
+                                cmd.Transaction = trans;
+                                cmd.Connection = conn;
+                                cmd.Parameters.AddRange(parameters_sb1);
+                                object o = cmd.ExecuteScalar();
+                                decimal unreceive = Convert.ToDecimal(o);
                                 if (unreceive < sd.send_amount_weight) throw new Exception("重复发货！");
-                            }
+                                
+                                cmd = new SqlCommand();
+                                StringBuilder strSql = new StringBuilder();
+                                strSql.Append("insert into send_desc(");
+                                strSql.Append("product_id,product_spec_id,send_amount_weight,ins_user,upd_user,send_id)");
+                                strSql.Append(" values (");
+                                strSql.Append("@product_id,@product_spec_id,@send_amount_weight,@ins_user,@upd_user,@send_id)");
 
-                            cmd = new SqlCommand();
-                            StringBuilder strSql = new StringBuilder();
-                            strSql.Append("insert into send_desc(");
-                            strSql.Append("product_id,product_spec_id,send_amount_weight,ins_user,upd_user,send_id)");
-                            strSql.Append(" values (");
-                            strSql.Append("@product_id,@product_spec_id,@send_amount_weight,@ins_user,@upd_user,@send_id)");
-
-                            SqlParameter[] parameters2 = {					               
+                                SqlParameter[] parameters2 = {					               
 				                new SqlParameter("@product_id", SqlDbType.Int,4),
 				                new SqlParameter("@product_spec_id", SqlDbType.Decimal,4),
 				                new SqlParameter("@send_amount_weight", SqlDbType.Decimal,4),
@@ -187,56 +189,56 @@ namespace GoldTradeNaming.DAL
 				                new SqlParameter("@upd_user", SqlDbType.NVarChar,50),
                                 new SqlParameter("@send_id",SqlDbType.Int,4)
 				               };
-                            parameters2[0].Value = sd.product_id;
-                            parameters2[1].Value = sd.product_spec_id;
-                            parameters2[2].Value = sd.send_amount_weight;
-                            parameters2[3].Value = sd.ins_user;
-                            parameters2[4].Value = sd.upd_user;
-                            parameters2[5].Value = nextsendid;
-                            cmd.Parameters.AddRange(parameters2);
-                            cmd.CommandText = strSql.ToString();
-                            cmd.Transaction = trans;
-                            cmd.Connection = conn;
-                            result += cmd.ExecuteNonQuery();
+                                parameters2[0].Value = sd.product_id;
+                                parameters2[1].Value = sd.product_spec_id;
+                                parameters2[2].Value = sd.send_amount_weight;
+                                parameters2[3].Value = sd.ins_user;
+                                parameters2[4].Value = sd.upd_user;
+                                parameters2[5].Value = nextsendid;
+                                cmd.Parameters.AddRange(parameters2);
+                                cmd.CommandText = strSql.ToString();
+                                cmd.Transaction = trans;
+                                cmd.Connection = conn;
+                                result += cmd.ExecuteNonQuery();
 
 
-                            //更改订单详细
-                            cmd = new SqlCommand();
-                            StringBuilder strSqlUpdOrderDesc = new StringBuilder();
-                            strSqlUpdOrderDesc.Append("update franchiser_order_desc ");
-                            strSqlUpdOrderDesc.Append(" set product_received = product_received + @this_receive,product_unreceived = product_unreceived -  @this_receive");
-                            strSqlUpdOrderDesc.Append(" where franchiser_order_id=@franchiser_order_id ");
-                            strSqlUpdOrderDesc.Append(" and product_id=@product_id and product_spec_id=@product_spec_id");
+                                //更改订单详细
+                                cmd = new SqlCommand();
+                                StringBuilder strSqlUpdOrderDesc = new StringBuilder();
+                                strSqlUpdOrderDesc.Append("update franchiser_order_desc ");
+                                strSqlUpdOrderDesc.Append(" set product_received = product_received + @this_receive,product_unreceived = product_unreceived -  @this_receive");
+                                strSqlUpdOrderDesc.Append(" where franchiser_order_id=@franchiser_order_id ");
+                                strSqlUpdOrderDesc.Append(" and product_id=@product_id and product_spec_id=@product_spec_id");
 
-                            SqlParameter[] parameters3 = {					               
+                                SqlParameter[] parameters3 = {					               
 				                new SqlParameter("@this_receive", SqlDbType.Decimal,4),
 				                new SqlParameter("@franchiser_order_id", SqlDbType.Int,4),
 				                new SqlParameter("@product_id", SqlDbType.Int,4),
 				                new SqlParameter("@product_spec_id", SqlDbType.Decimal,4)
 				               };
-                            parameters3[0].Value = sd.send_amount_weight;
-                            parameters3[1].Value = sm.franchiser_order_id;
-                            parameters3[2].Value = sd.product_id;
-                            parameters3[3].Value = sd.product_spec_id;
-                            cmd.CommandText = strSqlUpdOrderDesc.ToString();
-                            cmd.Parameters.AddRange(parameters3);
-                            cmd.Transaction = trans;
-                            cmd.Connection = conn;
-                            result += cmd.ExecuteNonQuery();
+                                parameters3[0].Value = sd.send_amount_weight;
+                                parameters3[1].Value = sm.franchiser_order_id;
+                                parameters3[2].Value = sd.product_id;
+                                parameters3[3].Value = sd.product_spec_id;
+                                cmd.CommandText = strSqlUpdOrderDesc.ToString();
+                                cmd.Parameters.AddRange(parameters3);
+                                cmd.Transaction = trans;
+                                cmd.Connection = conn;
+                                result += cmd.ExecuteNonQuery();
+                            }
+                            trans.Commit();
+                            return true;
                         }
-                        trans.Commit();
-                        return true;
-                    }
-                    catch(Exception ex)
-                    {
-                        trans.Rollback();
-                        throw ex;
+                        catch (Exception ex)
+                        {
+                            trans.Rollback();
+                            throw ex;
+                        }
                     }
                 }
             }
         }
-
-
+        
         /// <summary>
         /// 取消发货
         /// </summary>
@@ -361,95 +363,98 @@ namespace GoldTradeNaming.DAL
              *             */
             #endregion
 
-            //decimal OrderAmount = GetOrderAmount(OrderId);
-            //decimal SendAmount = GetSendAmount(OrderId);
-            DataTable tblSendDesc = GetSendDesc(SendId);
-            //string newOrderState = SendAmount >= OrderAmount ? "2" : "1";
-
-            using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+            lock (_sysn)
             {
-                conn.Open();
-                using (SqlTransaction trans = conn.BeginTransaction())
-                {
-                    int result = 0;
-                    SqlCommand cmd = new SqlCommand();
-                    try
-                    {
-                        ////更改订单状态
-                        // StringBuilder updOrderStateSql = new StringBuilder();
-                        // updOrderStateSql.Append("update franchiser_order ");
-                        // updOrderStateSql.Append(" set franchiser_order_state = @new_order_state ");
-                        // updOrderStateSql.Append(" where franchiser_order_id = @franchiser_order_id");
-                        // SqlParameter[] parameters = {	
-                        //    new SqlParameter("@new_order_state",SqlDbType.NVarChar,50),
-                        //    new SqlParameter("@franchiser_order_id", SqlDbType.Int,4)
-                        //    };
-                        // parameters[0].Value = newOrderState;
-                        // parameters[1].Value = OrderId;
-                        // cmd.CommandText = updOrderStateSql.ToString();
-                        //cmd.Transaction = trans;
-                        //cmd.Connection = conn;
-                        //cmd.Parameters.AddRange(parameters);
-                        //result += cmd.ExecuteNonQuery();
+                //decimal OrderAmount = GetOrderAmount(OrderId);
+                //decimal SendAmount = GetSendAmount(OrderId);
+                DataTable tblSendDesc = GetSendDesc(SendId);
+                //string newOrderState = SendAmount >= OrderAmount ? "2" : "1";
 
-                        //更改发货状态
-                        StringBuilder updSendStateSql = new StringBuilder();
-                        updSendStateSql.Append("update send_main ");
-                        updSendStateSql.Append(" set send_state='1' ");
-                        updSendStateSql.Append(" where send_id = @send_id");
-                        SqlParameter[] parameters2 = {	
+                using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+                {
+                    conn.Open();
+                    using (SqlTransaction trans = conn.BeginTransaction())
+                    {
+                        int result = 0;
+                        SqlCommand cmd = new SqlCommand();
+                        try
+                        {
+                            ////更改订单状态
+                            // StringBuilder updOrderStateSql = new StringBuilder();
+                            // updOrderStateSql.Append("update franchiser_order ");
+                            // updOrderStateSql.Append(" set franchiser_order_state = @new_order_state ");
+                            // updOrderStateSql.Append(" where franchiser_order_id = @franchiser_order_id");
+                            // SqlParameter[] parameters = {	
+                            //    new SqlParameter("@new_order_state",SqlDbType.NVarChar,50),
+                            //    new SqlParameter("@franchiser_order_id", SqlDbType.Int,4)
+                            //    };
+                            // parameters[0].Value = newOrderState;
+                            // parameters[1].Value = OrderId;
+                            // cmd.CommandText = updOrderStateSql.ToString();
+                            //cmd.Transaction = trans;
+                            //cmd.Connection = conn;
+                            //cmd.Parameters.AddRange(parameters);
+                            //result += cmd.ExecuteNonQuery();
+
+                            //更改发货状态
+                            StringBuilder updSendStateSql = new StringBuilder();
+                            updSendStateSql.Append("update send_main ");
+                            updSendStateSql.Append(" set send_state='1' ");
+                            updSendStateSql.Append(" where send_id = @send_id");
+                            SqlParameter[] parameters2 = {	
 		                    new SqlParameter("@send_id", SqlDbType.Int,4)
                             };
-                        parameters2[0].Value = SendId;
-                        cmd = new SqlCommand();
-                        cmd.CommandText = updSendStateSql.ToString();
-                        cmd.Transaction = trans;
-                        cmd.Connection = conn;
-                        cmd.Parameters.AddRange(parameters2);
-                        result += cmd.ExecuteNonQuery();
-
-                        foreach (DataRow dr in tblSendDesc.Rows)
-                        {                           
-                            //更改库存信息
+                            parameters2[0].Value = SendId;
                             cmd = new SqlCommand();
-                            StringBuilder strSqlUpdStock = new StringBuilder();
-                            strSqlUpdStock.Append(@"if not exists (select * from stock_main where franchiser_code = @franchiser_code 
+                            cmd.CommandText = updSendStateSql.ToString();
+                            cmd.Transaction = trans;
+                            cmd.Connection = conn;
+                            cmd.Parameters.AddRange(parameters2);
+                            result += cmd.ExecuteNonQuery();
+
+                            foreach (DataRow dr in tblSendDesc.Rows)
+                            {
+                                //更改库存信息
+                                cmd = new SqlCommand();
+                                StringBuilder strSqlUpdStock = new StringBuilder();
+                                strSqlUpdStock.Append(@"if not exists (select * from stock_main where franchiser_code = @franchiser_code 
 		                                            and product_id=@product_id and product_spec_id=@product_spec_id)");
-                            strSqlUpdStock.Append(" begin ");
-                            strSqlUpdStock.Append(@"insert into stock_main (franchiser_code,product_id,product_spec_id,stock_total,stock_left,ins_user,upd_user)
+                                strSqlUpdStock.Append(" begin ");
+                                strSqlUpdStock.Append(@"insert into stock_main (franchiser_code,product_id,product_spec_id,stock_total,stock_left,ins_user,upd_user)
                                                     values (@franchiser_code,@product_id,@product_spec_id,@this_send,@this_send,@insuser,@insuser)");
-                            strSqlUpdStock.Append(" end ");
-                            strSqlUpdStock.Append(" else begin ");
-                            strSqlUpdStock.Append(@" update stock_main set stock_total = stock_total + @this_send,stock_left = stock_left+@this_send
+                                strSqlUpdStock.Append(" end ");
+                                strSqlUpdStock.Append(" else begin ");
+                                strSqlUpdStock.Append(@" update stock_main set stock_total = stock_total + @this_send,stock_left = stock_left+@this_send
                                                     where franchiser_code = @franchiser_code and product_id=@product_id and product_spec_id=@product_spec_id ");
-                            strSqlUpdStock.Append(" end ");
+                                strSqlUpdStock.Append(" end ");
 
 
-                            SqlParameter[] parameters4 = {					               
+                                SqlParameter[] parameters4 = {					               
 				                new SqlParameter("@product_id", SqlDbType.Int,4),
 				                new SqlParameter("@product_spec_id", SqlDbType.Decimal,4),
 				                new SqlParameter("@franchiser_code", SqlDbType.Int,4),
 				                new SqlParameter("@this_send", SqlDbType.Decimal,4),
                                 new SqlParameter("@insuser",SqlDbType.NVarChar,50)
 				               };
-                            parameters4[0].Value = Convert.ToInt32(dr[1]);
-                            parameters4[1].Value = Convert.ToDecimal(dr[2]);
-                            parameters4[2].Value = franId;
-                            parameters4[3].Value = Convert.ToDecimal(dr[3].ToString());
-                            parameters4[4].Value = franId;
-                            cmd.CommandText = strSqlUpdStock.ToString();
-                            cmd.Parameters.AddRange(parameters4);
-                            cmd.Transaction = trans;
-                            cmd.Connection = conn;
-                            result += cmd.ExecuteNonQuery();
+                                parameters4[0].Value = Convert.ToInt32(dr[1]);
+                                parameters4[1].Value = Convert.ToDecimal(dr[2]);
+                                parameters4[2].Value = franId;
+                                parameters4[3].Value = Convert.ToDecimal(dr[3].ToString());
+                                parameters4[4].Value = franId;
+                                cmd.CommandText = strSqlUpdStock.ToString();
+                                cmd.Parameters.AddRange(parameters4);
+                                cmd.Transaction = trans;
+                                cmd.Connection = conn;
+                                result += cmd.ExecuteNonQuery();
+                            }
+                            trans.Commit();
+                            return true;
                         }
-                        trans.Commit();
-                        return true;
-                    }
-                    catch
-                    {
-                        trans.Rollback();
-                        return false;
+                        catch
+                        {
+                            trans.Rollback();
+                            return false;
+                        }
                     }
                 }
             }
@@ -553,16 +558,11 @@ state=( case send_main.send_state when '0' then '未收货'
 
 
         #endregion
-
-
-
-
-
-
-
-		public send_main()
+                		
+        public send_main()
 		{}
-		#region  成员方法
+		
+        #region  成员方法
 
 		/// <summary>
 		/// 得到最大ID

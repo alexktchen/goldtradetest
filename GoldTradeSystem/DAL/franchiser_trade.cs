@@ -12,11 +12,12 @@ namespace GoldTradeNaming.DAL
     /// </summary>
     public class franchiser_trade
     {
+        private static readonly object _sync = new object();
         public franchiser_trade()
         {
         }
         #region  成员方法
-
+        
         /// <summary>
         /// 查询某天交易数 by yuxiaowei for TJ
         /// </summary>
@@ -145,30 +146,32 @@ namespace GoldTradeNaming.DAL
         /// <returns></returns>
         public bool AddTrandeInfo(List<ProductInfo> prInfos, TradeInfo trInfo, string iType)
         {
-            if (iType == "0")
+            lock (_sync)
             {
-                #region
-
-                using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+                if (iType == "0")
                 {
-                    conn.Open();
-                    using (SqlTransaction trans = conn.BeginTransaction())
+                    #region
+
+                    using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
                     {
-                        SqlCommand cmd = new SqlCommand();
-                        try
+                        conn.Open();
+                        using (SqlTransaction trans = conn.BeginTransaction())
                         {
-                            int maxID = CommBaseDAL.GetNextTradeId();
+                            SqlCommand cmd = new SqlCommand();
+                            try
+                            {
+                                int maxID = CommBaseDAL.GetNextTradeId();
 
-                            int result = 0;
-                            StringBuilder strSql = new StringBuilder();
-                            strSql.Append("insert into franchiser_trade(");
-                            strSql.Append("trade_id,franchiser_code,trade_time,realtime_base_price,trade_total_weight,trade_total_money,trade_state,ins_user,upd_user)");
-                            strSql.Append(" values (");
-                            strSql.Append(" @trade_id,@franchiser_code,getdate(),@realtime_base_price,@trade_total_weight,@trade_total_money,@trade_state,@ins_user,@upd_user) ");
+                                int result = 0;
+                                StringBuilder strSql = new StringBuilder();
+                                strSql.Append("insert into franchiser_trade(");
+                                strSql.Append("trade_id,franchiser_code,trade_time,realtime_base_price,trade_total_weight,trade_total_money,trade_state,ins_user,upd_user)");
+                                strSql.Append(" values (");
+                                strSql.Append(" @trade_id,@franchiser_code,getdate(),@realtime_base_price,@trade_total_weight,@trade_total_money,@trade_state,@ins_user,@upd_user) ");
 
-                            strSql.Append(" update franchiser_info set franchiser_balance_money=franchiser_balance_money-@trade_total_money,upd_date=getdate(),upd_user=@upd_user where franchiser_code=@franchiser_code");
+                                strSql.Append(" update franchiser_info set franchiser_balance_money=franchiser_balance_money-@trade_total_money,upd_date=getdate(),upd_user=@upd_user where franchiser_code=@franchiser_code");
 
-                            SqlParameter[] parameters = { 
+                                SqlParameter[] parameters = { 
                             new SqlParameter("@trade_id", SqlDbType.Int,4),
                             new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),             
                             new SqlParameter("@realtime_base_price", SqlDbType.Money,50),                        
@@ -180,36 +183,61 @@ namespace GoldTradeNaming.DAL
                             new SqlParameter("@upd_user", SqlDbType.NVarChar,50),
                           //  new SqlParameter("@upd_user", SqlDbType.NVarChar,50)
                                                     };
-                            parameters[0].Value = maxID;
-                            parameters[1].Value = trInfo.FranchiserCode;
-                            parameters[2].Value = trInfo.RealTimePrice;
-                            //parameters[3].Value = trInfo.GoldTradePrice;
-                            // parameters[4].Value = trInfo.TradeAddPrice;
-                            parameters[3].Value = trInfo.TradeTotalWeight;
-                            parameters[4].Value = trInfo.TradeTotalMoney;
-                            parameters[5].Value = trInfo.TradeState;
-                            parameters[6].Value = trInfo.InsUser;
-                            parameters[7].Value = trInfo.UpdUser;
+                                parameters[0].Value = maxID;
+                                parameters[1].Value = trInfo.FranchiserCode;
+                                parameters[2].Value = trInfo.RealTimePrice;
+                                //parameters[3].Value = trInfo.GoldTradePrice;
+                                // parameters[4].Value = trInfo.TradeAddPrice;
+                                parameters[3].Value = trInfo.TradeTotalWeight;
+                                parameters[4].Value = trInfo.TradeTotalMoney;
+                                parameters[5].Value = trInfo.TradeState;
+                                parameters[6].Value = trInfo.InsUser;
+                                parameters[7].Value = trInfo.UpdUser;
 
-                            cmd.CommandText = strSql.ToString();
-                            cmd.Transaction = trans;
-                            cmd.Connection = conn;
-                            cmd.Parameters.AddRange(parameters);
-                            result += cmd.ExecuteNonQuery();
+                                cmd.CommandText = strSql.ToString();
+                                cmd.Transaction = trans;
+                                cmd.Connection = conn;
+                                cmd.Parameters.AddRange(parameters);
+                                result += cmd.ExecuteNonQuery();
 
-                            foreach (ProductInfo prInfo in prInfos)
-                            {
-                                cmd = new SqlCommand();
-                                strSql = new StringBuilder();
-                                strSql.Append("insert into franchiser_trade_desc(");
-                                strSql.Append("trade_id,product_id,product_spec_id,realtime_base_price,trade_add_price,gold_trade_price,trade_amount,trade_weight,trade_money,ins_user,upd_user)");
-                                strSql.Append(" values (");
-                                strSql.Append("@trade_id2,@product_id,@product_spec_id,@realtime_base_price,@trade_add_price,@gold_trade_price,@trade_amount,@trade_weight,@trade_money,@ins_user2,@upd_user2); ");
+                                foreach (ProductInfo prInfo in prInfos)
+                                {
 
-                                strSql.Append(" update stock_main set stock_left=@stockleft,upd_user=@upd_user2,upd_date=getdate() ");
-                                strSql.Append(" where franchiser_code=@franchiser_code2 and product_id=@product_id and product_spec_id=@product_spec_id; ");
+                                    StringBuilder sb1 = new StringBuilder();
+                                    sb1.Append("select stock_left from stock_main  ");
+                                    sb1.Append(" where franchiser_code=@francode2 ");
+                                    sb1.Append(" and product_id=@product_id and product_spec_id=@product_spec_id");
+                                    SqlParameter[] parameters_sb1 = {					     
+				                new SqlParameter("@francode2", SqlDbType.Int,4),
+				                new SqlParameter("@product_id", SqlDbType.Int,4),
+				                new SqlParameter("@product_spec_id", SqlDbType.Decimal,4)
+				               };
+                                    parameters_sb1[0].Value = trInfo.FranchiserCode;
+                                    parameters_sb1[1].Value = prInfo.ProductID;
+                                    parameters_sb1[2].Value = prInfo.ProductSpecID;
+                                    cmd = new SqlCommand();
+                                    cmd.CommandText = sb1.ToString();
+                                    cmd.Transaction = trans;
+                                    cmd.Connection = conn;
+                                    cmd.Parameters.AddRange(parameters_sb1);
 
-                                SqlParameter[] parameters2 = {                
+
+                                    object o = cmd.ExecuteScalar();
+                                    decimal stockleft = Convert.ToDecimal(o);
+                                    if (stockleft < prInfo.TradeWeight) throw new Exception("重复交易！");
+
+
+                                    cmd = new SqlCommand();
+                                    strSql = new StringBuilder();
+                                    strSql.Append("insert into franchiser_trade_desc(");
+                                    strSql.Append("trade_id,product_id,product_spec_id,realtime_base_price,trade_add_price,gold_trade_price,trade_amount,trade_weight,trade_money,ins_user,upd_user)");
+                                    strSql.Append(" values (");
+                                    strSql.Append("@trade_id2,@product_id,@product_spec_id,@realtime_base_price,@trade_add_price,@gold_trade_price,@trade_amount,@trade_weight,@trade_money,@ins_user2,@upd_user2); ");
+
+                                    strSql.Append(" update stock_main set stock_left=@stockleft,upd_user=@upd_user2,upd_date=getdate() ");
+                                    strSql.Append(" where franchiser_code=@franchiser_code2 and product_id=@product_id and product_spec_id=@product_spec_id; ");
+
+                                    SqlParameter[] parameters2 = {                
                                     new SqlParameter("@trade_id2", SqlDbType.Int,4),
                                     new SqlParameter("@product_id", SqlDbType.Int,4),
                                     new SqlParameter("@product_spec_id", SqlDbType.Money,8),
@@ -226,66 +254,66 @@ namespace GoldTradeNaming.DAL
                                     new SqlParameter("@stockleft", SqlDbType.Money,8),
                                     new SqlParameter("@franchiser_code2", SqlDbType.NVarChar,50)
                                                           };
-                                parameters2[0].Value = maxID;
-                                parameters2[1].Value = prInfo.ProductID;
-                                parameters2[2].Value = prInfo.ProductSpecID;
+                                    parameters2[0].Value = maxID;
+                                    parameters2[1].Value = prInfo.ProductID;
+                                    parameters2[2].Value = prInfo.ProductSpecID;
 
-                                parameters2[3].Value = prInfo.RealTimeBasePrice;
-                                parameters2[4].Value = prInfo.TradeAddPrice;
-                                parameters2[5].Value = prInfo.GoldTradePrice;
+                                    parameters2[3].Value = prInfo.RealTimeBasePrice;
+                                    parameters2[4].Value = prInfo.TradeAddPrice;
+                                    parameters2[5].Value = prInfo.GoldTradePrice;
 
-                                parameters2[6].Value = prInfo.TradeAmount;
-                                parameters2[7].Value = prInfo.TradeWeight;
-                                parameters2[8].Value = prInfo.TradeMoney;
-                                parameters2[9].Value = trInfo.InsUser;
-                                parameters2[10].Value = trInfo.UpdUser;
-                                parameters2[11].Value = prInfo.StockLeft;
-                                parameters2[12].Value = trInfo.FranchiserCode;
+                                    parameters2[6].Value = prInfo.TradeAmount;
+                                    parameters2[7].Value = prInfo.TradeWeight;
+                                    parameters2[8].Value = prInfo.TradeMoney;
+                                    parameters2[9].Value = trInfo.InsUser;
+                                    parameters2[10].Value = trInfo.UpdUser;
+                                    parameters2[11].Value = prInfo.StockLeft;
+                                    parameters2[12].Value = trInfo.FranchiserCode;
 
 
-                                cmd.Parameters.AddRange(parameters2);
-                                cmd.CommandText = strSql.ToString();
-                                cmd.Transaction = trans;
-                                cmd.Connection = conn;
-                                result += cmd.ExecuteNonQuery();
+                                    cmd.Parameters.AddRange(parameters2);
+                                    cmd.CommandText = strSql.ToString();
+                                    cmd.Transaction = trans;
+                                    cmd.Connection = conn;
+                                    result += cmd.ExecuteNonQuery();
+                                }
+
+                                trans.Commit();
+                                return true;
                             }
-
-                            trans.Commit();
-                            return true;
-                        }
-                        catch
-                        {
-                            trans.Rollback();
-                            return false;
+                            catch (Exception ex)
+                            {
+                                trans.Rollback();
+                                throw ex;
+                            }
                         }
                     }
+                    #endregion
                 }
-                #endregion
-            }
-            else if (iType == "1")
-            {
-                #region
-
-                using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+                else if (iType == "1")
                 {
-                    conn.Open();
-                    using (SqlTransaction trans = conn.BeginTransaction())
+                    #region
+
+                    using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
                     {
-                        SqlCommand cmd = new SqlCommand();
-                        try
+                        conn.Open();
+                        using (SqlTransaction trans = conn.BeginTransaction())
                         {
-                            int maxID = CommBaseDAL.GetNextTradeId();
+                            SqlCommand cmd = new SqlCommand();
+                            try
+                            {
+                                int maxID = CommBaseDAL.GetNextTradeId();
 
-                            int result = 0;
-                            StringBuilder strSql = new StringBuilder();
-                            strSql.Append("insert into franchiser_trade(");
-                            strSql.Append("trade_id,franchiser_code,trade_time,trade_total_weight,trade_total_money,trade_state,ins_user,upd_user)");
-                            strSql.Append(" values (");
-                            strSql.Append(" @trade_id,@franchiser_code,getdate(),@trade_total_weight,@trade_total_money,@trade_state,@ins_user,@upd_user) ");
+                                int result = 0;
+                                StringBuilder strSql = new StringBuilder();
+                                strSql.Append("insert into franchiser_trade(");
+                                strSql.Append("trade_id,franchiser_code,trade_time,trade_total_weight,trade_total_money,trade_state,ins_user,upd_user)");
+                                strSql.Append(" values (");
+                                strSql.Append(" @trade_id,@franchiser_code,getdate(),@trade_total_weight,@trade_total_money,@trade_state,@ins_user,@upd_user) ");
 
-                            strSql.Append(" update franchiser_info set franchiser_balance_money=franchiser_balance_money-@trade_total_money,upd_date=getdate(),upd_user=@upd_user where franchiser_code=@franchiser_code");
+                                strSql.Append(" update franchiser_info set franchiser_balance_money=franchiser_balance_money-@trade_total_money,upd_date=getdate(),upd_user=@upd_user where franchiser_code=@franchiser_code");
 
-                            SqlParameter[] parameters = { 
+                                SqlParameter[] parameters = { 
                             new SqlParameter("@trade_id", SqlDbType.Int,4),
                             new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),             
                             //new SqlParameter("@realtime_base_price", SqlDbType.Money,50),                        
@@ -297,36 +325,60 @@ namespace GoldTradeNaming.DAL
                             new SqlParameter("@upd_user", SqlDbType.NVarChar,50),
                           //  new SqlParameter("@upd_user", SqlDbType.NVarChar,50)
                                                     };
-                            parameters[0].Value = maxID;
-                            parameters[1].Value = trInfo.FranchiserCode;
-                            //   parameters[2].Value = trInfo.RealTimePrice;
-                            //parameters[3].Value = trInfo.GoldTradePrice;
-                            // parameters[4].Value = trInfo.TradeAddPrice;
-                            parameters[2].Value = trInfo.TradeTotalWeight;
-                            parameters[3].Value = trInfo.TradeTotalMoney;
-                            parameters[4].Value = trInfo.TradeState;
-                            parameters[5].Value = trInfo.InsUser;
-                            parameters[6].Value = trInfo.UpdUser;
+                                parameters[0].Value = maxID;
+                                parameters[1].Value = trInfo.FranchiserCode;
+                                //   parameters[2].Value = trInfo.RealTimePrice;
+                                //parameters[3].Value = trInfo.GoldTradePrice;
+                                // parameters[4].Value = trInfo.TradeAddPrice;
+                                parameters[2].Value = trInfo.TradeTotalWeight;
+                                parameters[3].Value = trInfo.TradeTotalMoney;
+                                parameters[4].Value = trInfo.TradeState;
+                                parameters[5].Value = trInfo.InsUser;
+                                parameters[6].Value = trInfo.UpdUser;
 
-                            cmd.CommandText = strSql.ToString();
-                            cmd.Transaction = trans;
-                            cmd.Connection = conn;
-                            cmd.Parameters.AddRange(parameters);
-                            result += cmd.ExecuteNonQuery();
+                                cmd.CommandText = strSql.ToString();
+                                cmd.Transaction = trans;
+                                cmd.Connection = conn;
+                                cmd.Parameters.AddRange(parameters);
+                                result += cmd.ExecuteNonQuery();
 
-                            foreach (ProductInfo prInfo in prInfos)
-                            {
-                                cmd = new SqlCommand();
-                                strSql = new StringBuilder();
-                                strSql.Append("insert into franchiser_trade_desc(");
-                                strSql.Append("trade_id,product_id,product_spec_id,gold_trade_price,trade_amount,trade_weight,trade_money,ins_user,upd_user)");
-                                strSql.Append(" values (");
-                                strSql.Append("@trade_id2,@product_id,@product_spec_id,@gold_trade_price,@trade_amount,@trade_weight,@trade_money,@ins_user2,@upd_user2); ");
+                                foreach (ProductInfo prInfo in prInfos)
+                                {
+                                    StringBuilder sb1 = new StringBuilder();
+                                    sb1.Append("select stock_left from stock_main  ");
+                                    sb1.Append(" where franchiser_code=@francode2 ");
+                                    sb1.Append(" and product_id=@product_id and product_spec_id=@product_spec_id");
+                                    SqlParameter[] parameters_sb1 = {					     
+				                new SqlParameter("@francode2", SqlDbType.Int,4),
+				                new SqlParameter("@product_id", SqlDbType.Int,4),
+				                new SqlParameter("@product_spec_id", SqlDbType.Decimal,4)
+				               };
+                                    parameters_sb1[0].Value = trInfo.FranchiserCode;
+                                    parameters_sb1[1].Value = prInfo.ProductID;
+                                    parameters_sb1[2].Value = prInfo.ProductSpecID;
+                                    cmd = new SqlCommand();
+                                    cmd.CommandText = sb1.ToString();
+                                    cmd.Transaction = trans;
+                                    cmd.Connection = conn;
+                                    cmd.Parameters.AddRange(parameters_sb1);
 
-                                strSql.Append(" update stock_main set stock_left=@stockleft,upd_user=@upd_user2,upd_date=getdate() ");
-                                strSql.Append(" where franchiser_code=@franchiser_code2 and product_id=@product_id and product_spec_id=@product_spec_id; ");
 
-                                SqlParameter[] parameters2 = {                
+                                    object o = cmd.ExecuteScalar();
+                                    decimal stockleft = Convert.ToDecimal(o);
+                                    if (stockleft < prInfo.TradeWeight) throw new Exception("重复交易！");
+
+
+                                    cmd = new SqlCommand();
+                                    strSql = new StringBuilder();
+                                    strSql.Append("insert into franchiser_trade_desc(");
+                                    strSql.Append("trade_id,product_id,product_spec_id,gold_trade_price,trade_amount,trade_weight,trade_money,ins_user,upd_user)");
+                                    strSql.Append(" values (");
+                                    strSql.Append("@trade_id2,@product_id,@product_spec_id,@gold_trade_price,@trade_amount,@trade_weight,@trade_money,@ins_user2,@upd_user2); ");
+
+                                    strSql.Append(" update stock_main set stock_left=@stockleft,upd_user=@upd_user2,upd_date=getdate() ");
+                                    strSql.Append(" where franchiser_code=@franchiser_code2 and product_id=@product_id and product_spec_id=@product_spec_id; ");
+
+                                    SqlParameter[] parameters2 = {                
                                     new SqlParameter("@trade_id2", SqlDbType.Int,4),
                                     new SqlParameter("@product_id", SqlDbType.Int,4),
                                     new SqlParameter("@product_spec_id", SqlDbType.Money,8),
@@ -343,44 +395,45 @@ namespace GoldTradeNaming.DAL
                                     new SqlParameter("@stockleft", SqlDbType.Money,8),
                                     new SqlParameter("@franchiser_code2", SqlDbType.NVarChar,50)
                                                           };
-                                parameters2[0].Value = maxID;
-                                parameters2[1].Value = prInfo.ProductID;
-                                parameters2[2].Value = prInfo.ProductSpecID;
+                                    parameters2[0].Value = maxID;
+                                    parameters2[1].Value = prInfo.ProductID;
+                                    parameters2[2].Value = prInfo.ProductSpecID;
 
-                                //    parameters2[3].Value = prInfo.RealTimeBasePrice;
-                                //    parameters2[4].Value = prInfo.TradeAddPrice;
-                                parameters2[3].Value = prInfo.GoldTradePrice;
+                                    //    parameters2[3].Value = prInfo.RealTimeBasePrice;
+                                    //    parameters2[4].Value = prInfo.TradeAddPrice;
+                                    parameters2[3].Value = prInfo.GoldTradePrice;
 
-                                parameters2[4].Value = prInfo.TradeAmount;
-                                parameters2[5].Value = prInfo.TradeWeight;
-                                parameters2[6].Value = prInfo.TradeMoney;
-                                parameters2[7].Value = trInfo.InsUser;
-                                parameters2[8].Value = trInfo.UpdUser;
-                                parameters2[9].Value = prInfo.StockLeft;
-                                parameters2[10].Value = trInfo.FranchiserCode;
+                                    parameters2[4].Value = prInfo.TradeAmount;
+                                    parameters2[5].Value = prInfo.TradeWeight;
+                                    parameters2[6].Value = prInfo.TradeMoney;
+                                    parameters2[7].Value = trInfo.InsUser;
+                                    parameters2[8].Value = trInfo.UpdUser;
+                                    parameters2[9].Value = prInfo.StockLeft;
+                                    parameters2[10].Value = trInfo.FranchiserCode;
 
 
-                                cmd.Parameters.AddRange(parameters2);
-                                cmd.CommandText = strSql.ToString();
-                                cmd.Transaction = trans;
-                                cmd.Connection = conn;
-                                result += cmd.ExecuteNonQuery();
+                                    cmd.Parameters.AddRange(parameters2);
+                                    cmd.CommandText = strSql.ToString();
+                                    cmd.Transaction = trans;
+                                    cmd.Connection = conn;
+                                    result += cmd.ExecuteNonQuery();
+                                }
+
+                                trans.Commit();
+                                return true;
                             }
-
-                            trans.Commit();
-                            return true;
-                        }
-                        catch
-                        {
-                            trans.Rollback();
-                            return false;
+                            catch
+                            {
+                                trans.Rollback();
+                                return false;
+                            }
                         }
                     }
+                    #endregion
                 }
-                #endregion
+                else
+                    return false;
             }
-            else
-                return false;
 
         }
 
@@ -403,6 +456,7 @@ namespace GoldTradeNaming.DAL
 
             return DbHelperSQL.Query(strQuery);
         }
+       
         //        public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
         //        {
         //            string strQuery = "";
