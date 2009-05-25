@@ -43,7 +43,6 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 divSilver.Visible = false;
                 divGold.Visible = false;
                 divBtn.Visible = false;
-
             }
         }
 
@@ -103,6 +102,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 MessageBox.Show(this, ex.Message);
             }
         }
+
         /// <summary>
         /// 合并单元格
         /// </summary>
@@ -151,8 +151,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 btnSubmit.Enabled = false;
             }
         }
-
-
+        
         protected void ProdNumChg(object sender, EventArgs e)
         {
             try
@@ -232,13 +231,13 @@ namespace GoldTradeNaming.Web.franchiser_trade
         {
             return Regex.IsMatch(strIn, @"^\d+$");
         }
-
-
+        
         private DataSet GetGoldStock(string franchiser_code)
         {
             return bll.GetGoldStock(franchiser_code);
 
         }
+       
         private DataSet GetSilverStock(string franchiser_code)
         {
             return bll.GetSilverStock(franchiser_code);
@@ -402,6 +401,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
         }
 
+        /// <summary>
+        /// 交易提交：升水
+        /// </summary>
         private void SubmitGoldTrade()
         {
             string sCurPrice;//,trade_add_price;
@@ -460,46 +462,46 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 trInfo.InsUser = Session["fran"].ToString();
                 trInfo.UpdUser = Session["fran"].ToString();
 
-                string fran_name;
-                decimal fran_money, assure_money, money_use;
-                string fran_code = Session["fran"].ToString().Trim();
+                //string fran_name;
+                //decimal fran_money, assure_money, money_use;
+                //string fran_code = Session["fran"].ToString().Trim();
 
-                GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
-
-                if (money_use > 0 && money_use >= trInfo.TradeTotalMoney)
+                //GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
+                
+                //edit by tianjie at 0518
+                //已更改多次，改为调用COMMBASE下方法
+                decimal balanceForTrade = GoldTradeNaming.BLL.CommBaseBLL.GetTradeBalance(Convert.ToInt32(Session["fran"]));
+                
+                if (balanceForTrade > 0 )
                 {
                     if (bll.AddTrandeInfo(proInfos, trInfo, hfType.Value))
                     {
                         showGoldGrid();
                         btnSubmit.Enabled = false;
-
                         MessageBox.ShowAndRedirect(this, "提交成功...", "../franchiser_trade/Add.aspx");
-
                     }
                     else
-                        MessageBox.Show(this, "提交失败");
-
+                        MessageBox.Show(this, "提交失败,请重新操作");
                 }
                 else
                 {
                     MessageBox.Show(this, "你的余额不够");
                 }
-
-
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "提交错误" + ex.Message);
+                MessageBox.Show(this, "提交错误：" + ex.Message);
             }
         }
 
+        /// <summary>
+        /// 交易提交：非升水
+        /// </summary>
         private void SubmitSilverTrade()
         {
             try
             {
                 string tradeNum = "";
-
                 decimal iTotalWeight = 0;
                 decimal iTotalMoney = 0;
                 TradeInfo trInfo = new TradeInfo();
@@ -552,40 +554,29 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 GetMoneyLeft(fran_code, out fran_name, out fran_money, out assure_money, out money_use);
                 GoldTradeNaming.BLL.CommBaseBLL commBLL = new GoldTradeNaming.BLL.CommBaseBLL();
+                
                 if (money_use + commBLL.GetSilverStockValue(fran_code) > 0 && money_use + commBLL.GetSilverStockValue(fran_code) >= trInfo.TradeTotalMoney)
                 {
                     if (bll.AddTrandeInfo(proInfos, trInfo, hfType.Value))
                     {
                         showSilverGrid();
                         btnSubmit.Enabled = false;
-
-                        //Franchiser master = new Franchiser();
-                        //master.LoadData();
-
                         MessageBox.ShowAndRedirect(this, "提交成功...", "../franchiser_trade/Add.aspx");
                     }
                     else
                         MessageBox.Show(this, "提交失败");
-
                 }
                 else
                 {
                     MessageBox.Show(this, "你的余额不够");
                 }
-
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(this, "提交错误" + ex.Message);
             }
         }
-
-
-
-
-
+        
         private bool CheckInput()
         {
             if (hfType.Value == "0")
@@ -616,9 +607,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
             divGold.Style.Add("display", "none");
             divBtn.Style.Add("display", "none");
         }
-
-
-
+        
         protected void gvTrade_DataBound(object sender, EventArgs e)
         {
             for (int i = 0; i < gvTrade.Rows.Count; i++)
