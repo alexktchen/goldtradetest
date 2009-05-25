@@ -1,6 +1,4 @@
 <%@ Page Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeBehind="Show.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_money.Show" Title="查看入帐" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-
 
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
@@ -21,7 +19,7 @@
         </asp:ScriptManager>
     </div> 
 
-
+<script language="JavaScript" type="text/javascript" src="../rl/WdatePicker.js"></script>
 
     <table style="width:100%;">
         <tr>
@@ -59,15 +57,11 @@
                         <td align="right" class="style1">
                             入账时间</td>
                         <td align="left">
-                            <asp:TextBox ID="txttime_from" runat="server" Width="70px"></asp:TextBox>
-                            <cc1:CalendarExtender ID="dtTo_CalendarExtender" runat="server" Enabled="True" 
-                               Format="yyyy-MM-dd"   TargetControlID="txttime_from">
-                            </cc1:CalendarExtender>
+                            <asp:TextBox ID="txttime_from" runat="server" Width="70px" onClick="WdatePicker()"></asp:TextBox>
+                          
                             ~
-                            <asp:TextBox ID="txtTime_to" runat="server" Width="70px"></asp:TextBox>
-                            <cc1:CalendarExtender ID="txtTimeTo0_CalendarExtender" runat="server" 
-                                 Format="yyyy-MM-dd"  Enabled="True" TargetControlID="txtTime_to">
-                            </cc1:CalendarExtender>
+                            <asp:TextBox ID="txtTime_to" runat="server" Width="70px" onClick="WdatePicker()"></asp:TextBox>
+                         
                         </td>
                     </tr>
                     <tr>

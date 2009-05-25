@@ -6,7 +6,8 @@ var langList =
 ];
 
 var skinList = 
-[
+[       
+        {name:'simple',	        charset:'gb2312'},
 	{name:'default',	charset:'gb2312'},
 	{name:'whyGreen',	charset:'gb2312'}
 ];

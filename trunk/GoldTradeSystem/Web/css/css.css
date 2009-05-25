@@ -1,8 +1,3 @@
-.modalBackground {
-	background-color:Gray;
-	filter:alpha(opacity=70);
-	opacity:0.7;
-}
 
 body {
 	margin:0 auto;
@@ -96,15 +91,28 @@ td{
 	position:relative;
 	left:0px;
 	width:1000px;
-	
+	height: 100%;
 	z-index:3;
     top: 0px;
-    height: 886px;
+   
 }
 
+#main {padding-bottom: 31px;min-width:960px;}
+
+.clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;}
+.clearfix {display: inline-block;}
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%;}
+.clearfix {display: block;}
+
 #nei1 {
-	width:212px;
-	height:474px;
+	width:212px;  
+	padding-bottom: 31px;     
 	z-index:1;
 	float: left;
 	background-color: #EEEEEE;
@@ -112,9 +120,15 @@ td{
 #nei2 {
 	width:783px;
 	z-index:2;
+	padding-bottom: 31px; 
 	float: right;
 	padding-top: 10px;
 	font-size: 12px;
+	height: 84px;
+	 min-height:100%;
+        background-image: url('../image/nei_bg.gif');
+
+
 }
 
 #left1 {
@@ -131,7 +145,7 @@ td{
 }
 #left2 {
 	width:203px;
-	height:180px;
+	height:80px;
 	z-index:2;
 	margin-left: 5px;
 	margin-top: 10px;
@@ -140,9 +154,9 @@ td{
 
 #jishu {
 	width:177px;
-	height:143px;
+	height:43px;
 	z-index:1;
-	margin-top: 30px;
+	margin-top: 10px;
 	margin-left: 10px;
 	font-size: 12px;
 }
@@ -152,6 +166,7 @@ td{
 	left:0px;
 	width:1000px;
 	height:31px;
+	margin-top: -31px;
 	z-index:4;
 	background-image: url(../image/foot_bg.gif);
 	text-align: center;

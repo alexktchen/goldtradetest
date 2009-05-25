@@ -16,7 +16,7 @@
   <table width="350" border="0" align="right">
     <tr class="wenzi">
       <td><asp:Label ID="lblDateNow" runat="server"></asp:Label></td>
-      <td width="130"> <asp:Label ID="lbl" runat="server" Text="中国黄金实时基础金价"></asp:Label></td>
+      <td width="130"> <asp:Label ID="lbl" runat="server" Text="黄金实时基础金价"></asp:Label></td>
       <td width="50"><asp:Label ID="lblPrice" runat="server"></asp:Label></td>
     </tr>
   </table>

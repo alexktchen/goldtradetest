@@ -1,13 +1,13 @@
 <%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true"
     CodeBehind="Show.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_order.Show"
     Title="我的订单" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div style="display: none">
         <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
         </asp:ScriptManager>
     </div>
+
+<script language="JavaScript" type="text/javascript" src="../rl/WdatePicker.js"></script>
     <table style="width: 100%;">
         <tr>
             <td style="width: 20%;">
@@ -41,15 +41,11 @@
                                     订货时间
                                 </td>
                                 <td align="left">
-                                    <asp:TextBox ID="txtfranchiser_order_time_a" runat="server" Width="93px"></asp:TextBox>
-                                    <cc1:CalendarExtender ID="dtTo_CalendarExtender" runat="server" Enabled="True" Format="yyyy-MM-dd"
-                                        TargetControlID="txtfranchiser_order_time_a">
-                                    </cc1:CalendarExtender>
+                                    <asp:TextBox ID="txtfranchiser_order_time_a" runat="server" Width="93px" onClick="WdatePicker()"></asp:TextBox>
+                                   
                                     <asp:Label ID="Label1" runat="server" Text="～"></asp:Label>
-                                    <asp:TextBox ID="txtfranchiser_order_time_b" runat="server" Width="98px"></asp:TextBox>
-                                    <cc1:CalendarExtender ID="CalendarExtender1" runat="server" Enabled="True" Format="yyyy-MM-dd"
-                                        TargetControlID="txtfranchiser_order_time_b">
-                                    </cc1:CalendarExtender>
+                                    <asp:TextBox ID="txtfranchiser_order_time_b" runat="server" Width="98px" onClick="WdatePicker()"></asp:TextBox>
+                                   
                                 </td>
                             </tr>
                             <tr>
