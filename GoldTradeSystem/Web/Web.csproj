@@ -716,6 +716,17 @@
     <Content Include="franchiser_trade\ShowM.aspx" />
     <Content Include="franchiser_trade\TradeTime.aspx" />
     <Content Include="goldtrade_db_admin\Add.aspx" />
+    <Content Include="images\10_online.gif" />
+    <Content Include="images\200901172113470.gif" />
+    <Content Include="images\kefu.gif" />
+    <Content Include="images\offline.gif" />
+    <Content Include="images\servicepic_01.jpg" />
+    <Content Include="images\servicepic_02.jpg" />
+    <Content Include="images\servicepic_04.jpg" />
+    <Content Include="images\servicepic_05.jpg" />
+    <Content Include="images\servicepic_06.jpg" />
+    <Content Include="images\servicepic_08.jpg" />
+    <Content Include="images\servicepic_09.jpg" />
     <Content Include="image\1_1.jpg" />
     <Content Include="image\1_2.jpg" />
     <Content Include="image\anl.gif" />
@@ -785,11 +796,15 @@
     <Content Include="stock_main\receive.aspx" />
     <Content Include="stock_main\ShowNoEdit.aspx" />
     <Content Include="stock_main\stockModifyLog.aspx" />
+    <Content Include="swf\1.swf" />
     <Content Include="User_Login\AdminChgPswd.aspx" />
     <Content Include="User_Login\AgreeProtol.aspx" />
     <Content Include="User_Login\flogin.aspx" />
     <Content Include="User_Login\FranChgPswd.aspx" />
     <Content Include="User_Login\fverify.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\" />

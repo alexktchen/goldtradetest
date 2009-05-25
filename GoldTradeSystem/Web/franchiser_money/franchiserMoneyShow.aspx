@@ -1,13 +1,12 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.master" AutoEventWireup="true" CodeBehind="franchiserMoneyShow.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_money.franchiserMoneyShow" Title="我的入账" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-
-
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 <div style="display: none">
         <asp:ScriptManager ID="ScriptManager1" EnableScriptGlobalization="true" runat="server">
         </asp:ScriptManager>
     </div> 
+
+<script language="JavaScript" type="text/javascript" src="../rl/WdatePicker.js"></script>
     <table style="width:100%;">
         <tr>
             <td>
@@ -29,15 +28,11 @@
                         <td align="right" class="style1">
                             入账时间</td>
                         <td align="left">
-                            <asp:TextBox ID="txttime_from" runat="server"></asp:TextBox>
-                            <cc1:CalendarExtender ID="dtTo_CalendarExtender" runat="server" Enabled="True" 
-                               Format="yyyy-MM-dd"   TargetControlID="txttime_from">
-                            </cc1:CalendarExtender>
+                            <asp:TextBox ID="txttime_from" runat="server"  onClick="WdatePicker()"></asp:TextBox>
+                            
                             <asp:Label ID="Label1" runat="server" Text="~"></asp:Label>
-                            <asp:TextBox ID="txtTime_to" runat="server"></asp:TextBox>
-                            <cc1:CalendarExtender ID="txtTimeTo0_CalendarExtender" runat="server" 
-                                 Format="yyyy-MM-dd"  Enabled="True" TargetControlID="txtTime_to">
-                            </cc1:CalendarExtender>
+                            <asp:TextBox ID="txtTime_to" runat="server"   onClick="WdatePicker()"></asp:TextBox>
+                           
                         </td>
                     </tr>
                     <tr>

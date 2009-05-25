@@ -12,13 +12,14 @@
     </asp:ContentPlaceHolder>
     <link href="css/css.css" type="text/css" rel="stylesheet" />
     <link href="js/goldjs.js" type="text/javascript" />         
-                               
+      <meta HTTP-EQUIV="Page-Enter" CONTENT="revealtrans(duration=3.0, transition=12)">                         
 </head>
 <body bgcolor="#ffffff">
     <form id="form1" runat="server">
+    <div id="nei">   
+    <div id="main" class="clearfix"> 
    <ucl:Logo ID="Logo1" runat ="server" />
     <ucl:CheckRight ID="CheckRight1" runat="server" />
-    <div id="nei">
         <div id="nei1">
             
             <ucl:LeftMenuTree ID="MenuTree1" runat="server" />
@@ -36,7 +37,10 @@
                    
         </div>
     </div>
+    </div>
+    <div id="foot">
     <ucl:CopyRight ID="CopyRight1" runat="server" />  
+    </div>
     </form>
 </body>
 </html>

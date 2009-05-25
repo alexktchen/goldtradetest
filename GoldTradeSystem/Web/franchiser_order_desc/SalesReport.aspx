@@ -4,20 +4,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
         </asp:ScriptManager>
+
+<script language="JavaScript" type="text/javascript" src="../rl/WdatePicker.js"></script>
     <table style="width:100%;">
        <tr>
             <td style="width: 20%">
                 &nbsp;</td>
             <td style="width: 59%" align="right">
-               <asp:TextBox ID="txttime_from" runat="server"></asp:TextBox>
-                            <cc1:CalendarExtender ID="dtTo_CalendarExtender" runat="server" Enabled="True" 
-                               Format="yyyy-MM-dd"   TargetControlID="txttime_from">
-                            </cc1:CalendarExtender>
-                            <asp:Label ID="Label1" runat="server" Text="~"></asp:Label>
-                            <asp:TextBox ID="txtTime_to" runat="server"></asp:TextBox>
-                            <cc1:CalendarExtender ID="txtTimeTo0_CalendarExtender" runat="server" 
-                                 Format="yyyy-MM-dd"  Enabled="True" TargetControlID="txtTime_to">
-                            </cc1:CalendarExtender>&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:TextBox ID="txttime_from" runat="server" onClick="WdatePicker()"></asp:TextBox>
+                          <asp:Label ID="Label1" runat="server" Text="~"></asp:Label>
+                            <asp:TextBox ID="txtTime_to" runat="server" onClick="WdatePicker()"></asp:TextBox>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
                             <asp:Button ID="btnAdd" runat="server" Text="查询"  Width="45px" 
                     onclick="btnAdd_Click" ></asp:Button>&nbsp;&nbsp;&nbsp;&nbsp;
             </td>

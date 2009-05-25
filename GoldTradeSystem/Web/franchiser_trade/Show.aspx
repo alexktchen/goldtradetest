@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.Master" AutoEventWireup="true"
     CodeBehind="Show.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_trade.Show"
-    Title="显示页" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+    Title="我的交易" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .style1
@@ -23,6 +21,8 @@
             EnableScriptGlobalization="True">
         </asp:ScriptManager>
     </div>
+
+<script language="JavaScript" type="text/javascript" src="../rl/WdatePicker.js"></script>
     <table align="left" width="100%">
         <tr>
             <td align="right" class="style3">
@@ -37,17 +37,12 @@
                 交易日期 ：
             </td>
             <td align="left">
-                <asp:TextBox ID="txtBeginDate" runat="server" Style="margin-left: 0px" Width="82px"></asp:TextBox>
+                <asp:TextBox ID="txtBeginDate" runat="server" Style="margin-left: 0px" Width="82px"  onClick="WdatePicker()"></asp:TextBox>
                 
-                <asp:ImageButton runat="Server" ID="ImageButton1" ImageUrl="~/image/Calendar_scheduleHS.png"
-                    AlternateText="Click to show calendar" />
-                <cc1:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtBeginDate"
-                    Format="yyyy/MM/dd" PopupButtonID="ImageButton1" />
-                ～<asp:TextBox ID="txtEndDate" runat="server" Width="82px"></asp:TextBox>
-                <asp:ImageButton runat="Server" ID="ImageButton2" ImageUrl="~/image/Calendar_scheduleHS.png"
-                    AlternateText="Click to show calendar" />
-                <cc1:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="txtEndDate"
-                    Format="yyyy/MM/dd" PopupButtonID="ImageButton2" />
+                
+                ～<asp:TextBox ID="txtEndDate" runat="server" Width="82px"  onClick="WdatePicker()"></asp:TextBox>
+               
+               
             </td>
         </tr>
         <tr>

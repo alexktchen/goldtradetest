@@ -6,13 +6,40 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div runat="server" id="divType">
-        请选择你要交易的类型：
-        <asp:ImageButton ID="ibGold" ImageUrl="~/image/1_1.jpg" runat="server" OnClick="ibGold_Click" />
+        请选择你要交易的类型：<br>
+        <asp:ImageButton ID="ibGold" ImageUrl="~/image/1_1.jpg" runat="server" OnClick="ibGold_Click" /><br><br>
         <asp:ImageButton ID="ibSilver" ImageUrl="~/image/1_2.jpg" runat="server" OnClick="ibSilver_Click" />
         <asp:HiddenField ID="hfType" runat="server" />
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
     </div>
+
+
+<style>
+
+.box3{position:relative;zoom:1;padding:1em 1.5em;margin:.5em 0 1em 0; background:#f1f6de;width:400px}
+.box3 .tl,.box3 .tr,.box3 .bl,.box3 .br {width:5px;height:5px;position:absolute;background:url('../images/200901172113470.gif') no-repeat;overflow:hidden;}
+.box3 .cc{
+	
+	padding:5px;
+	text-align: left;
+}
+.box3 .tl {left:0;top:0;}
+.box3 .tr {right:0;top:0;background-position:0 -5px;}
+.box3 .bl {left:0;bottom:0;_bottom:-1px;background-position:0 -10px;}
+.box3 .br {right:0;bottom:0;_bottom:-1px;background-position:0 -15px;}
+</style>
+<div class="box3">
+<span class="tl"></span><span class="tr"></span>
+<div class="cc">
+交易注意事项：<br>
+1.请确认好订货产品和金额，提交以后无法修改。(交易后不可修改)
+
+</div>
+<span class="bl"></span><span class="br"></span>
+</div>
+
+
     <div runat="server" id="divGold">
         <table width="100%" align="center">
             <tr>

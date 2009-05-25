@@ -14,7 +14,6 @@ sub SetPin()
 		rtn = IA100Client.IA100ChangePWD(newuserpin)
 		if rtn =0 then
 			MsgBox "用户密码修改成功！"
-			window.close()
 		else
 			MsgBox "修改出错，Error:"&CStr(IA100Client.IA100GetLastError())
 		end if 
@@ -52,7 +51,7 @@ end sub
   <p>&nbsp;  </p>
 </div>
 <form action="" method="post" name="Setpinform" id="Setpinform">
-  <table border="1" align="center" bgcolor="#dfe7df" style="width: 441px">
+  <table border="1" align="center"  style="width: 441px; background-color: #E8E8E8;">
     <tr>
       <td class="style1"><div align="right" class="ctbody3">用户名：</div></td>
       <td width="155"><input name="edtusername" type="text" class="cttextboxt" 
