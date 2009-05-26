@@ -33,6 +33,8 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 if (bl)
                 {
                     divTradeDesc.Style.Add("display", "none");
+                    divSilverTradeDesc.Style.Add("display","none");
+                    divTotalMsg.Style.Add("display", "none");
                     divTrade.Style.Add("display", "block");
                 }
             }
@@ -44,18 +46,38 @@ namespace GoldTradeNaming.Web.franchiser_trade
             {
                 string sTradeID = gvTrade.SelectedRow.Cells[0].Text.Trim();
                 DataSet ds = bll.GetTradeDesc(sTradeID);
-                gvTradeDesc.DataSource = ds;
-                gvTradeDesc.DataBind();
-                Session["gvTradeDesc"] = ds;
+                //gvTradeDesc.DataSource = ds;
+                //gvTradeDesc.DataBind();
+                //Session["gvTradeDesc"] = ds;              
+             
+                lblTotalMoney.Text = gvTrade.SelectedRow.Cells[3].Text.Trim()+"元";
+                lblTradeTime.Text = gvTrade.SelectedRow.Cells[1].Text.Trim();
+
+                if (ds.Tables[0].Rows[0]["type"].ToString().Trim() == "1")
+                {                    
+                    gvSilverTradeDesc.DataSource = ds;
+                    gvSilverTradeDesc.DataBind();
+                    Session["gvSilverTradeDesc"] = ds;
+                    Session["gvTradeDesc"] = null;
+                    divSilverTradeDesc.Style.Add("display", "block");
+                }
+                else
+                {
+                    gvTradeDesc.DataSource = ds;
+                    gvTradeDesc.DataBind();
+                    Session["gvTradeDesc"] = ds;
+                    Session["gvSilverTradeDesc"] = null;
+                    divTradeDesc.Style.Add("display", "block");
+                }
+                divTotalMsg.Style.Add("display", "block");
+                divTrade.Style.Add("display", "none");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(this, ex.Message);
                 return;
-            }
-            //    txtReason.Text = "";
-            divTradeDesc.Style.Add("display", "block");
-            divTrade.Style.Add("display", "none");
+            }            
+                   
         }
 
         protected void gvTrade_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -72,7 +94,14 @@ namespace GoldTradeNaming.Web.franchiser_trade
             this.gvTradeDesc.DataBind();
 
         }
+        protected void gvSilverTradeDesc_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.gvSilverTradeDesc.PageIndex = e.NewPageIndex;
+            this.gvTradeDesc.DataSource = Session["gvSilverTradeDesc"] as DataSet;
+            this.gvTradeDesc.DataBind();
+        }
 
+       
         /// <summary>
         /// 返回
         /// </summary>
@@ -85,6 +114,8 @@ namespace GoldTradeNaming.Web.franchiser_trade
             gvTrade.SelectedIndex = -1;
 
             divTradeDesc.Style.Add("display", "none");
+            divSilverTradeDesc.Style.Add("display", "none");
+            divTotalMsg.Style.Add("display", "none");
             divTrade.Style.Add("display", "block");
         }
 
@@ -101,7 +132,10 @@ namespace GoldTradeNaming.Web.franchiser_trade
         {
             if (GetTradeList(false))
             {
+                gvTrade.SelectedIndex = -1;
                 divTradeDesc.Style.Add("display", "none");
+                divSilverTradeDesc.Style.Add("display", "none");
+                divTotalMsg.Style.Add("display", "none");
                 divTrade.Style.Add("display", "block");
             }
         }
@@ -161,7 +195,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 DataSet ds = bll.GetAllTrade(strWhere.ToString(), isInit);
                 gvTrade.DataSource = ds;
                 gvTrade.DataBind();
-                Session["gvTrade"] = ds;
+                Session["gvTrade"] = ds;             
                 return true;
             }
             catch (Exception ex)
@@ -171,5 +205,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
 
         }
+
+           
     }
 }

@@ -41,24 +41,6 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         protected global::System.Web.UI.WebControls.TextBox txtBeginDate;
         
         /// <summary>
-        /// ImageButton1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
-        
-        /// <summary>
-        /// CalendarExtender1 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
-        
-        /// <summary>
         /// txtEndDate 控件。
         /// </summary>
         /// <remarks>
@@ -66,24 +48,6 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEndDate;
-        
-        /// <summary>
-        /// ImageButton2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
-        
-        /// <summary>
-        /// CalendarExtender2 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
         
         /// <summary>
         /// lblQueryMsg 控件。
@@ -131,6 +95,33 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         protected global::System.Web.UI.WebControls.GridView gvTrade;
         
         /// <summary>
+        /// divTotalMsg 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTotalMsg;
+        
+        /// <summary>
+        /// lblTotalMoney 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalMoney;
+        
+        /// <summary>
+        /// lblTradeTime 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTradeTime;
+        
+        /// <summary>
         /// divTradeDesc 控件。
         /// </summary>
         /// <remarks>
@@ -156,5 +147,32 @@ namespace GoldTradeNaming.Web.franchiser_trade {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnReturn;
+        
+        /// <summary>
+        /// divSilverTradeDesc 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSilverTradeDesc;
+        
+        /// <summary>
+        /// gvSilverTradeDesc 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvSilverTradeDesc;
+        
+        /// <summary>
+        /// Button1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

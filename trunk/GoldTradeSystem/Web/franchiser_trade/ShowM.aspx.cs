@@ -51,7 +51,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
                 }
                 divTradeDesc.Style.Add("display", "none");
+                divSilverTradeDesc.Style.Add("display", "none");
                 divTrade.Style.Add("display", "block");
+                divTotal.Style.Add("display", "none");
             }
         }
 
@@ -61,10 +63,30 @@ namespace GoldTradeNaming.Web.franchiser_trade
             {
                 string sTradeID = gvTrade.SelectedRow.Cells[0].Text.Trim();
                 DataSet ds = bll.GetTradeDesc(sTradeID);
-                Session["gvTradeDesc"] = ds;
-                gvTradeDesc.DataSource = ds;
-                gvTradeDesc.DataBind();
-
+                //Session["gvTradeDesc"] = ds;
+                //gvTradeDesc.DataSource = ds;
+                //gvTradeDesc.DataBind();
+                lblFranCode.Text = gvTrade.SelectedRow.Cells[1].Text.Trim();
+                lblTotalMoney.Text = gvTrade.SelectedRow.Cells[5].Text.Trim()+"元";
+                lblTradeTime.Text = gvTrade.SelectedRow.Cells[3].Text.Trim();
+                if (ds.Tables[0].Rows[0]["type"].ToString().Trim() == "1")
+                {
+                    gvSilverTradeDesc.DataSource = ds;
+                    gvSilverTradeDesc.DataBind();
+                    Session["gvSilverTradeDesc"] = ds;
+                    Session["gvTradeDesc"] = null;
+                    divSilverTradeDesc.Style.Add("display", "block");
+                }
+                else
+                {
+                    gvTradeDesc.DataSource = ds;
+                    gvTradeDesc.DataBind();
+                    Session["gvTradeDesc"] = ds;
+                    Session["gvSilverTradeDesc"] = null;
+                    divTradeDesc.Style.Add("display", "block");
+                }
+                divTrade.Style.Add("display", "none");
+                divTotal.Style.Add("display", "block");
             }
             catch (Exception ex)
             {
@@ -72,8 +94,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 return;
             }
 
-            divTradeDesc.Style.Add("display", "block");
-            divTrade.Style.Add("display", "none");
+           // divTradeDesc.Style.Add("display", "block");
+           // divSilverTradeDesc.Style.Add("display", "none");
+          
         }
 
         protected void gvTrade_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -107,6 +130,17 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         }
 
+        protected void gvSilverTradeDesc_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.gvSilverTradeDesc.PageIndex = e.NewPageIndex;
+
+            if (Session["gvSilverTradeDesc"] != null)
+            {
+                this.gvTradeDesc.DataSource = Session["gvSilverTradeDesc"] as DataSet;
+                this.gvTradeDesc.DataBind();
+            }
+            gvTradeDesc.SelectedIndex = -1;
+        }
 
         /// <summary>
         /// 返回
@@ -120,7 +154,9 @@ namespace GoldTradeNaming.Web.franchiser_trade
             gvTrade.SelectedIndex = -1;
 
             divTradeDesc.Style.Add("display", "none");
+            divSilverTradeDesc.Style.Add("display", "none");
             divTrade.Style.Add("display", "block");
+            divTotal.Style.Add("display", "none");           
         }
 
         protected void btnReNew_Click(object sender, EventArgs e)
@@ -147,6 +183,12 @@ namespace GoldTradeNaming.Web.franchiser_trade
             Session["gvTrade"] = ds;
             this.gvTrade.DataSource = ds;
             this.gvTrade.DataBind();
+
+            gvTrade.SelectedIndex = -1;
+            divTradeDesc.Style.Add("display", "none");
+            divSilverTradeDesc.Style.Add("display", "none");
+            divTotal.Style.Add("display", "none");
+            divTrade.Style.Add("display", "block");
         }
 
         private DataSet SearchTradeInfo()
@@ -186,5 +228,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
             }
             return bll.GetTradeByM(strWhere.ToString());
         }
+
+      
     }
 }
