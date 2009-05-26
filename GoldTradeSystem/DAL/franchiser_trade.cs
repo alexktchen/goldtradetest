@@ -87,55 +87,16 @@ namespace GoldTradeNaming.DAL
             {
                 strSql.Append(@"select a.*,b.franchiser_name  from franchiser_trade a left join franchiser_info b  on a.franchiser_code=b.franchiser_code where " + strWhere + " order by trade_time desc ");
             }
-            return DbHelperSQL.Query(strSql.ToString());
+            try
+            {
+                return DbHelperSQL.Query(strSql.ToString());
+            }
+            catch
+            {
+                return null;
+            }
         }
-
-        /// <summary>
-        /// 管理员 确认交易取消 by yuxiaowei  //取消
-        /// </summary>
-        /// <param name="trade_id"></param>
-        /// <param name="franchiser_code"></param>
-        /// <returns></returns>
-        //public int ConfirmCancle(string trade_id, string franchiser_code)
-        //{
-        //    StringBuilder strSql = new StringBuilder();
-        //    strSql.Append("update a set a.stock_left=a.stock_left+b.trade_weight/b.product_spec_id from stock_main a inner join franchiser_trade_desc b on a.product_id =b.product_id ");
-        //    strSql.Append(" where trade_id=@trade_id;  ");
-
-        //    strSql.Append("update a set a.franchiser_balance_money=a.franchiser_balance_money+b.trade_total_money from franchiser_info a inner join franchiser_trade b on a.franchiser_code=b.franchiser_code ");
-        //    strSql.Append(" where a.franchiser_code=@franchiser_code and b.trade_id=@trade_id;  ");
-
-
-        //    strSql.Append("update franchiser_trade set trade_state='2' ");
-        //    strSql.Append(" where franchiser_code=@franchiser_code and trade_id=@trade_id ");
-
-
-        //    SqlParameter[] parameters = {
-        //            new SqlParameter("@trade_id", SqlDbType.NVarChar,50),
-        //            new SqlParameter("@franchiser_code", SqlDbType.NVarChar,100)};
-        //    parameters[0].Value = trade_id;
-        //    parameters[1].Value = franchiser_code;
-        //    return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
-        //}
-
-        /// <summary>
-        /// 供应商取消交易 by yuxiaowei //取消
-        /// </summary>
-        /// <param name="franchiser_trade"></param>
-        /// <returns></returns>
-        //public int CancleTradeInfo(string trade_id, string reason)
-        //{
-        //    StringBuilder strSql = new StringBuilder();
-        //    strSql.Append("update franchiser_trade set trade_state='1',canceled_reason=@canceled_reason ");
-        //    strSql.Append(" where trade_id=@trade_id ");
-        //    SqlParameter[] parameters = {
-        //            new SqlParameter("@trade_id", SqlDbType.NVarChar,50),
-        //            new SqlParameter("@canceled_reason", SqlDbType.NVarChar,100)};
-        //    parameters[0].Value = trade_id;
-        //    parameters[1].Value = reason;
-
-        //    return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
-        //}
+        
 
         /// <summary>
         /// 增加交易记录 by yuxiaowei
@@ -455,18 +416,8 @@ namespace GoldTradeNaming.DAL
                 strQuery = string.Format(@"select * from franchiser_trade where " + strWhere + " ");
 
             return DbHelperSQL.Query(strQuery);
-        }
-       
-        //        public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
-        //        {
-        //            string strQuery = "";
-        //            if (isInit)
-        //                strQuery = string.Format(@"select top 50 * from franchiser_trade where franchiser_code='" + franchiser_code + "' order by trade_time desc; ");
-        //            else
-        //                strQuery = string.Format(@"select *  from franchiser_trade where franchiser_code='" + franchiser_code + "' and trade_id like '" + trade_id + @"'
-        //                                             and trade_time between '" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' order by trade_time desc; ");
-        //            return DbHelperSQL.Query(strQuery);
-        //        }
+        }    
+    
 
 
         /// <summary>
@@ -474,7 +425,7 @@ namespace GoldTradeNaming.DAL
         /// </summary>
         public DataSet GetTradeDesc(string trade_id)
         {
-            string strQuery = string.Format(@"select distinct a.*,b.product_type_name from franchiser_trade_desc a inner join product_type b on b.product_type_id=a.product_id  where a.trade_id='" + trade_id + "' order by a.ins_date desc; ");
+            string strQuery = string.Format(@"select distinct a.*,b.product_type_name,b.type from franchiser_trade_desc a inner join product_type b on b.product_type_id=a.product_id  where a.trade_id='" + trade_id + "' order by a.ins_date desc; ");
 
             return DbHelperSQL.Query(strQuery);
         }
