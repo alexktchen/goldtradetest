@@ -115,6 +115,7 @@ visibility: hidden;}
 	padding-bottom: 31px;     
 	z-index:1;
 	float: left;
+	height:auto; min-height:100%;
 	background-color: #EEEEEE;
 }
 #nei2 {
@@ -124,8 +125,8 @@ visibility: hidden;}
 	float: right;
 	padding-top: 10px;
 	font-size: 12px;
-	height: 84px;
-	 min-height:100%;
+	height:auto; min-height:100%;
+
         background-image: url('../image/nei_bg.gif');
 
 

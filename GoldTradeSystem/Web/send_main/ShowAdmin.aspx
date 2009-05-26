@@ -102,16 +102,8 @@
                     <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
                     <AlternatingRowStyle BackColor="White" />
                 </asp:GridView>
-                &nbsp;
-            </td>
+                </td>
         </tr>
-        <tr>
-            <td colspan="3" align="center">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td colspan="3" align="center">
-                &nbsp;</td>
-        </tr>
+       
     </table>
 </asp:Content>
