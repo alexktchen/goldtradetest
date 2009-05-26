@@ -195,7 +195,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 GridViewRow drv = (GridViewRow)t.NamingContainer;
                 int rowIndex = drv.RowIndex;
 
-                decimal iPro_spec = Convert.ToDecimal(gvTrade2.Rows[rowIndex].Cells[1].Text.Replace("g", "").Replace(" ", ""));
+                decimal iPro_spec = 1;//Convert.ToDecimal(gvTrade2.Rows[rowIndex].Cells[1].Text.Replace("g", "").Replace(" ", ""));
                 decimal base_price = Convert.ToDecimal(gvTrade2.Rows[rowIndex].Cells[2].Text.Replace("元/g", "").Replace(" ", ""));
                 //    decimal add_price = Convert.ToDecimal(gvTrade.Rows[rowIndex].Cells[3].Text.Trim());
                 if (!IsNum(t.Text.Trim()))
@@ -362,7 +362,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         proInfo = new ProductInfo();
 
                         proInfo.ProductID = Convert.ToInt32(gvTrade2.DataKeys[i].Value.ToString().Trim());
-                        proInfo.ProductSpecID = Convert.ToDecimal(gvTrade2.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
+                        proInfo.ProductSpecID = 1;// Convert.ToDecimal(gvTrade2.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
 
 
                         // proInfo.RealTimeBasePrice = Convert.ToDecimal(sCurPrice);       //基础金价              
@@ -485,7 +485,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 }
                 else
                 {
-                    MessageBox.Show(this, "你的余额不够");
+                    MessageBox.Show(this, "你的点价可用余额不够");
                 }
             }
             catch (Exception ex)
@@ -517,7 +517,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         proInfo = new ProductInfo();
 
                         proInfo.ProductID = Convert.ToInt32(gvTrade2.DataKeys[i].Value.ToString().Trim());
-                        proInfo.ProductSpecID = Convert.ToDecimal(gvTrade2.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
+                        proInfo.ProductSpecID = 1;// Convert.ToDecimal(gvTrade2.Rows[i].Cells[1].Text.Replace("g", "").Replace(" ", ""));
 
 
                         // proInfo.RealTimeBasePrice = Convert.ToDecimal(sCurPrice);       //基础金价              
@@ -568,7 +568,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
                 }
                 else
                 {
-                    MessageBox.Show(this, "你的余额不够");
+                    MessageBox.Show(this, "你的点价可用余额不够");
                 }
             }
             catch (Exception ex)
@@ -608,27 +608,27 @@ namespace GoldTradeNaming.Web.franchiser_trade
             divBtn.Style.Add("display", "none");
         }
         
-        protected void gvTrade_DataBound(object sender, EventArgs e)
-        {
-            for (int i = 0; i < gvTrade.Rows.Count; i++)
-            {
-                gvTrade.Rows[i].Cells[1].Text = gvTrade.Rows[i].Cells[1].Text.Trim() + "g";
-                // gvTrade.Rows[i].Cells[2].Text = gvTrade.Rows[i].Cells[2].Text.Trim() + " 元/g";
-                //  gvTrade.Rows[i].Cells[3].Text = gvTrade.Rows[i].Cells[3].Text.Trim() + " 元/g";
-                ((Label)gvTrade.Rows[i].FindControl("lblProdNum")).Text = " *" + gvTrade.Rows[i].Cells[1].Text.Trim();
-            }
-        }
+        //protected void gvTrade_DataBound(object sender, EventArgs e)
+        //{
+        //    for (int i = 0; i < gvTrade.Rows.Count; i++)
+        //    {
+        //        gvTrade.Rows[i].Cells[1].Text = gvTrade.Rows[i].Cells[1].Text.Trim() + "g";
+        //        // gvTrade.Rows[i].Cells[2].Text = gvTrade.Rows[i].Cells[2].Text.Trim() + " 元/g";
+        //        //  gvTrade.Rows[i].Cells[3].Text = gvTrade.Rows[i].Cells[3].Text.Trim() + " 元/g";
+        //        ((Label)gvTrade.Rows[i].FindControl("lblProdNum")).Text = " *" + gvTrade.Rows[i].Cells[1].Text.Trim();
+        //    }
+        //}
 
-        protected void gvTrade2_DataBound(object sender, EventArgs e)
-        {
-            for (int i = 0; i < gvTrade2.Rows.Count; i++)
-            {
-                gvTrade2.Rows[i].Cells[1].Text = gvTrade2.Rows[i].Cells[1].Text.Trim() + "g";
-                //   gvTrade2.Rows[i].Cells[2].Text = gvTrade2.Rows[i].Cells[1].Text.Trim() + " 元/g";
-                ((Label)gvTrade2.Rows[i].FindControl("lblProdNum2")).Text = " *" + gvTrade2.Rows[i].Cells[1].Text.Trim();
+        //protected void gvTrade2_DataBound(object sender, EventArgs e)
+        //{
+        //    //for (int i = 0; i < gvTrade2.Rows.Count; i++)
+        //    //{
+        //    //   // gvTrade2.Rows[i].Cells[1].Text = gvTrade2.Rows[i].Cells[1].Text.Trim() + "g";
+        //    //    //   gvTrade2.Rows[i].Cells[2].Text = gvTrade2.Rows[i].Cells[1].Text.Trim() + " 元/g";
+        //    //    ((Label)gvTrade2.Rows[i].FindControl("lblProdNum2")).Text = " *" + gvTrade2.Rows[i].Cells[1].Text.Trim();
 
-            }
-        }
+        //    //}
+        //}
 
         /// <summary>
         /// 获得经销商账面余额（包括担保款和不含担保的）
