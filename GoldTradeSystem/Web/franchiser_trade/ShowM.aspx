@@ -99,9 +99,9 @@
                                         <asp:BoundField DataField="product_id" HeaderText="产品类别ID" Visible="false" />
                                         <asp:BoundField DataField="product_type_name" HeaderText="产品类别名称" />
                                         <asp:BoundField DataField="product_spec_id" HeaderText="产品规格)" />
-                                        <asp:BoundField DataField="trade_amount" HeaderText="交易数量" />
+                                        <asp:BoundField DataField="trade_amount" HeaderText="结算数量" />
                                         <asp:BoundField DataField="trade_weight" HeaderText="交易重量" Visible="false" />
-                                        <asp:BoundField DataField="gold_trade_price" HeaderText="结算单价(元)" />
+                                        <asp:BoundField DataField="gold_trade_price" HeaderText="结算单价" />
                                         <asp:BoundField DataField="trade_money" HeaderText="交易金额(元)" />
                                     </Columns>
                                     <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
@@ -133,9 +133,9 @@
                                         <asp:BoundField DataField="product_id" HeaderText="产品类别ID" Visible="false" />
                                         <asp:BoundField DataField="product_type_name" HeaderText="产品类别名称" />
                                         <asp:BoundField DataField="product_spec_id" HeaderText="产品规格" Visible="false" />
-                                        <asp:BoundField DataField="trade_amount" HeaderText="交易条数" />
+                                        <asp:BoundField DataField="trade_amount" HeaderText="结算数量" />
                                         <asp:BoundField DataField="trade_weight" HeaderText="交易重量" Visible="false" />
-                                        <asp:BoundField DataField="gold_trade_price" HeaderText="结算单价(元)" />
+                                        <asp:BoundField DataField="gold_trade_price" HeaderText="结算单价" />
                                         <asp:BoundField DataField="trade_money" HeaderText="交易金额(元)" />
                                     </Columns>
                                     <PagerStyle ForeColor="Black" HorizontalAlign="Right" BackColor="#F7F7DE" />
