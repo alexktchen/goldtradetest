@@ -109,7 +109,7 @@
                                 HeaderStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                             </asp:BoundField>
-                            <asp:TemplateField HeaderText="数量" ItemStyle-HorizontalAlign="left" ItemStyle-Wrap="false" HeaderStyle-Width="80px"
+                            <asp:TemplateField HeaderText="结算数量" ItemStyle-HorizontalAlign="left" ItemStyle-Wrap="false" HeaderStyle-Width="80px"
                                 HeaderStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
                                     <asp:TextBox ID="txtProdNum" AutoPostBack="true" OnTextChanged="ProdNumChg" Width="100%"
@@ -173,7 +173,7 @@
                                 HeaderStyle-HorizontalAlign="Center">
                                 <ItemStyle HorizontalAlign="Center" Wrap="false"></ItemStyle>
                             </asp:BoundField>
-                            <asp:TemplateField HeaderText="条数" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Width="80px">
+                            <asp:TemplateField HeaderText="结算数量" ItemStyle-HorizontalAlign="left" HeaderStyle-HorizontalAlign="Center" HeaderStyle-Width="80px">
                                 <ItemTemplate>
                                     <asp:TextBox ID="txtProdNum2" AutoPostBack="true" OnTextChanged="ProdNumChg2" Width="100%"
                                         runat="server"></asp:TextBox>
