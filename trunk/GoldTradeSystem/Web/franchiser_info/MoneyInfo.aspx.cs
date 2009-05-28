@@ -54,7 +54,8 @@ namespace GoldTradeNaming.Web.franchiser_info
 
                 StringBuilder sb = new StringBuilder();
 
-                sb.Append(" franchiser_code='" + Request.Params["id"].ToString() + "'");
+                //对Request.Params["id"]进行转化，以检测ID合法性，防止SQL注入
+                sb.Append(" franchiser_code='" + Convert.ToInt32(Request.Params["id"].ToString()).ToString() + "'");
 
                 GoldTradeNaming.BLL.franchiser_money bll = new GoldTradeNaming.BLL.franchiser_money();
                 DataSet ds = bll.GetList(sb.ToString());

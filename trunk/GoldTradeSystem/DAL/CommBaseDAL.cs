@@ -33,6 +33,75 @@ namespace GoldTradeNaming.DAL
             return nextorderid;
         }
 
+        /// <summary>
+        /// 获得产品的类型：黄金/白银
+        /// </summary>
+        /// <param name="type_id">产品类别ID</param>
+        /// <returns></returns>
+        public static string GetProductTypeById(string type_id)
+        {
+            string type = null;
+            StringBuilder strQuery = new StringBuilder();
+            try
+            {
+                strQuery.Append("select type ");
+                strQuery.Append(" FROM product_type ");
+                strQuery.Append("WHERE product_type_id=@type_id");
+                SqlParameter[] parameters = {
+					new SqlParameter("@type_id", SqlDbType.Int)};
+                parameters[0].Value = type_id;
+                DataSet dt = DbHelperSQL.Query(strQuery.ToString(), parameters);
+                if (dt != null && dt.Tables.Count > 0 & dt.Tables[0].Rows.Count > 0)
+                {
+                    type = dt.Tables[0].Rows[0][0].ToString();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return type;
+        }
+
+        /// <summary>
+        /// 查询某经销商的订货总额
+        /// </summary>
+        /// <param name="franid">经销商编号</param>
+        /// <returns></returns>
+        public static decimal GetOrderSumByFranId(int franid)
+        {
+            decimal OrderSum = 0.00M;
+            string sql = "SELECT SUM(franchiser_order_amount_money) FROM franchiser_order WHERE franchiser_code = @franID";
+            SqlParameter[] parameters = {
+					new SqlParameter("@franID", SqlDbType.SmallInt)};
+            parameters[0].Value = franid;
+            DataSet ds = DbHelperSQL.Query(sql,parameters);
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                OrderSum = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+            }
+            return OrderSum;
+        }
+
+        /// <summary>
+        /// 查询某经销商的交易总额
+        /// </summary>
+        /// <param name="franid">经销商编号</param>
+        /// <returns></returns>
+        public static decimal GetTradeSumByFranId(int franid)
+        {
+            decimal TradeSum = 0.00M;
+            string sql = "SELECT SUM(trade_total_money) FROM franchiser_trade WHERE franchiser_code = @franID";
+            SqlParameter[] parameters = {
+					new SqlParameter("@franID", SqlDbType.SmallInt)};
+            parameters[0].Value = franid;
+            DataSet ds = DbHelperSQL.Query(sql, parameters);
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                TradeSum = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+            }
+            return TradeSum;
+        }
 
         /// <summary>
         /// 获得数据列表

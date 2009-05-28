@@ -24,8 +24,7 @@ namespace GoldTradeNaming.BLL
         {
             return CommBaseDAL.GetNextOrderId();
         }
-
-
+        
         /// <summary>
         /// 得到下一交易编号
         /// </summary>
@@ -33,6 +32,31 @@ namespace GoldTradeNaming.BLL
         public static int GetNextTradeId()
         {
             return CommBaseDAL.GetNextTradeId();
+        }
+
+        public static string GetProductTypeById(string type_id)
+        {
+            return CommBaseDAL.GetProductTypeById(type_id);
+        }
+
+          /// <summary>
+        /// 查询某经销商的订货总额
+        /// </summary>
+        /// <param name="franid">经销商编号</param>
+        /// <returns></returns>
+        public static decimal GetOrderSumByFranId(int franid)
+        {
+            return CommBaseDAL.GetOrderSumByFranId(franid);
+        }
+
+        /// <summary>
+        /// 查询某经销商的交易总额
+        /// </summary>
+        /// <param name="franid">经销商编号</param>
+        /// <returns></returns>
+        public static decimal GetTradeSumByFranId(int franid)
+        {
+            return CommBaseDAL.GetTradeSumByFranId(franid);
         }
 
         /// <summary>

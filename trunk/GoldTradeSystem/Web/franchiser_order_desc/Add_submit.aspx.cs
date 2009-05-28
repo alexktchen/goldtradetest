@@ -58,7 +58,7 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
             this.txtfranchiser_order_handle_phone.Text = this.mOrderMain.franchiser_order_handle_phone;
             this.lblPrice.Text = this.mOrderMain.franchiser_order_price.ToString();
             this.lblProdType.Text = this.mOrderMain.Product_type_name;
-
+            this.keyType.Value = this.mOrderMain.Product_type;
             DataTable dt = new DataTable();
 
             dt.Columns.Add("id");
@@ -167,6 +167,15 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
             Session.Remove("orderdesclist");
             Response.Redirect("../franchiser_order/Show.aspx");
            
+        }
+
+        protected void GridView1_RowCreated(object sender, GridViewRowEventArgs e)
+        {
+            if (this.keyType.Value == "1")
+            {
+                e.Row.Cells[2].Visible = false;
+                e.Row.Cells[4].Visible = false;
+            }
         }
 
       

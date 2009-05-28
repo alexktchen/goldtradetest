@@ -192,8 +192,14 @@ document.write('<\/DIV>')
             <asp:Label ID="lblTrade" runat="server" Text="点价可用余额"></asp:Label>
             <asp:Label ID="lblTradeBalance" runat="server" ForeColor="Red"></asp:Label>
             <asp:Label ID="Label3" runat="server" Text="元"></asp:Label>
-            <br>
-            <br>
+            <br/>
+            <asp:Label ID="Label1" runat="server" Text="订货总金额"></asp:Label>
+            <asp:Label ID="lblOrderSum" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Text="元"></asp:Label>
+            <br/>
+            <asp:Label ID="Label8" runat="server" Text="结算金额"></asp:Label>
+            <asp:Label ID="lblTradeSum" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label10" runat="server" Text="元"></asp:Label>
             <br>
             <embed id="show_swf1" src="../swf/1.swf" width="183" height="202" wmode="transparent"
                 type="application/x-shockwave-flash">

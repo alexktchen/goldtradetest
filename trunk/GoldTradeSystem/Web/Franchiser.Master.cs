@@ -46,6 +46,10 @@ namespace GoldTradeNaming.Web
                 //点价余额
                 leftmoney = CommBaseBLL.GetTradeBalance(franid);
                 lblTradeBalance.Text = leftmoney.ToString();
+
+                lblOrderSum.Text = CommBaseBLL.GetOrderSumByFranId(franid).ToString() ;
+                lblTradeSum.Text = CommBaseBLL.GetTradeSumByFranId(franid).ToString();
+
             }
             catch
             {
