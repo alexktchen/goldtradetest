@@ -24,12 +24,12 @@ namespace GoldTradeNaming.DAL
         /// <param name="dt"></param>
         /// <returns></returns>
         public int TradeCount(DateTime dt)
-        {  
+        {
             string strQuery = string.Format("select count(trade_id) from franchiser_trade where trade_time >= @dtFrom and  trade_time < @dtTo");
 
             SqlParameter[] parameters = {
-					new SqlParameter("@dtFrom", SqlDbType.DateTime),
-                    new SqlParameter("@dtTo", SqlDbType.DateTime)};
+					new SqlParameter("@dtFrom", SqlDbType.DateTime,8),
+                    new SqlParameter("@dtTo", SqlDbType.DateTime,8)};
 
             parameters[0].Value = dt;
             parameters[1].Value = dt.AddDays(1);
@@ -417,15 +417,40 @@ namespace GoldTradeNaming.DAL
         /// <param name="dtTo"></param>
         /// <param name="isInit">是否第一次进入页面</param>
         /// <returns></returns>
-        public DataSet GetAllTrade(string strWhere,bool isInit)
+        public DataSet GetAllTrade(int franchiser_code,int trade_id,DateTime dtFrom,DateTime dtTo,bool isInit)
         {
             string strQuery = "";
             if(isInit)
-                strQuery = string.Format(@"select top 50 * from franchiser_trade where " + strWhere + " ");
+            {
+                strQuery = string.Format(@"select top 50 * from franchiser_trade where franchiser_code=@franchiser_code order by trade_time desc ");
+                //SqlParameter[] parameters = {
+                //    new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2)};
+                //parameters[0].Value = franchiser_code;
+            }
             else
-                strQuery = string.Format(@"select * from franchiser_trade where " + strWhere + " ");
+            {
+                strQuery = string.Format(@"select * from franchiser_trade where franchiser_code=@franchiser_code  ");
+                if(trade_id != 0)
+                    strQuery += "And trade_id=@trade_id";
+                if(dtFrom.CompareTo(new DateTime(1900,1,1)) != 0)
+                    strQuery += "And trade_time>=@dtFrom ";
+                if(dtTo.CompareTo(new DateTime(1900,1,1)) != 0)
+                    strQuery += "And trade_time<@dtTo ";
 
-            return DbHelperSQL.Query(strQuery);
+                strQuery += " order by trade_time desc ";
+            }
+
+
+            SqlParameter[] parameters = {
+				     new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),
+                     new SqlParameter("@trade_id", SqlDbType.Int,2),
+                     new SqlParameter("@dtFrom", SqlDbType.SmallDateTime,8),
+                     new SqlParameter("@dtTo", SqlDbType.SmallDateTime,8)};
+            parameters[0].Value = franchiser_code;
+            parameters[1].Value = trade_id;
+            parameters[2].Value = dtFrom;
+            parameters[3].Value = dtTo;
+            return DbHelperSQL.Query(strQuery,parameters);
         }
 
 
