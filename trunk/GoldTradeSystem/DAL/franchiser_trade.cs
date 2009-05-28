@@ -17,18 +17,26 @@ namespace GoldTradeNaming.DAL
         {
         }
         #region  成员方法
-        
+
         /// <summary>
         /// 查询某天交易数 by yuxiaowei for TJ
         /// </summary>
         /// <param name="dt"></param>
         /// <returns></returns>
         public int TradeCount(DateTime dt)
-        {
-            string strQuery = string.Format("select count(trade_id) from franchiser_trade where trade_time between '" + dt.ToString("yyyy/MM/dd") + "' and '" + dt.ToString("yyyy/MM/dd 23:59:59") + "'");
+        {  
+            string strQuery = string.Format("select count(trade_id) from franchiser_trade where trade_time >= @dtFrom and  trade_time < @dtTo");
+
+            SqlParameter[] parameters = {
+					new SqlParameter("@dtFrom", SqlDbType.DateTime),
+                    new SqlParameter("@dtTo", SqlDbType.DateTime)};
+
+            parameters[0].Value = dt;
+            parameters[1].Value = dt.AddDays(1);
+
             try
             {
-                DataSet ds = DbHelperSQL.Query(strQuery.ToString());
+                DataSet ds = DbHelperSQL.Query(strQuery.ToString(),parameters);
                 return Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString().Trim());
             }
             catch
@@ -57,7 +65,7 @@ namespace GoldTradeNaming.DAL
         /// <param name="dtFrom"></param>
         /// <param name="dtTo"></param>
         /// <param name="ins_user"></param>
-        public int SetTradeTime(DateTime dtFrom, DateTime dtTo, string ins_user)
+        public int SetTradeTime(DateTime dtFrom,DateTime dtTo,string ins_user)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into trade_time (dtFrom,dtTo,ins_user,ins_date) ");
@@ -72,7 +80,7 @@ namespace GoldTradeNaming.DAL
             parameters[0].Value = dtFrom;
             parameters[1].Value = dtTo;
             parameters[2].Value = ins_user;
-            return DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            return DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
         }
 
         /// <summary>
@@ -81,7 +89,7 @@ namespace GoldTradeNaming.DAL
         public DataSet GetTradeByM(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            if (strWhere.Trim() == "")
+            if(strWhere.Trim() == "")
                 strSql.Append(@"select top 50 a.*,b.franchiser_name  from franchiser_trade a left join franchiser_info b  on a.franchiser_code=b.franchiser_code order by trade_time desc ");
             else
             {
@@ -96,7 +104,7 @@ namespace GoldTradeNaming.DAL
                 return null;
             }
         }
-        
+
 
         /// <summary>
         /// 增加交易记录 by yuxiaowei
@@ -105,18 +113,18 @@ namespace GoldTradeNaming.DAL
         /// <param name="trInfo"></param>
         /// <param name="iType">0黄金 1白银</param>
         /// <returns></returns>
-        public bool AddTrandeInfo(List<ProductInfo> prInfos, TradeInfo trInfo, string iType)
+        public bool AddTrandeInfo(List<ProductInfo> prInfos,TradeInfo trInfo,string iType)
         {
-            lock (_sync)
+            lock(_sync)
             {
-                if (iType == "0")
+                if(iType == "0")
                 {
                     #region
 
-                    using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+                    using(SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
                     {
                         conn.Open();
-                        using (SqlTransaction trans = conn.BeginTransaction())
+                        using(SqlTransaction trans = conn.BeginTransaction())
                         {
                             SqlCommand cmd = new SqlCommand();
                             try
@@ -161,7 +169,7 @@ namespace GoldTradeNaming.DAL
                                 cmd.Parameters.AddRange(parameters);
                                 result += cmd.ExecuteNonQuery();
 
-                                foreach (ProductInfo prInfo in prInfos)
+                                foreach(ProductInfo prInfo in prInfos)
                                 {
 
                                     StringBuilder sb1 = new StringBuilder();
@@ -185,7 +193,8 @@ namespace GoldTradeNaming.DAL
 
                                     object o = cmd.ExecuteScalar();
                                     decimal stockleft = Convert.ToDecimal(o);
-                                    if (stockleft < prInfo.TradeWeight) throw new Exception("重复交易！");
+                                    if(stockleft < prInfo.TradeWeight)
+                                        throw new Exception("重复交易！");
 
 
                                     cmd = new SqlCommand();
@@ -242,7 +251,7 @@ namespace GoldTradeNaming.DAL
                                 trans.Commit();
                                 return true;
                             }
-                            catch (Exception ex)
+                            catch(Exception ex)
                             {
                                 trans.Rollback();
                                 throw ex;
@@ -251,14 +260,14 @@ namespace GoldTradeNaming.DAL
                     }
                     #endregion
                 }
-                else if (iType == "1")
+                else if(iType == "1")
                 {
                     #region
 
-                    using (SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
+                    using(SqlConnection conn = new SqlConnection(PubConstant.ConnectionString))
                     {
                         conn.Open();
-                        using (SqlTransaction trans = conn.BeginTransaction())
+                        using(SqlTransaction trans = conn.BeginTransaction())
                         {
                             SqlCommand cmd = new SqlCommand();
                             try
@@ -303,7 +312,7 @@ namespace GoldTradeNaming.DAL
                                 cmd.Parameters.AddRange(parameters);
                                 result += cmd.ExecuteNonQuery();
 
-                                foreach (ProductInfo prInfo in prInfos)
+                                foreach(ProductInfo prInfo in prInfos)
                                 {
                                     StringBuilder sb1 = new StringBuilder();
                                     sb1.Append("select stock_left from stock_main  ");
@@ -326,7 +335,8 @@ namespace GoldTradeNaming.DAL
 
                                     object o = cmd.ExecuteScalar();
                                     decimal stockleft = Convert.ToDecimal(o);
-                                    if (stockleft < prInfo.TradeWeight) throw new Exception("重复交易！");
+                                    if(stockleft < prInfo.TradeWeight)
+                                        throw new Exception("重复交易！");
 
 
                                     cmd = new SqlCommand();
@@ -407,17 +417,17 @@ namespace GoldTradeNaming.DAL
         /// <param name="dtTo"></param>
         /// <param name="isInit">是否第一次进入页面</param>
         /// <returns></returns>
-        public DataSet GetAllTrade(string strWhere, bool isInit)
-        {      
+        public DataSet GetAllTrade(string strWhere,bool isInit)
+        {
             string strQuery = "";
-            if (isInit)
+            if(isInit)
                 strQuery = string.Format(@"select top 50 * from franchiser_trade where " + strWhere + " ");
             else
                 strQuery = string.Format(@"select * from franchiser_trade where " + strWhere + " ");
 
             return DbHelperSQL.Query(strQuery);
-        }    
-    
+        }
+
 
 
         /// <summary>
@@ -630,7 +640,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select franchiser_code,franchiser_name,franchiser_balance_money,franchiser_asure_money,franchiser_tel,franchiser_cellphone,franchiser_address,ins_user,ins_date,upd_user,upd_date,IA100GUID ");
             strSql.Append(" FROM franchiser_info ");
-            if (strWhere.Trim() != "")
+            if(strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
             }
@@ -642,7 +652,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
         /// </summary>
         public int GetMaxId()
         {
-            return DbHelperSQL.GetMaxID("trade_id", "franchiser_trade");
+            return DbHelperSQL.GetMaxID("trade_id","franchiser_trade");
         }
 
         /// <summary>
@@ -657,7 +667,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
 					new SqlParameter("@trade_id", SqlDbType.Int,4)};
             parameters[0].Value = trade_id;
 
-            return DbHelperSQL.Exists(strSql.ToString(), parameters);
+            return DbHelperSQL.Exists(strSql.ToString(),parameters);
         }
 
         /// <summary>
@@ -710,8 +720,8 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
             parameters[11].Value = model.upd_user;
             parameters[12].Value = model.upd_date;
 
-            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
-            if (obj == null)
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
+            if(obj == null)
             {
                 return 1;
             }
@@ -771,7 +781,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
             parameters[12].Value = model.upd_user;
             parameters[13].Value = model.upd_date;
 
-            DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
         }
 
         /// <summary>
@@ -787,7 +797,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
 					new SqlParameter("@trade_id", SqlDbType.Int,4)};
             parameters[0].Value = trade_id;
 
-            DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
         }
 
 
@@ -805,50 +815,50 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
             parameters[0].Value = trade_id;
 
             GoldTradeNaming.Model.franchiser_trade model = new GoldTradeNaming.Model.franchiser_trade();
-            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
-            if (ds.Tables[0].Rows.Count > 0)
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
+            if(ds.Tables[0].Rows.Count > 0)
             {
-                if (ds.Tables[0].Rows[0]["trade_id"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["trade_id"].ToString() != "")
                 {
                     model.trade_id = int.Parse(ds.Tables[0].Rows[0]["trade_id"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["franchiser_code"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["franchiser_code"].ToString() != "")
                 {
                     model.franchiser_code = int.Parse(ds.Tables[0].Rows[0]["franchiser_code"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["trade_time"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["trade_time"].ToString() != "")
                 {
                     model.trade_time = DateTime.Parse(ds.Tables[0].Rows[0]["trade_time"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["realtime_base_price"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["realtime_base_price"].ToString() != "")
                 {
                     model.realtime_base_price = decimal.Parse(ds.Tables[0].Rows[0]["realtime_base_price"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["gold_trade_price"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["gold_trade_price"].ToString() != "")
                 {
                     model.gold_trade_price = decimal.Parse(ds.Tables[0].Rows[0]["gold_trade_price"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["trade_add_price"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["trade_add_price"].ToString() != "")
                 {
                     model.trade_add_price = decimal.Parse(ds.Tables[0].Rows[0]["trade_add_price"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["trade_total_weight"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["trade_total_weight"].ToString() != "")
                 {
                     model.trade_total_weight = int.Parse(ds.Tables[0].Rows[0]["trade_total_weight"].ToString());
                 }
-                if (ds.Tables[0].Rows[0]["trade_total_money"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["trade_total_money"].ToString() != "")
                 {
                     model.trade_total_money = decimal.Parse(ds.Tables[0].Rows[0]["trade_total_money"].ToString());
                 }
                 model.canceled_reason = ds.Tables[0].Rows[0]["canceled_reason"].ToString();
                 model.trade_state = ds.Tables[0].Rows[0]["trade_state"].ToString();
                 model.ins_user = ds.Tables[0].Rows[0]["ins_user"].ToString();
-                if (ds.Tables[0].Rows[0]["ins_date"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["ins_date"].ToString() != "")
                 {
                     model.ins_date = DateTime.Parse(ds.Tables[0].Rows[0]["ins_date"].ToString());
                 }
                 model.upd_user = ds.Tables[0].Rows[0]["upd_user"].ToString();
-                if (ds.Tables[0].Rows[0]["upd_date"].ToString() != "")
+                if(ds.Tables[0].Rows[0]["upd_date"].ToString() != "")
                 {
                     model.upd_date = DateTime.Parse(ds.Tables[0].Rows[0]["upd_date"].ToString());
                 }
@@ -868,7 +878,7 @@ on a.product_id=b.product_type_id and a.product_spec_id=product_spec_weight wher
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select trade_id,franchiser_code,trade_time,realtime_base_price,gold_trade_price,trade_add_price,trade_total_weight,trade_total_money,canceled_reason,trade_state,ins_user,ins_date,upd_user,upd_date ");
             strSql.Append(" FROM franchiser_trade ");
-            if (strWhere.Trim() != "")
+            if(strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
             }
