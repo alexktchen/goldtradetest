@@ -142,25 +142,27 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         private bool GetTradeList(bool isInit)
         {
-            string franchiser_code = Session["fran"].ToString().Trim();
-            StringBuilder strWhere = new StringBuilder();
-            DateTime dtFrom = new DateTime(2000, 1, 1);
-            DateTime dtTo = DateTime.Now;
-            strWhere.Append(" franchiser_code ='" + franchiser_code + "' ");
+            int franchiser_code = Convert.ToInt32(Session["fran"].ToString().Trim());       
+            DateTime dtFrom = new DateTime(1900,1,1);
+            DateTime dtTo = new DateTime(1900,1,1);
+            int trade_id=0;
+       
             if (isInit)
             {
             }
             else
             {
-                if (this.txttrade_id.Text.Trim() == "")
+                if(this.txttrade_id.Text.Trim() != "")
                 {
-                    strWhere.Append(" AND 1=1");
-                }
-                else
-                {
-                    strWhere.Append(" AND trade_id = N'");
-                    strWhere.Append(this.txttrade_id.Text.Trim());
-                    strWhere.Append("'");
+                    try
+                    {
+                        trade_id = Convert.ToInt32(txttrade_id.Text.Trim());
+                    }
+                    catch
+                    {
+                        MessageBox.Show(this,"请输入正确的交易编号");
+                        return false;
+                    }
                 }
                 if (txtBeginDate.Text.Trim() != "")
                 {
@@ -186,13 +188,12 @@ namespace GoldTradeNaming.Web.franchiser_trade
                         MessageBox.Show(this, "请输入正确的时间格式");
                         return false;
                     }
-                }
-                strWhere.Append("AND trade_time between '" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' ");
+                }             
             }
-            strWhere.Append(" order by trade_time desc; ");
+         
             try
             {
-                DataSet ds = bll.GetAllTrade(strWhere.ToString(), isInit);
+                DataSet ds = bll.GetAllTrade(franchiser_code,trade_id,dtFrom,dtTo,isInit);
                 gvTrade.DataSource = ds;
                 gvTrade.DataBind();
                 Session["gvTrade"] = ds;             
