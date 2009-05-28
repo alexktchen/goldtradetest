@@ -11,6 +11,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
 using System.Xml.Linq;
 using System.Text;
+using GoldTradeNaming.BLL;
 namespace GoldTradeNaming.Web.franchiser_order_desc
 {
     public partial class Show_Amdin : System.Web.UI.Page
@@ -49,6 +50,11 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
             strWhere.Append(orderid + "'");
             GoldTradeNaming.BLL.send_main orderdscBll = new GoldTradeNaming.BLL.send_main();
             DataSet ds = orderdscBll.GetOrderedProductList(strWhere.ToString());
+            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            {
+                string prodType = CommBaseBLL.GetProductTypeById(ds.Tables[0].Rows[0]["product_id"].ToString().Trim());
+                if (prodType == "1") GridView2.Columns[1].Visible = false;
+            }
             GridView2.DataSource = ds;
             GridView2.DataBind();
         }

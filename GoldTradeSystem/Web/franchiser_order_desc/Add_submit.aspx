@@ -4,7 +4,8 @@
 
 <%@ Register Assembly="Anthem" Namespace="Anthem" TagPrefix="anthem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <table cellspacing="0" cellpadding="0" width="100%" border="1">
+    <asp:HiddenField ID="keyType" runat="server" Visible="false" />
+   <table cellspacing="0" cellpadding="0" width="100%" border="1">
         <tr>
             <td height="25" align="center" colspan="2">
                 ********************************您的订单信息如下********************************</td>
@@ -100,14 +101,15 @@
             <td height="25" align="center">
                 <asp:GridView ID="GridView1" runat="server" BackColor="White" 
                     BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" CellPadding="4" 
-                    ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                    ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" 
+                    onrowcreated="GridView1_RowCreated">
                     <FooterStyle BackColor="#CCCC99" />
                     <RowStyle BackColor="#F7F7DE" />
                     <Columns>
                         <asp:BoundField DataField="product_type_id" HeaderText="产品ID" />
                         <asp:BoundField DataField="product_type_name" HeaderText="产品名称" />
                         <asp:BoundField DataField="product_spec_id" HeaderText="规格" />
-                        <asp:BoundField DataField="order_product_amount" HeaderText="数量" />
+                        <asp:BoundField DataField="order_product_amount" HeaderText="条数" />
                         <asp:BoundField DataField="order_weight" HeaderText="重量小计" />
                         <asp:BoundField DataField="order_add_price" HeaderText="订货加价" />
                         <asp:BoundField DataField="order_appraise" HeaderText="预估单价" />

@@ -17,6 +17,7 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
 {
     public partial class Add : System.Web.UI.Page
     {
+        
         private GoldTradeNaming.Model.franchiser_order mOrderMain;
         private List<GoldTradeNaming.Model.franchiser_order_desc> orderdescList;
         protected void Page_Load(object sender, EventArgs e)
@@ -79,9 +80,15 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
             DataSet ds;
             this.mOrderMain = Session["OrderMain"] as GoldTradeNaming.Model.franchiser_order;
             if (this.mOrderMain.Product_type == "0")
+            {
                 ds = orderbll.GetGoldProduct();
+                
+            }
             else if (this.mOrderMain.Product_type == "1")
+            {
                 ds = orderbll.GetSilverProduct();
+                this.keyType.Value = "1";
+            }
             else return;
             GridView1.UpdateAfterCallBack = true;
             GridView1.DataSource = ds;
@@ -212,6 +219,11 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
         {
             e.Row.Cells[0].Visible = false;
             e.Row.Cells[5].Visible = false;
+            if (this.keyType.Value == "1")
+            {
+                e.Row.Cells[2].Visible = false;
+                e.Row.Cells[4].Visible = false;
+            }
         }
 
 

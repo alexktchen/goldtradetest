@@ -4,6 +4,7 @@
 
 <%@ Register Assembly="Anthem" Namespace="Anthem" TagPrefix="anthem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <asp:HiddenField ID="keyType" runat="server" Visible="false" />
     <table cellspacing="0" cellpadding="0" width="100%" border="0">
         <tr>
             <td height="25" align="center">
@@ -31,7 +32,7 @@
                                         <asp:BoundField DataField="product_type_id" HeaderText="产品ID" />
                                         <asp:BoundField DataField="product_type_name" HeaderText="产品名称" />
                                         <asp:BoundField DataField="product_spec_weight" HeaderText="规格" />
-                                        <asp:TemplateField HeaderText="数量">
+                                        <asp:TemplateField HeaderText="条数">
                                             <ItemTemplate>
                                                 <asp:TextBox ID="txtProdNum" runat="server" AutoPostBack="true" 
                                                     OnTextChanged="ProdNumChge"></asp:TextBox>
