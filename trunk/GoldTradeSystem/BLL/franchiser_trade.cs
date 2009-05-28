@@ -40,9 +40,9 @@ namespace GoldTradeNaming.BLL
         /// <param name="dtFrom"></param>
         /// <param name="dtTo"></param>
         /// <param name="ins_user"></param>
-        public int SetTradeTime(DateTime dtFrom, DateTime dtTo, string ins_user)
+        public int SetTradeTime(DateTime dtFrom,DateTime dtTo,string ins_user)
         {
-            return dal.SetTradeTime(dtFrom, dtTo, ins_user);
+            return dal.SetTradeTime(dtFrom,dtTo,ins_user);
         }
 
         /// <summary>
@@ -81,9 +81,9 @@ namespace GoldTradeNaming.BLL
         /// <param name="trInfo"></param>
         /// <param name="iType">0黄金 1白银</param>
         /// <returns></returns>
-        public bool AddTrandeInfo(List<ProductInfo> prInfos, TradeInfo trInfo, string iType)
+        public bool AddTrandeInfo(List<ProductInfo> prInfos,TradeInfo trInfo,string iType)
         {
-            return dal.AddTrandeInfo(prInfos, trInfo, iType);
+            return dal.AddTrandeInfo(prInfos,trInfo,iType);
         }
 
         /// <summary>
@@ -95,9 +95,9 @@ namespace GoldTradeNaming.BLL
         /// <param name="dtTo"></param>
         /// <param name="isInit">是否第一次进入页面</param>
         /// <returns></returns>
-        public DataSet GetAllTrade(string strWhere,bool isInit)
+        public DataSet GetAllTrade(int franchiser_code,int trade_id,DateTime dtFrom,DateTime dtTo,bool isInit)
         {
-            return dal.GetAllTrade(strWhere,isInit);
+            return dal.GetAllTrade(franchiser_code,trade_id,dtFrom,dtTo,isInit);
         }
         //public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
         //{
@@ -256,15 +256,15 @@ namespace GoldTradeNaming.BLL
 
             string CacheKey = "franchiser_tradeModel-" + trade_id;
             object objModel = LTP.Common.DataCache.GetCache(CacheKey);
-            if (objModel == null)
+            if(objModel == null)
             {
                 try
                 {
                     objModel = dal.GetModel(trade_id);
-                    if (objModel != null)
+                    if(objModel != null)
                     {
                         int ModelCache = LTP.Common.ConfigHelper.GetConfigInt("ModelCache");
-                        LTP.Common.DataCache.SetCache(CacheKey, objModel, DateTime.Now.AddMinutes(ModelCache), TimeSpan.Zero);
+                        LTP.Common.DataCache.SetCache(CacheKey,objModel,DateTime.Now.AddMinutes(ModelCache),TimeSpan.Zero);
                     }
                 }
                 catch
@@ -289,53 +289,53 @@ namespace GoldTradeNaming.BLL
             DataSet ds = dal.GetList(strWhere);
             List<GoldTradeNaming.Model.franchiser_trade> modelList = new List<GoldTradeNaming.Model.franchiser_trade>();
             int rowsCount = ds.Tables[0].Rows.Count;
-            if (rowsCount > 0)
+            if(rowsCount > 0)
             {
                 GoldTradeNaming.Model.franchiser_trade model;
-                for (int n = 0; n < rowsCount; n++)
+                for(int n = 0;n < rowsCount;n++)
                 {
                     model = new GoldTradeNaming.Model.franchiser_trade();
-                    if (ds.Tables[0].Rows[n]["trade_id"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["trade_id"].ToString() != "")
                     {
                         model.trade_id = int.Parse(ds.Tables[0].Rows[n]["trade_id"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["franchiser_code"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["franchiser_code"].ToString() != "")
                     {
                         model.franchiser_code = int.Parse(ds.Tables[0].Rows[n]["franchiser_code"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["trade_time"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["trade_time"].ToString() != "")
                     {
                         model.trade_time = DateTime.Parse(ds.Tables[0].Rows[n]["trade_time"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["realtime_base_price"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["realtime_base_price"].ToString() != "")
                     {
                         model.realtime_base_price = decimal.Parse(ds.Tables[0].Rows[n]["realtime_base_price"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["gold_trade_price"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["gold_trade_price"].ToString() != "")
                     {
                         model.gold_trade_price = decimal.Parse(ds.Tables[0].Rows[n]["gold_trade_price"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["trade_add_price"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["trade_add_price"].ToString() != "")
                     {
                         model.trade_add_price = decimal.Parse(ds.Tables[0].Rows[n]["trade_add_price"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["trade_total_weight"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["trade_total_weight"].ToString() != "")
                     {
                         model.trade_total_weight = int.Parse(ds.Tables[0].Rows[n]["trade_total_weight"].ToString());
                     }
-                    if (ds.Tables[0].Rows[n]["trade_total_money"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["trade_total_money"].ToString() != "")
                     {
                         model.trade_total_money = decimal.Parse(ds.Tables[0].Rows[n]["trade_total_money"].ToString());
                     }
                     model.canceled_reason = ds.Tables[0].Rows[n]["canceled_reason"].ToString();
                     model.trade_state = ds.Tables[0].Rows[n]["trade_state"].ToString();
                     model.ins_user = ds.Tables[0].Rows[n]["ins_user"].ToString();
-                    if (ds.Tables[0].Rows[n]["ins_date"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["ins_date"].ToString() != "")
                     {
                         model.ins_date = DateTime.Parse(ds.Tables[0].Rows[n]["ins_date"].ToString());
                     }
                     model.upd_user = ds.Tables[0].Rows[n]["upd_user"].ToString();
-                    if (ds.Tables[0].Rows[n]["upd_date"].ToString() != "")
+                    if(ds.Tables[0].Rows[n]["upd_date"].ToString() != "")
                     {
                         model.upd_date = DateTime.Parse(ds.Tables[0].Rows[n]["upd_date"].ToString());
                     }
