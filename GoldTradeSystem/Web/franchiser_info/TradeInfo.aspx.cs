@@ -15,84 +15,83 @@ using LTP.Common;
 
 namespace GoldTradeNaming.Web.franchiser_info
 {
-    public partial class TradeInfo : System.Web.UI.Page
+    public partial class TradeInfo:System.Web.UI.Page
     {
         GoldTradeNaming.BLL.franchiser_trade bll = new GoldTradeNaming.BLL.franchiser_trade();
-        
-        protected void Page_Load(object sender, EventArgs e)
+
+        protected void Page_Load(object sender,EventArgs e)
         {
-            if (Session["admin"] == null || Session["admin"].ToString() == "")
+            if(Session["admin"] == null || Session["admin"].ToString() == "")
             {
                 Session.Clear();
                 Response.Clear();
-                LTP.Common.MessageBox.ShowAndRedirect(this, "您没有权限或登录超时！\\n请重新登录或与管理员联系", "../User_Login/AdminLogin.aspx");
+                LTP.Common.MessageBox.ShowAndRedirect(this,"您没有权限或登录超时！\\n请重新登录或与管理员联系","../User_Login/AdminLogin.aspx");
                 return;
             }
 
-            if (Session["admin"] == null || Session["admin"].ToString() == ""
-                   || !GoldTradeNaming.BLL.CommBaseBLL.HasRight(Convert.ToInt32(Session["admin"]), Model.Authority.ViewFran.ToString()))
+            if(Session["admin"] == null || Session["admin"].ToString() == ""
+                   || !GoldTradeNaming.BLL.CommBaseBLL.HasRight(Convert.ToInt32(Session["admin"]),Model.Authority.ViewFran.ToString()))
             {
                 Response.Clear();
                 Response.Write("<script defer>window.alert('" + "您没有权限操作该功能！\\n请重新登录或与管理员联系" + "');history.back();</script>");
                 Response.End();
                 return;
-            } 
-
-            DataSet ds = SearchTradeInfo();
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-            {
-                Session["gvTrade"] = ds;
-                this.gvTrade.DataSource = ds;
-                this.gvTrade.DataBind();
             }
-            divTradeDesc.Style.Add("display", "none");
-            divTrade.Style.Add("display", "block");
-               
+            if(!Page.IsPostBack)
+            {
+                bool bl = SearchTradeInfo();
+                if(bl)
+                {
+                    divTradeDesc.Style.Add("display","none");
+                    divTrade.Style.Add("display","block");
+                }
+            }
+
         }
 
-        protected void gvTrade_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvTrade_SelectedIndexChanged(object sender,EventArgs e)
         {
             try
             {
-                string sTradeID = gvTrade.SelectedRow.Cells[0].Text.Trim();
+                int sTradeID = Convert.ToInt32(gvTrade.SelectedRow.Cells[0].Text.Trim());
                 DataSet ds = bll.GetTradeDesc(sTradeID);
-                Session["gvTradeDesc"] = ds;
-                gvTradeDesc.DataSource = ds;
-                gvTradeDesc.DataBind();
+                if(ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    Session["gvTradeDesc"] = ds;
+                    gvTradeDesc.DataSource = ds;
+                    gvTradeDesc.DataBind();
+                    divTradeDesc.Style.Add("display","block");
+                    divTrade.Style.Add("display","none");
+                }
+                else
+                {
+                    MessageBox.Show(this,"查无数据");
+                }
 
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                return;
+                MessageBox.Show(this,ex.Message);
             }
-
-            divTradeDesc.Style.Add("display", "block");
-            divTrade.Style.Add("display", "none");
         }
 
-        protected void gvTrade_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvTrade_PageIndexChanging(object sender,GridViewPageEventArgs e)
         {
             this.gvTrade.PageIndex = e.NewPageIndex;
 
-            if (Session["gvTrade"] != null)
+            if(Session["gvTrade"] != null)
             {
                 this.gvTrade.DataSource = Session["gvTrade"] as DataSet;
                 this.gvTrade.DataBind();
-            }
-            else
-            {
-                Session["gvTrade"] = SearchTradeInfo();
-                this.gvTrade.DataSource = Session["gvTrade"] as DataSet;
-                this.gvTrade.DataBind();
-            }
+            }         
             gvTrade.SelectedIndex = -1;
         }
 
-        protected void gvTradeDesc_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gvTradeDesc_PageIndexChanging(object sender,GridViewPageEventArgs e)
         {
             this.gvTradeDesc.PageIndex = e.NewPageIndex;
 
-            if (Session["gvTradeDesc"] != null)
+            if(Session["gvTradeDesc"] != null)
             {
                 this.gvTradeDesc.DataSource = Session["gvTradeDesc"] as DataSet;
                 this.gvTradeDesc.DataBind();
@@ -107,38 +106,46 @@ namespace GoldTradeNaming.Web.franchiser_info
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void btnReturn_Click(object sender, EventArgs e)
+        protected void btnReturn_Click(object sender,EventArgs e)
         {
             gvTradeDesc.DataSource = null;
             gvTradeDesc.DataBind();
             gvTrade.SelectedIndex = -1;
 
-            divTradeDesc.Style.Add("display", "none");
-            divTrade.Style.Add("display", "block");
+            divTradeDesc.Style.Add("display","none");
+            divTrade.Style.Add("display","block");
         }
 
-        private DataSet SearchTradeInfo()
+        private bool SearchTradeInfo()
         {
             StringBuilder strWhere = new StringBuilder();
-
-            if (Request.Params.Count > 0)
+            bool isInit = true;
+            int franchiser_code = -1;
+            try
             {
-                this.txtfranchiser_name.Text = Request.Params["name"].ToString();
-                StringBuilder sb = new StringBuilder();
-                sb.Append(" franchiser_code='" + Request.Params["id"].ToString() + "'");
+                if(Request.Params.Count > 0)
+                {
+                    this.txtfranchiser_name.Text = Request.Params["name"].ToString();                  
+                    franchiser_code = Convert.ToInt32(Request.Params["id"].ToString().Trim());
+                    isInit = false;
+                }
+
+                DataSet ds = bll.GetTradeByM(franchiser_code,-1,String.Empty,isInit);
+                gvTrade.DataSource = ds;
+                gvTrade.DataBind();
+                Session["gvTrade"] = ds;
+                return true;
             }
-           
-            return bll.GetTradeByM(strWhere.ToString());
+            catch(Exception ex)
+            {
+                MessageBox.Show(this,ex.Message);
+                return false;
+            }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender,EventArgs e)
         {
             Response.Redirect("ShowNoEdit.aspx");
         }
-
-
-
-
-
     }
 }
