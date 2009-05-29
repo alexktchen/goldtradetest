@@ -122,7 +122,7 @@ namespace GoldTradeNaming.BLL
             return dal.GetLeftStock(franchiser_code);
         }
 
-        public DataSet GetTradeAdd(string product_id)
+        public DataSet GetTradeAdd(int product_id)
         {
             return dal.GetTradeAdd(product_id);
         }
@@ -131,7 +131,7 @@ namespace GoldTradeNaming.BLL
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetGoldNoReceiveValue(string franchiser_code)
+        public decimal GetGoldNoReceiveValue(int franchiser_code)
         {
             return dal.GetGoldNoReceiveValue(franchiser_code);
         }
@@ -140,7 +140,7 @@ namespace GoldTradeNaming.BLL
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetSilverNoReceiveValue(string franchiser_code)
+        public decimal GetSilverNoReceiveValue(int franchiser_code)
         {
             return dal.GetSilverNoReceiveValue(franchiser_code);
         }
@@ -149,7 +149,7 @@ namespace GoldTradeNaming.BLL
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetGoldStockValue(string franchiser_code)
+        public decimal GetGoldStockValue(int franchiser_code)
         {
             return dal.GetGoldStockValue(franchiser_code);
         }
@@ -158,7 +158,7 @@ namespace GoldTradeNaming.BLL
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetSilverStockValue(string franchiser_code)
+        public decimal GetSilverStockValue(int franchiser_code)
         {
             return dal.GetSilverStockValue(franchiser_code);
         }
@@ -175,14 +175,14 @@ namespace GoldTradeNaming.BLL
         /// <summary>
         /// 获得产品库存列别 金块 by yuxiaowei
         /// </summary>
-        public DataSet GetGoldStock(string franchiser_code)
+        public DataSet GetGoldStock(int franchiser_code)
         {
             return dal.GetGoldStock(franchiser_code);
         }
         /// <summary>
         /// 获得产品库存列别 白银 by yuxiaowei
         /// </summary>
-        public DataSet GetSilverStock(string franchiser_code)
+        public DataSet GetSilverStock(int franchiser_code)
         {
             return dal.GetSilverStock(franchiser_code);
         }
@@ -196,9 +196,9 @@ namespace GoldTradeNaming.BLL
         /// <summary>
         /// 获得经销商数据列表
         /// </summary>
-        public DataSet GetFranList(string strWhere)
+        public DataSet GetFranList(int fran_code)
         {
-            return dal.GetFranList(strWhere);
+            return dal.GetFranList(fran_code);
         }
         /// <summary>
         /// 获得最新金价价格 add by yuxiaowei
@@ -279,90 +279,73 @@ namespace GoldTradeNaming.BLL
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        public DataSet GetList(string strWhere)
-        {
-            return dal.GetList(strWhere);
-        }
-        /// <summary>
-        /// 获得数据列表
-        /// </summary>
-        public List<GoldTradeNaming.Model.franchiser_trade> GetModelList(string strWhere)
-        {
-            DataSet ds = dal.GetList(strWhere);
-            List<GoldTradeNaming.Model.franchiser_trade> modelList = new List<GoldTradeNaming.Model.franchiser_trade>();
-            int rowsCount = ds.Tables[0].Rows.Count;
-            if(rowsCount > 0)
-            {
-                GoldTradeNaming.Model.franchiser_trade model;
-                for(int n = 0;n < rowsCount;n++)
-                {
-                    model = new GoldTradeNaming.Model.franchiser_trade();
-                    if(ds.Tables[0].Rows[n]["trade_id"].ToString() != "")
-                    {
-                        model.trade_id = int.Parse(ds.Tables[0].Rows[n]["trade_id"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["franchiser_code"].ToString() != "")
-                    {
-                        model.franchiser_code = int.Parse(ds.Tables[0].Rows[n]["franchiser_code"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["trade_time"].ToString() != "")
-                    {
-                        model.trade_time = DateTime.Parse(ds.Tables[0].Rows[n]["trade_time"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["realtime_base_price"].ToString() != "")
-                    {
-                        model.realtime_base_price = decimal.Parse(ds.Tables[0].Rows[n]["realtime_base_price"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["gold_trade_price"].ToString() != "")
-                    {
-                        model.gold_trade_price = decimal.Parse(ds.Tables[0].Rows[n]["gold_trade_price"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["trade_add_price"].ToString() != "")
-                    {
-                        model.trade_add_price = decimal.Parse(ds.Tables[0].Rows[n]["trade_add_price"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["trade_total_weight"].ToString() != "")
-                    {
-                        model.trade_total_weight = int.Parse(ds.Tables[0].Rows[n]["trade_total_weight"].ToString());
-                    }
-                    if(ds.Tables[0].Rows[n]["trade_total_money"].ToString() != "")
-                    {
-                        model.trade_total_money = decimal.Parse(ds.Tables[0].Rows[n]["trade_total_money"].ToString());
-                    }
-                    model.canceled_reason = ds.Tables[0].Rows[n]["canceled_reason"].ToString();
-                    model.trade_state = ds.Tables[0].Rows[n]["trade_state"].ToString();
-                    model.ins_user = ds.Tables[0].Rows[n]["ins_user"].ToString();
-                    if(ds.Tables[0].Rows[n]["ins_date"].ToString() != "")
-                    {
-                        model.ins_date = DateTime.Parse(ds.Tables[0].Rows[n]["ins_date"].ToString());
-                    }
-                    model.upd_user = ds.Tables[0].Rows[n]["upd_user"].ToString();
-                    if(ds.Tables[0].Rows[n]["upd_date"].ToString() != "")
-                    {
-                        model.upd_date = DateTime.Parse(ds.Tables[0].Rows[n]["upd_date"].ToString());
-                    }
-                    modelList.Add(model);
-                }
-            }
-            return modelList;
-        }
-
-        /// <summary>
-        /// 获得数据列表
-        /// </summary>
-        public DataSet GetAllList()
-        {
-            return GetList("");
-        }
-
-        /// <summary>
-        /// 获得数据列表
-        /// </summary>
-        //public DataSet GetList(int PageSize,int PageIndex,string strWhere)
+        //public DataSet GetList(string strWhere)
         //{
-        //return dal.GetList(PageSize,PageIndex,strWhere);
+        //    return dal.GetList(strWhere);
         //}
-
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        //public List<GoldTradeNaming.Model.franchiser_trade> GetModelList(string strWhere)
+        //{
+        //    DataSet ds = dal.GetList(strWhere);
+        //    List<GoldTradeNaming.Model.franchiser_trade> modelList = new List<GoldTradeNaming.Model.franchiser_trade>();
+        //    int rowsCount = ds.Tables[0].Rows.Count;
+        //    if(rowsCount > 0)
+        //    {
+        //        GoldTradeNaming.Model.franchiser_trade model;
+        //        for(int n = 0;n < rowsCount;n++)
+        //        {
+        //            model = new GoldTradeNaming.Model.franchiser_trade();
+        //            if(ds.Tables[0].Rows[n]["trade_id"].ToString() != "")
+        //            {
+        //                model.trade_id = int.Parse(ds.Tables[0].Rows[n]["trade_id"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["franchiser_code"].ToString() != "")
+        //            {
+        //                model.franchiser_code = int.Parse(ds.Tables[0].Rows[n]["franchiser_code"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["trade_time"].ToString() != "")
+        //            {
+        //                model.trade_time = DateTime.Parse(ds.Tables[0].Rows[n]["trade_time"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["realtime_base_price"].ToString() != "")
+        //            {
+        //                model.realtime_base_price = decimal.Parse(ds.Tables[0].Rows[n]["realtime_base_price"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["gold_trade_price"].ToString() != "")
+        //            {
+        //                model.gold_trade_price = decimal.Parse(ds.Tables[0].Rows[n]["gold_trade_price"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["trade_add_price"].ToString() != "")
+        //            {
+        //                model.trade_add_price = decimal.Parse(ds.Tables[0].Rows[n]["trade_add_price"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["trade_total_weight"].ToString() != "")
+        //            {
+        //                model.trade_total_weight = int.Parse(ds.Tables[0].Rows[n]["trade_total_weight"].ToString());
+        //            }
+        //            if(ds.Tables[0].Rows[n]["trade_total_money"].ToString() != "")
+        //            {
+        //                model.trade_total_money = decimal.Parse(ds.Tables[0].Rows[n]["trade_total_money"].ToString());
+        //            }
+        //            model.canceled_reason = ds.Tables[0].Rows[n]["canceled_reason"].ToString();
+        //            model.trade_state = ds.Tables[0].Rows[n]["trade_state"].ToString();
+        //            model.ins_user = ds.Tables[0].Rows[n]["ins_user"].ToString();
+        //            if(ds.Tables[0].Rows[n]["ins_date"].ToString() != "")
+        //            {
+        //                model.ins_date = DateTime.Parse(ds.Tables[0].Rows[n]["ins_date"].ToString());
+        //            }
+        //            model.upd_user = ds.Tables[0].Rows[n]["upd_user"].ToString();
+        //            if(ds.Tables[0].Rows[n]["upd_date"].ToString() != "")
+        //            {
+        //                model.upd_date = DateTime.Parse(ds.Tables[0].Rows[n]["upd_date"].ToString());
+        //            }
+        //            modelList.Add(model);
+        //        }
+        //    }
+        //    return modelList;
+        //}             
         #endregion  成员方法
     }
 }
