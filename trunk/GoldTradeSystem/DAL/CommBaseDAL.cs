@@ -784,20 +784,24 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetGoldNoReceiveValue(string franchiser_code)
+        public decimal GetGoldNoReceiveValue(string sFranchiser_code)
         {
-            string strSql = string.Format(@"select sum( a.[count]*(b.trade_add_price+c.realtime_base_price)) as goldValue  from 
-                                            (
-                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
-                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
-                                                and franchiser_code=N'" + franchiser_code + @"') 
-                                                and product_id in (select product_type_id from product_type where type='0')
-                                                group by franchiser_order_id,product_id ,product_spec_id
-                                            ) a, product_type b,realtime_price c where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight   and c.[id]=(select max([id]) from realtime_price)");
-            DataSet ds = DbHelperSQL.Query(strSql.ToString());
             decimal i = 0;
             try
             {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format(@"select sum( a.[count]*(b.trade_add_price+c.realtime_base_price)) as goldValue  from 
+                                            (
+                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
+                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
+                                                and franchiser_code=@franchiser_code) 
+                                                and product_id in (select product_type_id from product_type where type='0')
+                                                group by franchiser_order_id,product_id ,product_spec_id
+                                            ) a, product_type b,realtime_price c where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight   and c.[id]=(select max([id]) from realtime_price)");
+                SqlParameter[] parameters = {
+					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
+                parameters[0].Value = franchiser_code;
+                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
                 i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
             }
             catch
@@ -811,20 +815,26 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetSilverNoReceiveValue(string franchiser_code)
+        public decimal GetSilverNoReceiveValue(string sFranchiser_code)
         {
-            string strSql = string.Format(@"select sum( a.[count]*b.trade_add_price) as silverValue from 
-                                            (
-                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
-                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
-                                                and franchiser_code=N'" + franchiser_code + @"') 
-                                                and product_id in (select product_type_id from product_type where type='1')
-                                                group by franchiser_order_id,product_id ,product_spec_id
-                                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
-            DataSet ds = DbHelperSQL.Query(strSql.ToString());
             decimal i = 0;
             try
             {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format(@"select sum( a.[count]*b.trade_add_price) as silverValue from 
+                                            (
+                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
+                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
+                                                and franchiser_code=@franchiser_code) 
+                                                and product_id in (select product_type_id from product_type where type='1')
+                                                group by franchiser_order_id,product_id ,product_spec_id
+                                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
+                SqlParameter[] parameters = {
+					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
+                parameters[0].Value = franchiser_code;
+                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
+
+
                 i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
             }
             catch
@@ -838,17 +848,22 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetGoldStockValue(string franchiser_code)
+        public decimal GetGoldStockValue(string sFranchiser_code)
         {
-            string strSql = string.Format(@"select sum((c.realtime_base_price+a.trade_add_price)*b.stock_left) as goldValue 
-                                                from realtime_price c, product_type a,stock_main b
-                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
-                                                and a.type='0' and b.franchiser_code =N'" + franchiser_code + @"'
-                                                and c.[id]=(select max([id]) as [id] from realtime_price) ");
-            DataSet ds = DbHelperSQL.Query(strSql.ToString());
             decimal i = 0;
             try
             {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format(@"select sum((c.realtime_base_price+a.trade_add_price)*b.stock_left) as goldValue 
+                                                from realtime_price c, product_type a,stock_main b
+                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
+                                                and a.type='0' and b.franchiser_code =@franchiser_code
+                                                and c.[id]=(select max([id]) as [id] from realtime_price) ");
+                SqlParameter[] parameters = {
+					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
+                parameters[0].Value = franchiser_code;
+                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
+
                 i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
             }
             catch
@@ -862,16 +877,21 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
         /// </summary>
         /// <param name="franchiser_code"></param>
         /// <returns></returns>
-        public decimal GetSilverStockValue(string franchiser_code)
+        public decimal GetSilverStockValue(string sFranchiser_code)
         {
-            string strSql = string.Format(@"select sum(a.trade_add_price*b.stock_left) as silverValue 
-                                                from product_type a,stock_main b
-                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
-                                                and a.type='1' and b.franchiser_code =N'" + franchiser_code + "' ");
-            DataSet ds = DbHelperSQL.Query(strSql.ToString());
             decimal i = 0;
             try
             {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format(@"select sum(a.trade_add_price*b.stock_left) as silverValue 
+                                                from product_type a,stock_main b
+                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
+                                                and a.type='1' and b.franchiser_code =@franchiser_code ");
+                SqlParameter[] parameters = {
+					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
+                parameters[0].Value = franchiser_code;
+                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
+
                 i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
             }
             catch
