@@ -44,7 +44,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
         {
             try
             {
-                string sTradeID = gvTrade.SelectedRow.Cells[0].Text.Trim();
+                int sTradeID =Convert.ToInt32(gvTrade.SelectedRow.Cells[0].Text.Trim());
                 DataSet ds = bll.GetTradeDesc(sTradeID);
                 //gvTradeDesc.DataSource = ds;
                 //gvTradeDesc.DataBind();
@@ -145,7 +145,7 @@ namespace GoldTradeNaming.Web.franchiser_trade
             int franchiser_code = Convert.ToInt32(Session["fran"].ToString().Trim());       
             DateTime dtFrom = new DateTime(1900,1,1);
             DateTime dtTo = new DateTime(1900,1,1);
-            int trade_id=0;
+            int trade_id=-1;
        
             if (isInit)
             {
