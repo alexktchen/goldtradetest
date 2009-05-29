@@ -84,20 +84,43 @@ namespace GoldTradeNaming.DAL
         }
 
         /// <summary>
-        ///  管理员 获得交易列表  by yuxiaowei
+        /// 管理员 获得交易列表  by yuxiaowei
         /// </summary>
-        public DataSet GetTradeByM(string strWhere)
+        /// <param name="franchiser_code"></param>
+        /// <param name="trade_id"></param>
+        /// <param name="franchiser_name"></param>
+        /// <param name="isInit">是否第一次进入页面</param>
+        /// <returns></returns>
+        public DataSet GetTradeByM(int franchiser_code,int trade_id,string franchiser_name,bool isInit)
         {
             StringBuilder strSql = new StringBuilder();
-            if(strWhere.Trim() == "")
-                strSql.Append(@"select top 50 a.*,b.franchiser_name  from franchiser_trade a left join franchiser_info b  on a.franchiser_code=b.franchiser_code order by trade_time desc ");
+            if(isInit)
+            {
+                strSql.Append(@"select top 50 a.*,b.franchiser_name from franchiser_trade a left join franchiser_info b on a.franchiser_code=b.franchiser_code order by a.trade_time desc ");
+            }
             else
             {
-                strSql.Append(@"select a.*,b.franchiser_name  from franchiser_trade a left join franchiser_info b  on a.franchiser_code=b.franchiser_code where " + strWhere + " order by trade_time desc ");
+                strSql.Append(@"select a.*,b.franchiser_name  from franchiser_trade a left join franchiser_info b  on a.franchiser_code=b.franchiser_code where 1=1 ");
+                if(franchiser_code != -1)
+                    strSql.Append(" And a.franchiser_code=@franchiser_code ");
+                if(trade_id != -1)
+                    strSql.Append(" And a.trade_id=@trade_id ");
+                if(franchiser_name != String.Empty)
+                    strSql.Append(" And b.franchiser_name=@franchiser_name ");
+
+                strSql.Append(" order by a.trade_time desc ");
             }
+            SqlParameter[] parameters = {
+				     new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),
+                     new SqlParameter("@trade_id", SqlDbType.Int,4),
+                     new SqlParameter("@franchiser_name", SqlDbType.NVarChar,50)};
+            parameters[0].Value = franchiser_code;
+            parameters[1].Value = trade_id;
+            parameters[2].Value = franchiser_name;
+
             try
             {
-                return DbHelperSQL.Query(strSql.ToString());
+                return DbHelperSQL.Query(strSql.ToString(),parameters);
             }
             catch
             {
@@ -423,14 +446,11 @@ namespace GoldTradeNaming.DAL
             if(isInit)
             {
                 strQuery = string.Format(@"select top 50 * from franchiser_trade where franchiser_code=@franchiser_code order by trade_time desc ");
-                //SqlParameter[] parameters = {
-                //    new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2)};
-                //parameters[0].Value = franchiser_code;
             }
             else
             {
                 strQuery = string.Format(@"select * from franchiser_trade where franchiser_code=@franchiser_code  ");
-                if(trade_id != 0)
+                if(trade_id != -1)
                     strQuery += "And trade_id=@trade_id";
                 if(dtFrom.CompareTo(new DateTime(1900,1,1)) != 0)
                     strQuery += "And trade_time>=@dtFrom ";
@@ -443,7 +463,7 @@ namespace GoldTradeNaming.DAL
 
             SqlParameter[] parameters = {
 				     new SqlParameter("@franchiser_code", SqlDbType.SmallInt,2),
-                     new SqlParameter("@trade_id", SqlDbType.Int,2),
+                     new SqlParameter("@trade_id", SqlDbType.Int,4),
                      new SqlParameter("@dtFrom", SqlDbType.SmallDateTime,8),
                      new SqlParameter("@dtTo", SqlDbType.SmallDateTime,8)};
             parameters[0].Value = franchiser_code;
@@ -458,11 +478,14 @@ namespace GoldTradeNaming.DAL
         /// <summary>
         /// 获取交易详细记录 经销商 by yuxiaowei
         /// </summary>
-        public DataSet GetTradeDesc(string trade_id)
+        public DataSet GetTradeDesc(int trade_id)
         {
-            string strQuery = string.Format(@"select distinct a.*,b.product_type_name,b.type from franchiser_trade_desc a inner join product_type b on b.product_type_id=a.product_id  where a.trade_id='" + trade_id + "' order by a.ins_date desc; ");
+            string strQuery = string.Format(@"select distinct a.*,b.product_type_name,b.type from franchiser_trade_desc a inner join product_type b on b.product_type_id=a.product_id  where a.trade_id=@trade_id order by a.ins_date desc; ");
 
-            return DbHelperSQL.Query(strQuery);
+            SqlParameter[] parameters = {
+                     new SqlParameter("@trade_id", SqlDbType.Int,4)};
+            parameters[0].Value = trade_id;
+            return DbHelperSQL.Query(strQuery,parameters);
         }
         /// <summary> 
         /// 库存中各类产品的重量 by yuxiaowei
