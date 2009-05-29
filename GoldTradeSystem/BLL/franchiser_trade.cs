@@ -46,11 +46,16 @@ namespace GoldTradeNaming.BLL
         }
 
         /// <summary>
-        ///  管理员 获得交易列表
+        /// 管理员 获得交易列表  by yuxiaowei
         /// </summary>
-        public DataSet GetTradeByM(string strWhere)
+        /// <param name="franchiser_code"></param>
+        /// <param name="trade_id"></param>
+        /// <param name="franchiser_name"></param>
+        /// <param name="isInit">是否第一次进入页面</param>
+        /// <returns></returns>
+        public DataSet GetTradeByM(int franchiser_code,int trade_id,string franchiser_name,bool isInit)
         {
-            return dal.GetTradeByM(strWhere);
+            return dal.GetTradeByM(franchiser_code,trade_id,franchiser_name,isInit);
         }
 
         /// <summary>
@@ -99,14 +104,11 @@ namespace GoldTradeNaming.BLL
         {
             return dal.GetAllTrade(franchiser_code,trade_id,dtFrom,dtTo,isInit);
         }
-        //public DataSet GetAllTrade(string franchiser_code, string trade_id, DateTime dtFrom, DateTime dtTo, bool isInit)
-        //{
-        //    return dal.GetAllTrade(franchiser_code, trade_id, dtFrom, dtTo, isInit);
-        //}
+
         /// <summary>
         /// 获取交易详细记录  by yuxiaowei
         /// </summary>
-        public DataSet GetTradeDesc(string trade_id)
+        public DataSet GetTradeDesc(int trade_id)
         {
             return dal.GetTradeDesc(trade_id);
         }
