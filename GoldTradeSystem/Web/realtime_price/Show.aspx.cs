@@ -48,7 +48,7 @@ namespace GoldTradeNaming.Web.realtime_price
 
         protected void btnSearch_Click(object sender,EventArgs e)
         {
-            DateTime dtFrom = Convert.ToDateTime("2000/01/01");
+            DateTime dtFrom = new DateTime(1900, 1, 1);
             DateTime dtTo = DateTime.Now;
             string errMsg = "";
             if(txtTimeFrom.Text.Trim() != "")
@@ -82,14 +82,18 @@ namespace GoldTradeNaming.Web.realtime_price
             }
 
             DataSet ds = SearchPrice(dtFrom,dtTo);
-            if(ds != null && ds.Tables[0].Rows.Count > 0)
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
                 Session["gvList"] = ds;
                 this.gvList.DataSource = ds;
-                this.gvList.DataBind();             
+                this.gvList.DataBind();
             }
             else
-                MessageBox.Show(this,"查无记录！");
+            {
+                this.gvList.DataSource = null;
+                this.gvList.DataBind();
+                MessageBox.Show(this, "查无记录！");
+            }
         }
        
         protected void gvList_PageIndexChanging(object sender,GridViewPageEventArgs e)
@@ -100,22 +104,16 @@ namespace GoldTradeNaming.Web.realtime_price
             {
                 this.gvList.DataSource = Session["gvList"] as DataSet;
                 this.gvList.DataBind();
-            }
-            else
-            {
-                Session["gvList"] = SearchPrice(Convert.ToDateTime("2000/01/01"),DateTime.Now);
-                this.gvList.DataSource = Session["gvList"] as DataSet;
-                this.gvList.DataBind();
-            }
+            }           
         }
 
         private DataSet SearchPrice(DateTime dtFrom,DateTime dtTo)
         {
             DataSet ds;
-            StringBuilder strWhere = new StringBuilder();
-            strWhere.Append("a.realtime_time between'" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' order by a.realtime_time desc ");
+           // StringBuilder strWhere = new StringBuilder();
+          // strWhere.Append("a.realtime_time between'" + dtFrom.ToString("yyyy/MM/dd") + "' and '" + dtTo.ToString("yyyy/MM/dd 23:59:59") + "' order by a.realtime_time desc ");
 
-            ds = bll.GetList(strWhere.ToString());
+            ds = bll.GetList(dtFrom,dtTo);
             return ds;
         }
 
