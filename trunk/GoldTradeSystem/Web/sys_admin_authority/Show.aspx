@@ -69,7 +69,7 @@
                 <td align="center">
                     <div>
                         <asp:GridView ID="grd_AdminInfo" runat="server" AutoGenerateColumns="False" AllowPaging="True"
-                            BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px"
+                            BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" Width="100%"
                             CellPadding="4" OnPageIndexChanging="grd_AdminInfo_PageIndexChanging" ForeColor="Black"
                             GridLines="Vertical" 
                             onselectedindexchanged="grd_AdminInfo_SelectedIndexChanged">
