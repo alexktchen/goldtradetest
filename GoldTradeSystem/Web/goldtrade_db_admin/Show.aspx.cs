@@ -66,41 +66,40 @@ namespace GoldTradeNaming.Web.goldtrade_db_admin
                 }
                 this.txt_sysadmin_id.Attributes.Add("onkeypress", "this.value   =   this.value.replace(/[^0-9]/,'')");
 
-                LoadData();
+                LoadData(true);
             }
         }
 
-        private void LoadData()
+        private void LoadData(bool isInit)
         {
-            StringBuilder strWhere = new StringBuilder();
-
-            //这里根据保存的状态值查询
-            if (this.hdnAdminID.Value == "")
+            int adminID = -1;
+            string adminName = String.Empty;
+            if (isInit)
             {
-                strWhere.Append("1=1");
             }
             else
             {
-                strWhere.Append("sys_admin_id = '");
-                strWhere.Append(this.hdnAdminID.Value);
-                strWhere.Append("'");
-            }
-            if (this.hdnAdminNm.Value == "")
-            {
-                strWhere.Append(" AND 1=1");
-            }
-            else
-            {
-                strWhere.Append(" AND sys_admin_name = '");
-                strWhere.Append(this.hdnAdminNm.Value);
-                strWhere.Append("'");
-            }
+                if (hdnAdminID.Value != String.Empty)
+                {
+                    try
+                    {
+                        adminID = Convert.ToInt32(hdnAdminID.Value);                      
+                    }
+                    catch
+                    {
+                        MessageBox.Show(this, "请输入正确的管理员编号");
+                        return;
+                    }
+                }
+                adminName = hdnAdminNm.Value;
 
+            }
             try
             {
                 GoldTradeNaming.BLL.goldtrade_db_admin bll = new GoldTradeNaming.BLL.goldtrade_db_admin();
-                Session["grd_Data"] = bll.GetList(strWhere.ToString());
-                this.grd_AdminInfo.DataSource = Session["grd_Data"] as DataSet;
+                DataSet ds = bll.GetList(adminID,adminName,isInit);
+                Session["grd_Data"] = ds;
+                this.grd_AdminInfo.DataSource = ds;
                 this.grd_AdminInfo.DataBind();
             }
             catch
@@ -114,7 +113,7 @@ namespace GoldTradeNaming.Web.goldtrade_db_admin
             //保存查询条件
             this.hdnAdminID.Value = this.txt_sysadmin_id.Text.Trim();
             this.hdnAdminNm.Value = this.txtsys_admin_name.Text.Trim();
-            LoadData();
+            LoadData(false);
         }
 
         protected void grd_AdminInfo_PageIndexChanging(object sender, GridViewPageEventArgs e)
