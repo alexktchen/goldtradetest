@@ -29,21 +29,6 @@ namespace GoldTradeNaming.DAL
         }
 
         /// <summary>
-        /// 获得数据列表
-        /// </summary>
-        //public DataSet GetList(string strWhere)
-        //{
-        //    StringBuilder strSql = new StringBuilder();
-        //    strSql.Append("select *  FROM realtime_price");
-        //    if (strWhere.Trim() != "")
-        //    {
-        //        strSql.Append(" where " + strWhere);
-        //    }
-        //    return DbHelperSQL.Query(strSql.ToString());
-        //}
-
-
-        /// <summary>
         /// 得到最大ID
         /// </summary>
         public int GetMaxId()
@@ -79,24 +64,14 @@ namespace GoldTradeNaming.DAL
             strSql.Append("@realtime_base_price,getdate(),@sys_admin_id,@ins_user,@upd_user)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
-					new SqlParameter("@realtime_base_price", SqlDbType.Money,8),
-				//	new SqlParameter("@order_add_price", SqlDbType.Money,8),
-				//	new SqlParameter("@trade_add_price", SqlDbType.Money,8),
-				//	new SqlParameter("@realtime_time", SqlDbType.SmallDateTime),
+					new SqlParameter("@realtime_base_price", SqlDbType.Money,8),				
 					new SqlParameter("@sys_admin_id", SqlDbType.Int,4),
-					new SqlParameter("@ins_user", SqlDbType.NVarChar,50),
-				//	new SqlParameter("@ins_date", SqlDbType.SmallDateTime),
-					new SqlParameter("@upd_user", SqlDbType.NVarChar,50),};
-            //	new SqlParameter("@upd_date", SqlDbType.SmallDateTime)
-            parameters[0].Value = model.realtime_base_price;
-            // parameters[1].Value = model.order_add_price;
-            //parameters[2].Value = model.trade_add_price;
-            //  parameters[3].Value = model.realtime_time;
+					new SqlParameter("@ins_user", SqlDbType.NVarChar,50),			
+					new SqlParameter("@upd_user", SqlDbType.NVarChar,50),};         
+            parameters[0].Value = model.realtime_base_price;          
             parameters[1].Value = model.sys_admin_id;
-            parameters[2].Value = model.ins_user;
-            // parameters[6].Value = model.ins_date;
-            parameters[3].Value = model.upd_user;
-            //  parameters[8].Value = model.upd_date;
+            parameters[2].Value = model.ins_user;        
+            parameters[3].Value = model.upd_user;         
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
             if(obj == null)
@@ -111,60 +86,60 @@ namespace GoldTradeNaming.DAL
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public void Update(GoldTradeNaming.Model.realtime_price model)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("update realtime_price set ");
-            strSql.Append("realtime_base_price=@realtime_base_price,");
-            strSql.Append("order_add_price=@order_add_price,");
-            strSql.Append("trade_add_price=@trade_add_price,");
-            strSql.Append("realtime_time=@realtime_time,");
-            strSql.Append("sys_admin_id=@sys_admin_id,");
-            strSql.Append("ins_user=@ins_user,");
-            strSql.Append("ins_date=@ins_date,");
-            strSql.Append("upd_user=@upd_user,");
-            strSql.Append("upd_date=@upd_date");
-            strSql.Append(" where id=@id ");
-            SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4),
-					new SqlParameter("@realtime_base_price", SqlDbType.Money,8),
-					new SqlParameter("@order_add_price", SqlDbType.Money,8),
-					new SqlParameter("@trade_add_price", SqlDbType.Money,8),
-					new SqlParameter("@realtime_time", SqlDbType.SmallDateTime),
-					new SqlParameter("@sys_admin_id", SqlDbType.Int,4),
-					new SqlParameter("@ins_user", SqlDbType.NVarChar,50),
-					new SqlParameter("@ins_date", SqlDbType.SmallDateTime),
-					new SqlParameter("@upd_user", SqlDbType.NVarChar,50),
-					new SqlParameter("@upd_date", SqlDbType.SmallDateTime)};
-            parameters[0].Value = model.id;
-            parameters[1].Value = model.realtime_base_price;
-            parameters[2].Value = model.order_add_price;
-            parameters[3].Value = model.trade_add_price;
-            parameters[4].Value = model.realtime_time;
-            parameters[5].Value = model.sys_admin_id;
-            parameters[6].Value = model.ins_user;
-            parameters[7].Value = model.ins_date;
-            parameters[8].Value = model.upd_user;
-            parameters[9].Value = model.upd_date;
+        //public void Update(GoldTradeNaming.Model.realtime_price model)
+        //{
+        //    StringBuilder strSql = new StringBuilder();
+        //    strSql.Append("update realtime_price set ");
+        //    strSql.Append("realtime_base_price=@realtime_base_price,");
+        //    strSql.Append("order_add_price=@order_add_price,");
+        //    strSql.Append("trade_add_price=@trade_add_price,");
+        //    strSql.Append("realtime_time=@realtime_time,");
+        //    strSql.Append("sys_admin_id=@sys_admin_id,");
+        //    strSql.Append("ins_user=@ins_user,");
+        //    strSql.Append("ins_date=@ins_date,");
+        //    strSql.Append("upd_user=@upd_user,");
+        //    strSql.Append("upd_date=@upd_date");
+        //    strSql.Append(" where id=@id ");
+        //    SqlParameter[] parameters = {
+        //            new SqlParameter("@id", SqlDbType.Int,4),
+        //            new SqlParameter("@realtime_base_price", SqlDbType.Money,8),
+        //            new SqlParameter("@order_add_price", SqlDbType.Money,8),
+        //            new SqlParameter("@trade_add_price", SqlDbType.Money,8),
+        //            new SqlParameter("@realtime_time", SqlDbType.SmallDateTime),
+        //            new SqlParameter("@sys_admin_id", SqlDbType.Int,4),
+        //            new SqlParameter("@ins_user", SqlDbType.NVarChar,50),
+        //            new SqlParameter("@ins_date", SqlDbType.SmallDateTime),
+        //            new SqlParameter("@upd_user", SqlDbType.NVarChar,50),
+        //            new SqlParameter("@upd_date", SqlDbType.SmallDateTime)};
+        //    parameters[0].Value = model.id;
+        //    parameters[1].Value = model.realtime_base_price;
+        //    parameters[2].Value = model.order_add_price;
+        //    parameters[3].Value = model.trade_add_price;
+        //    parameters[4].Value = model.realtime_time;
+        //    parameters[5].Value = model.sys_admin_id;
+        //    parameters[6].Value = model.ins_user;
+        //    parameters[7].Value = model.ins_date;
+        //    parameters[8].Value = model.upd_user;
+        //    parameters[9].Value = model.upd_date;
 
-            DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-        }
+        //    DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+        //}
 
         /// <summary>
         /// 删除一条数据
         /// </summary>
-        public void Delete(int id)
-        {
+        //public void Delete(int id)
+        //{
 
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete realtime_price ");
-            strSql.Append(" where id=@id ");
-            SqlParameter[] parameters = {
-					new SqlParameter("@id", SqlDbType.Int,4)};
-            parameters[0].Value = id;
+        //    StringBuilder strSql = new StringBuilder();
+        //    strSql.Append("delete realtime_price ");
+        //    strSql.Append(" where id=@id ");
+        //    SqlParameter[] parameters = {
+        //            new SqlParameter("@id", SqlDbType.Int,4)};
+        //    parameters[0].Value = id;
 
-            DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
-        }
+        //    DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+        //}
 
 
         /// <summary>
@@ -229,15 +204,32 @@ namespace GoldTradeNaming.DAL
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        public DataSet GetList(string strWhere)
+        public DataSet GetList(DateTime dtFrom, DateTime dtTo)
         {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("select a.*,b.sys_admin_name FROM realtime_price a left join goldtrade_db_admin b on a.sys_admin_id=b.sys_admin_id");
-            if (strWhere.Trim() != "")
+            string strQuery = string.Format(@"select a.*,b.sys_admin_name FROM realtime_price a left join goldtrade_db_admin b on a.sys_admin_id=b.sys_admin_id 
+                             where  a.realtime_time <@dtTo  ");
+            if (dtFrom.CompareTo(new DateTime(1900, 1, 1)) != 0)
             {
-                strSql.Append(" where " + strWhere);
+                strQuery += "AND a.realtime_time >=@dtFrom ";
             }
-            return DbHelperSQL.Query(strSql.ToString());
+            strQuery += " order by a.realtime_time desc";
+          
+            SqlParameter[] parameters = {
+					new SqlParameter("@dtFrom", SqlDbType.SmallDateTime,4),
+                    new SqlParameter("@dtTo", SqlDbType.SmallDateTime,4)};
+
+            parameters[0].Value = dtFrom;
+            parameters[1].Value = dtTo.AddDays(1);
+
+            try
+            {
+                DataSet ds = DbHelperSQL.Query(strQuery.ToString(), parameters);
+                return ds;
+            }
+            catch
+            {
+                return null;
+            }       
         }
 
         /*

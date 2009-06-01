@@ -24,13 +24,13 @@ namespace GoldTradeNaming.DAL
 					new SqlParameter("@sys_admin_name", SqlDbType.NVarChar,50)};
             parameters[0].Value = sAdminName;
 
-            return DbHelperSQL.Exists(strSql.ToString(),parameters);
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
         /// <summary>
         /// 是否存在该记录
         /// </summary>
-        public bool Exists(int iAdminID,string sAdminName)
+        public bool Exists(int iAdminID, string sAdminName)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) from goldtrade_db_admin");
@@ -40,7 +40,7 @@ namespace GoldTradeNaming.DAL
 					new SqlParameter("@sys_admin_name", SqlDbType.NVarChar,50)};
             parameters[1].Value = sAdminName;
             parameters[0].Value = iAdminID;
-            return DbHelperSQL.Exists(strSql.ToString(),parameters);
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
         /// <summary>
@@ -57,7 +57,7 @@ namespace GoldTradeNaming.DAL
 					new SqlParameter("@IA100GUID", SqlDbType.UniqueIdentifier,16)};
             parameters[0].Value = sIA100GUID;
 
-            return DbHelperSQL.Exists(strSql.ToString(),parameters);
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace GoldTradeNaming.DAL
         /// </summary>
         /// <param name="sIA100GUID"></param>
         /// <returns></returns>
-        public bool IA100InUsed(int iAdminID,Guid sIA100GUID)
+        public bool IA100InUsed(int iAdminID, Guid sIA100GUID)
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) from goldtrade_db_admin");
@@ -76,7 +76,7 @@ namespace GoldTradeNaming.DAL
             parameters[0].Value = iAdminID;
             parameters[1].Value = sIA100GUID;
 
-            return DbHelperSQL.Exists(strSql.ToString(),parameters);
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
         #endregion
@@ -88,7 +88,7 @@ namespace GoldTradeNaming.DAL
         /// </summary>
         public int GetMaxId()
         {
-            return DbHelperSQL.GetMaxID("sys_admin_id","goldtrade_db_admin");
+            return DbHelperSQL.GetMaxID("sys_admin_id", "goldtrade_db_admin");
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace GoldTradeNaming.DAL
 					new SqlParameter("@sys_admin_id", SqlDbType.Int,4)};
             parameters[0].Value = sys_admin_id;
 
-            return DbHelperSQL.Exists(strSql.ToString(),parameters);
+            return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
 
 
@@ -137,8 +137,8 @@ namespace GoldTradeNaming.DAL
             parameters[5].Value = model.upd_user;
             //parameters[7].Value = model.upd_date;
 
-            object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
-            if(obj == null)
+            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
+            if (obj == null)
             {
                 return 1;
             }
@@ -183,7 +183,7 @@ namespace GoldTradeNaming.DAL
             parameters[5].Value = model.upd_user;
             parameters[6].Value = model.upd_date;
 
-            DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+            DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
         }
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace GoldTradeNaming.DAL
 					new SqlParameter("@sys_admin_id", SqlDbType.Int,4)};
             parameters[0].Value = sys_admin_id;
 
-            DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
+            DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
         }
 
 
@@ -217,27 +217,27 @@ namespace GoldTradeNaming.DAL
             parameters[0].Value = sys_admin_id;
 
             GoldTradeNaming.Model.goldtrade_db_admin model = new GoldTradeNaming.Model.goldtrade_db_admin();
-            DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
-            if(ds.Tables[0].Rows.Count > 0)
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                if(ds.Tables[0].Rows[0]["sys_admin_id"].ToString() != "")
+                if (ds.Tables[0].Rows[0]["sys_admin_id"].ToString() != "")
                 {
                     model.sys_admin_id = int.Parse(ds.Tables[0].Rows[0]["sys_admin_id"].ToString());
                 }
                 model.sys_admin_name = ds.Tables[0].Rows[0]["sys_admin_name"].ToString();
                 model.sys_admin_tel = ds.Tables[0].Rows[0]["sys_admin_tel"].ToString();
                 model.sys_admin_cellphone = ds.Tables[0].Rows[0]["sys_admin_cellphone"].ToString();
-                if(ds.Tables[0].Rows[0]["IA100GUID"].ToString() != "")
+                if (ds.Tables[0].Rows[0]["IA100GUID"].ToString() != "")
                 {
                     model.IA100GUID = new Guid(ds.Tables[0].Rows[0]["IA100GUID"].ToString());
                 }
                 model.ins_user = ds.Tables[0].Rows[0]["ins_user"].ToString();
-                if(ds.Tables[0].Rows[0]["ins_date"].ToString() != "")
+                if (ds.Tables[0].Rows[0]["ins_date"].ToString() != "")
                 {
                     model.ins_date = DateTime.Parse(ds.Tables[0].Rows[0]["ins_date"].ToString());
                 }
                 model.upd_user = ds.Tables[0].Rows[0]["upd_user"].ToString();
-                if(ds.Tables[0].Rows[0]["upd_date"].ToString() != "")
+                if (ds.Tables[0].Rows[0]["upd_date"].ToString() != "")
                 {
                     model.upd_date = DateTime.Parse(ds.Tables[0].Rows[0]["upd_date"].ToString());
                 }
@@ -252,16 +252,41 @@ namespace GoldTradeNaming.DAL
         /// <summary>
         /// 获得数据列表
         /// </summary>
-        public DataSet GetList(string strWhere)
+        /// <param name="sys_admin_id"></param>
+        /// <param name="sys_admin_name"></param>
+        /// <returns></returns>
+        public DataSet GetList(int sys_admin_id, string sys_admin_name, bool isInit)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select top 50 sys_admin_id,sys_admin_name,sys_admin_tel,sys_admin_cellphone,IA100GUID,ins_user,ins_date,upd_user,upd_date ");
-            strSql.Append(" FROM goldtrade_db_admin ");
-            if(strWhere.Trim() != "")
+
+            if (isInit)
+                strSql.Append("select top 50 sys_admin_id,sys_admin_name,sys_admin_tel,sys_admin_cellphone,IA100GUID,ins_user,ins_date,upd_user,upd_date FROM goldtrade_db_admin order by sys_admin_id ");
+            else
             {
-                strSql.Append(" where " + strWhere);
+                strSql.Append("select sys_admin_id,sys_admin_name,sys_admin_tel,sys_admin_cellphone,IA100GUID,ins_user,ins_date,upd_user,upd_date FROM goldtrade_db_admin where 1=1 ");
+                if (sys_admin_id != -1)
+                    strSql.Append(" and sys_admin_id =@sys_admin_id");
+                if (sys_admin_name != String.Empty)
+                    strSql.Append(" and sys_admin_name =@sys_admin_name ");
+
+                strSql.Append(" order by sys_admin_id ");
             }
-            return DbHelperSQL.Query(strSql.ToString());
+
+            SqlParameter[] parameters = {
+                    new SqlParameter("@sys_admin_id", SqlDbType.Int, 4),
+                    new SqlParameter("@sys_admin_name", SqlDbType.NVarChar, 50),                  
+                    };
+            parameters[0].Value = sys_admin_id;
+            parameters[1].Value = sys_admin_name;
+
+            try
+            {
+                return DbHelperSQL.Query(strSql.ToString(), parameters);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         /*
