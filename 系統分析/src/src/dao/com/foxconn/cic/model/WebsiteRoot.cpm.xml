@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE compass-core-mapping PUBLIC
+    "-//Compass/Compass Core Mapping DTD 1.0//EN"
+    "http://www.opensymphony.com/compass/dtd/compass-core-mapping.dtd">
+
+<compass-core-mapping package="com.foxconn.cic.model">
+         <class name="Website" alias="website" root="true">
+         	<id name="id" />
+         	<property name="name">
+         		<meta-data term-vector="positions_offsets">name</meta-data>
+            </property>
+            <property name="url">
+            	<meta-data index="un_tokenized">url</meta-data>
+            </property>
+            <component name="parent" ref-alias="parentwebsite"/>
+            <property name="status">
+         		<meta-data>status</meta-data>
+            </property>
+            <property name="type">
+         		<meta-data>type</meta-data>
+            </property>
+            <property name="createdDate">
+				<meta-data index="un_tokenized" format="yyyyMMdd HH:mm">createddate</meta-data>
+			</property>
+			<property name="updatedDate">
+				<meta-data index="un_tokenized" format="yyyyMMdd HH:mm">updateddate</meta-data>
+			</property>
+         </class>
+</compass-core-mapping>

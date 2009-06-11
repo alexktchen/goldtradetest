@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="NewsSQL">
+    <typeAlias alias="news" type="com.foxconn.cic.model.News"/>
+
+    <parameterMap id="addParam" class="news">
+        <parameter property="content" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="publishDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="website" jdbcType="VARCHAR" javaType="com.foxconn.cic.model.Website"/>
+        <parameter property="author" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="createdDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <parameter property="publisher" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="summary" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updatedDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="news">
+        <parameter property="content" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="id" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="publishDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="website" jdbcType="VARCHAR" javaType="com.foxconn.cic.model.Website"/>
+        <parameter property="author" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="createdDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        <parameter property="publisher" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="summary" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="updatedDate" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+    </parameterMap>
+
+    <resultMap id="newsResult" class="news">
+        <result property="content" column=""/>
+        <result property="id" column=""/>
+        <result property="publishDate" column=""/>
+        <result property="title" column=""/>
+        <result property="url" column=""/>
+        <result property="website" column=""/>
+        <result property="author" column=""/>
+        <result property="createdDate" column=""/>
+        <result property="publisher" column=""/>
+        <result property="summary" column=""/>
+        <result property="updatedDate" column=""/>
+    </resultMap>
+
+    <select id="getNewss" resultMap="newsResult">
+    <![CDATA[
+        select * from News
+    ]]>
+    </select>
+
+    <select id="getNews" resultMap="newsResult">
+    <![CDATA[
+        select * from News
+         where  = #value#
+    ]]>
+    </select>
+
+    <insert id="addNews" parameterMap="addParam">
+        <!--selectKey resultClass="java.lang.Long" keyProperty="id" >
+            SELECT SEQ_.NextVal AS id FROM DUAL
+        </selectKey-->
+        <selectKey resultClass="java.lang.Long" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+        <![CDATA[
+            insert into News (,,,,,,,,,)
+            values ( ?,?,?,?,?,?,?,?,?,? )
+        ]]>
+    </insert>
+
+    <update id="updateNews" parameterMap="updateParam">
+    <![CDATA[
+        update News set
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?
+        where  = ?
+    ]]>
+    </update>
+
+    <delete id="deleteNews">
+    <![CDATA[
+        delete from News
+         where  = #value#
+    ]]>
+    </delete>
+</sqlMap>

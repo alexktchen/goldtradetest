@@ -1,0 +1,1449 @@
+<!-- ======================================================================= -->
+<!-- $Id: web-tests.xml,v 1.11 2008/01/29 07:56:21 ldapeng Exp $               -->
+<!-- ======================================================================= -->
+<!DOCTYPE project [
+    <!ENTITY config SYSTEM "file:./config.xml">
+    <!ENTITY login SYSTEM "file:./login.xml">
+]>
+<project basedir="." default="run-all-tests"> 
+    <!-- Use i18n bundle, 2nd one listed is the default -->
+    <property file="${build.dir}/test/properties/ApplicationResources_${user.language}.properties"/>
+    <property file="web/WEB-INF/classes/ApplicationResources.properties"/>
+
+    <!-- runs all targets -->
+    <target name="run-all-tests" 
+        depends="Login,Logout,PasswordHint,Signup,UserTests,FlushCache,FileUpload,QuoterTests,QuoterTests,QuoterTests,UserActivityLogTests,InterestRateTests,ExchangeRateTests,PriceTests,MaterialTests,NewsImageTests,CatalogTests,CatalogTypeTests,KeywordTests,WebsiteTests,NewsTests"
+        description="Call and executes all test cases (targets)"/>
+    
+    <!-- runs user-related tests -->
+    <target name="UserTests" 
+        depends="EditUser,SearchUser,SaveUser,AddUser,ActiveUsers"
+        description="Call and executes all user test cases (targets)">
+        <echo>Successfully ran all User JSP tests!</echo>
+    </target>
+    
+    <!-- Login to the application -->
+    <target name="Login" 
+        description="Runs login test and verifies Main Menu's Title">
+        <webtest name="login">
+            &config;
+            <steps>
+                &login;
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Logout of the application -->
+    <target name="Logout"
+        description="Runs logout test and verifies Login's Title">
+        <webtest name="login">
+            &config;
+            <steps>
+                &login;
+                <invoke description="get Logout Page" url="/logout.jsp"/>
+                <verifytitle description="we should see the login title"
+                    text=".*${login.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Retrieve Password Hint -->
+    <target name="PasswordHint" 
+        description="Gets the user's password hint">
+        <webtest name="passwordHint">
+            &config;
+            <steps>
+                <invoke description="get Login Page" url="/"/>
+                <verifytitle description="we should see the login title" 
+                    text=".*${login.title}.*" regex="true"/>
+                <invoke description="click password hint link"
+                    url="/passwordHint.html?username=mraible"/>
+                <verifytitle description="we should see the login title again"
+                    text=".*${login.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- Verify the edit user screen displays without errors -->
+    <target name="EditUser" 
+        description="Tests selecting the 'Edit Profile' forward">
+        <webtest name="editUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/editProfile.html"/>
+                <verifytitle description="we should see the user profile title" 
+                    text=".*${userProfile.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- Verify the user list screen displays without errors -->
+    <target name="SearchUser" 
+        description="Tests search for and displaying all users">
+        <webtest name="searchUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Users link" url="/users.html"/>
+                <verifytitle description="we should see the user list title" 
+                    text=".*${userList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- Edit a user and then save -->
+    <target name="SaveUser" 
+        description="Tests editing and saving a user">
+        <webtest name="saveUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Profile link" url="/editProfile.html"/>
+                <verifytitle description="we should see the user profile title" 
+                    text=".*${userProfile.title}.*" regex="true"/>
+                <setinputfield description="set address" name="address.address" value="2255 Lane Avenue"/>
+                <setinputfield description="set zipcode" name="address.postalCode" value="59826"/>
+                <clickbutton label="${button.save}" description="Click Save"/>
+                <verifytitle description="display Main Menu if save OK"
+                     text=".*${mainMenu.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- Add a new user after logging in -->
+    <target name="AddUser"
+        description="Adds a new user profile">
+        <webtest name="addUser">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" 
+                    url="/editUser.html?method=Add&amp;from=list"/>
+                <verifytitle description="we should see the user profile title" 
+                    text=".*${userProfile.title}.*" regex="true"/>
+                    
+                <setinputfield description="set username" name="username" value="newuser"/>
+                <setinputfield description="set password" name="password" value="test"/>
+                <setinputfield description="set confirmPassword" name="confirmPassword" value="test"/>
+                <setinputfield description="set firstName" name="firstName" value="Test"/>
+                <setinputfield description="set lastName" name="lastName" value="Name"/>
+                <setinputfield description="set city" name="address.city" value="Denver"/>
+                <setinputfield description="select province" name="address.province" value="CO"/>
+                <setselectfield description="select country" name="address.country" value="US"/>
+                <setinputfield description="set postalCode" name="address.postalCode" value="80210"/>
+                <setinputfield description="set email" name="email" value="newuser@raibledesigns.com"/>
+                <setinputfield description="set website" name="website" value="http://raibledesigns.com"/>
+                <setinputfield description="set passwordHint" name="passwordHint" value="test"/>
+                <setselectfield description="select roles" name="userRoles" value="user"/>
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+                
+                <verifytitle description="Redisplay add user page" text=".*${userProfile.title}.*" regex="true"/>
+                <verifytext description="verify success message" regex="true"
+                    text='&lt;div class="message.*&gt;.*&lt;strong&gt;Test Name&lt;/strong&gt;.*&lt;/div&gt;'/>
+                    
+                <!-- Delete user -->
+                <invoke description="Click edit user link" url="/editUser.html?username=newuser&amp;from=list"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytext description="verify success message" regex="true"
+                    text='&lt;div class="message.*&gt;.*&lt;strong&gt;Test Name&lt;/strong&gt;.*&lt;/div&gt;'/>
+                <verifytitle description="display user list" text=".*${userList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- Sign up a new user (no login) -->
+    <target name="Signup" description="Signup a new user">
+        <webtest name="signup">
+            &config;
+            <steps>
+                <!-- Logout in case user is already signed in -->
+                <invoke description="get Logout Page" url="/logout.jsp"/>
+
+                <invoke description="click signup link" url="/signup.html"/>
+                <verifytitle description="view signup title" text=".*${signup.title}.*" regex="true"/>
+                
+                <setinputfield description="set username" name="username" value="signup-user"/>
+                <setinputfield description="set password" name="password" value="test"/>
+                <setinputfield description="set confirmPassword" name="confirmPassword" value="test"/>
+                <setinputfield description="set firstName" name="firstName" value="Test"/>
+                <setinputfield description="set lastName" name="lastName" value="Name"/>
+                <setinputfield description="set city" name="address.city" value="Denver"/>
+                <setinputfield description="set state" name="address.province" value="CO"/>
+                <setselectfield description="select country" name="address.country" value="US"/>
+                <setinputfield description="set postalCode" name="address.postalCode" value="80210"/>
+                <setinputfield description="set email" name="email" value="signup-user@raibledesigns.com"/>
+                <setinputfield description="set website" name="website" value="http://raibledesigns.com"/>
+                <setinputfield description="set passwordHint" name="passwordHint" value="test"/>
+                <clickbutton label="${button.register}" description="Click button 'Signup'"/>
+
+                <verifytitle description="view main menu" text=".*${mainMenu.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${user.registered}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- View Active Users -->
+    <target name="ActiveUsers" 
+        description="View Active Users List">
+        <webtest name="activeUsers">
+            &config;
+            <steps>
+                &login;
+                <invoke description="get activeUsers URL" url="/activeUsers.html"/>
+                <verifytitle description="we should see the activeUsers title" 
+                    text=".*${activeUsers.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- Flush OSCache -->
+    <target name="FlushCache" 
+        description="opens JSP to Flush Page Cache">
+        <webtest name="flushCache">
+            &config;
+            <steps>
+                &login;
+                <invoke description="get flushCache URL" url="/flushCache.html"/>
+                <verifytitle description="we should see the flush cache title" 
+                    text=".*${flushCache.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+    
+    <!-- File Upload -->
+    <target name="FileUpload" 
+        description="Tests uploading a file">
+        <webtest name="fileUpload">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Upload a File link" url="/selectFile.html"/>
+                <verifytitle description="we should see file upload form" 
+                    text=".*${upload.title}.*" regex="true"/>
+                <!--setinputfield description="set name" name="name" 
+                    value="Canoo Test File"/>
+                <setinputfield description="set file" name="file" 
+                    value="${basedir}/build.properties"/>
+                <clickbutton label="${button.upload}" description="Click Upload"/>
+                <verifytitle description="show file data if upload OK"
+                     text=".*${display.title}.*" regex="true"/>
+                <verifytext description="verify original file name displayed on page"
+                     text="build.properties" /-->
+            </steps>
+        </webtest>
+    </target>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Keyword-START-->
+    <!-- runs keyword-related tests -->
+    <target name="KeywordTests"
+        depends="SearchKeywords,EditKeyword,SaveKeyword,AddKeyword,DeleteKeyword"
+        description="Call and executes all keyword test cases (targets)">
+        <echo>Successfully ran all Keyword JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit keyword screen displays without errors -->
+    <target name="EditKeyword"
+        description="Tests editing an existing Keyword's information">
+        <webtest name="editKeyword">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Keyword link" url="/editKeyword.html?id=1"/>
+                <verifytitle description="we should see the keywordDetail title"
+                    text=".*${keywordDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a keyword and then save -->
+    <target name="SaveKeyword"
+        description="Tests editing and saving a keyword">
+        <webtest name="saveKeyword">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Keyword link" url="/editKeyword.html?id=1"/>
+                <verifytitle description="we should see the keywordDetail title"
+                    text=".*${keywordDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${keywordDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Keyword -->
+    <target name="AddKeyword"
+        description="Adds a new Keyword">
+        <webtest name="addKeyword">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editKeyword.html"/>
+                <verifytitle description="we should see the keywordDetail title"
+                    text=".*${keywordDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="Keyword List appears if save successful"
+                    text=".*${keywordList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${keyword.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing keyword -->
+    <target name="DeleteKeyword"
+        description="Deletes existing Keyword">
+        <webtest name="deleteKeyword">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Keyword link" url="/editKeyword.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Keyword List" text=".*${keywordList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${keyword.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchKeywords"
+        description="Tests search for and displaying all keywords">
+        <webtest name="searchKeywords">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Keywords link" url="/keywords.html"/>
+                <verifytitle description="we should see the keywordList title"
+                    text=".*${keywordList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--Keyword-END-->
+
+
+
+
+
+
+
+<!--CatalogType-START-->
+    <!-- runs catalogType-related tests -->
+    <target name="CatalogTypeTests"
+        depends="SearchCatalogTypes,EditCatalogType,SaveCatalogType,AddCatalogType,DeleteCatalogType"
+        description="Call and executes all catalogType test cases (targets)">
+        <echo>Successfully ran all CatalogType JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit catalogType screen displays without errors -->
+    <target name="EditCatalogType"
+        description="Tests editing an existing CatalogType's information">
+        <webtest name="editCatalogType">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit CatalogType link" url="/editCatalogType.html?id=1"/>
+                <verifytitle description="we should see the catalogTypeDetail title"
+                    text=".*${catalogTypeDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a catalogType and then save -->
+    <target name="SaveCatalogType"
+        description="Tests editing and saving a catalogType">
+        <webtest name="saveCatalogType">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit CatalogType link" url="/editCatalogType.html?id=1"/>
+                <verifytitle description="we should see the catalogTypeDetail title"
+                    text=".*${catalogTypeDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${catalogTypeDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new CatalogType -->
+    <target name="AddCatalogType"
+        description="Adds a new CatalogType">
+        <webtest name="addCatalogType">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editCatalogType.html"/>
+                <verifytitle description="we should see the catalogTypeDetail title"
+                    text=".*${catalogTypeDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="CatalogType List appears if save successful"
+                    text=".*${catalogTypeList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${catalogType.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing catalogType -->
+    <target name="DeleteCatalogType"
+        description="Deletes existing CatalogType">
+        <webtest name="deleteCatalogType">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit CatalogType link" url="/editCatalogType.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display CatalogType List" text=".*${catalogTypeList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${catalogType.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchCatalogTypes"
+        description="Tests search for and displaying all catalogTypes">
+        <webtest name="searchCatalogTypes">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View CatalogTypes link" url="/catalogTypes.html"/>
+                <verifytitle description="we should see the catalogTypeList title"
+                    text=".*${catalogTypeList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--CatalogType-END-->
+
+<!--Catalog-START-->
+    <!-- runs catalog-related tests -->
+    <target name="CatalogTests"
+        depends="SearchCatalogs,EditCatalog,SaveCatalog,AddCatalog,DeleteCatalog"
+        description="Call and executes all catalog test cases (targets)">
+        <echo>Successfully ran all Catalog JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit catalog screen displays without errors -->
+    <target name="EditCatalog"
+        description="Tests editing an existing Catalog's information">
+        <webtest name="editCatalog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Catalog link" url="/editCatalog.html?id=1"/>
+                <verifytitle description="we should see the catalogDetail title"
+                    text=".*${catalogDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a catalog and then save -->
+    <target name="SaveCatalog"
+        description="Tests editing and saving a catalog">
+        <webtest name="saveCatalog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Catalog link" url="/editCatalog.html?id=1"/>
+                <verifytitle description="we should see the catalogDetail title"
+                    text=".*${catalogDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${catalogDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Catalog -->
+    <target name="AddCatalog"
+        description="Adds a new Catalog">
+        <webtest name="addCatalog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editCatalog.html"/>
+                <verifytitle description="we should see the catalogDetail title"
+                    text=".*${catalogDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="Catalog List appears if save successful"
+                    text=".*${catalogList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${catalog.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing catalog -->
+    <target name="DeleteCatalog"
+        description="Deletes existing Catalog">
+        <webtest name="deleteCatalog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Catalog link" url="/editCatalog.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Catalog List" text=".*${catalogList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${catalog.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchCatalogs"
+        description="Tests search for and displaying all catalogs">
+        <webtest name="searchCatalogs">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Catalogs link" url="/catalogs.html"/>
+                <verifytitle description="we should see the catalogList title"
+                    text=".*${catalogList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--Catalog-END-->
+
+<!--News-START-->
+    <!-- runs news-related tests -->
+    <target name="NewsTests"
+        depends="SearchNewss,EditNews,SaveNews,AddNews,DeleteNews"
+        description="Call and executes all news test cases (targets)">
+        <echo>Successfully ran all News JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit news screen displays without errors -->
+    <target name="EditNews"
+        description="Tests editing an existing News's information">
+        <webtest name="editNews">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit News link" url="/editNews.html?id=1"/>
+                <verifytitle description="we should see the newsDetail title"
+                    text=".*${newsDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a news and then save -->
+    <target name="SaveNews"
+        description="Tests editing and saving a news">
+        <webtest name="saveNews">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit News link" url="/editNews.html?id=1"/>
+                <verifytitle description="we should see the newsDetail title"
+                    text=".*${newsDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${newsDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new News -->
+    <target name="AddNews"
+        description="Adds a new News">
+        <webtest name="addNews">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editNews.html"/>
+                <verifytitle description="we should see the newsDetail title"
+                    text=".*${newsDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="News List appears if save successful"
+                    text=".*${newsList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${news.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing news -->
+    <target name="DeleteNews"
+        description="Deletes existing News">
+        <webtest name="deleteNews">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit News link" url="/editNews.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display News List" text=".*${newsList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${news.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchNewss"
+        description="Tests search for and displaying all newss">
+        <webtest name="searchNewss">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Newss link" url="/newss.html"/>
+                <verifytitle description="we should see the newsList title"
+                    text=".*${newsList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--News-END-->
+
+<!--Website-START-->
+    <!-- runs website-related tests -->
+    <target name="WebsiteTests"
+        depends="SearchWebsites,EditWebsite,SaveWebsite,AddWebsite,DeleteWebsite"
+        description="Call and executes all website test cases (targets)">
+        <echo>Successfully ran all Website JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit website screen displays without errors -->
+    <target name="EditWebsite"
+        description="Tests editing an existing Website's information">
+        <webtest name="editWebsite">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Website link" url="/editWebsite.html?id=1"/>
+                <verifytitle description="we should see the websiteDetail title"
+                    text=".*${websiteDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a website and then save -->
+    <target name="SaveWebsite"
+        description="Tests editing and saving a website">
+        <webtest name="saveWebsite">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Website link" url="/editWebsite.html?id=1"/>
+                <verifytitle description="we should see the websiteDetail title"
+                    text=".*${websiteDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <setinputfield description="set name" name="name" value="name"/>
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${websiteDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Website -->
+    <target name="AddWebsite"
+        description="Adds a new Website">
+        <webtest name="addWebsite">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editWebsite.html"/>
+                <verifytitle description="we should see the websiteDetail title"
+                    text=".*${websiteDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <setinputfield description="set name" name="name" value="QjIgGwOdYdObQcGzRiRxIsMlDoOvQgAzYqCjHhLjUuFbHjNoEyFkIjIlQyTbFsJlIjZwOtJjKwIzHiSrFzKuQxGlLpLlTxKrKgQg"/>
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="Website List appears if save successful"
+                    text=".*${websiteList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${website.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing website -->
+    <target name="DeleteWebsite"
+        description="Deletes existing Website">
+        <webtest name="deleteWebsite">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Website link" url="/editWebsite.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Website List" text=".*${websiteList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${website.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchWebsites"
+        description="Tests search for and displaying all websites">
+        <webtest name="searchWebsites">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Websites link" url="/websites.html"/>
+                <verifytitle description="we should see the websiteList title"
+                    text=".*${websiteList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--Website-END-->
+
+
+
+<!--NewsImage-START-->
+    <!-- runs newsImage-related tests -->
+    <target name="NewsImageTests"
+        depends="SearchNewsImages,EditNewsImage,SaveNewsImage,AddNewsImage,DeleteNewsImage"
+        description="Call and executes all newsImage test cases (targets)">
+        <echo>Successfully ran all NewsImage JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit newsImage screen displays without errors -->
+    <target name="EditNewsImage"
+        description="Tests editing an existing NewsImage's information">
+        <webtest name="editNewsImage">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit NewsImage link" url="/editNewsImage.html?id=1"/>
+                <verifytitle description="we should see the newsImageDetail title"
+                    text=".*${newsImageDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a newsImage and then save -->
+    <target name="SaveNewsImage"
+        description="Tests editing and saving a newsImage">
+        <webtest name="saveNewsImage">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit NewsImage link" url="/editNewsImage.html?id=1"/>
+                <verifytitle description="we should see the newsImageDetail title"
+                    text=".*${newsImageDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${newsImageDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new NewsImage -->
+    <target name="AddNewsImage"
+        description="Adds a new NewsImage">
+        <webtest name="addNewsImage">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editNewsImage.html"/>
+                <verifytitle description="we should see the newsImageDetail title"
+                    text=".*${newsImageDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="NewsImage List appears if save successful"
+                    text=".*${newsImageList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${newsImage.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing newsImage -->
+    <target name="DeleteNewsImage"
+        description="Deletes existing NewsImage">
+        <webtest name="deleteNewsImage">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit NewsImage link" url="/editNewsImage.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display NewsImage List" text=".*${newsImageList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${newsImage.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchNewsImages"
+        description="Tests search for and displaying all newsImages">
+        <webtest name="searchNewsImages">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View NewsImages link" url="/newsImages.html"/>
+                <verifytitle description="we should see the newsImageList title"
+                    text=".*${newsImageList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--NewsImage-END-->
+
+<!--Material-START-->
+    <!-- runs material-related tests -->
+    <target name="MaterialTests"
+        depends="SearchMaterials,EditMaterial,SaveMaterial,AddMaterial,DeleteMaterial"
+        description="Call and executes all material test cases (targets)">
+        <echo>Successfully ran all Material JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit material screen displays without errors -->
+    <target name="EditMaterial"
+        description="Tests editing an existing Material's information">
+        <webtest name="editMaterial">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Material link" url="/editMaterial.html?id=1"/>
+                <verifytitle description="we should see the materialDetail title"
+                    text=".*${materialDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a material and then save -->
+    <target name="SaveMaterial"
+        description="Tests editing and saving a material">
+        <webtest name="saveMaterial">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Material link" url="/editMaterial.html?id=1"/>
+                <verifytitle description="we should see the materialDetail title"
+                    text=".*${materialDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${materialDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Material -->
+    <target name="AddMaterial"
+        description="Adds a new Material">
+        <webtest name="addMaterial">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editMaterial.html"/>
+                <verifytitle description="we should see the materialDetail title"
+                    text=".*${materialDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="Material List appears if save successful"
+                    text=".*${materialList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${material.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing material -->
+    <target name="DeleteMaterial"
+        description="Deletes existing Material">
+        <webtest name="deleteMaterial">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Material link" url="/editMaterial.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Material List" text=".*${materialList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${material.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchMaterials"
+        description="Tests search for and displaying all materials">
+        <webtest name="searchMaterials">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Materials link" url="/materials.html"/>
+                <verifytitle description="we should see the materialList title"
+                    text=".*${materialList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--Material-END-->
+
+<!--Price-START-->
+    <!-- runs price-related tests -->
+    <target name="PriceTests"
+        depends="SearchPrices,EditPrice,SavePrice,AddPrice,DeletePrice"
+        description="Call and executes all price test cases (targets)">
+        <echo>Successfully ran all Price JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit price screen displays without errors -->
+    <target name="EditPrice"
+        description="Tests editing an existing Price's information">
+        <webtest name="editPrice">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Price link" url="/editPrice.html?id=1"/>
+                <verifytitle description="we should see the priceDetail title"
+                    text=".*${priceDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a price and then save -->
+    <target name="SavePrice"
+        description="Tests editing and saving a price">
+        <webtest name="savePrice">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Price link" url="/editPrice.html?id=1"/>
+                <verifytitle description="we should see the priceDetail title"
+                    text=".*${priceDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${priceDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Price -->
+    <target name="AddPrice"
+        description="Adds a new Price">
+        <webtest name="addPrice">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editPrice.html"/>
+                <verifytitle description="we should see the priceDetail title"
+                    text=".*${priceDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="Price List appears if save successful"
+                    text=".*${priceList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${price.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing price -->
+    <target name="DeletePrice"
+        description="Deletes existing Price">
+        <webtest name="deletePrice">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Price link" url="/editPrice.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Price List" text=".*${priceList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${price.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchPrices"
+        description="Tests search for and displaying all prices">
+        <webtest name="searchPrices">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Prices link" url="/prices.html"/>
+                <verifytitle description="we should see the priceList title"
+                    text=".*${priceList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--Price-END-->
+
+<!--ExchangeRate-START-->
+    <!-- runs exchangeRate-related tests -->
+    <target name="ExchangeRateTests"
+        depends="SearchExchangeRates,EditExchangeRate,SaveExchangeRate,AddExchangeRate,DeleteExchangeRate"
+        description="Call and executes all exchangeRate test cases (targets)">
+        <echo>Successfully ran all ExchangeRate JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit exchangeRate screen displays without errors -->
+    <target name="EditExchangeRate"
+        description="Tests editing an existing ExchangeRate's information">
+        <webtest name="editExchangeRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit ExchangeRate link" url="/editExchangeRate.html?id=1"/>
+                <verifytitle description="we should see the exchangeRateDetail title"
+                    text=".*${exchangeRateDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a exchangeRate and then save -->
+    <target name="SaveExchangeRate"
+        description="Tests editing and saving a exchangeRate">
+        <webtest name="saveExchangeRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit ExchangeRate link" url="/editExchangeRate.html?id=1"/>
+                <verifytitle description="we should see the exchangeRateDetail title"
+                    text=".*${exchangeRateDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${exchangeRateDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new ExchangeRate -->
+    <target name="AddExchangeRate"
+        description="Adds a new ExchangeRate">
+        <webtest name="addExchangeRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editExchangeRate.html"/>
+                <verifytitle description="we should see the exchangeRateDetail title"
+                    text=".*${exchangeRateDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="ExchangeRate List appears if save successful"
+                    text=".*${exchangeRateList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${exchangeRate.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing exchangeRate -->
+    <target name="DeleteExchangeRate"
+        description="Deletes existing ExchangeRate">
+        <webtest name="deleteExchangeRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit ExchangeRate link" url="/editExchangeRate.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display ExchangeRate List" text=".*${exchangeRateList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${exchangeRate.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchExchangeRates"
+        description="Tests search for and displaying all exchangeRates">
+        <webtest name="searchExchangeRates">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View ExchangeRates link" url="/exchangeRates.html"/>
+                <verifytitle description="we should see the exchangeRateList title"
+                    text=".*${exchangeRateList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--ExchangeRate-END-->
+
+<!--InterestRate-START-->
+    <!-- runs interestRate-related tests -->
+    <target name="InterestRateTests"
+        depends="SearchInterestRates,EditInterestRate,SaveInterestRate,AddInterestRate,DeleteInterestRate"
+        description="Call and executes all interestRate test cases (targets)">
+        <echo>Successfully ran all InterestRate JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit interestRate screen displays without errors -->
+    <target name="EditInterestRate"
+        description="Tests editing an existing InterestRate's information">
+        <webtest name="editInterestRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit InterestRate link" url="/editInterestRate.html?id=1"/>
+                <verifytitle description="we should see the interestRateDetail title"
+                    text=".*${interestRateDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a interestRate and then save -->
+    <target name="SaveInterestRate"
+        description="Tests editing and saving a interestRate">
+        <webtest name="saveInterestRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit InterestRate link" url="/editInterestRate.html?id=1"/>
+                <verifytitle description="we should see the interestRateDetail title"
+                    text=".*${interestRateDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${interestRateDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new InterestRate -->
+    <target name="AddInterestRate"
+        description="Adds a new InterestRate">
+        <webtest name="addInterestRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editInterestRate.html"/>
+                <verifytitle description="we should see the interestRateDetail title"
+                    text=".*${interestRateDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="InterestRate List appears if save successful"
+                    text=".*${interestRateList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${interestRate.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing interestRate -->
+    <target name="DeleteInterestRate"
+        description="Deletes existing InterestRate">
+        <webtest name="deleteInterestRate">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit InterestRate link" url="/editInterestRate.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display InterestRate List" text=".*${interestRateList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${interestRate.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchInterestRates"
+        description="Tests search for and displaying all interestRates">
+        <webtest name="searchInterestRates">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View InterestRates link" url="/interestRates.html"/>
+                <verifytitle description="we should see the interestRateList title"
+                    text=".*${interestRateList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--InterestRate-END-->
+
+
+
+
+
+
+
+<!--UserActivityLog-START-->
+    <!-- runs userActivityLog-related tests -->
+    <target name="UserActivityLogTests"
+        depends="SearchUserActivityLogs,EditUserActivityLog,SaveUserActivityLog,AddUserActivityLog,DeleteUserActivityLog"
+        description="Call and executes all userActivityLog test cases (targets)">
+        <echo>Successfully ran all UserActivityLog JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit userActivityLog screen displays without errors -->
+    <target name="EditUserActivityLog"
+        description="Tests editing an existing UserActivityLog's information">
+        <webtest name="editUserActivityLog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit UserActivityLog link" url="/editUserActivityLog.html?id=1"/>
+                <verifytitle description="we should see the userActivityLogDetail title"
+                    text=".*${userActivityLogDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a userActivityLog and then save -->
+    <target name="SaveUserActivityLog"
+        description="Tests editing and saving a userActivityLog">
+        <webtest name="saveUserActivityLog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit UserActivityLog link" url="/editUserActivityLog.html?id=1"/>
+                <verifytitle description="we should see the userActivityLogDetail title"
+                    text=".*${userActivityLogDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${userActivityLogDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new UserActivityLog -->
+    <target name="AddUserActivityLog"
+        description="Adds a new UserActivityLog">
+        <webtest name="addUserActivityLog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editUserActivityLog.html"/>
+                <verifytitle description="we should see the userActivityLogDetail title"
+                    text=".*${userActivityLogDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="UserActivityLog List appears if save successful"
+                    text=".*${userActivityLogList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${userActivityLog.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing userActivityLog -->
+    <target name="DeleteUserActivityLog"
+        description="Deletes existing UserActivityLog">
+        <webtest name="deleteUserActivityLog">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit UserActivityLog link" url="/editUserActivityLog.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display UserActivityLog List" text=".*${userActivityLogList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${userActivityLog.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchUserActivityLogs"
+        description="Tests search for and displaying all userActivityLogs">
+        <webtest name="searchUserActivityLogs">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View UserActivityLogs link" url="/userActivityLogs.html"/>
+                <verifytitle description="we should see the userActivityLogList title"
+                    text=".*${userActivityLogList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--UserActivityLog-END-->
+
+
+
+
+
+<!--Quoter-START-->
+    <!-- runs quoter-related tests -->
+    <target name="QuoterTests"
+        depends="SearchQuoters,EditQuoter,SaveQuoter,AddQuoter,DeleteQuoter"
+        description="Call and executes all quoter test cases (targets)">
+        <echo>Successfully ran all Quoter JSP tests!</echo>
+    </target>
+
+    <!-- Verify the edit quoter screen displays without errors -->
+    <target name="EditQuoter"
+        description="Tests editing an existing Quoter's information">
+        <webtest name="editQuoter">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Quoter link" url="/editQuoter.html?id=1"/>
+                <verifytitle description="we should see the quoterDetail title"
+                    text=".*${quoterDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Edit a quoter and then save -->
+    <target name="SaveQuoter"
+        description="Tests editing and saving a quoter">
+        <webtest name="saveQuoter">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Quoter link" url="/editQuoter.html?id=1"/>
+                <verifytitle description="we should see the quoterDetail title"
+                    text=".*${quoterDetail.title}.*" regex="true"/>
+
+                <!-- update some of the required fields -->
+                <clickbutton label="${button.save}" description="Click Save"/>
+
+                <verifytitle description="Page re-appears if save successful"
+                    text=".*${quoterDetail.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Add a new Quoter -->
+    <target name="AddQuoter"
+        description="Adds a new Quoter">
+        <webtest name="addQuoter">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Add Button" url="/editQuoter.html"/>
+                <verifytitle description="we should see the quoterDetail title"
+                    text=".*${quoterDetail.title}.*" regex="true"/>
+
+                <!-- enter required fields -->
+                <clickbutton label="${button.save}" description="Click button 'Save'"/>
+
+                <verifytitle description="Quoter List appears if save successful"
+                    text=".*${quoterList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${quoter.added}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Delete existing quoter -->
+    <target name="DeleteQuoter"
+        description="Deletes existing Quoter">
+        <webtest name="deleteQuoter">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click Edit Quoter link" url="/editQuoter.html?id=1"/>
+                <prepareDialogResponse description="Confirm delete" dialogType="confirm" response="true"/>
+                <clickbutton label="${button.delete}" description="Click button 'Delete'"/>
+                <verifyNoDialogResponses/>
+                <verifytitle description="display Quoter List" text=".*${quoterList.title}.*" regex="true"/>
+                <verifytext description="verify success message" text="${quoter.deleted}"/>
+            </steps>
+        </webtest>
+    </target>
+
+    <!-- Verify the people list screen displays without errors -->
+    <target name="SearchQuoters"
+        description="Tests search for and displaying all quoters">
+        <webtest name="searchQuoters">
+            &config;
+            <steps>
+                &login;
+                <invoke description="click View Quoters link" url="/quoters.html"/>
+                <verifytitle description="we should see the quoterList title"
+                    text=".*${quoterList.title}.*" regex="true"/>
+            </steps>
+        </webtest>
+    </target>
+<!--Quoter-END-->
+</project>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

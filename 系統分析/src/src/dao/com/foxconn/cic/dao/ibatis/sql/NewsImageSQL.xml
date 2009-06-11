@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+    "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="NewsImageSQL">
+    <typeAlias alias="newsImage" type="com.foxconn.cic.model.NewsImage"/>
+
+    <parameterMap id="addParam" class="newsImage">
+        <parameter property="filePath" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="news" jdbcType="VARCHAR" javaType="com.foxconn.cic.model.News"/>
+        <parameter property="position" jdbcType="VARCHAR" javaType="int"/>
+        <parameter property="url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </parameterMap>
+
+    <parameterMap id="updateParam" class="newsImage">
+        <parameter property="filePath" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <parameter property="id" jdbcType="INTEGER" javaType="java.lang.Long"/>
+        <parameter property="news" jdbcType="VARCHAR" javaType="com.foxconn.cic.model.News"/>
+        <parameter property="position" jdbcType="VARCHAR" javaType="int"/>
+        <parameter property="url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </parameterMap>
+
+    <resultMap id="newsImageResult" class="newsImage">
+        <result property="filePath" column=""/>
+        <result property="id" column=""/>
+        <result property="news" column=""/>
+        <result property="position" column=""/>
+        <result property="url" column=""/>
+    </resultMap>
+
+    <select id="getNewsImages" resultMap="newsImageResult">
+    <![CDATA[
+        select * from 
+    ]]>
+    </select>
+
+    <select id="getNewsImage" resultMap="newsImageResult">
+    <![CDATA[
+        select * from 
+         where  = #value#
+    ]]>
+    </select>
+
+    <insert id="addNewsImage" parameterMap="addParam">
+        <!--selectKey resultClass="java.lang.Long" keyProperty="id" >
+            SELECT SEQ_.NextVal AS id FROM DUAL
+        </selectKey-->
+        <selectKey resultClass="java.lang.Long" keyProperty="id">
+            SELECT LAST_INSERT_ID() AS id
+        </selectKey>
+        <![CDATA[
+            insert into  (,,,)
+            values ( ?,?,?,? )
+        ]]>
+    </insert>
+
+    <update id="updateNewsImage" parameterMap="updateParam">
+    <![CDATA[
+        update  set
+                    = ?,
+                    = ?,
+                    = ?,
+                    = ?
+        where  = ?
+    ]]>
+    </update>
+
+    <delete id="deleteNewsImage">
+    <![CDATA[
+        delete from 
+         where  = #value#
+    ]]>
+    </delete>
+</sqlMap>
