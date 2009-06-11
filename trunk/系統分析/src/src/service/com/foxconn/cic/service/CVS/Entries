@@ -1,0 +1,36 @@
+/CatalogManager.java/1.2/Sun Apr 27 03:32:38 2008//
+/CatalogTypeManager.java/1.2/Sun Apr 27 03:32:38 2008//
+/ExchangeRateManager.java/1.2/Mon Sep 10 03:48:24 2007//
+/ExchangeRateSearchResults.java/1.2/Sat Sep  8 03:15:52 2007//
+/ExchangeRateWebService.java/1.2/Mon Sep 10 03:52:21 2007//
+/IndexManager.java/1.3/Sat Apr  7 05:58:06 2007//
+/InterestRateManager.java/1.2/Mon Sep 10 03:47:49 2007//
+/InterestRateSearchResults.java/1.1/Wed Aug  1 05:42:07 2007//
+/InterestRateWebService.java/1.2/Mon Sep 10 03:53:04 2007//
+/KeywordManager.java/1.2/Sat Dec 16 06:21:29 2006//
+/LookupManager.java/1.1/Sat Dec 16 06:08:44 2006//
+/MailEngine.java/1.1/Sat Dec 16 06:08:44 2006//
+/Manager.java/1.1/Sat Dec 16 06:08:44 2006//
+/MaterialManager.java/1.2/Sun Apr 27 03:32:38 2008//
+/NewsFacade.java/1.1/Tue Oct 30 00:45:33 2007//
+/NewsImageHelper.java/1.2/Mon Nov 26 01:18:18 2007//
+/NewsImageManager.java/1.4/Tue Oct 30 00:50:03 2007//
+/NewsManager.java/1.16/Mon Sep 10 03:49:19 2007//
+/NewsSearchResults.java/1.2/Sat Sep  8 03:15:10 2007//
+/NewsWebService.java/1.5/Wed Aug 29 01:12:35 2007//
+/Page.java/1.1/Wed Aug  1 05:42:07 2007//
+/PriceManager.java/1.3/Mon Sep 10 03:44:34 2007//
+/PriceSearchResults.java/1.1/Mon Jun 18 02:54:27 2007//
+/PriceWebService.java/1.2/Mon Sep 10 00:51:43 2007//
+/QuoterManager.java/1.2/Sun Apr 27 03:32:38 2008//
+/RoleManager.java/1.1/Sat Dec 16 06:08:44 2006//
+/UserActivityLogManager.java/1.2/Sun Apr 27 03:32:38 2008//
+/UserExistsException.java/1.1/Sat Dec 16 06:08:44 2006//
+/UserManager.java/1.1/Sat Dec 16 06:08:44 2006//
+/UserSecurityAdvice.java/1.1/Sat Dec 16 06:08:44 2006//
+/UserWebService.java/1.2/Sun Apr 27 03:32:38 2008//
+/WebsiteManager.java/1.5/Sun Apr 27 03:32:38 2008//
+D/advice////
+/applicationContext-service.xml/1.32/Tue Jan 29 07:55:44 2008//
+/applicationContext-webservice.xml/1.7/Wed Aug 29 01:38:38 2007//
+D/impl////

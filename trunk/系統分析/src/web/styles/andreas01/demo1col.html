@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<!-- HTTP 1.1 -->
+<meta http-equiv="Cache-Control" content="no-store" />
+<!-- HTTP 1.0 -->
+<meta http-equiv="Pragma" content="no-cache" />
+<!-- Prevents caching at the Proxy Server -->
+<meta http-equiv="Expires" content="0" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="author" content="Matt Raible (matt@raibledesigns.com)" />
+
+<link rel="icon" href="/FoxconnCIC/images/favicon.ico" />
+
+<title>用户列表 | 富士康新闻中心</title>
+
+<link rel="stylesheet" type="text/css" media="all" href="theme1col.css" />
+<link rel="stylesheet" type="text/css" media="print" href="print.css" />
+
+<script type="text/javascript" src="/FoxconnCIC/scripts/prototype.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/scriptaculous.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/global.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/overlibmws.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/ajaxtags-1.2-beta2.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/xloadtree/xtree.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/xloadtree/xmlextras.js"></script>
+<script type="text/javascript" src="/FoxconnCIC/scripts/xloadtree/xloadtree.js"></script>
+
+
+</head>
+<body>
+
+<div id="page">
+<div id="header" class="clearfix">
+
+
+
+
+
+<div id="switchLocale">
+	<a href="/FoxconnCIC/logout.jsp">退出</a> 
+	<a href="/FoxconnCIC/?locale=en">富士康新闻中心 in English</a></div>
+<div id="branding">
+	<h1><a href="/FoxconnCIC/">富士康新闻中心</a></h1>
+</div>
+
+<hr/>
+</div>
+
+<div id="content" class="clearfix">
+<div id="main">
+
+
+<h1>在线用户</h1>
+
+
+<input type="button" style="margin-right: 5px"
+	onclick="location.href='/FoxconnCIC/editUser.html?method=Add&from=list'"
+	value="添加" /> <input type="button"
+	onclick="location.href='/FoxconnCIC/mainMenu.html'" value="做" /> <span
+	class="pagebanner">共2條users，顯示所有</span>
+
+<table cellpadding="0" class="table" cellspacing="0" id="users">
+	<thead>
+		<tr>
+			<th class="sortable sorted order1"><a
+				href="?d-149542-s=0&amp;d-149542-o=1">Username</a></th>
+			<th class="sortable"><a href="?d-149542-s=1&amp;d-149542-o=2">全名</a></th>
+			<th class="sortable"><a href="?d-149542-s=2&amp;d-149542-o=2">E-Mail</a></th>
+			<th class="sortable"><a href="?d-149542-s=3&amp;d-149542-o=2">Enabled</a></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="odd">
+
+			<td style="width: 25%"><a
+				href="/FoxconnCIC/editUser.html?username=mraible&amp;from=list">mraible</a></td>
+			<td style="width: 34%">Matt Raible</td>
+			<td style="width: 25%"><a href="mailto:matt@raibledesigns.com">matt@raibledesigns.com</a></td>
+			<td style="width: 16%; padding-left: 15px"><input
+				type="checkbox" disabled="disabled" checked="checked" /></td>
+		</tr>
+		<tr class="even">
+			<td style="width: 25%"><a
+				href="/FoxconnCIC/editUser.html?username=tomcat&amp;from=list">tomcat</a></td>
+			<td style="width: 34%">Tomcat User</td>
+
+			<td style="width: 25%"><a href="mailto:matt_raible@yahoo.com">matt_raible@yahoo.com</a></td>
+			<td style="width: 16%; padding-left: 15px"><input
+				type="checkbox" disabled="disabled" checked="checked" /></td>
+		</tr>
+	</tbody>
+</table>
+<div class="exportlinks">導出: <a
+	href="?6578706f7274=1&amp;d-149542-e=1"><span class="export csv">CSV
+</span></a>| <a href="?6578706f7274=1&amp;d-149542-e=2"><span
+	class="export excel">Excel </span></a>| <a
+	href="?6578706f7274=1&amp;d-149542-e=3"><span class="export xml">XML
+</span></a>| <a href="?6578706f7274=1&amp;d-149542-e=5"><span
+	class="export pdf">PDF </span></a></div>
+
+<input type="button" style="margin-right: 5px"
+	onclick="location.href='/FoxconnCIC/editUser.html?method=Add&from=list'"
+	value="添加" /> <input type="button"
+	onclick="location.href='/FoxconnCIC/mainMenu.html'" value="做" /> <script
+	type="text/javascript">
+    highlightTableRows("users");
+</script></div>
+
+
+<div id="footer" class="clearfix">
+
+<div id="divider">
+<div></div>
+</div>
+<span class="left">Version 1.9.4 | 当前用户: Matt Raible </span> <span
+	class="right"> &copy; 2007 Hon Hai Precision Industry, Co., Ltd.
+("Foxconn").All rights reserved. </span></div>
+</div>
+</body>
+</html>

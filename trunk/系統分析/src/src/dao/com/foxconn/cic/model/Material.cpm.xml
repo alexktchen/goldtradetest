@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE compass-core-mapping PUBLIC
+    "-//Compass/Compass Core Mapping DTD 1.0//EN"
+    "http://www.opensymphony.com/compass/dtd/compass-core-mapping.dtd">
+
+<compass-core-mapping package="com.foxconn.cic.model">
+         <class name="Material" alias="material" root="false">
+         	<id name="id" />
+         	<property name="id">
+                        <meta-data>materialid</meta-data>
+            </property>
+         	<property name="name">
+                        <meta-data term-vector="positions_offsets">materialname</meta-data>
+            </property>
+            <property name="spec">
+                        <meta-data>materialspec</meta-data>
+            </property>
+         </class>
+</compass-core-mapping>
