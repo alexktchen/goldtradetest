@@ -1,0 +1,9 @@
+[2009-05-20 08:12:48] [info] Procrun (2.0.4.0) started
+[2009-05-20 08:12:48] [info] Debugging Service...
+[2009-05-20 08:12:48] [info] Starting service...
+[2009-05-20 08:12:51] [info] Service started in 2062 ms.
+[2009-05-20 12:39:46] [info] Console LOGOFF event signaled
+[2009-05-20 12:39:46] [info] Stopping service...
+[2009-05-20 12:40:02] [info] Service stopped.
+[2009-05-20 12:40:02] [info] Debug service finished.
+[2009-05-20 12:40:02] [info] Procrun finished.

@@ -1,0 +1,136 @@
+2009/5/4 上午 08:35:33 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 08:36:40 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 08:36:40 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 08:36:41 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 08:36:41 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 09:39:38 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/4 上午 09:39:38 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/4 上午 09:39:38 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/4 上午 09:39:38 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/4 上午 09:39:53 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 09:40:57 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 09:40:57 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 09:40:58 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 09:40:58 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:33:07 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/4 上午 10:33:07 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/4 上午 10:33:07 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/4 上午 10:33:07 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/4 上午 10:33:18 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 10:34:12 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:34:12 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:34:13 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:34:13 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:37:21 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 10:38:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:38:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:38:15 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:38:15 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:44:02 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/4 上午 10:44:02 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/4 上午 10:44:02 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/4 上午 10:44:02 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/4 上午 10:44:09 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 10:45:03 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:45:03 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:45:04 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:45:04 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:49:55 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 10:54:01 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 10:54:58 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:54:58 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 10:54:58 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 10:54:58 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 11:02:42 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 11:03:29 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 11:03:29 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 11:03:29 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 11:03:29 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 11:17:09 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 上午 11:17:53 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 11:17:53 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 上午 11:17:53 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 上午 11:17:53 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 下午 03:21:46 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 下午 03:23:31 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 下午 03:23:31 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 下午 03:23:32 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 下午 03:23:32 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 下午 03:29:33 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 下午 03:31:13 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 下午 03:31:13 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 下午 03:31:13 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 下午 03:31:13 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 下午 04:16:26 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/4 下午 04:18:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 下午 04:18:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/4 下午 04:18:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/4 下午 04:18:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
