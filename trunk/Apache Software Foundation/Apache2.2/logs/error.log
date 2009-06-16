@@ -1,0 +1,899 @@
+Starting the Apache2.2 service
+The Apache2.2 service is running.
+] Apache/2.2.8 (Win32) configured -- resuming normal operations
+[Thu May 07 08:50:09 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Thu May 07 08:50:09 2009] [notice] Parent: Created child process 4200
+[Thu May 07 08:50:09 2009] [notice] Child 4200: Child process is running
+[Thu May 07 08:50:09 2009] [notice] Child 4200: Acquired the start mutex.
+[Thu May 07 08:50:09 2009] [notice] Child 4200: Starting 64 worker threads.
+[Thu May 07 08:50:09 2009] [notice] Child 4200: Starting thread to listen on port 80.
+[Fri May 08 14:58:57 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 08 14:58:57 2009] [notice] Child 4200: Exit event signaled. Child process is ending.
+[Fri May 08 14:58:58 2009] [notice] Child 4200: Released the start mutex
+[Fri May 08 14:58:59 2009] [notice] Child 4200: All worker threads have exited.
+[Fri May 08 14:59:00 2009] [notice] Child 4200: Child process is exiting
+[Fri May 08 14:59:01 2009] [notice] Parent: Child process exited successfully.
+[Mon May 11 08:48:31 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon May 11 08:48:31 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon May 11 08:48:31 2009] [notice] Parent: Created child process 5892
+[Mon May 11 08:48:31 2009] [notice] Child 5892: Child process is running
+[Mon May 11 08:48:31 2009] [notice] Child 5892: Acquired the start mutex.
+[Mon May 11 08:48:31 2009] [notice] Child 5892: Starting 250 worker threads.
+[Mon May 11 08:48:31 2009] [notice] Child 5892: Starting thread to listen on port 80.
+[Mon May 11 09:38:28 2009] [error] [client 10.153.27.142] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Mon May 11 09:39:03 2009] [error] [client 10.153.27.142] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Mon May 11 09:39:09 2009] [error] [client 10.153.27.142] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Mon May 11 20:01:42 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Mon May 11 20:01:42 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon May 11 20:01:42 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon May 11 20:01:42 2009] [notice] Parent: Created child process 1384
+[Mon May 11 20:01:42 2009] [notice] Child 1384: Child process is running
+[Mon May 11 20:01:42 2009] [notice] Child 1384: Acquired the start mutex.
+[Mon May 11 20:01:42 2009] [notice] Child 1384: Starting 250 worker threads.
+[Mon May 11 20:01:42 2009] [notice] Child 1384: Starting thread to listen on port 80.
+[Tue May 12 11:16:57 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Tue May 12 11:16:58 2009] [notice] Child 1384: Exit event signaled. Child process is ending.
+[Tue May 12 11:16:59 2009] [notice] Child 1384: Released the start mutex
+[Tue May 12 11:17:00 2009] [notice] Child 1384: All worker threads have exited.
+[Tue May 12 11:17:00 2009] [notice] Child 1384: Child process is exiting
+[Tue May 12 11:17:01 2009] [notice] Parent: Child process exited successfully.
+[Tue May 12 11:17:05 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Tue May 12 11:17:05 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Tue May 12 11:17:05 2009] [notice] Parent: Created child process 4968
+[Tue May 12 11:17:05 2009] [notice] Child 4968: Child process is running
+[Tue May 12 11:17:05 2009] [notice] Child 4968: Acquired the start mutex.
+[Tue May 12 11:17:05 2009] [notice] Child 4968: Starting 250 worker threads.
+[Tue May 12 11:17:05 2009] [notice] Child 4968: Starting thread to listen on port 80.
+[Tue May 12 15:04:39 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Tue May 12 15:04:39 2009] [notice] Child 4968: Exit event signaled. Child process is ending.
+[Tue May 12 15:04:40 2009] [notice] Child 4968: Released the start mutex
+[Tue May 12 15:04:41 2009] [notice] Child 4968: All worker threads have exited.
+[Tue May 12 15:04:41 2009] [notice] Child 4968: Child process is exiting
+[Tue May 12 15:04:42 2009] [notice] Parent: Child process exited successfully.
+[Tue May 12 17:28:09 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Tue May 12 17:28:09 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Tue May 12 17:28:09 2009] [notice] Parent: Created child process 2180
+[Tue May 12 17:28:09 2009] [notice] Child 2180: Child process is running
+[Tue May 12 17:28:09 2009] [notice] Child 2180: Acquired the start mutex.
+[Tue May 12 17:28:09 2009] [notice] Child 2180: Starting 250 worker threads.
+[Tue May 12 17:28:09 2009] [notice] Child 2180: Starting thread to listen on port 80.
+[Wed May 13 10:51:04 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Wed May 13 10:51:04 2009] [notice] Child 2180: Exit event signaled. Child process is ending.
+[Wed May 13 10:51:05 2009] [notice] Child 2180: Released the start mutex
+[Wed May 13 10:51:06 2009] [notice] Child 2180: All worker threads have exited.
+[Wed May 13 10:51:06 2009] [notice] Child 2180: Child process is exiting
+[Wed May 13 10:51:07 2009] [notice] Parent: Child process exited successfully.
+[Wed May 13 10:58:04 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Wed May 13 10:58:04 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Wed May 13 10:58:04 2009] [notice] Parent: Created child process 5920
+Apache server interrupted...
+otice] Child 5920: Child process is running
+[Wed May 13 10:58:04 2009] [notice] Child 5920: Acquired the start mutex.
+[Wed May 13 10:58:04 2009] [notice] Child 5920: Starting 250 worker threads.
+[Wed May 13 10:58:04 2009] [notice] Child 5920: Starting thread to listen on port 80.
+[Wed May 13 10:58:43 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+Apache server interrupted...
+otice] Child 5920: Exit event signaled. Child process is ending.
+[Wed May 13 10:58:44 2009] [notice] Child 5920: Released the start mutex
+[Wed May 13 10:58:45 2009] [notice] Child 5920: All worker threads have exited.
+[Wed May 13 10:58:45 2009] [notice] Child 5920: Child process is exiting
+[Wed May 13 10:58:45 2009] [notice] Parent: Child process exited successfully.
+[Wed May 13 10:58:52 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Wed May 13 10:58:52 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Wed May 13 10:58:52 2009] [notice] Parent: Created child process 4028
+Apache server interrupted...
+otice] Child 4028: Child process is running
+[Wed May 13 10:58:52 2009] [notice] Child 4028: Acquired the start mutex.
+[Wed May 13 10:58:52 2009] [notice] Child 4028: Starting 250 worker threads.
+[Wed May 13 10:58:52 2009] [notice] Child 4028: Starting thread to listen on port 80.
+[Wed May 13 10:59:34 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+Apache server interrupted...
+Apache server interrupted...
+ signaled. Child process is ending.
+[Wed May 13 10:59:35 2009] [notice] Child 4028: Released the start mutex
+[Wed May 13 10:59:36 2009] [notice] Child 4028: All worker threads have exited.
+[Wed May 13 10:59:36 2009] [notice] Child 4028: Child process is exiting
+[Wed May 13 10:59:36 2009] [notice] Parent: Child process exited successfully.
+[Wed May 13 11:00:13 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Wed May 13 11:00:13 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Wed May 13 11:00:13 2009] [notice] Parent: Created child process 1708
+[Wed May 13 11:00:16 2009] [notice] Child 1708: Child process is running
+[Wed May 13 11:00:16 2009] [notice] Child 1708: Acquired the start mutex.
+[Wed May 13 11:00:16 2009] [notice] Child 1708: Starting 250 worker threads.
+[Wed May 13 11:00:16 2009] [notice] Child 1708: Starting thread to listen on port 80.
+[Wed May 13 11:03:40 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/index.jsp
+[Thu May 14 16:28:21 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Thu May 14 16:30:12 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Thu May 14 16:30:22 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Thu May 14 16:33:17 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Thu May 14 16:33:17 2009] [notice] Child 1708: Exit event signaled. Child process is ending.
+[Thu May 14 16:33:18 2009] [notice] Child 1708: Released the start mutex
+[Thu May 14 16:33:20 2009] [notice] Child 1708: All worker threads have exited.
+[Thu May 14 16:33:20 2009] [notice] Child 1708: Child process is exiting
+[Thu May 14 16:33:21 2009] [notice] Parent: Child process exited successfully.
+[Thu May 14 16:33:31 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Thu May 14 16:33:31 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Thu May 14 16:33:31 2009] [notice] Parent: Created child process 3332
+[Thu May 14 16:33:31 2009] [notice] Child 3332: Child process is running
+[Thu May 14 16:33:31 2009] [notice] Child 3332: Acquired the start mutex.
+[Thu May 14 16:33:31 2009] [notice] Child 3332: Starting 250 worker threads.
+[Thu May 14 16:33:31 2009] [notice] Child 3332: Starting thread to listen on port 80.
+[Thu May 14 17:28:10 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Thu May 14 17:28:11 2009] [notice] Child 3332: Exit event signaled. Child process is ending.
+[Thu May 14 17:28:12 2009] [notice] Child 3332: Released the start mutex
+[Thu May 14 17:28:13 2009] [notice] Child 3332: All worker threads have exited.
+[Thu May 14 17:28:13 2009] [notice] Child 3332: Child process is exiting
+[Thu May 14 17:28:15 2009] [notice] Parent: Child process exited successfully.
+[Thu May 14 17:28:21 2009] [warn] module jk_module is already loaded, skipping
+[Thu May 14 17:28:21 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Thu May 14 17:28:21 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Thu May 14 17:28:21 2009] [notice] Parent: Created child process 2392
+[Thu May 14 17:28:21 2009] [warn] module jk_module is already loaded, skipping
+[Thu May 14 17:28:21 2009] [warn] module jk_module is already loaded, skipping
+[Thu May 14 17:28:21 2009] [notice] Child 2392: Child process is running
+[Thu May 14 17:28:21 2009] [notice] Child 2392: Acquired the start mutex.
+[Thu May 14 17:28:21 2009] [notice] Child 2392: Starting 250 worker threads.
+[Thu May 14 17:28:21 2009] [notice] Child 2392: Starting thread to listen on port 80.
+[Thu May 14 17:28:24 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Thu May 14 17:28:24 2009] [notice] Child 2392: Exit event signaled. Child process is ending.
+[Thu May 14 17:28:25 2009] [notice] Child 2392: Released the start mutex
+[Thu May 14 17:28:26 2009] [notice] Child 2392: All worker threads have exited.
+[Thu May 14 17:28:26 2009] [notice] Child 2392: Child process is exiting
+[Thu May 14 17:28:26 2009] [notice] Parent: Child process exited successfully.
+[Thu May 14 17:28:31 2009] [warn] module jk_module is already loaded, skipping
+[Thu May 14 17:28:31 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Thu May 14 17:28:31 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Thu May 14 17:28:31 2009] [notice] Parent: Created child process 2968
+[Thu May 14 17:28:31 2009] [warn] module jk_module is already loaded, skipping
+[Thu May 14 17:28:31 2009] [warn] module jk_module is already loaded, skipping
+[Thu May 14 17:28:31 2009] [notice] Child 2968: Child process is running
+[Thu May 14 17:28:31 2009] [notice] Child 2968: Acquired the start mutex.
+[Thu May 14 17:28:31 2009] [notice] Child 2968: Starting 250 worker threads.
+[Thu May 14 17:28:31 2009] [notice] Child 2968: Starting thread to listen on port 80.
+[Thu May 14 17:40:46 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Thu May 14 17:40:46 2009] [notice] Child 2968: Exit event signaled. Child process is ending.
+[Thu May 14 17:40:47 2009] [notice] Child 2968: Released the start mutex
+[Thu May 14 17:40:48 2009] [notice] Child 2968: All worker threads have exited.
+[Thu May 14 17:40:48 2009] [notice] Child 2968: Child process is exiting
+[Thu May 14 17:40:48 2009] [notice] Parent: Child process exited successfully.
+[Fri May 15 07:52:48 2009] [warn] module jk_module is already loaded, skipping
+[Fri May 15 07:52:48 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 15 07:52:48 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 15 07:52:48 2009] [notice] Parent: Created child process 1920
+[Fri May 15 07:52:48 2009] [warn] module jk_module is already loaded, skipping
+[Fri May 15 07:52:48 2009] [warn] module jk_module is already loaded, skipping
+[Fri May 15 07:52:48 2009] [notice] Child 1920: Child process is running
+[Fri May 15 07:52:48 2009] [notice] Child 1920: Acquired the start mutex.
+[Fri May 15 07:52:48 2009] [notice] Child 1920: Starting 250 worker threads.
+[Fri May 15 07:52:48 2009] [notice] Child 1920: Starting thread to listen on port 80.
+[Fri May 15 08:21:26 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 15 08:21:26 2009] [notice] Child 1920: Exit event signaled. Child process is ending.
+[Fri May 15 08:21:27 2009] [notice] Child 1920: Released the start mutex
+[Fri May 15 08:21:28 2009] [notice] Child 1920: All worker threads have exited.
+[Fri May 15 08:21:28 2009] [notice] Child 1920: Child process is exiting
+[Fri May 15 08:21:29 2009] [notice] Parent: Child process exited successfully.
+[Fri May 15 08:21:32 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 15 08:21:32 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 15 08:21:32 2009] [notice] Parent: Created child process 4804
+[Fri May 15 08:21:32 2009] [notice] Child 4804: Child process is running
+[Fri May 15 08:21:32 2009] [notice] Child 4804: Acquired the start mutex.
+[Fri May 15 08:21:32 2009] [notice] Child 4804: Starting 250 worker threads.
+[Fri May 15 08:21:32 2009] [notice] Child 4804: Starting thread to listen on port 80.
+[Fri May 15 08:23:04 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 15 08:23:04 2009] [notice] Child 4804: Exit event signaled. Child process is ending.
+[Fri May 15 08:23:05 2009] [notice] Child 4804: Released the start mutex
+[Fri May 15 08:23:06 2009] [notice] Child 4804: All worker threads have exited.
+[Fri May 15 08:23:06 2009] [notice] Child 4804: Child process is exiting
+[Fri May 15 08:23:06 2009] [notice] Parent: Child process exited successfully.
+[Fri May 15 08:23:09 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 15 08:23:09 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 15 08:23:09 2009] [notice] Parent: Created child process 144
+[Fri May 15 08:23:09 2009] [notice] Child 144: Child process is running
+[Fri May 15 08:23:09 2009] [notice] Child 144: Acquired the start mutex.
+[Fri May 15 08:23:09 2009] [notice] Child 144: Starting 250 worker threads.
+[Fri May 15 08:23:09 2009] [notice] Child 144: Starting thread to listen on port 80.
+[Fri May 15 08:25:03 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Fri May 15 08:25:03 2009] [notice] Child 144: Exit event signaled. Child process is ending.
+[Fri May 15 08:25:04 2009] [notice] Child 144: Released the start mutex
+[Fri May 15 08:25:05 2009] [notice] Child 144: All worker threads have exited.
+[Fri May 15 08:25:05 2009] [notice] Child 144: Child process is exiting
+[Fri May 15 08:25:05 2009] [notice] Parent: Child process exited successfully.
+[Fri May 15 08:25:08 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 15 08:25:08 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 15 08:25:08 2009] [notice] Parent: Created child process 3532
+[Fri May 15 08:25:08 2009] [notice] Child 3532: Child process is running
+[Fri May 15 08:25:08 2009] [notice] Child 3532: Acquired the start mutex.
+[Fri May 15 08:25:08 2009] [notice] Child 3532: Starting 250 worker threads.
+[Fri May 15 08:25:08 2009] [notice] Child 3532: Starting thread to listen on port 80.
+[Fri May 15 08:25:33 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/index.jsp
+[Fri May 15 08:25:48 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Fri May 15 08:25:48 2009] [notice] Child 3532: Exit event signaled. Child process is ending.
+[Fri May 15 08:25:48 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 15 08:25:48 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 15 08:25:48 2009] [notice] Parent: Created child process 1464
+[Fri May 15 08:25:48 2009] [notice] Child 1464: Child process is running
+[Fri May 15 08:25:49 2009] [notice] Child 3532: Released the start mutex
+[Fri May 15 08:25:49 2009] [notice] Child 1464: Acquired the start mutex.
+[Fri May 15 08:25:49 2009] [notice] Child 1464: Starting 250 worker threads.
+[Fri May 15 08:25:49 2009] [notice] Child 1464: Starting thread to listen on port 80.
+[Fri May 15 08:25:50 2009] [notice] Child 3532: All worker threads have exited.
+[Fri May 15 08:25:50 2009] [notice] Child 3532: Child process is exiting
+[Fri May 15 08:26:31 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/eFID
+[Fri May 15 08:27:18 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/i
+[Fri May 15 15:07:38 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 15 15:07:38 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 15 15:07:38 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 15 15:07:38 2009] [notice] Parent: Created child process 1324
+[Fri May 15 15:07:38 2009] [notice] Child 1324: Child process is running
+[Fri May 15 15:07:38 2009] [notice] Child 1324: Acquired the start mutex.
+[Fri May 15 15:07:38 2009] [notice] Child 1324: Starting 250 worker threads.
+[Fri May 15 15:07:38 2009] [notice] Child 1324: Starting thread to listen on port 80.
+[Mon May 18 14:21:03 2009] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Mon May 18 14:21:04 2009] [notice] Child 1324: Exit event signaled. Child process is ending.
+[Mon May 18 14:21:05 2009] [notice] Child 1324: Released the start mutex
+[Mon May 18 14:21:06 2009] [notice] Child 1324: All worker threads have exited.
+[Mon May 18 14:21:06 2009] [notice] Child 1324: Child process is exiting
+[Mon May 18 14:21:07 2009] [notice] Parent: Child process exited successfully.
+[Mon May 18 14:21:11 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon May 18 14:21:11 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon May 18 14:21:11 2009] [notice] Parent: Created child process 3416
+[Mon May 18 14:21:11 2009] [notice] Child 3416: Child process is running
+[Mon May 18 14:21:11 2009] [notice] Child 3416: Acquired the start mutex.
+[Mon May 18 14:21:11 2009] [notice] Child 3416: Starting 250 worker threads.
+[Mon May 18 14:21:11 2009] [notice] Child 3416: Starting thread to listen on port 80.
+[Mon May 18 15:48:31 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon May 18 15:48:31 2009] [notice] Child 3416: Exit event signaled. Child process is ending.
+[Mon May 18 15:48:32 2009] [notice] Child 3416: Released the start mutex
+[Mon May 18 15:48:34 2009] [notice] Child 3416: All worker threads have exited.
+[Mon May 18 15:48:35 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon May 18 15:48:35 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon May 18 15:48:35 2009] [notice] Child 3416: Child process is exiting
+[Mon May 18 15:48:35 2009] [notice] Parent: Created child process 4172
+[Mon May 18 15:48:36 2009] [notice] Child 4172: Child process is running
+[Mon May 18 15:48:36 2009] [notice] Child 4172: Acquired the start mutex.
+[Mon May 18 15:48:36 2009] [notice] Child 4172: Starting 250 worker threads.
+[Mon May 18 15:48:36 2009] [notice] Child 4172: Starting thread to listen on port 80.
+[Mon May 18 15:48:39 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon May 18 15:48:39 2009] [notice] Child 4172: Exit event signaled. Child process is ending.
+[Mon May 18 15:48:39 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon May 18 15:48:39 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon May 18 15:48:39 2009] [notice] Parent: Created child process 1084
+[Mon May 18 15:48:39 2009] [notice] Child 1084: Child process is running
+[Mon May 18 15:48:40 2009] [notice] Child 4172: Released the start mutex
+[Mon May 18 15:48:40 2009] [notice] Child 1084: Acquired the start mutex.
+[Mon May 18 15:48:40 2009] [notice] Child 1084: Starting 250 worker threads.
+[Mon May 18 15:48:41 2009] [notice] Child 4172: All worker threads have exited.
+[Mon May 18 15:48:41 2009] [notice] Child 4172: Child process is exiting
+[Mon May 18 15:48:41 2009] [notice] Child 1084: Starting thread to listen on port 80.
+[Mon May 18 16:17:26 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/favicon.ico
+[Tue May 19 07:56:33 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue May 19 07:56:33 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Tue May 19 07:56:33 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Tue May 19 07:56:33 2009] [notice] Parent: Created child process 1328
+[Tue May 19 07:56:33 2009] [notice] Child 1328: Child process is running
+[Tue May 19 07:56:33 2009] [notice] Child 1328: Acquired the start mutex.
+[Tue May 19 07:56:33 2009] [notice] Child 1328: Starting 250 worker threads.
+[Tue May 19 07:56:33 2009] [notice] Child 1328: Starting thread to listen on port 80.
+[Tue May 19 13:02:31 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue May 19 13:02:31 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Tue May 19 13:02:31 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Tue May 19 13:02:31 2009] [notice] Parent: Created child process 1328
+[Tue May 19 13:02:31 2009] [notice] Child 1328: Child process is running
+[Tue May 19 13:02:31 2009] [notice] Child 1328: Acquired the start mutex.
+[Tue May 19 13:02:31 2009] [notice] Child 1328: Starting 250 worker threads.
+[Tue May 19 13:02:31 2009] [notice] Child 1328: Starting thread to listen on port 80.
+[Thu May 21 13:41:30 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu May 21 13:41:30 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Thu May 21 13:41:30 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Thu May 21 13:41:30 2009] [notice] Parent: Created child process 1200
+[Thu May 21 13:41:30 2009] [notice] Child 1200: Child process is running
+[Thu May 21 13:41:30 2009] [notice] Child 1200: Acquired the start mutex.
+[Thu May 21 13:41:30 2009] [notice] Child 1200: Starting 250 worker threads.
+[Thu May 21 13:41:30 2009] [notice] Child 1200: Starting thread to listen on port 80.
+[Thu May 21 14:50:27 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Thu May 21 15:36:54 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Thu May 21 15:36:54 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Thu May 21 15:36:54 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Fri May 22 08:42:15 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Fri May 22 09:32:42 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 22 09:32:42 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 22 09:32:42 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 22 09:32:42 2009] [notice] Parent: Created child process 1196
+[Fri May 22 09:32:42 2009] [notice] Child 1196: Child process is running
+[Fri May 22 09:32:42 2009] [notice] Child 1196: Acquired the start mutex.
+[Fri May 22 09:32:42 2009] [notice] Child 1196: Starting 250 worker threads.
+[Fri May 22 09:32:42 2009] [notice] Child 1196: Starting thread to listen on port 80.
+[Fri May 22 09:32:11 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 22 09:32:11 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 22 09:32:11 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 22 09:32:11 2009] [notice] Parent: Created child process 1200
+[Fri May 22 09:32:11 2009] [notice] Child 1200: Child process is running
+[Fri May 22 09:32:11 2009] [notice] Child 1200: Acquired the start mutex.
+[Fri May 22 09:32:11 2009] [notice] Child 1200: Starting 250 worker threads.
+[Fri May 22 09:32:11 2009] [notice] Child 1200: Starting thread to listen on port 80.
+[Fri May 22 16:36:52 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri May 22 16:36:52 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri May 22 16:36:52 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri May 22 16:36:52 2009] [notice] Parent: Created child process 1212
+[Fri May 22 16:36:52 2009] [notice] Child 1212: Child process is running
+[Fri May 22 16:36:52 2009] [notice] Child 1212: Acquired the start mutex.
+[Fri May 22 16:36:52 2009] [notice] Child 1212: Starting 250 worker threads.
+[Fri May 22 16:36:52 2009] [notice] Child 1212: Starting thread to listen on port 80.
+[Mon May 25 09:40:01 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/favicon.ico
+[Mon May 25 09:40:06 2009] [error] [client 10.153.27.174] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/favicon.ico
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:58 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:40:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:01 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:17 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:17 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:17 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:17 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:17 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:41:17 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:42:16 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:42:16 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:42:16 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:42:16 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:48 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:49 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:49 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:49 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:49 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:43:59 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 09:44:00 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon May 25 15:01:00 2009] [error] [client 10.191.131.2] client denied by server configuration: C:/eFID, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=841
+[Mon May 25 15:02:56 2009] [error] [client 10.153.27.174] client denied by server configuration: C:/eFID, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=841
+[Mon May 25 15:03:51 2009] [error] [client 10.153.27.174] client denied by server configuration: C:/eFID, referer: http://localhost:8080/eFID/A133.do?action=drawPane&projectId=841&reviewerId=&initImage=http://10.153.27.174/viewer/841/11761/mjhv/1.1/11761-841-1912.jpg&initUser=11761&initAttachmentId=1912&dir=mjhv
+[Tue May 26 09:13:11 2009] [error] [client 10.153.27.174] client denied by server configuration: C:/eFID, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=1221
+[Tue May 26 10:38:33 2009] [error] [client 10.191.131.2] File does not exist: C:/eFID/861/f2830844, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=861
+[Tue May 26 10:38:40 2009] [error] [client 10.191.131.2] File does not exist: C:/eFID/861/11818/1, referer: http://localhost:8080/eFID/A133.do?action=drawPane&projectId=861&reviewerId=&initImage=http://10.153.27.174/viewer/861/11818/1/1.1/11818-861-2227.jpg&initUser=11818&initAttachmentId=2234&dir=1
+[Tue May 26 10:38:44 2009] [error] [client 10.191.131.2] File does not exist: C:/eFID/861/11818/1, referer: http://localhost:8080/eFID/A133.do?action=drawPane&projectId=861&reviewerId=&initImage=http://10.153.27.174/viewer/861/11818/1/1.1/11818-861-2227.jpg&initUser=11818&initAttachmentId=2234&dir=1
+[Tue May 26 10:38:48 2009] [error] [client 10.191.131.2] File does not exist: C:/eFID/861/11818/1, referer: http://localhost:8080/eFID/A133.do?action=drawPane&projectId=861&reviewerId=&initImage=http://10.153.27.174/viewer/861/11818/1/1.1/11818-861-2235.jpg&initUser=11818&initAttachmentId=2236&dir=1
+[Tue May 26 10:38:55 2009] [error] [client 10.191.131.2] File does not exist: C:/eFID/861/11761, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=861
+[Tue May 26 10:38:55 2009] [error] [client 10.191.131.2] File does not exist: C:/eFID/861/11818/asfdasdf, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=861
+[Sun May 31 13:35:06 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 13:35:06 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 13:35:06 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 13:57:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 13:58:30 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 13:58:30 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 13:58:30 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Sun May 31 15:18:56 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Mon Jun 01 11:06:21 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon Jun 01 11:06:21 2009] [notice] Child 1212: Exit event signaled. Child process is ending.
+[Mon Jun 01 11:06:22 2009] [notice] Child 1212: Released the start mutex
+[Mon Jun 01 11:06:23 2009] [notice] Child 1212: All worker threads have exited.
+[Mon Jun 01 11:06:24 2009] [notice] Child 1212: Child process is exiting
+[Mon Jun 01 11:06:24 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon Jun 01 11:06:24 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon Jun 01 11:06:24 2009] [notice] Parent: Created child process 5664
+[Mon Jun 01 11:06:25 2009] [notice] Child 5664: Child process is running
+[Mon Jun 01 11:06:25 2009] [notice] Child 5664: Acquired the start mutex.
+[Mon Jun 01 11:06:25 2009] [notice] Child 5664: Starting 250 worker threads.
+[Mon Jun 01 11:06:25 2009] [notice] Child 5664: Starting thread to listen on port 80.
+[Mon Jun 01 11:06:27 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon Jun 01 11:06:27 2009] [notice] Child 5664: Exit event signaled. Child process is ending.
+[Mon Jun 01 11:06:27 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon Jun 01 11:06:27 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon Jun 01 11:06:27 2009] [notice] Parent: Created child process 4852
+[Mon Jun 01 11:06:27 2009] [notice] Child 4852: Child process is running
+[Mon Jun 01 11:06:28 2009] [notice] Child 5664: Released the start mutex
+[Mon Jun 01 11:06:28 2009] [notice] Child 4852: Acquired the start mutex.
+[Mon Jun 01 11:06:28 2009] [notice] Child 4852: Starting 250 worker threads.
+[Mon Jun 01 11:06:29 2009] [notice] Child 5664: All worker threads have exited.
+[Mon Jun 01 11:06:29 2009] [notice] Child 5664: Child process is exiting
+[Mon Jun 01 11:06:29 2009] [notice] Child 4852: Starting thread to listen on port 80.
+[Mon Jun 01 11:28:55 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon Jun 01 11:28:55 2009] [notice] Child 4852: Exit event signaled. Child process is ending.
+[Mon Jun 01 11:28:56 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon Jun 01 11:28:56 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon Jun 01 11:28:56 2009] [notice] Parent: Created child process 3072
+[Mon Jun 01 11:28:56 2009] [notice] Child 4852: Released the start mutex
+[Mon Jun 01 11:28:57 2009] [notice] Child 3072: Child process is running
+[Mon Jun 01 11:28:57 2009] [notice] Child 3072: Acquired the start mutex.
+[Mon Jun 01 11:28:57 2009] [notice] Child 3072: Starting 250 worker threads.
+[Mon Jun 01 11:28:57 2009] [notice] Child 3072: Starting thread to listen on port 80.
+[Mon Jun 01 11:28:58 2009] [notice] Child 4852: All worker threads have exited.
+[Mon Jun 01 11:28:58 2009] [notice] Child 4852: Child process is exiting
+[Mon Jun 01 11:29:22 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon Jun 01 11:29:22 2009] [notice] Child 3072: Exit event signaled. Child process is ending.
+[Mon Jun 01 11:29:22 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon Jun 01 11:29:22 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon Jun 01 11:29:22 2009] [notice] Parent: Created child process 1660
+[Mon Jun 01 11:29:22 2009] [notice] Child 1660: Child process is running
+[Mon Jun 01 11:29:23 2009] [notice] Child 3072: Released the start mutex
+[Mon Jun 01 11:29:23 2009] [notice] Child 1660: Acquired the start mutex.
+[Mon Jun 01 11:29:23 2009] [notice] Child 1660: Starting 250 worker threads.
+[Mon Jun 01 11:29:24 2009] [notice] Parent: Received restart signal -- Restarting the server.
+[Mon Jun 01 11:29:24 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Mon Jun 01 11:29:24 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Mon Jun 01 11:29:24 2009] [notice] Parent: Created child process 1668
+[Mon Jun 01 11:29:24 2009] [notice] Child 1668: Child process is running
+[Mon Jun 01 11:29:24 2009] [notice] Child 3072: All worker threads have exited.
+[Mon Jun 01 11:29:24 2009] [notice] Child 3072: Child process is exiting
+[Mon Jun 01 11:29:24 2009] [notice] Child 1660: Exit event signaled. Child process is ending.
+[Mon Jun 01 11:29:24 2009] [notice] Child 1660: Starting thread to listen on port 80.
+[Mon Jun 01 11:29:25 2009] [notice] Child 1668: Acquired the start mutex.
+[Mon Jun 01 11:29:25 2009] [notice] Child 1668: Starting 250 worker threads.
+[Mon Jun 01 11:29:25 2009] [notice] Child 1660: Released the start mutex
+[Mon Jun 01 11:29:26 2009] [notice] Child 1660: All worker threads have exited.
+[Mon Jun 01 11:29:26 2009] [notice] Child 1660: Child process is exiting
+[Mon Jun 01 11:29:26 2009] [notice] Child 1668: Starting thread to listen on port 80.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:11 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:12 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:14 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:19 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:19 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:19 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:29 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:29 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:29 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:32 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:32 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:32 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:41 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:41 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:41 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:41 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:41 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:41 2009] [error] [client 10.153.27.83] File does not exist: C:/eFID/1103, referer: http://10.153.27.174/eFID/A220.do?action=showProject&projectId=1103
+[Tue Jun 02 08:36:44 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:44 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:36:45 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:39:18 2009] [error] [client 10.151.88.151] File does not exist: C:/Program Files/Apache Software Foundation/Apache2.2/htdocs/favicon.ico
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 08:55:23 2009] [warn] (OS 64)指定的網路名稱無法使用。  : winnt_accept: Asynchronous AcceptEx failed.
+[Tue Jun 02 09:38:47 2009] [error] [client 10.153.27.174] File does not exist: C:/eFID/1181, referer: http://localhost:8080/eFID/A220.do?action=showProject&projectId=1181
+[Wed Jun 03 09:27:26 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Wed Jun 03 09:27:26 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Wed Jun 03 09:27:26 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Wed Jun 03 09:27:26 2009] [notice] Parent: Created child process 1208
+[Wed Jun 03 09:27:26 2009] [notice] Child 1208: Child process is running
+[Wed Jun 03 09:27:26 2009] [notice] Child 1208: Acquired the start mutex.
+[Wed Jun 03 09:27:26 2009] [notice] Child 1208: Starting 250 worker threads.
+[Wed Jun 03 09:27:26 2009] [notice] Child 1208: Starting thread to listen on port 80.
+[Tue Jun 09 10:46:33 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue Jun 09 10:46:33 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Tue Jun 09 10:46:33 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Tue Jun 09 10:46:33 2009] [notice] Parent: Created child process 1212
+[Tue Jun 09 10:46:34 2009] [notice] Child 1212: Child process is running
+[Tue Jun 09 10:46:34 2009] [notice] Child 1212: Acquired the start mutex.
+[Tue Jun 09 10:46:34 2009] [notice] Child 1212: Starting 250 worker threads.
+[Tue Jun 09 10:46:34 2009] [notice] Child 1212: Starting thread to listen on port 80.
+[Tue Jun 09 11:45:04 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Tue Jun 09 11:45:04 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Tue Jun 09 11:45:04 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Tue Jun 09 11:45:04 2009] [notice] Parent: Created child process 1204
+[Tue Jun 09 11:45:04 2009] [notice] Child 1204: Child process is running
+[Tue Jun 09 11:45:04 2009] [notice] Child 1204: Acquired the start mutex.
+[Tue Jun 09 11:45:04 2009] [notice] Child 1204: Starting 250 worker threads.
+[Tue Jun 09 11:45:04 2009] [notice] Child 1204: Starting thread to listen on port 80.
+[Thu Jun 11 23:03:04 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Jun 11 23:03:04 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Thu Jun 11 23:03:04 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Thu Jun 11 23:03:04 2009] [notice] Parent: Created child process 1200
+[Thu Jun 11 23:03:04 2009] [notice] Child 1200: Child process is running
+[Thu Jun 11 23:03:04 2009] [notice] Child 1200: Acquired the start mutex.
+[Thu Jun 11 23:03:04 2009] [notice] Child 1200: Starting 250 worker threads.
+[Thu Jun 11 23:03:04 2009] [notice] Child 1200: Starting thread to listen on port 80.
+[Fri Jun 12 08:01:31 2009] [warn] pid file C:/Program Files/Apache Software Foundation/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Fri Jun 12 08:01:31 2009] [notice] Apache/2.2.8 (Win32) mod_jk/1.2.25 configured -- resuming normal operations
+[Fri Jun 12 08:01:31 2009] [notice] Server built: Jan 18 2008 00:37:19
+[Fri Jun 12 08:01:31 2009] [notice] Parent: Created child process 1196
+[Fri Jun 12 08:01:31 2009] [notice] Child 1196: Child process is running
+[Fri Jun 12 08:01:31 2009] [notice] Child 1196: Acquired the start mutex.
+[Fri Jun 12 08:01:31 2009] [notice] Child 1196: Starting 250 worker threads.
+[Fri Jun 12 08:01:32 2009] [notice] Child 1196: Starting thread to listen on port 80.

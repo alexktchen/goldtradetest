@@ -1,0 +1,277 @@
+2009/5/27 上午 08:08:38 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 上午 08:09:58 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 上午 08:09:58 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 上午 08:09:59 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 上午 08:09:59 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 上午 10:02:41 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 上午 10:02:41 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 上午 10:02:41 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 上午 10:02:41 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 上午 10:04:29 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 上午 10:05:27 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 上午 10:05:27 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 上午 10:05:28 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 上午 10:05:28 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 01:37:59 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 01:39:30 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 01:39:30 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 01:39:30 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 01:39:30 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 02:52:46 org.apache.catalina.core.StandardHostValve custom
+嚴重的: Exception Processing ErrorPage[errorCode=401, location=/index.do?error=true&showLogin=true]
+org.apache.jasper.JasperException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.apache.jasper.servlet.JspServletWrapper.handleJspException(JspServletWrapper.java:460)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:355)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:329)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:239)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1158)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:900)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:808)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:476)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:431)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:627)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:364)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:285)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Thread.java:595)
+2009/5/27 下午 02:53:06 org.apache.catalina.core.StandardHostValve custom
+嚴重的: Exception Processing ErrorPage[errorCode=401, location=/index.do?error=true&showLogin=true]
+org.apache.jasper.JasperException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.apache.jasper.servlet.JspServletWrapper.handleJspException(JspServletWrapper.java:460)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:355)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:329)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:239)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1158)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:900)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:808)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:476)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:431)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:627)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:364)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:285)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Thread.java:595)
+2009/5/27 下午 02:53:07 org.apache.catalina.core.StandardHostValve custom
+嚴重的: Exception Processing ErrorPage[errorCode=401, location=/index.do?error=true&showLogin=true]
+org.apache.jasper.JasperException: Request processing failed; nested exception is java.lang.NullPointerException
+	at org.apache.jasper.servlet.JspServletWrapper.handleJspException(JspServletWrapper.java:460)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:355)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:329)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:265)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:239)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1158)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:900)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:808)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:476)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:431)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:627)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:188)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:679)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:463)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:399)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:301)
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:364)
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:285)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:137)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:117)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:108)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:174)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:875)
+	at org.apache.coyote.http11.Http11BaseProtocol$Http11ConnectionHandler.processConnection(Http11BaseProtocol.java:665)
+	at org.apache.tomcat.util.net.PoolTcpEndpoint.processSocket(PoolTcpEndpoint.java:528)
+	at org.apache.tomcat.util.net.LeaderFollowerWorkerThread.runIt(LeaderFollowerWorkerThread.java:81)
+	at org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:689)
+	at java.lang.Thread.run(Thread.java:595)
+2009/5/27 下午 03:50:42 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 03:50:42 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 03:50:42 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 03:50:42 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 03:54:14 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 03:54:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 03:54:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 03:54:15 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 03:54:15 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 03:54:22 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 03:54:22 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 03:54:23 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 03:54:23 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 03:54:44 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 03:55:13 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 03:55:13 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 03:55:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 03:55:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 04:42:45 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 04:42:45 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 04:42:45 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 04:42:45 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 04:44:54 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 04:44:55 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 04:44:55 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 04:44:56 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 04:44:56 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:16:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:16:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:16:14 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:16:14 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:19:48 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 05:19:48 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 05:19:48 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:19:49 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 05:19:49 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:30:40 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:30:40 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:30:40 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:30:40 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:31:08 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 05:32:05 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 05:32:05 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:32:06 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 05:32:06 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:32:54 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:32:54 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:32:54 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:32:54 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:33:04 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/5/27 下午 05:33:37 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 05:33:37 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:33:38 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/5/27 下午 05:33:38 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/5/27 下午 05:34:35 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:34:35 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/27 下午 05:34:35 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/27 下午 05:34:35 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()

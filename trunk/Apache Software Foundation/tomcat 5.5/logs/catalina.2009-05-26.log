@@ -1,0 +1,351 @@
+2009/5/26 上午 08:26:09 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 上午 08:26:09 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:26:09 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 2328 ms
+2009/5/26 上午 08:26:10 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 上午 08:26:10 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 上午 08:26:10 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 上午 08:26:41 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 上午 08:26:41 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:26:41 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1156 ms
+2009/5/26 上午 08:26:41 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 上午 08:26:41 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 上午 08:26:42 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 上午 08:26:52 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 上午 08:26:58 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:26:58 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 6422 ms
+2009/5/26 上午 08:27:04 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 上午 08:27:06 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:27:06 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 3375 ms
+2009/5/26 上午 08:27:06 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 上午 08:27:06 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 上午 08:27:06 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 上午 08:27:20 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 上午 08:27:20 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:27:20 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1187 ms
+2009/5/26 上午 08:27:20 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 上午 08:27:20 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 上午 08:27:20 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 上午 08:27:59 org.apache.catalina.core.StandardContext start
+嚴重的: Error listenerStart
+2009/5/26 上午 08:27:59 org.apache.catalina.core.StandardContext start
+嚴重的: Context [/eFID] startup failed due to previous errors
+2009/5/26 上午 08:28:03 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:28:04 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 上午 08:28:04 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/32  config=null
+2009/5/26 上午 08:28:04 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 上午 08:28:04 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 43907 ms
+2009/5/26 上午 08:28:21 org.apache.coyote.http11.Http11BaseProtocol pause
+資訊: Pausing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:28:22 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 上午 08:28:22 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:28:22 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime
+2009/5/26 上午 08:28:26 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 上午 08:28:27 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:28:27 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1140 ms
+2009/5/26 上午 08:28:27 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 上午 08:28:27 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 上午 08:28:27 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 上午 08:29:12 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 上午 08:29:13 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 上午 08:29:13 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/94  config=null
+2009/5/26 上午 08:29:13 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 上午 08:29:13 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 46344 ms
+2009/5/26 下午 02:26:25 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 下午 02:26:26 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 02:26:26 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 2110 ms
+2009/5/26 下午 02:26:26 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 下午 02:26:26 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 下午 02:26:26 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 下午 02:28:50 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 02:28:50 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 下午 02:28:50 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/62  config=null
+2009/5/26 下午 02:28:50 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 下午 02:28:51 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 145093 ms
+2009/5/26 下午 05:15:57 org.apache.catalina.startup.HostConfig checkResources
+資訊: Reloading context [/eFID]
+2009/5/26 下午 05:16:09 org.apache.coyote.http11.Http11BaseProtocol pause
+資訊: Pausing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:16:11 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 下午 05:16:15 org.apache.catalina.startup.HostConfig checkResources
+警告: Error during context [/eFID] restart
+java.lang.NullPointerException
+	at org.apache.catalina.loader.WebappClassLoader.findResourceInternal(WebappClassLoader.java:2024)
+	at org.apache.catalina.loader.WebappClassLoader.findClassInternal(WebappClassLoader.java:1819)
+	at org.apache.catalina.loader.WebappClassLoader.findClass(WebappClassLoader.java:889)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1353)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1232)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:319)
+	at org.apache.log4j.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at org.apache.log4j.Category.forcedLog(Category.java:372)
+	at org.apache.log4j.Category.log(Category.java:864)
+	at org.apache.commons.logging.impl.Log4JLogger.error(Log4JLogger.java:193)
+	at org.apache.catalina.core.StandardContext.listenerStop(StandardContext.java:3809)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4364)
+	at org.apache.catalina.startup.HostConfig.checkResources(HostConfig.java:1109)
+	at org.apache.catalina.startup.HostConfig.check(HostConfig.java:1215)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:293)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:120)
+	at org.apache.catalina.core.ContainerBase.backgroundProcess(ContainerBase.java:1306)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1570)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.processChildren(ContainerBase.java:1579)
+	at org.apache.catalina.core.ContainerBase$ContainerBackgroundProcessor.run(ContainerBase.java:1559)
+	at java.lang.Thread.run(Thread.java:595)
+2009/5/26 下午 05:16:15 org.apache.catalina.core.StandardContext start
+資訊: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/eFID] has already been started
+2009/5/26 下午 05:16:16 org.apache.catalina.core.ContainerBase stop
+資訊: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/eFID].[DWR Servlet] has not been started
+2009/5/26 下午 05:16:16 org.apache.catalina.core.ContainerBase stop
+資訊: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/eFID].[iPLM SpringFramework Servlet] has not been started
+2009/5/26 下午 05:16:16 org.apache.catalina.core.ContainerBase stop
+資訊: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/eFID].[FOXCONN Authentication Servlet] has not been started
+2009/5/26 下午 05:16:16 org.apache.catalina.core.ContainerBase stop
+資訊: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/eFID].[jsp] has not been started
+2009/5/26 下午 05:16:16 org.apache.catalina.core.ContainerBase stop
+資訊: Container org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/eFID].[default] has not been started
+2009/5/26 下午 05:16:16 org.apache.catalina.core.ContainerBase removeChild
+嚴重的: ContainerBase.removeChild: stop: 
+LifecycleException:  Manager has not yet been started
+	at org.apache.catalina.session.StandardManager.stop(StandardManager.java:660)
+	at org.apache.catalina.core.StandardContext.stop(StandardContext.java:4360)
+	at org.apache.catalina.core.ContainerBase.removeChild(ContainerBase.java:893)
+	at org.apache.catalina.startup.HostConfig.undeployApps(HostConfig.java:1192)
+	at org.apache.catalina.startup.HostConfig.stop(HostConfig.java:1163)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:313)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:120)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1055)
+	at org.apache.catalina.core.ContainerBase.stop(ContainerBase.java:1067)
+	at org.apache.catalina.core.StandardEngine.stop(StandardEngine.java:448)
+	at org.apache.catalina.core.StandardService.stop(StandardService.java:510)
+	at org.apache.catalina.core.StandardServer.stop(StandardServer.java:734)
+	at org.apache.catalina.startup.Catalina.stop(Catalina.java:602)
+	at org.apache.catalina.startup.Catalina$CatalinaShutdownHook.run(Catalina.java:645)
+2009/5/26 下午 05:16:17 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:16:17 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime
+2009/5/26 下午 05:16:48 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 下午 05:16:48 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:16:48 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1375 ms
+2009/5/26 下午 05:16:49 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 下午 05:16:49 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 下午 05:16:49 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 下午 05:16:51 org.apache.catalina.startup.HostConfig deployWAR
+資訊: Deploying web application archive eFID.war
+2009/5/26 下午 05:18:17 org.apache.catalina.core.StandardContext start
+嚴重的: Error listenerStart
+2009/5/26 下午 05:18:17 org.apache.catalina.core.StandardContext start
+嚴重的: Context [/eFID] startup failed due to previous errors
+2009/5/26 下午 05:18:21 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:18:21 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 下午 05:18:21 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/47  config=null
+2009/5/26 下午 05:18:21 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 下午 05:18:22 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 93187 ms
+2009/5/26 下午 05:18:32 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 下午 05:18:32 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:18:32 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime
+2009/5/26 下午 05:18:37 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 下午 05:18:38 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:18:38 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1156 ms
+2009/5/26 下午 05:18:38 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 下午 05:18:38 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 下午 05:18:38 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 下午 05:18:39 org.apache.catalina.startup.HostConfig deployWAR
+資訊: Deploying web application archive eFID.war
+2009/5/26 下午 05:18:59 org.apache.catalina.core.StandardContext start
+嚴重的: Error listenerStart
+2009/5/26 下午 05:18:59 org.apache.catalina.core.StandardContext start
+嚴重的: Context [/eFID] startup failed due to previous errors
+2009/5/26 下午 05:19:02 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:19:02 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 下午 05:19:02 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/31  config=null
+2009/5/26 下午 05:19:02 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 下午 05:19:02 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 24610 ms
+2009/5/26 下午 05:19:04 org.apache.coyote.http11.Http11BaseProtocol pause
+資訊: Pausing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:19:05 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 下午 05:19:05 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:19:05 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime
+2009/5/26 下午 05:20:35 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 下午 05:20:35 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:20:35 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1141 ms
+2009/5/26 下午 05:20:35 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 下午 05:20:35 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 下午 05:20:35 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 下午 05:20:36 org.apache.catalina.startup.HostConfig deployWAR
+資訊: Deploying web application archive eFID.war
+2009/5/26 下午 05:21:59 org.apache.catalina.core.StandardContext start
+嚴重的: Error listenerStart
+2009/5/26 下午 05:21:59 org.apache.catalina.core.StandardContext start
+嚴重的: Context [/eFID] startup failed due to previous errors
+2009/5/26 下午 05:22:03 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:22:07 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 下午 05:22:07 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/78  config=null
+2009/5/26 下午 05:22:07 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 下午 05:22:07 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 91828 ms
+2009/5/26 下午 05:24:32 org.apache.coyote.http11.Http11BaseProtocol pause
+資訊: Pausing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:24:33 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 下午 05:24:33 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:24:33 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime
+2009/5/26 下午 05:25:22 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 下午 05:25:22 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:25:22 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1062 ms
+2009/5/26 下午 05:25:22 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 下午 05:25:22 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 下午 05:25:22 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 下午 05:25:23 org.apache.catalina.startup.HostConfig deployWAR
+資訊: Deploying web application archive eFID.war
+2009/5/26 下午 05:26:57 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:26:58 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 下午 05:26:58 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/47  config=null
+2009/5/26 下午 05:26:58 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 下午 05:26:58 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 95438 ms
+2009/5/26 下午 05:30:16 org.apache.coyote.http11.Http11BaseProtocol pause
+資訊: Pausing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:30:17 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 下午 05:30:20 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:30:20 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime
+2009/5/26 下午 05:31:02 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: The Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: C:\Program Files\Java\jdk1.5.0_06\bin;.;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Apache Software Foundation\tomcat 5.5\bin;C:\Program Files\Java\jdk1.5.0_06\bin;C:\oracle\product\10.2.0\client_1\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\Program Files\TortoiseSVN\bin
+2009/5/26 下午 05:31:03 org.apache.coyote.http11.Http11BaseProtocol init
+資訊: Initializing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:31:03 org.apache.catalina.startup.Catalina load
+資訊: Initialization processed in 1250 ms
+2009/5/26 下午 05:31:03 org.apache.catalina.core.StandardService start
+資訊: Starting service Catalina
+2009/5/26 下午 05:31:03 org.apache.catalina.core.StandardEngine start
+資訊: Starting Servlet Engine: Apache Tomcat/5.5.27
+2009/5/26 下午 05:31:03 org.apache.catalina.core.StandardHost start
+資訊: XML validation disabled
+2009/5/26 下午 05:31:44 org.apache.coyote.http11.Http11BaseProtocol start
+資訊: Starting Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:31:44 org.apache.jk.common.ChannelSocket init
+資訊: JK: ajp13 listening on /0.0.0.0:8009
+2009/5/26 下午 05:31:44 org.apache.jk.server.JkMain start
+資訊: Jk running ID=0 time=0/31  config=null
+2009/5/26 下午 05:31:44 org.apache.catalina.storeconfig.StoreLoader load
+資訊: Find registry server-registry.xml at classpath resource
+2009/5/26 下午 05:31:44 org.apache.catalina.startup.Catalina start
+資訊: Server startup in 41657 ms
+2009/5/26 下午 05:32:04 org.apache.coyote.http11.Http11BaseProtocol pause
+資訊: Pausing Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:32:05 org.apache.catalina.core.StandardService stop
+資訊: Stopping service Catalina
+2009/5/26 下午 05:32:07 org.apache.coyote.http11.Http11BaseProtocol destroy
+資訊: Stopping Coyote HTTP/1.1 on http-8080
+2009/5/26 下午 05:32:07 org.apache.catalina.core.AprLifecycleListener lifecycleEvent
+資訊: Failed shutdown of Apache Portable Runtime

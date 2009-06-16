@@ -1,0 +1,46 @@
+2009/4/28 上午 07:58:56 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/4/28 上午 08:00:13 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/4/28 上午 08:00:13 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/4/28 上午 08:00:13 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/4/28 上午 08:00:13 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/4/28 上午 08:00:54 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/4/28 上午 08:00:54 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/4/28 上午 08:00:54 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/4/28 上午 08:00:54 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/4/28 上午 08:03:00 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/4/28 上午 08:03:58 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/4/28 上午 08:03:58 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/4/28 上午 08:03:59 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/4/28 上午 08:03:59 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/4/28 下午 05:23:02 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/4/28 下午 05:23:02 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/4/28 下午 05:23:02 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/4/28 下午 05:23:02 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/4/28 下午 05:23:15 org.apache.catalina.core.ApplicationContext log
+資訊: org.apache.webapp.balancer.BalancerFilter: init(): ruleChain: [org.apache.webapp.balancer.RuleChain: [org.apache.webapp.balancer.rules.URLStringMatchRule: Target string: News / Redirect URL: http://www.cnn.com], [org.apache.webapp.balancer.rules.RequestParameterRule: Target param name: paramName / Target param value: paramValue / Redirect URL: http://www.yahoo.com], [org.apache.webapp.balancer.rules.AcceptEverythingRule: Redirect URL: http://jakarta.apache.org]]
+2009/4/28 下午 05:24:17 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/4/28 下午 05:24:17 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()
+2009/4/28 下午 05:24:17 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextInitialized()
+2009/4/28 下午 05:24:17 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextInitialized()

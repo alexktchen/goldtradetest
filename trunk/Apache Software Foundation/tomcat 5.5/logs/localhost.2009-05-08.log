@@ -1,0 +1,8 @@
+2009/5/8 上午 08:34:36 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/8 上午 08:34:36 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
+2009/5/8 上午 08:34:36 org.apache.catalina.core.ApplicationContext log
+資訊: SessionListener: contextDestroyed()
+2009/5/8 上午 08:34:36 org.apache.catalina.core.ApplicationContext log
+資訊: ContextListener: contextDestroyed()
