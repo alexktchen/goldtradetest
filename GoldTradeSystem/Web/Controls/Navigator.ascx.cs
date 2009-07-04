@@ -31,6 +31,9 @@ namespace GoldTradeNaming.Web.Controls
                 mt = new MenuItem("· 我的交易", "", "", "~/franchiser_trade/Show.aspx");
                 this.RightMenu.Items.Add(mt);
 
+                mt = new MenuItem("· 交易报表", "", "", "~/franchiser_trade/FranExcel.aspx");
+                this.RightMenu.Items.Add(mt);
+
                 mt = new MenuItem("· 在线交易", "", "", "~/franchiser_trade/Add.aspx");
                 this.RightMenu.Items.Add(mt);
 

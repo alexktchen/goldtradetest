@@ -13,8 +13,74 @@ namespace GoldTradeNaming.DAL
     /// 
     /// </summary>
 
+
     public class CommBaseDAL
     {
+        public static DataSet GetStockReportData(string franname,string prdname, string dateS, string dateE)
+        {            
+            string sql = @"
+                   SELECT a.franchiser_name ,
+                    b.product_type_name,b.product_spec_weight,
+                    ordertoal = (SELECT SUM(c.order_product_amount) FROM franchiser_order_desc c,franchiser_order d
+                    WHERE c.franchiser_order_id = d.franchiser_order_id AND c.product_id = b.product_type_id AND c.product_spec_id=b.product_spec_weight 
+                    AND d.franchiser_code = a.franchiser_code AND d.franchiser_order_time >= @start_time AND d.franchiser_order_time<=@end_time
+                    ),
+                    tradetotal = (SELECT SUM(e.trade_amount) FROM franchiser_trade_desc e,franchiser_trade f
+                    WHERE e.trade_id = f.trade_id AND e.product_id = b.product_type_id AND e.product_spec_id = b.product_spec_weight AND f.franchiser_code=a.franchiser_code
+                     AND f.trade_time >= @start_time AND  f.trade_time<=@end_time),
+                    stock_total = (SELECT CAST(g.stock_total/g.product_spec_id AS INT) FROM stock_main g
+                    WHERE g.franchiser_code = a.franchiser_code AND g.product_id = b.product_type_id AND g.product_spec_id =b.product_spec_weight 
+                    ),
+                    stock_left = (SELECT CAST(h.stock_left/h.product_spec_id AS INT) FROM stock_main h 
+                    WHERE h.franchiser_code = a.franchiser_code AND h.product_id = b.product_type_id AND h.product_spec_id =b.product_spec_weight 
+                    )
+                    FROM product_type b ,franchiser_info a
+                    WHERE a.franchiser_name LIKE  @code AND b.product_type_name LIKE @prd_name 
+                    ORDER BY a.franchiser_code,b.product_type_id,b.product_spec_weight
+                    ";
+             SqlParameter[] parameters = {
+					new SqlParameter("@code", SqlDbType.VarChar,100),
+                    new SqlParameter("@prd_name",SqlDbType.VarChar,100),
+                    new SqlParameter("@start_time",SqlDbType.DateTime,20),
+                    new SqlParameter("@end_time",SqlDbType.DateTime,20)
+                     };
+             if (String.IsNullOrEmpty(franname)) parameters[0].Value = "%";
+             else parameters[0].Value = franname;
+             if (String.IsNullOrEmpty(prdname)) parameters[1].Value = "%";
+             else parameters[1].Value = prdname;
+             parameters[2].Value = String.IsNullOrEmpty(dateS) ? new DateTime(2000, 01, 01) : Convert.ToDateTime(dateS);
+             parameters[3].Value = String.IsNullOrEmpty(dateE) ? DateTime.MaxValue : Convert.ToDateTime(dateE).AddMonths(1);
+             return DbHelperSQL.Query(sql, parameters);
+        }
+
+
+
+        public static DataSet GetReportData(string franId, string dateS, string dateE)
+        {
+            string sql = @"
+SELECT a.franchiser_name ,a.franchiser_balance_money,
+moneytotal = (SELECT SUM(b.franchiser_added_money) FROM franchiser_money b 
+	WHERE a.franchiser_code = b.franchiser_code AND b.added_time >= @start_time AND b.added_time<=@end_time),
+ordertotal = (SELECT SUM(c.franchiser_order_amount_money) FROM franchiser_order c 
+	WHERE a.franchiser_code = c.franchiser_code  AND c.franchiser_order_time >= @start_time AND c.franchiser_order_time<=@end_time),
+tradetotal = (SELECT SUM(d.trade_total_money) FROM franchiser_trade d 
+	WHERE a.franchiser_code = d.franchiser_code  AND d.trade_time >= @start_time AND  d.trade_time<=@end_time)
+FROM franchiser_info a WHERE a.franchiser_code like  @code";
+
+            SqlParameter[] parameters = {
+					new SqlParameter("@code", SqlDbType.VarChar,20),
+                    new SqlParameter("@start_time",SqlDbType.DateTime,20),
+                    new SqlParameter("@end_time",SqlDbType.DateTime,20)
+                                         };
+            if (String.IsNullOrEmpty(franId)) parameters[0].Value = "%";
+            else parameters[0].Value = franId;
+            parameters[1].Value = String.IsNullOrEmpty(dateS)?new DateTime(2000,01,01):Convert.ToDateTime(dateS);
+            parameters[2].Value = String.IsNullOrEmpty(dateE)?DateTime.MaxValue:Convert.ToDateTime(dateE).AddMonths(1);
+            return DbHelperSQL.Query(sql, parameters);
+        }
+
+
+
         public static int GetNextOrderId()
         {
             int nextorderid = DbHelperSQL.GetMaxID("franchiser_order_id", "franchiser_order");

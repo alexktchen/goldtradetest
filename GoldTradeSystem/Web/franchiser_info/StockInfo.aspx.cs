@@ -45,7 +45,7 @@ namespace GoldTradeNaming.Web.franchiser_info
                 this.txtFran_ID.Text = Request.Params["name"].ToString();
              
 
-                DataSet ds = bll.getAllInfoAboutM(Request.Params["id"].ToString());
+                DataSet ds = bll.getAllInfoAboutM(GoldTradeNaming.BLL.CleanString.htmlInputText(Request.Params["id"].ToString()));
 
                 Session["datasrc"] = ds;
                 this.showData.DataSource = Session["datasrc"] as DataSet;

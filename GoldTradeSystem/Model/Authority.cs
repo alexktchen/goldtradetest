@@ -115,10 +115,6 @@ namespace GoldTradeNaming.Model
         /// </summary>
         TradeLock,
 
-        /// <summary>
-        /// 销售报表
-        /// </summary>
-        TradeReport,
 
         #endregion
 
@@ -180,8 +176,31 @@ namespace GoldTradeNaming.Model
         /// <summary>
         /// 查看发货
         /// </summary>
-        SendShow
+        SendShow,
 
+        #endregion
+
+        #region 报表管理
+        
+        /// <summary>
+        /// 销售报表
+        /// </summary>
+        TradeReport,
+    
+        /// <summary>
+        /// 经销商报表
+        /// </summary>
+        FranExcel,
+
+        /// <summary>
+        /// 经销商库存产品报表
+        /// </summary>
+        StockExcel,
+
+        /// <summary>
+        /// 经销商交易报表
+        /// </summary>
+        TradeExcel
         #endregion
     }
 }

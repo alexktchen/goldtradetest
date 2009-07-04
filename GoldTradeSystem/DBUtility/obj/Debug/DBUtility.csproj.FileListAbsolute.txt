@@ -23,3 +23,8 @@ C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DBUtili
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
 C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb

@@ -162,6 +162,13 @@
     <Compile Include="franchiser_info\BaseInfo.aspx.designer.cs">
       <DependentUpon>BaseInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="franchiser_info\franReport.aspx.cs">
+      <DependentUpon>franReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\franReport.aspx.designer.cs">
+      <DependentUpon>franReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="franchiser_info\MoneyInfo.aspx.cs">
       <DependentUpon>MoneyInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -315,6 +322,20 @@
     </Compile>
     <Compile Include="franchiser_trade\Add.aspx.designer.cs">
       <DependentUpon>Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="franchiser_trade\AdminExcel.aspx.cs">
+      <DependentUpon>AdminExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\AdminExcel.aspx.designer.cs">
+      <DependentUpon>AdminExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="franchiser_trade\FranExcel.aspx.cs">
+      <DependentUpon>FranExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\FranExcel.aspx.designer.cs">
+      <DependentUpon>FranExcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="franchiser_trade\Show.aspx.cs">
       <DependentUpon>Show.aspx</DependentUpon>
@@ -470,6 +491,13 @@
     </Compile>
     <Compile Include="stock_main\ShowNoEdit.aspx.designer.cs">
       <DependentUpon>ShowNoEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="stock_main\StockExcel.aspx.cs">
+      <DependentUpon>StockExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\StockExcel.aspx.designer.cs">
+      <DependentUpon>StockExcel.aspx</DependentUpon>
     </Compile>
     <Compile Include="stock_main\stockModifyLog.aspx.cs">
       <DependentUpon>stockModifyLog.aspx</DependentUpon>
@@ -696,6 +724,7 @@
     <Content Include="Franchiser.Master" />
     <Content Include="franchiser_index.aspx" />
     <Content Include="franchiser_info\BaseInfo.aspx" />
+    <Content Include="franchiser_info\franReport.aspx" />
     <Content Include="franchiser_info\MoneyInfo.aspx" />
     <Content Include="franchiser_info\OrderInfo.aspx" />
     <Content Include="franchiser_info\ShowNoEdit.aspx" />
@@ -713,6 +742,8 @@
     <Content Include="franchiser_order_desc\OrderTest.aspx" />
     <Content Include="franchiser_order_desc\SalesReport.aspx" />
     <Content Include="franchiser_order_desc\Show_Admin.aspx" />
+    <Content Include="franchiser_trade\AdminExcel.aspx" />
+    <Content Include="franchiser_trade\FranExcel.aspx" />
     <Content Include="franchiser_trade\ShowM.aspx" />
     <Content Include="franchiser_trade\TradeTime.aspx" />
     <Content Include="goldtrade_db_admin\Add.aspx" />
@@ -795,6 +826,7 @@
     <Content Include="stock_main\franchiserStockShow.aspx" />
     <Content Include="stock_main\receive.aspx" />
     <Content Include="stock_main\ShowNoEdit.aspx" />
+    <Content Include="stock_main\StockExcel.aspx" />
     <Content Include="stock_main\stockModifyLog.aspx" />
     <Content Include="swf\1.swf" />
     <Content Include="User_Login\AdminChgPswd.aspx" />
@@ -825,7 +857,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>2685</DevelopmentServerPort>
+          <DevelopmentServerPort>4493</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -88,7 +88,7 @@ height="54" border="0" id="dengl_1_r1_c1_r2_c2" alt="" /></td>
            <asp:Label ID="Label1" runat="server" Text="经销商ID"></asp:Label>           </td>
            <td align="left">
            
-           <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>           
+           <asp:TextBox ID="TextBox1" runat="server">1000</asp:TextBox>           
            
            <asp:Button ID="Button1" runat="server" Text="无卡登录" onclick="Button1_Click" />               
            </td>
@@ -102,7 +102,7 @@ height="54" border="0" id="dengl_1_r1_c1_r2_c2" alt="" /></td>
            <td colspan="2" align="center">
            
            <asp:Label ID="Label3" runat="server" Text="管理员ID"></asp:Label>           
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox3" runat="server">1001</asp:TextBox>
                <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="无卡登录" />
              </td>
            </tr>

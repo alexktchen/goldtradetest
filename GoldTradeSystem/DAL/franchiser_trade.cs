@@ -487,6 +487,90 @@ namespace GoldTradeNaming.DAL
             parameters[0].Value = trade_id;
             return DbHelperSQL.Query(strQuery,parameters);
         }
+
+        /// <summary>
+        /// 获得交易报表数据，经销商用
+        /// </summary>
+        /// <param name="tradeID"></param>
+        /// <param name="timeS"></param>
+        /// <param name="timeE"></param>
+        /// <returns></returns>
+        public DataSet GetTradeReportData(string tradeID,string timeS,string timeE)
+        {
+            string strQuery = @"
+                            SELECT a.trade_id,a.trade_time,
+realtime_base_price=(select realtime_base_price from realtime_price where [id] in (select max([id]) as [id] from  realtime_price))
+
+,c.product_type_name,b.product_spec_id,b.trade_amount,b.trade_money
+                            FROM franchiser_trade a
+                            INNER join franchiser_trade_desc b
+                            ON a.trade_id = b.trade_id
+                            INNER join product_type c
+                            ON b.product_id = c.product_type_id AND b.product_spec_id = c.product_spec_weight
+                            WHERE a.trade_id like @tradeid AND a.trade_time BETWEEN @timeS AND @timeE
+                            ";
+           
+            SqlParameter[] parameters = {
+					new SqlParameter("@tradeid", SqlDbType.VarChar,20),
+					new SqlParameter("@timeS", SqlDbType.SmallDateTime),
+					new SqlParameter("@timeE", SqlDbType.SmallDateTime)};
+
+            if (String.IsNullOrEmpty(tradeID))
+                parameters[0].Value = "%";
+            else parameters[0].Value = tradeID;
+            if (String.IsNullOrEmpty(timeS)) parameters[1].Value = Convert.ToDateTime("01/01/2000");
+            else parameters[1].Value = Convert.ToDateTime(timeS);
+            if (String.IsNullOrEmpty(timeE)) parameters[2].Value = DateTime.Now;
+            else parameters[2].Value = Convert.ToDateTime(timeE);
+            return DbHelperSQL.Query(strQuery,parameters);
+        }
+
+        /// <summary>
+        /// 获得交易报表数据，管理员用
+        /// </summary>
+        /// <param name="tradeID"></param>
+        /// <param name="timeS"></param>
+        /// <param name="timeE"></param>
+        /// <returns></returns>
+        public DataSet GetTradeReportData(string franid,string tradeID, string timeS, string timeE,string type)
+        {
+            string strQuery = @"
+                            SELECT a.franchiser_code,d.franchiser_name,a.trade_id,a.trade_time,
+realtime_base_price=(select realtime_base_price from realtime_price where [id] in (select max([id]) as [id] from  realtime_price))
+,c.product_type_name,b.product_spec_id,b.trade_amount,b.trade_money
+FROM franchiser_trade a
+INNER join franchiser_trade_desc b
+ON a.trade_id = b.trade_id
+INNER join product_type c
+ON b.product_id = c.product_type_id AND b.product_spec_id = c.product_spec_weight
+INNER JOIN franchiser_info d
+ON a.franchiser_code = d.franchiser_code
+WHERE a.franchiser_code like @fran_code AND a.trade_id like @tradeid AND a.trade_time BETWEEN @timeS AND @timeE
+AND c.type like @type
+                            ";
+
+            SqlParameter[] parameters = {
+					new SqlParameter("@tradeid", SqlDbType.VarChar,20),
+					new SqlParameter("@timeS", SqlDbType.SmallDateTime),
+					new SqlParameter("@timeE", SqlDbType.SmallDateTime),
+                    new SqlParameter("@fran_code", SqlDbType.VarChar),
+                    new SqlParameter("@type",SqlDbType.VarChar)
+                                        };
+            if (String.IsNullOrEmpty(franid)) parameters[3].Value = "%";
+            else parameters[3].Value = franid;
+            if (String.IsNullOrEmpty(tradeID))
+                parameters[0].Value = "%";
+            else parameters[0].Value = tradeID;
+            if (String.IsNullOrEmpty(timeS)) parameters[1].Value = Convert.ToDateTime("01/01/2000");
+            else parameters[1].Value = Convert.ToDateTime(timeS);
+            if (String.IsNullOrEmpty(timeE)) parameters[2].Value = DateTime.Now;
+            else parameters[2].Value = Convert.ToDateTime(timeE);
+            if (String.IsNullOrEmpty(type)) parameters[4].Value = "%";
+            else parameters[4].Value = type;
+            return DbHelperSQL.Query(strQuery, parameters);
+        }
+
+
         /// <summary> 
         /// 库存中各类产品的重量 by yuxiaowei
         /// </summary>
