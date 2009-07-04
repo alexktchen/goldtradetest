@@ -112,6 +112,17 @@ namespace GoldTradeNaming.BLL
         {
             return dal.GetTradeDesc(trade_id);
         }
+
+        //public DataSet GetTradeReportData(string franid,string tradeID, string timeS, string timeE)
+        //{
+        //    return dal.GetTradeReportData(franid, tradeID, timeS, timeE);
+        //}
+
+        public DataSet GetTradeReportData(string franid, string tradeID, string timeS, string timeE, string type)
+        {
+            return dal.GetTradeReportData(franid,tradeID, timeS, timeE, type);
+        }
+
         /// <summary>
         ///  ø‚¥Ê÷–÷ÿ¡ø by yuxiaowei
         /// </summary>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.Master" AutoEventWireup="true"
+﻿<%@ Page Language="C#" MasterPageFile="~/Franchiser.Master" EnableEventValidation="false"  AutoEventWireup="true"
     CodeBehind="Show.aspx.cs" Inherits="GoldTradeNaming.Web.franchiser_trade.Show"
     Title="我的交易" %>
 
@@ -134,6 +134,7 @@
                         <tr>
                             <td align="center">
                                 <asp:Button ID="btnReturn" runat="server" Text="返回" OnClick="btnReturn_Click" />
+                <asp:Button ID="Button2" runat="server" onclick="Button2_Click" Text="Button" />
                             </td>
                         </tr>
                     </table>
@@ -168,6 +169,7 @@
                         <tr>
                             <td align="center">
                                 <asp:Button ID="Button1" runat="server" Text="返回" OnClick="btnReturn_Click" />
+                <asp:Button ID="Button3" runat="server" onclick="Button2_Click" Text="Button" />
                             </td>
                         </tr>
                     </table>

@@ -17,7 +17,7 @@ namespace GoldTradeNaming.Web.sys_admin_authority
     {
         private static string[] ckbControls = { "AddAdmin","AddFran","AddIA","AddMoney","AddProduct","AuthMgn","CheckAddMoney","ChgFran","TradeLock",
                                        "ChgPrice","ChgProduct","ConOrder","SearchIA","Send","StockMgn","TradeReport","ViewAddMoney","ViewAdmin",
-                                       "ViewFran","ViewOrder","ViewPrice","ViewProduct","ViewTrade" ,"ViewStockLog","StockView","SendShow"};
+                                       "ViewFran","ViewOrder","ViewPrice","ViewProduct","ViewTrade" ,"ViewStockLog","StockView","SendShow","FranExcel","TradeExcel","StockExcel"};
         GoldTradeNaming.BLL.sys_admin_authority bll = new GoldTradeNaming.BLL.sys_admin_authority();
         GoldTradeNaming.BLL.goldtrade_db_admin bllAdmin = new GoldTradeNaming.BLL.goldtrade_db_admin();
         protected void Page_LoadComplete(object sender, EventArgs e)

@@ -207,6 +207,43 @@ namespace GoldTradeNaming.Web.franchiser_trade
 
         }
 
-           
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            DownloadExcelFlag = true; 
+            Response.Buffer = true;
+            Response.Charset = "utf-8";
+            Response.AppendHeader("Content-Disposition", "attachment;filename=" + DateTime.Today.ToString("yyyyMMdd") + ".xls");
+            //Response.AppendHeader("Content-Disposition", "attachment;filename=FileName.xls");
+            // 如果设置为 GetEncoding("GB2312");导出的文件将会出现乱码！！！
+            Response.ContentEncoding = System.Text.Encoding.GetEncoding("GB2312"); //System.Text.Encoding.UTF8;
+            //Response.Write(" <meta http-equiv=Content-Type content=\"text/html; charset=GB2312\"> "); 
+
+            this.EnableViewState = false; 
+            Response.ContentType = "application/ms-excel";//设置输出文件类型为excel文件。 
+            System.IO.StringWriter oStringWriter = new System.IO.StringWriter();
+            System.Web.UI.HtmlTextWriter oHtmlTextWriter = new System.Web.UI.HtmlTextWriter(oStringWriter);
+            this.gvTrade.RenderControl(oHtmlTextWriter);
+            Response.Output.Write(oStringWriter.ToString());
+            Response.Flush();
+            Response.End();
+        }
+
+        bool DownloadExcelFlag = false;
+
+        public override void RenderControl(HtmlTextWriter writer)
+        {
+            if (DownloadExcelFlag)
+                this.gvTrade.RenderControl(writer);  //仅仅输出GridView1 
+            else
+                base.RenderControl(writer);
+        }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            if (!DownloadExcelFlag)
+                base.VerifyRenderingInServerForm(control);
+        } 
+
     }
 }

@@ -16,6 +16,16 @@ namespace GoldTradeNaming.BLL
             this.dal = new CommBaseDAL();
         }
 
+        public static DataSet GetStockReportData(string franname, string prdname, string dateS, string dateE)
+        {
+            return CommBaseDAL.GetStockReportData(franname, prdname, dateS, dateE);
+        }
+
+        public static DataSet GetReportData(string franId, string dateS, string dateE)
+        {
+            return CommBaseDAL.GetReportData( franId,  dateS,  dateE);
+        }
+
         /// <summary>
         /// 得到下一订单编号
         /// </summary>

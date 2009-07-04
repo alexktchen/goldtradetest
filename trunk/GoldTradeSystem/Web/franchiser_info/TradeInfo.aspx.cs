@@ -138,8 +138,13 @@ namespace GoldTradeNaming.Web.franchiser_info
             }
             catch(Exception ex)
             {
+
+                this.txtfranchiser_name.Text = Request.Params["name"].ToString();
+                StringBuilder sb = new StringBuilder();
+ 
                 MessageBox.Show(this,ex.Message);
                 return false;
+
             }
         }
 

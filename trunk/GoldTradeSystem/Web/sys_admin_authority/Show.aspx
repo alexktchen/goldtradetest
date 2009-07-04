@@ -134,6 +134,19 @@
                                 <asp:CheckBox ID="ckbChgOrder" Text="修改订单" runat="server"  Visible="false"/>
                             </td>
                         </tr>
+                           <tr>
+                            <td rowspan="2">
+                                交易管理
+                            </td>
+                            <td colspan="1" align="left">
+                                <asp:CheckBox ID="ckbViewTrade" Text="查看交易" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <asp:CheckBox ID="ckbTradeLock" Text="交易时间锁定" runat="server" />
+                            </td>
+                        </tr>
                         <tr>
                             <td rowspan="3">
                                 产品管理
@@ -205,12 +218,19 @@
                                 <asp:CheckBox ID="ckbAddFran" Text="添加经销商" runat="server" />
                             </td>
                         </tr>
-                        <tr>
-                            <td rowspan="3">
-                                交易管理
+                     
+                        
+                         <tr>
+                            <td rowspan="4">
+                                报表管理
                             </td>
                             <td colspan="1" align="left">
-                                <asp:CheckBox ID="ckbViewTrade" Text="查看交易" runat="server" />
+                                <asp:CheckBox ID="ckbTradeExcel" Text="交易报表" runat="server" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <asp:CheckBox ID="ckbFranExcel" Text="经销商报表" runat="server" />
                             </td>
                         </tr>
                         <tr>
@@ -218,9 +238,9 @@
                                 <asp:CheckBox ID="ckbTradeReport" Text="销售报表" runat="server" />
                             </td>
                         </tr>
-                        <tr>
+                         <tr>
                             <td align="left">
-                                <asp:CheckBox ID="ckbTradeLock" Text="交易时间锁定" runat="server" />
+                                <asp:CheckBox ID="ckbStockExcel" Text="库存报表" runat="server" />
                             </td>
                         </tr>
                         <tr>

@@ -118,7 +118,7 @@ namespace GoldTradeNaming.Web.franchiser_info
             else
             {
                 strWhere.Append("franchiser_code like N'%");
-                strWhere.Append(this.txtfranchiser_code.Text.Trim());
+                strWhere.Append(GoldTradeNaming.BLL.CleanString.htmlInputText(this.txtfranchiser_code.Text.Trim()));
                 strWhere.Append("%'");
             }
             if(this.txtfranchiser_name.Text.Trim() == "")
@@ -128,7 +128,7 @@ namespace GoldTradeNaming.Web.franchiser_info
             else
             {
                 strWhere.Append(" AND franchiser_name like N'%");
-                strWhere.Append(this.txtfranchiser_name.Text.Trim());
+                strWhere.Append(GoldTradeNaming.BLL.CleanString.htmlInputText(this.txtfranchiser_name.Text.Trim()));
                 strWhere.Append("%'");
             }
             return bll.GetFranAllInfo(strWhere.ToString());

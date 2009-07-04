@@ -28,3 +28,8 @@ D:\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
 D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
 D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
 D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
