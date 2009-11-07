@@ -20,6 +20,7 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
         
         private GoldTradeNaming.Model.franchiser_order mOrderMain;
         private List<GoldTradeNaming.Model.franchiser_order_desc> orderdescList;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["fran"] == null || Session["fran"].ToString() == "")
@@ -42,6 +43,7 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
             }
 
         }
+
         public void LoadProduct()
         {
             LoadData();
@@ -196,8 +198,38 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             int rowindex = e.Row.RowIndex;
+
+
+            //给最后一行加边框
+            if (rowindex == -1 && GridView1.Rows.Count > 0)
+            {
+                GridView1.Rows[GridView1.Rows.Count - 1].Cells[2].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                GridView1.Rows[GridView1.Rows.Count - 1].Cells[3].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                GridView1.Rows[GridView1.Rows.Count - 1].Cells[4].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                GridView1.Rows[GridView1.Rows.Count - 1].Cells[5].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                GridView1.Rows[GridView1.Rows.Count - 1].Cells[6].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                GridView1.Rows[GridView1.Rows.Count - 1].Cells[7].Attributes.Add("style", "border-style:none  solid solid none ;border-color:#DEDFDE silver silver #DEDFDE;");
+
+            }
+
             //是否为第一行
             if (rowindex - 1 < 0) return;
+
+
+            //给合并块第一行加边框
+            //合并之单元格，四条边框
+            GridView1.Rows[row].Cells[1].Attributes.Add("style", "border-style:solid solid solid solid ;border-color:silver;");
+            //中间格只加上边框
+            GridView1.Rows[row].Cells[2].Attributes.Add("style", "border-style:solid none none none ;border-color:silver #DEDFDE #DEDFDE #DEDFDE;");
+            GridView1.Rows[row].Cells[3].Attributes.Add("style", "border-style:solid none none none ;border-color:silver #DEDFDE #DEDFDE #DEDFDE;");
+            GridView1.Rows[row].Cells[4].Attributes.Add("style", "border-style:solid none none none ;border-color:silver #DEDFDE #DEDFDE #DEDFDE;");
+            GridView1.Rows[row].Cells[5].Attributes.Add("style", "border-style:solid none none none ;border-color:silver #DEDFDE #DEDFDE #DEDFDE;");
+            GridView1.Rows[row].Cells[6].Attributes.Add("style", "border-style:solid none none none ;border-color:silver #DEDFDE #DEDFDE #DEDFDE;");
+
+            //最后一格加上边框及右边框
+            GridView1.Rows[row].Cells[7].Attributes.Add("style", "border-style:solid solid none none ;border-color:silver silver #DEDFDE #DEDFDE;");
+            /////
+
 
             //是否与上一行产品类别相同，相同继续这轮循环
             if (e.Row.Cells[0].Text == GridView1.Rows[rowindex - 1].Cells[0].Text)
@@ -207,11 +239,32 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
                 GridView1.Rows[row].Cells[1].RowSpan++;
 
                 e.Row.Cells[1].Visible = false;
+
+
+                try
+                {
+                    //给当前行之上一行加边框(因为当前行还没有创建)
+                    GridView1.Rows[rowindex - 1].Cells[7].Attributes.Add("style", "border-style:none solid none none ;border-color:#DEDFDE silver #DEDFDE #DEDFDE;");
+                }
+                catch { }
+
             }
             //开始下轮合并
             else
             {
                 row = rowindex;
+
+                //给上一轮最后行加边框
+                try
+                {
+                    GridView1.Rows[row - 1].Cells[2].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                    GridView1.Rows[row - 1].Cells[3].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                    GridView1.Rows[row - 1].Cells[4].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                    GridView1.Rows[row - 1].Cells[5].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                    GridView1.Rows[row - 1].Cells[6].Attributes.Add("style", "border-style:none none solid none ;border-color:#DEDFDE #DEDFDE silver #DEDFDE;");
+                    GridView1.Rows[row - 1].Cells[7].Attributes.Add("style", "border-style:none  solid solid none ;border-color:#DEDFDE silver silver #DEDFDE;");
+                }
+                catch { };
             }
         }
 
@@ -225,10 +278,7 @@ namespace GoldTradeNaming.Web.franchiser_order_desc
                 e.Row.Cells[4].Visible = false;
             }
         }
-
-
-
-
+        
         protected void ProdNumChge(object sender, EventArgs e)
         {
             TextBox t = (TextBox)sender;

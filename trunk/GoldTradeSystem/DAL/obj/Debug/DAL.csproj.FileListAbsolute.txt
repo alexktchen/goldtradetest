@@ -75,3 +75,14 @@ E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.M
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\LTP.Common.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\MySql.Data.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
