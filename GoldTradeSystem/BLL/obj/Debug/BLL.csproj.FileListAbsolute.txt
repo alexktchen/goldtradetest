@@ -89,3 +89,16 @@ E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\BLL\bin\Debug\GoldTradeNaming.M
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\BLL\obj\Debug\ResolveAssemblyReference.cache
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\BLL\obj\Debug\GoldTradeNaming.BLL.dll
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\BLL\obj\Debug\GoldTradeNaming.BLL.pdb
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.BLL.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.BLL.pdb
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\LTP.Common.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\MySql.Data.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\myPrograms\GoldSys\BLL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\myPrograms\GoldSys\BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\myPrograms\GoldSys\BLL\obj\Debug\GoldTradeNaming.BLL.dll
+E:\Kuitar\myPrograms\GoldSys\BLL\obj\Debug\GoldTradeNaming.BLL.pdb

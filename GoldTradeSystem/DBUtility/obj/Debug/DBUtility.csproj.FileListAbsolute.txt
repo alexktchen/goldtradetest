@@ -28,3 +28,8 @@ E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\bin\Debug\GoldTradeNa
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\obj\Debug\ResolveAssemblyReference.cache
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
 E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\myPrograms\GoldSys\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\myPrograms\GoldSys\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\myPrograms\GoldSys\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\myPrograms\GoldSys\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\myPrograms\GoldSys\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
