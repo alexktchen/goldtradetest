@@ -1,5 +1,0 @@
-worker.list=efidsz
-worker.efidsz.host=10.153.27.142
-worker.efidsz.port=8080
-worker.efidsz.type=ajp13
-worker.efidsz.lbfactor=1
