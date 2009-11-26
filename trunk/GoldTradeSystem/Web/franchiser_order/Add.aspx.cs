@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Data;
 using System.Configuration;
 using System.Collections;
@@ -106,7 +106,7 @@ namespace GoldTradeNaming.Web.franchiser_order
             {
                 Session.Clear();
                 Response.Clear();
-                LTP.Common.MessageBox.ShowAndRedirect(this, "ÄúÃ»ÓĞÈ¨ÏŞ»òµÇÂ¼³¬Ê±£¡\\nÇëÖØĞÂµÇÂ¼»òÓë¹ÜÀíÔ±ÁªÏµ", "../User_Login/flogin.aspx");
+                LTP.Common.MessageBox.ShowAndRedirect(this, "è Ÿç¾¶è¡„ïŸ²ç™¹éº¼è…ç¿¹é–‰å¥€ã„\\nï˜ç¬­é™”è…ç¿¹éº¼è¿µå¥ªç‡´åŸœè–Šç‚µ", "../User_Login/flogin.aspx");
                 return;
             }
 
@@ -129,9 +129,9 @@ namespace GoldTradeNaming.Web.franchiser_order
             this.mOrderMain = Session["OrderMain"] as GoldTradeNaming.Model.franchiser_order;
 
             this.lblFranName.Text = this.mOrderMain.Franchiser_name;
-            if (this.mOrderMain.franchiser_order_trans_type.Trim() == "º½¿Õ") { this.transway.SelectedIndex = 0; }
-            else if (this.mOrderMain.franchiser_order_trans_type.Trim() == "ÓÊ¼Ä") { this.transway.SelectedIndex = 1; }
-            else if (this.mOrderMain.franchiser_order_trans_type.Trim() == "×ÔÈ¡") { this.transway.SelectedIndex = 2; }
+            if (this.mOrderMain.franchiser_order_trans_type.Trim() == "ç‘¤è«¾") { this.transway.SelectedIndex = 0; }
+            else if (this.mOrderMain.franchiser_order_trans_type.Trim() == "èš˜æ•µ") { this.transway.SelectedIndex = 1; }
+            else if (this.mOrderMain.franchiser_order_trans_type.Trim() == "èµ»ïŸ«") { this.transway.SelectedIndex = 2; }
             else { this.transway.SelectedIndex = 3; }
 
            
@@ -150,7 +150,7 @@ namespace GoldTradeNaming.Web.franchiser_order
         private void loadProductInfo()
         {
             this.thisProductType.Value = Request.QueryString["prodtype"].ToString();
-            this.lblProdType.Text = this.thisProductType.Value == "0" ? "ÉıË®" : "·ÇÉıË®";
+            this.lblProdType.Text = this.thisProductType.Value == "0" ? "æ±”é˜¨" : "æº–æ±”é˜¨";
             DataSet dsPrice = comm.getCurrentPrice();
             this.lblPrice.Text = dsPrice.Tables[0].Rows[0][0].ToString();
             this.lblFranName.Text = CommBaseBLL.GetFranName(Convert.ToInt32(Session["fran"]));
@@ -175,8 +175,8 @@ namespace GoldTradeNaming.Web.franchiser_order
                 this.mHandle_tel = this.txtfranchiser_order_handle_tel.Text.Trim();
                 this.mPostcode = this.txtfranchiser_order_postcode.Text.Trim();
                 this.mPrice = Convert.ToDecimal(this.lblPrice.Text.Trim());
-                this.mProduct_type = this.thisProductType.Value;//´«Àà±ğID£¬0£º»Æ½ğ£¬1£º°×Òø
-                this.mProduct_name = this.lblProdType.Text.Trim(); //´«Àà±ğÃû³Æ£¬»Æ½ğ£¬°×Òø
+                this.mProduct_type = this.thisProductType.Value;//æ›æ¿¬æ¢—IDã„›0ã„©é…´è¸¢ã„›1ã„©å•çª…
+                this.mProduct_name = this.lblProdType.Text.Trim(); //æ›æ¿¬æ¢—é¡å‚™ã„›é…´è¸¢ã„›å•çª…
 
                 this.mOrder = new GoldTradeNaming.Model.franchiser_order();
                 this.mOrder.franchiser_code = Convert.ToInt32(Session["fran"]);
@@ -193,10 +193,10 @@ namespace GoldTradeNaming.Web.franchiser_order
                 this.mOrder.Product_type_name = this.mProduct_name;
 
                 this.mOrder.franchiser_order_time = DateTime.Now;
-                this.mOrder.franchiser_order_id = 0; //×Ô¶¯È¡ºÅ
-                this.mOrder.franchiser_order_amount_money = 0; //ÔİÎª0,ÊäÈë²úÆ·ĞÅÏ¢ºó£¬ÀÛ¼Ó
-                this.mOrder.franchiser_order_add_price = 0.00M; //ÎŞÒâÒå
-                this.mOrder.franchiser_order_appraise = 0.00M;//ÎŞÒâÒå
+                this.mOrder.franchiser_order_id = 0; //èµ»é›„ïŸ«ç˜
+                this.mOrder.franchiser_order_amount_money = 0; //å©ƒå³ˆ0,æ€€ï µè‰ï›‡é™“æ´˜ç¶´ã„›æ¿›æ¨“
+                this.mOrder.franchiser_order_add_price = 0.00M; //æ‹¸ç ©ç ±
+                this.mOrder.franchiser_order_appraise = 0.00M;//æ‹¸ç ©ç ±
                 this.mOrder.ins_date = DateTime.Now;
                 this.mOrder.ins_user = Session["fran"] as string;
                 this.mOrder.upd_date = DateTime.Now;
@@ -208,7 +208,7 @@ namespace GoldTradeNaming.Web.franchiser_order
             }
             catch
             {
-                MessageBox.Show(this, "¶©»õÊ§°Ü");
+                MessageBox.Show(this, "éš†å„„å›®å•–");
             }
             finally
             {
@@ -221,27 +221,27 @@ namespace GoldTradeNaming.Web.franchiser_order
             string errstr = "";
             if (transway.SelectedIndex == -1)
             {
-                errstr += "ÔËÊä·½Ê½Î´Ñ¡Ôñ<br>";
+                errstr += "å æ€€æºå®’å¸¤æå¯<br>";
             }
             if (txtfranchiser_order_address.Text.Trim() == "")
             {
-                errstr += "ÊÕ»õµØÖ·Î´ÊäÈë<br>";
+                errstr += "å½¶å„„è¯ç¡Šå¸¤æ€€ï µ<br>";
             }
             if (txtfranchiser_order_postcode.Text.Trim() == "")
             {
-                errstr += "ÓÊÕş±àÂëÎ´ÊäÈëÊäÈëÊäÈë<br>";
+                errstr += "èš˜æ·‰æ™¤é¢å¸¤æ€€ï µæ€€ï µæ€€ï µ<br>";
             }
             if (txtfranchiser_order_handle_man.Text.Trim() == "")
             {
-                errstr += "ÊÕ»õÈËÎ´ÊäÈë<br>";
+                errstr += "å½¶å„„ï •å¸¤æ€€ï µ<br>";
             }
             if (txtfranchiser_order_handle_tel.Text.Trim() == "")
             {
-                errstr += "ÊÕ»õÈËµç»°£¨×ù»ú£©Î´ÊäÈë<br>";
+                errstr += "å½¶å„„ï •è‡è¶•ã„—é‡±å„‚ã„˜å¸¤æ€€ï µ<br>";
             }
             if (txtfranchiser_order_handle_phone.Text.Trim() == "")
             {
-                errstr += "ÊÕ»õÈËÊÖ»úÎ´ÊäÈë<br>";
+                errstr += "å½¶å„„ï •å¿’å„‚å¸¤æ€€ï µ<br>";
             }
 
             if (errstr != "")
