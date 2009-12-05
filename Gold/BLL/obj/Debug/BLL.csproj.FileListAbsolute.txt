@@ -128,3 +128,16 @@ D:\Gold\BLL\bin\Debug\GoldTradeNaming.DAL.pdb
 D:\Gold\BLL\bin\Debug\GoldTradeNaming.DBUtility.pdb
 D:\Gold\BLL\bin\Debug\GoldTradeNaming.Model.pdb
 D:\Gold\BLL\obj\Debug\GoldTradeNaming.BLL.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.BLL.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.BLL.pdb
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\LTP.Common.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\MySql.Data.dll
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\Kuitar\goldtradetest\Gold\BLL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\Gold\BLL\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\Gold\BLL\obj\Debug\GoldTradeNaming.BLL.dll
+D:\Kuitar\goldtradetest\Gold\BLL\obj\Debug\GoldTradeNaming.BLL.pdb

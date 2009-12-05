@@ -48,3 +48,8 @@ D:\Gold\Model\bin\Debug\GoldTradeNaming.Model.pdb
 D:\Gold\Model\obj\Debug\ResolveAssemblyReference.cache
 D:\Gold\Model\obj\Debug\GoldTradeNaming.Model.dll
 D:\Gold\Model\obj\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\Gold\Model\bin\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\Gold\Model\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\Gold\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\Gold\Model\obj\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\Gold\Model\obj\Debug\GoldTradeNaming.Model.pdb
