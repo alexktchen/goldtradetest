@@ -1,0 +1,50 @@
+E:\新建文件夹 (2)\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\新建文件夹 (2)\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\myPrograms\GoldSys\Model\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\myPrograms\GoldSys\Model\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\myPrograms\GoldSys\Model\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\myPrograms\GoldSys\Model\obj\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\myPrograms\GoldSys\Model\obj\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
+D:\Gold\Model\bin\Debug\GoldTradeNaming.Model.dll
+D:\Gold\Model\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Gold\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Gold\Model\obj\Debug\GoldTradeNaming.Model.dll
+D:\Gold\Model\obj\Debug\GoldTradeNaming.Model.pdb

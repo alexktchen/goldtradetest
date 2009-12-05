@@ -1,0 +1,188 @@
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\LTP.Accounts.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\LtpPageControl.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\MySql.Data.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+E:\新建文件夹 (2)\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\MySql.Data.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+E:\波儿公项目_勿删\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\MySql.Data.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\MySql.Data.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\MySql.Data.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+D:\goldtradetest\GoldTradeSystem\Web\bin\MySql.Data.dll
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+D:\goldtradetest\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+D:\goldtradetest\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\MySql.Data.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\GoldTradeNaming.Web.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.Web.dll
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.Web.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.BLL.dll
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.Model.dll
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.DAL.dll
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\myPrograms\GoldSys\Web\bin\MySql.Data.dll
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.DAL.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.BLL.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\bin\GoldTradeNaming.Model.pdb
+E:\Kuitar\myPrograms\GoldSys\Web\obj\Debug\GoldTradeNaming.Web.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.Web.pdb
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\MySql.Data.dll
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.DAL.pdb
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.DBUtility.pdb
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.BLL.pdb
+C:\DownLoads\GoldTradeSystem\Web\bin\GoldTradeNaming.Model.pdb
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\ResolveAssemblyReference.cache
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CheckRight.resources
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Controls.CopyRight1.resources
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.Global.resources
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.dll
+C:\DownLoads\GoldTradeSystem\Web\obj\Debug\GoldTradeNaming.Web.pdb
+D:\Gold\Web\obj\Debug\ResolveAssemblyReference.cache
+D:\Gold\Web\obj\Debug\GoldTradeNaming.Web.goldtrade_db_admin.goldtrade_db_adminRes.resources
+D:\Gold\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+D:\Gold\Web\obj\Debug\GoldTradeNaming.Web.pdb
+D:\Gold\Web\bin\GoldTradeNaming.Web.dll
+D:\Gold\Web\bin\GoldTradeNaming.Web.pdb
+D:\Gold\Web\bin\GoldTradeNaming.BLL.dll
+D:\Gold\Web\bin\GoldTradeNaming.Model.dll
+D:\Gold\Web\bin\GoldTradeNaming.DAL.dll
+D:\Gold\Web\bin\GoldTradeNaming.DBUtility.dll
+D:\Gold\Web\bin\MySql.Data.dll
+D:\Gold\Web\bin\GoldTradeNaming.DAL.pdb
+D:\Gold\Web\bin\GoldTradeNaming.DBUtility.pdb
+D:\Gold\Web\bin\GoldTradeNaming.BLL.pdb
+D:\Gold\Web\bin\GoldTradeNaming.Model.pdb
+D:\Gold\Web\obj\Debug\GoldTradeNaming.Web.dll

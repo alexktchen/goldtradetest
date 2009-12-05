@@ -1,0 +1,110 @@
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\新建文件夹 (2)\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\Code0511_sepcedited\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\波儿公项目_勿删\田杰\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+C:\Documents and Settings\Administrator\桌面\GmailGold\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\goldtradetest\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+D:\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\波儿公项目\田杰\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.Model.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\LTP.Common.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\MySql.Data.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\ResolveAssemblyReference.cache
+E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+D:\Gold\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Gold\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+D:\Gold\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\Gold\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\Gold\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\Gold\DAL\bin\Debug\GoldTradeNaming.Model.dll
+D:\Gold\DAL\bin\Debug\LTP.Common.dll
+D:\Gold\DAL\bin\Debug\MySql.Data.dll
+D:\Gold\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\Gold\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Gold\DAL\obj\Debug\GoldTradeNaming.DAL.dll
