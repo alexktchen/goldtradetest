@@ -1,77 +1,60 @@
-using System;
 namespace GoldTradeNaming.Model
 {
-    /// <summary>
-    /// 实体类sys_login_info 。(属性说明自动提取数据库字段的描述信息)
-    /// </summary>
+    using System;
+
     public class sys_login_info
     {
-        public sys_login_info()
-        {
-        }
-        #region Model
         private int _id;
         private string _ip;
-        private DateTime _login_time;
         private string _login_id;
-        /// <summary>
-        /// 
-        /// </summary>
+        private DateTime _login_time;
+
         public int ID
         {
-            set
-            {
-                _id = value;
-            }
             get
             {
-                return _id;
+                return this._id;
+            }
+            set
+            {
+                this._id = value;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         public string IP
         {
-            set
-            {
-                _ip = value;
-            }
             get
             {
-                return _ip;
+                return this._ip;
             }
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        public DateTime login_time
-        {
             set
             {
-                _login_time = value;
-            }
-            get
-            {
-                return _login_time;
+                this._ip = value;
             }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         public string login_ID
         {
-            set
-            {
-                _login_id = value;
-            }
             get
             {
-                return _login_id;
+                return this._login_id;
+            }
+            set
+            {
+                this._login_id = value;
             }
         }
-        #endregion Model
 
+        public DateTime login_time
+        {
+            get
+            {
+                return this._login_time;
+            }
+            set
+            {
+                this._login_time = value;
+            }
+        }
     }
 }
-
