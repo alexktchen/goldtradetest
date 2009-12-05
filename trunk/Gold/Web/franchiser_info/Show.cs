@@ -230,7 +230,7 @@ namespace GoldTradeNaming.Web.franchiser_info
             }
             else
             {
-                strWhere.Append(" AND franchiser_name like N%'");
+                strWhere.Append(" AND franchiser_name like N'%");
                 strWhere.Append(CleanString.htmlInputText(this.txtfranchiser_name.Text.Trim()));
                 strWhere.Append("%'");
             }

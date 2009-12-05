@@ -43,3 +43,8 @@ D:\Gold\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
 D:\Gold\DBUtility\obj\Debug\ResolveAssemblyReference.cache
 D:\Gold\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
 D:\Gold\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
+D:\Kuitar\goldtradetest\Gold\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\Kuitar\goldtradetest\Gold\DBUtility\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\Kuitar\goldtradetest\Gold\DBUtility\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\Gold\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.dll
+D:\Kuitar\goldtradetest\Gold\DBUtility\obj\Debug\GoldTradeNaming.DBUtility.pdb
