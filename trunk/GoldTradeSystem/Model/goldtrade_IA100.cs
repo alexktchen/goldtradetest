@@ -1,61 +1,73 @@
-using System;
 namespace GoldTradeNaming.Model
 {
-	/// <summary>
-	/// 实体类goldtrade_IA100 。(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	public class goldtrade_IA100
-	{
-		public goldtrade_IA100()
-		{}
-		#region Model
-		private Guid _ia100guid;
-		private string _ia100key;
-		private string _ia100superpswd;
-		private string _ia100state;
-		private string _statechangereason;
-		/// <summary>
-		/// 
-		/// </summary>
-		public Guid IA100GUID
-		{
-			set{ _ia100guid=value;}
-			get{return _ia100guid;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string IA100Key
-		{
-			set{ _ia100key=value;}
-			get{return _ia100key;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string IA100SuperPswd
-		{
-			set{ _ia100superpswd=value;}
-			get{return _ia100superpswd;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string IA100State
-		{
-			set{ _ia100state=value;}
-			get{return _ia100state;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string StateChangeReason
-		{
-			set{ _statechangereason=value;}
-			get{return _statechangereason;}
-		}
-		#endregion Model
+    using System;
 
-	}
+    public class goldtrade_IA100
+    {
+        private Guid _ia100guid;
+        private string _ia100key;
+        private string _ia100state;
+        private string _ia100superpswd;
+        private string _statechangereason;
+
+        public Guid IA100GUID
+        {
+            get
+            {
+                return this._ia100guid;
+            }
+            set
+            {
+                this._ia100guid = value;
+            }
+        }
+
+        public string IA100Key
+        {
+            get
+            {
+                return this._ia100key;
+            }
+            set
+            {
+                this._ia100key = value;
+            }
+        }
+
+        public string IA100State
+        {
+            get
+            {
+                return this._ia100state;
+            }
+            set
+            {
+                this._ia100state = value;
+            }
+        }
+
+        public string IA100SuperPswd
+        {
+            get
+            {
+                return this._ia100superpswd;
+            }
+            set
+            {
+                this._ia100superpswd = value;
+            }
+        }
+
+        public string StateChangeReason
+        {
+            get
+            {
+                return this._statechangereason;
+            }
+            set
+            {
+                this._statechangereason = value;
+            }
+        }
+    }
 }
-

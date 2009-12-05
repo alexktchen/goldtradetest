@@ -1,97 +1,125 @@
-using System;
 namespace GoldTradeNaming.Model
 {
-	/// <summary>
-	/// 实体类send_desc 。(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	public class send_desc
-	{
-		public send_desc()
-		{}
-		#region Model
-		private int _id;
-		private int _send_id;
-		private int _product_id;
+    using System;
+
+    public class send_desc
+    {
+        private int _id;
+        private DateTime _ins_date;
+        private string _ins_user;
+        private int _product_id;
         private decimal _product_spec_id;
         private decimal _send_amount_weight;
-		private string _ins_user;
-		private DateTime _ins_date;
-		private string _upd_user;
-		private DateTime _upd_date;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
-		/// <summary>
-		/// 发货单编号
-		/// </summary>
-		public int send_id
-		{
-			set{ _send_id=value;}
-			get{return _send_id;}
-		}
-		/// <summary>
-		/// 产品类别ID
-		/// </summary>
-		public int product_id
-		{
-			set{ _product_id=value;}
-			get{return _product_id;}
-		}
-		/// <summary>
-		/// 产品规格ID
-		/// </summary>
+        private int _send_id;
+        private DateTime _upd_date;
+        private string _upd_user;
+
+        public int id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                this._id = value;
+            }
+        }
+
+        public DateTime ins_date
+        {
+            get
+            {
+                return this._ins_date;
+            }
+            set
+            {
+                this._ins_date = value;
+            }
+        }
+
+        public string ins_user
+        {
+            get
+            {
+                return this._ins_user;
+            }
+            set
+            {
+                this._ins_user = value;
+            }
+        }
+
+        public int product_id
+        {
+            get
+            {
+                return this._product_id;
+            }
+            set
+            {
+                this._product_id = value;
+            }
+        }
+
         public decimal product_spec_id
-		{
-			set{ _product_spec_id=value;}
-			get{return _product_spec_id;}
-		}
-		/// <summary>
-		/// 发货重量
-		/// </summary>
+        {
+            get
+            {
+                return this._product_spec_id;
+            }
+            set
+            {
+                this._product_spec_id = value;
+            }
+        }
+
         public decimal send_amount_weight
-		{
-			set{ _send_amount_weight=value;}
-			get{return _send_amount_weight;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string ins_user
-		{
-			set{ _ins_user=value;}
-			get{return _ins_user;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime ins_date
-		{
-			set{ _ins_date=value;}
-			get{return _ins_date;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string upd_user
-		{
-			set{ _upd_user=value;}
-			get{return _upd_user;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime upd_date
-		{
-			set{ _upd_date=value;}
-			get{return _upd_date;}
-		}
-		#endregion Model
+        {
+            get
+            {
+                return this._send_amount_weight;
+            }
+            set
+            {
+                this._send_amount_weight = value;
+            }
+        }
 
-	}
+        public int send_id
+        {
+            get
+            {
+                return this._send_id;
+            }
+            set
+            {
+                this._send_id = value;
+            }
+        }
+
+        public DateTime upd_date
+        {
+            get
+            {
+                return this._upd_date;
+            }
+            set
+            {
+                this._upd_date = value;
+            }
+        }
+
+        public string upd_user
+        {
+            get
+            {
+                return this._upd_user;
+            }
+            set
+            {
+                this._upd_user = value;
+            }
+        }
+    }
 }
-

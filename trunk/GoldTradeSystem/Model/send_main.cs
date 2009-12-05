@@ -1,106 +1,138 @@
-using System;
 namespace GoldTradeNaming.Model
 {
-	/// <summary>
-	/// 实体类send_main 。(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	public class send_main
-	{
-		public send_main()
-		{}
-		#region Model
-		private int _send_id;
-		private int _franchiser_order_id;
-		private DateTime _send_time;
+    using System;
+
+    public class send_main
+    {
+        private string _canceled_reason;
+        private int _franchiser_order_id;
+        private DateTime _ins_date;
+        private string _ins_user;
         private decimal _send_amount_weight;
-		private string _send_state;
-		private string _ins_user;
-		private DateTime _ins_date;
-		private string _upd_user;
-		private DateTime _upd_date;
-		private string _canceled_reason;
-		/// <summary>
-		/// 发货单号
-		/// </summary>
-		public int send_id
-		{
-			set{ _send_id=value;}
-			get{return _send_id;}
-		}
-		/// <summary>
-		/// 订单号
-		/// </summary>
-		public int franchiser_order_id
-		{
-			set{ _franchiser_order_id=value;}
-			get{return _franchiser_order_id;}
-		}
-		/// <summary>
-		/// 发货时间
-		/// </summary>
-		public DateTime send_time
-		{
-			set{ _send_time=value;}
-			get{return _send_time;}
-		}
-		/// <summary>
-		/// 发货总重量
-		/// </summary>
+        private int _send_id;
+        private string _send_state;
+        private DateTime _send_time;
+        private DateTime _upd_date;
+        private string _upd_user;
+
+        public string canceled_reason
+        {
+            get
+            {
+                return this._canceled_reason;
+            }
+            set
+            {
+                this._canceled_reason = value;
+            }
+        }
+
+        public int franchiser_order_id
+        {
+            get
+            {
+                return this._franchiser_order_id;
+            }
+            set
+            {
+                this._franchiser_order_id = value;
+            }
+        }
+
+        public DateTime ins_date
+        {
+            get
+            {
+                return this._ins_date;
+            }
+            set
+            {
+                this._ins_date = value;
+            }
+        }
+
+        public string ins_user
+        {
+            get
+            {
+                return this._ins_user;
+            }
+            set
+            {
+                this._ins_user = value;
+            }
+        }
+
         public decimal send_amount_weight
-		{
-			set{ _send_amount_weight=value;}
-			get{return _send_amount_weight;}
-		}
-		/// <summary>
-		/// 发货单状态
-		/// </summary>
-		public string send_state
-		{
-			set{ _send_state=value;}
-			get{return _send_state;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string ins_user
-		{
-			set{ _ins_user=value;}
-			get{return _ins_user;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime ins_date
-		{
-			set{ _ins_date=value;}
-			get{return _ins_date;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string upd_user
-		{
-			set{ _upd_user=value;}
-			get{return _upd_user;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime upd_date
-		{
-			set{ _upd_date=value;}
-			get{return _upd_date;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string canceled_reason
-		{
-			set{ _canceled_reason=value;}
-			get{return _canceled_reason;}
-		}
-		#endregion Model
+        {
+            get
+            {
+                return this._send_amount_weight;
+            }
+            set
+            {
+                this._send_amount_weight = value;
+            }
+        }
 
-	}
+        public int send_id
+        {
+            get
+            {
+                return this._send_id;
+            }
+            set
+            {
+                this._send_id = value;
+            }
+        }
+
+        public string send_state
+        {
+            get
+            {
+                return this._send_state;
+            }
+            set
+            {
+                this._send_state = value;
+            }
+        }
+
+        public DateTime send_time
+        {
+            get
+            {
+                return this._send_time;
+            }
+            set
+            {
+                this._send_time = value;
+            }
+        }
+
+        public DateTime upd_date
+        {
+            get
+            {
+                return this._upd_date;
+            }
+            set
+            {
+                this._upd_date = value;
+            }
+        }
+
+        public string upd_user
+        {
+            get
+            {
+                return this._upd_user;
+            }
+            set
+            {
+                this._upd_user = value;
+            }
+        }
+    }
 }
-

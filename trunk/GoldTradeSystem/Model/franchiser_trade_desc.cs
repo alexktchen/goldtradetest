@@ -1,97 +1,125 @@
-using System;
 namespace GoldTradeNaming.Model
 {
-	/// <summary>
-	/// 实体类franchiser_trade_desc 。(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	public class franchiser_trade_desc
-	{
-		public franchiser_trade_desc()
-		{}
-		#region Model
-		private int _id;
-		private int _trade_id;
-		private int _product_id;
+    using System;
+
+    public class franchiser_trade_desc
+    {
+        private int _id;
+        private DateTime _ins_date;
+        private string _ins_user;
+        private int _product_id;
         private decimal _product_spec_id;
+        private int _trade_id;
         private decimal _trade_weight;
-		private string _ins_user;
-		private DateTime _ins_date;
-		private string _upd_user;
-		private DateTime _upd_date;
-		/// <summary>
-		/// 
-		/// </summary>
-		public int id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
-		/// <summary>
-		/// 交易单号
-		/// </summary>
-		public int trade_id
-		{
-			set{ _trade_id=value;}
-			get{return _trade_id;}
-		}
-		/// <summary>
-		/// 产品类别ID
-		/// </summary>
-		public int product_id
-		{
-			set{ _product_id=value;}
-			get{return _product_id;}
-		}
-		/// <summary>
-		/// 产品规格ID
-		/// </summary>
+        private DateTime _upd_date;
+        private string _upd_user;
+
+        public int id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                this._id = value;
+            }
+        }
+
+        public DateTime ins_date
+        {
+            get
+            {
+                return this._ins_date;
+            }
+            set
+            {
+                this._ins_date = value;
+            }
+        }
+
+        public string ins_user
+        {
+            get
+            {
+                return this._ins_user;
+            }
+            set
+            {
+                this._ins_user = value;
+            }
+        }
+
+        public int product_id
+        {
+            get
+            {
+                return this._product_id;
+            }
+            set
+            {
+                this._product_id = value;
+            }
+        }
+
         public decimal product_spec_id
-		{
-			set{ _product_spec_id=value;}
-			get{return _product_spec_id;}
-		}
-		/// <summary>
-		/// 交易重量
-		/// </summary>
+        {
+            get
+            {
+                return this._product_spec_id;
+            }
+            set
+            {
+                this._product_spec_id = value;
+            }
+        }
+
+        public int trade_id
+        {
+            get
+            {
+                return this._trade_id;
+            }
+            set
+            {
+                this._trade_id = value;
+            }
+        }
+
         public decimal trade_weight
-		{
-			set{ _trade_weight=value;}
-			get{return _trade_weight;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string ins_user
-		{
-			set{ _ins_user=value;}
-			get{return _ins_user;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime ins_date
-		{
-			set{ _ins_date=value;}
-			get{return _ins_date;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string upd_user
-		{
-			set{ _upd_user=value;}
-			get{return _upd_user;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime upd_date
-		{
-			set{ _upd_date=value;}
-			get{return _upd_date;}
-		}
-		#endregion Model
+        {
+            get
+            {
+                return this._trade_weight;
+            }
+            set
+            {
+                this._trade_weight = value;
+            }
+        }
 
-	}
+        public DateTime upd_date
+        {
+            get
+            {
+                return this._upd_date;
+            }
+            set
+            {
+                this._upd_date = value;
+            }
+        }
+
+        public string upd_user
+        {
+            get
+            {
+                return this._upd_user;
+            }
+            set
+            {
+                this._upd_user = value;
+            }
+        }
+    }
 }
-

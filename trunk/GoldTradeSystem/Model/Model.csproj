@@ -128,6 +128,7 @@
     <Compile Include="franchiser_trade_desc.cs" />
     <Compile Include="goldtrade_db_admin.cs" />
     <Compile Include="goldtrade_IA100.cs" />
+    <Compile Include="ProductInfo.cs" />
     <Compile Include="product_type.cs" />
     <Compile Include="realtime_price.cs" />
     <Compile Include="send_desc.cs" />

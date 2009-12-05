@@ -1,106 +1,125 @@
-using System;
 namespace GoldTradeNaming.Model
 {
-    /// <summary>
-    /// 实体类franchiser_money 。(属性说明自动提取数据库字段的描述信息)
-    /// </summary>
+    using System;
+
     public class franchiser_money
     {
-        public franchiser_money()
-        { }
-        #region Model
-        private int _id;
-        private int _franchiser_code;
-        private decimal _franchiser_added_money;
         private DateTime _added_time;
-        private string _ins_user;
-        private DateTime _ins_date;
-        private string _upd_user;
-        private DateTime _upd_date;
         private string _check;
+        private decimal _franchiser_added_money;
+        private int _franchiser_code;
+        private int _id;
+        private DateTime _ins_date;
+        private string _ins_user;
+        private DateTime _upd_date;
+        private string _upd_user;
 
-        /// <summary>
-        /// 标志该入账信息是否已经审核
-        /// </summary>
-        public string check
-        {
-            set { _check = value; }
-            get { return _check;   }
-
-        }
-
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public int id
-        {
-            set { _id = value; }
-            get { return _id; }
-        }
-        /// <summary>
-        /// 经销商编号
-        /// </summary>
-        public int franchiser_code
-        {
-            set { _franchiser_code = value; }
-            get { return _franchiser_code; }
-        }
-        /// <summary>
-        /// 入帐金额
-        /// </summary>
-        public decimal franchiser_added_money
-        {
-            set { _franchiser_added_money = value; }
-            get { return _franchiser_added_money; }
-        }
-        /// <summary>
-        /// 入帐时间
-        /// </summary>
         public DateTime added_time
         {
-            set { _added_time = value; }
-            get { return _added_time; }
+            get
+            {
+                return this._added_time;
+            }
+            set
+            {
+                this._added_time = value;
+            }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string ins_user
+
+        public string check
         {
-            set { _ins_user = value; }
-            get { return _ins_user; }
+            get
+            {
+                return this._check;
+            }
+            set
+            {
+                this._check = value;
+            }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
+        public decimal franchiser_added_money
+        {
+            get
+            {
+                return this._franchiser_added_money;
+            }
+            set
+            {
+                this._franchiser_added_money = value;
+            }
+        }
+
+        public int franchiser_code
+        {
+            get
+            {
+                return this._franchiser_code;
+            }
+            set
+            {
+                this._franchiser_code = value;
+            }
+        }
+
+        public int id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                this._id = value;
+            }
+        }
+
         public DateTime ins_date
         {
-            set { _ins_date = value; }
-            get { return _ins_date; }
+            get
+            {
+                return this._ins_date;
+            }
+            set
+            {
+                this._ins_date = value;
+            }
         }
-        /// <summary>
-        /// 
-        /// </summary>
-        public string upd_user
+
+        public string ins_user
         {
-            set { _upd_user = value; }
-            get { return _upd_user; }
+            get
+            {
+                return this._ins_user;
+            }
+            set
+            {
+                this._ins_user = value;
+            }
         }
-        /// <summary>
-        /// 
-        /// </summary>
+
         public DateTime upd_date
         {
-            set { _upd_date = value; }
-            get { return _upd_date; }
+            get
+            {
+                return this._upd_date;
+            }
+            set
+            {
+                this._upd_date = value;
+            }
         }
 
-
-
-
-        #endregion Model
-
+        public string upd_user
+        {
+            get
+            {
+                return this._upd_user;
+            }
+            set
+            {
+                this._upd_user = value;
+            }
+        }
     }
 }
-

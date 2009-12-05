@@ -38,3 +38,8 @@ E:\Kuitar\myPrograms\GoldSys\Model\bin\Debug\GoldTradeNaming.Model.pdb
 E:\Kuitar\myPrograms\GoldSys\Model\obj\Debug\ResolveAssemblyReference.cache
 E:\Kuitar\myPrograms\GoldSys\Model\obj\Debug\GoldTradeNaming.Model.dll
 E:\Kuitar\myPrograms\GoldSys\Model\obj\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\Model\obj\Debug\GoldTradeNaming.Model.pdb
