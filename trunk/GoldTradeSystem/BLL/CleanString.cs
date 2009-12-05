@@ -1,19 +1,13 @@
-using System;
-
-//using System.Text;
 namespace GoldTradeNaming.BLL
 {
-    /// <summary>
-    /// CleanString 的摘要说明。
-    /// </summary>
+    using System;
+
     public sealed class CleanString
     {
-
-        public static string htmlInputText(string inputString)//HTML过滤输入字符串
+        public static string htmlInputText(string inputString)
         {
-            if ((inputString != null) && (inputString != String.Empty))
+            if ((inputString != null) && (inputString != string.Empty))
             {
-                //inputString = inputString.Trim();
                 inputString = inputString.Replace("'", "&quot;");
                 inputString = inputString.Replace("<", "&lt;");
                 inputString = inputString.Replace(">", "&gt;");
@@ -24,11 +18,10 @@ namespace GoldTradeNaming.BLL
             return "";
         }
 
-        public static string htmlOutputText(string inputString)//HTML还原字符串
+        public static string htmlOutputText(string inputString)
         {
-            if ((inputString != null) && (inputString != String.Empty))
+            if ((inputString != null) && (inputString != string.Empty))
             {
-                //inputString = inputString.Trim();
                 inputString = inputString.Replace("&quot;", "'");
                 inputString = inputString.Replace("&lt;", "<");
                 inputString = inputString.Replace("&gt;", ">");
@@ -38,6 +31,5 @@ namespace GoldTradeNaming.BLL
             }
             return "";
         }
-
     }
 }
