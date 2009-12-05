@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Franchiser.master.cs"
+    Inherits="GoldTradeNaming.Web.Franchiser" %>
+
+<%@ Register Src="~/Controls/copyright.ascx" TagName="CopyRight" TagPrefix="ucl" %>
+<%@ Register Src="~/Controls/Navigator.ascx" TagName="Navigator" TagPrefix="ucl" %>
+<%@ Register Src="~/Controls/Logo.ascx" TagName="Logo" TagPrefix="ucl" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>黄金交易系统</title>
+    <meta http-equiv="Page-Enter" content="revealtrans(duration=1.0, transition=12)">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/css.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <!-- 左隐藏菜单开始 -->
+
+    <script language="JavaScript1.2">
+
+function move(x, y) {
+if (document.all) {
+object1.style.pixelLeft += x;
+object1.style.pixelTop  += y;}
+else
+if (document.layers) {
+document.object1.left += x;
+document.object1.top  += y;
+}};
+
+function position() {
+document.object1.left += -200;
+document.object1.top  += 0;
+document.object1.visibility = "show"
+};
+
+function makeStatic() {
+if (document.all) {object1.style.pixelTop=document.body.scrollTop+100}
+else {eval('document.object1.top=eval(window.pageYOffset+20)');}
+setTimeout("makeStatic()",0);}
+
+    </script>
+
+    <!-- 左隐藏菜单结束 -->
+    <!-- 左隐藏菜单BIG -->
+    <layer class="NS" onmouseover="move(580,0)" onmouseout="move(-580, 0)" left="0" name="object1"
+        visibility="hide" top="20">
+<SCRIPT language=JavaScript1.2>
+if (document.all)
+document.write('<DIV ID="object1" style="Position : Absolute ;Left : -125px ;Top : 20px ;Width : 0px ;">')
+</SCRIPT>
+
+<TABLE onmouseover=move(120,0) onMouseOut="move(-120, 0)" cellSpacing=1 
+cellPadding=2 border=0>
+  <TBODY>
+  <TR>
+    <TD>
+      <STYLE type=text/css>
+          BODY
+          {
+              margin: 0px;
+          }
+      </STYLE>
+
+      <TABLE cellSpacing=0 cellPadding=0 width=118 align=center border=0>
+        <TBODY>
+        <TR>
+          <TD><IMG height=160 alt="" 
+            src="../images/servicepic_01.jpg" width=118 
+            border=0 name=servicepic_01></TD></TR>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width=118 align=left border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                  background=../images/servicepic_02.jpg><IMG 
+                  height=25 alt="" 
+                  src="../images/servicepic_02.jpg" 
+                  width=14 border=0 name=servicepic_02></TD>
+                <TD align=middle width=89 bgColor=#f8f6f7 height=25><A 
+                  href="tencent://message/?uin=328069837&amp;Site=金牛&amp;Menu=yes" 
+                  target=blank><IMG alt=点击这里给我发消息 
+                  src="../images/10_online.gif" 
+                  border=0></A>
+<br>
+<A 
+                  href="tencent://message/?uin=64261082&amp;Site=金牛&amp;Menu=yes" 
+                  target=blank><IMG alt=点击这里给我发消息 
+                  src="../images/10_online.gif" 
+                  border=0></A><br>
+<A 
+                  href="tencent://message/?uin=154329478&amp;Site=金牛&amp;Menu=yes" 
+                  target=blank><IMG alt=点击这里给我发消息 
+                  src="../images/10_online.gif" 
+                  border=0></A>
+</TD>
+
+                <TD 
+                  background=../images/servicepic_04.jpg><IMG 
+                  height=25 alt="" 
+                  src="../images/servicepic_04.jpg" 
+                  width=15 border=0 
+name=servicepic_04></TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD><IMG height=17 alt="" 
+            src="../images/servicepic_05.jpg" width=118 
+            border=0 name=servicepic_05></TD></TR>
+        <TR>
+          <TD>
+            <TABLE cellSpacing=0 cellPadding=0 width=118 align=left border=0>
+              <TBODY>
+              <TR>
+                <TD 
+                  background=../images/servicepic_06.jpg><IMG 
+                  height=24 alt="" 
+                  src="../images/servicepic_06.jpg" 
+                  width=14 border=0 name=servicepic_06></TD>
+                <TD align=middle width=89 bgColor=#f8f6f7 height=24><A 
+                  href="" 
+                  target=_blank><IMG alt=点击这里给我发消息 
+                  src="../images/offline.gif" 
+                border=0></A></TD>
+                <TD 
+                  background=../images/servicepic_08.jpg><IMG 
+                  height=24 alt="" 
+                  src="../images/servicepic_08.jpg" 
+                  width=15 border=0 name=servicepic_08></TD></TR>
+              <TR>
+                <TD 
+                background=../images/servicepic_06.jpg>　</TD>
+                <TD align=middle bgColor=#f8f6f7 height=35>
+                  <TABLE cellSpacing=1 cellPadding=2 width="88%" align=center 
+                  bgColor=#ffa800 border=0>
+                    <TBODY>
+                    <TR>
+                      <TD align=middle bgColor=#ffffff><A 
+                        href="http://download.microsoft.com/download/1/6/1/16174D37-73C1-4F76-A305-902E9D32BAC9/IE8-WindowsXP-x86-CHS.exe" target=_blank><SPAN 
+                        style="FONT-SIZE: 9pt"> IE8.0下载</SPAN></A></TD></TR></TBODY></TABLE></TD>
+                <TD 
+                background=../images/servicepic_08.jpg>　</TD></TR></TBODY></TABLE></TD></TR>
+        <TR>
+          <TD><IMG height=22 alt="" 
+            src="../images/servicepic_09.jpg" width=118 
+            border=0 name=servicepic_09></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top align=middle width=12 rowSpan=100><IMG height=109 
+      src="../images/kefu.gif" width=20> </TD></TR>
+  <SCRIPT language=JavaScript1.2>
+<!--
+if (document.all||document.layers)
+makeStatic();
+
+if (document.layers) {
+window.onload=position;
+}
+
+var sitems=new Array();
+var sitemlinks=new Array();
+
+function hl(n) {
+n.className='hl'}
+function n(h) {
+h.className='n'}
+//--></SCRIPT>
+  </TBODY></TABLE>
+<SCRIPT language=JavaScript1.2>
+if (document.all)
+document.write('<\/DIV>')
+</SCRIPT>
+</layer>
+    <!-- 左隐藏菜单END -->
+    <form id="form1" runat="server">
+    <ucl:Logo ID="Logo1" runat="server" />
+    <div id="danh">
+        <ucl:Navigator ID="Nav1" runat="server" />
+    </div>
+    <div id="nei">
+      <div id="main" class="clearfix"> 
+        <div id="nei1">
+            <asp:Label ID="lblFranName" runat="server"></asp:Label>
+            <br />
+            <asp:Label ID="Labelx" runat="server" Text=" 账面余额："></asp:Label>
+            <asp:Label ID="lblFranBalance" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label4" runat="server" Text="元(含担保款"></asp:Label>
+            <asp:Label ID="lblAsure" runat="server"></asp:Label>
+            <asp:Label ID="Label5" runat="server" Text="元)，"></asp:Label>
+            <br />
+            <asp:Label ID="lblOrder" runat="server" Text="订货可用余额"></asp:Label>
+            <asp:Label ID="lblOrderBalance" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label7" runat="server" Text="元"></asp:Label>
+            <br />
+            <asp:Label ID="lblTrade" runat="server" Text="点价可用余额"></asp:Label>
+            <asp:Label ID="lblTradeBalance" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label3" runat="server" Text="元"></asp:Label>
+            <br/>
+            <asp:Label ID="Label1" runat="server" Text="订货总金额"></asp:Label>
+            <asp:Label ID="lblOrderSum" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Text="元"></asp:Label>
+            <br/>
+            <asp:Label ID="Label8" runat="server" Text="结算金额"></asp:Label>
+            <asp:Label ID="lblTradeSum" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="Label10" runat="server" Text="元"></asp:Label>
+            <br>
+          <embed id="show_swf1" src="../swf/1.swf" width="183" height="202" wmode="transparent"
+                type="application/x-shockwave-flash">
+
+
+<div id="left2">
+
+
+<div id="jishu"> 
+
+技术支持
+
+                    
+    </div>
+
+</div>
+        </div>
+        <div id="nei2">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        </div>
+    </div>
+      <div id="foot">
+    <ucl:CopyRight ID="CopyRight1" runat="server" />
+      </div>
+    </form>
+</body>
+</html>

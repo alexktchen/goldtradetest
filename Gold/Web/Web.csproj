@@ -1,0 +1,593 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5B535162-10C2-4238-BC56-193B968E1834}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GoldTradeNaming.Web</RootNamespace>
+    <AssemblyName>GoldTradeNaming.Web</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.0.11119.30346, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\项目代码备件\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Anthem, Version=1.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\3ASPNETAJAXFrameworksTest\Bin\Anthem.dll</HintPath>
+    </Reference>
+    <Reference Include="LTP.Accounts, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\LTP.Accounts.dll</HintPath>
+    </Reference>
+    <Reference Include="LTP.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\LTP.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="LtpPageControl, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\Lib\LtpPageControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.UI.WebControls, Version=1.0.2.226, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\Microsoft.Web.UI.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\checkright.ascx" />
+    <Content Include="Controls\copyright.ascx" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CheckRight.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CopyRight1.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\LeftMenu.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Logo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Navigator.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Franchiser.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\BaseInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\franReport.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\MoneyInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\OrderInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\ShowNoEdit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\StockInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_info\TradeInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_money\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_money\franchiserMoneyShow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_money\Manage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_money\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order\Add_Type.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order\Modify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order\myModify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order_desc\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order_desc\Add_submit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order_desc\OrderTest.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order_desc\SalesReport.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order_desc\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_order_desc\Show_Amdin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\AdminExcel.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\FranExcel.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\ShowM.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="franchiser_trade\TradeTime.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="goldAdminIndex.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="goldtrade_db_admin\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="goldtrade_db_admin\goldtrade_db_adminRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>goldtrade_db_adminRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="goldtrade_db_admin\Modify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="goldtrade_db_admin\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="goldtrade_IA100\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="goldtrade_IA100\Modify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="goldtrade_IA100\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Login\gold_AdminLogin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product_type\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product_type\Add_index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product_type\Modify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product_type\Modify_index.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="product_type\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="realtime_price\Add.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="realtime_price\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="search2.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_desc\send_produc_show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_desc\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_desc\ShowAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_main\myReceive.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_main\send_cancel.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_main\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="send_main\ShowAdmin.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\franchiserStockShow.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\Modify.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\receive.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\ShowNoEdit.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\StockExcel.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="stock_main\stockModifyLog.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_admin_authority\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="sys_login_info\Show.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Login\AdminChgPswd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Login\AgreeProtol.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Login\FranChgPswd.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebService1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\App_LocalResources\Navigator.ascx.resx">
+      <SubType>Designer</SubType>
+    </Content>
+    <EmbeddedResource Include="goldtrade_db_admin\goldtrade_db_adminRes.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>goldtrade_db_adminRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{38D7AA58-C95B-449B-86C6-A8073A56E11F}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{53995DBB-9836-4647-AD22-865884FDEB9E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Default.css" />
+    <Content Include="App_Themes\Green2Theme\Default.css" />
+    <Content Include="App_Themes\GreenTheme\Default.css" />
+    <Content Include="App_Themes\PurpleTheme\Default.css" />
+    <Content Include="App_Themes\RedTheme\Default.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\BlueTheme\Control.skin" />
+    <Content Include="App_Themes\Green2Theme\Control.skin" />
+    <Content Include="App_Themes\GreenTheme\Control.skin" />
+    <Content Include="App_Themes\PurpleTheme\Control.skin" />
+    <Content Include="App_Themes\RedTheme\Control.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\GoldTradeNaming.BLL.dll" />
+    <Content Include="bin\GoldTradeNaming.BLL.pdb" />
+    <Content Include="bin\GoldTradeNaming.DAL.dll" />
+    <Content Include="bin\GoldTradeNaming.DAL.pdb" />
+    <Content Include="bin\GoldTradeNaming.DBUtility.dll" />
+    <Content Include="bin\GoldTradeNaming.DBUtility.pdb" />
+    <Content Include="bin\GoldTradeNaming.Model.dll" />
+    <Content Include="bin\GoldTradeNaming.Model.pdb" />
+    <Content Include="bin\LTP.Common.dll" />
+    <Content Include="Controls\Logo.ascx" />
+    <Content Include="Controls\Navigator.ascx" />
+    <Content Include="franchiser_info\Add.aspx" />
+    <Content Include="franchiser_info\Show.aspx" />
+    <Content Include="franchiser_money\Add.aspx" />
+    <Content Include="franchiser_order_desc\Show.aspx" />
+    <Content Include="franchiser_trade\Add.aspx" />
+    <Content Include="franchiser_trade\Show.aspx" />
+    <Content Include="goldtrade_db_admin\Modify.aspx" />
+    <Content Include="goldtrade_db_admin\Show.aspx" />
+    <Content Include="goldtrade_IA100\Add.aspx" />
+    <Content Include="goldtrade_IA100\Modify.aspx" />
+    <Content Include="goldtrade_IA100\Show.aspx" />
+    <Content Include="User_Login\gold_AdminLogin.aspx" />
+    <Content Include="product_type\Add.aspx" />
+    <Content Include="product_type\Modify.aspx" />
+    <Content Include="product_type\Show.aspx" />
+    <Content Include="realtime_price\Add.aspx" />
+    <Content Include="realtime_price\Show.aspx" />
+    <Content Include="send_desc\Show.aspx" />
+    <Content Include="send_main\Show.aspx" />
+    <Content Include="stock_main\Modify.aspx" />
+    <Content Include="stock_main\Show.aspx" />
+    <Content Include="sys_admin_authority\Show.aspx" />
+    <Content Include="sys_login_info\Show.aspx" />
+    <Content Include="User_Login\CSS\IATest.css" />
+    <Content Include="User_Login\IA100edit.htm" />
+    <Content Include="User_Login\AdminLogin.aspx" />
+    <Content Include="User_Login\AdminVerify.aspx" />
+    <Content Include="User_Login\Init.htm" />
+    <Content Include="User_Login\lib\IA100.CAB" />
+    <Content Include="User_Login\lib\setup.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="goldAdminIndex.aspx" />
+    <Content Include="MasterPage.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\DefaultThemes\css.css" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\Anthem.dll" />
+    <Content Include="bin\GoldTradeNaming.Web.dll" />
+    <Content Include="bin\GoldTradeNaming.Web.pdb" />
+    <Content Include="bin\LTP.Accounts.dll" />
+    <Content Include="bin\LtpPageControl.dll" />
+    <Content Include="Controls\LeftMenu.ascx" />
+    <Content Include="css\css.css" />
+    <Content Include="Franchiser.Master" />
+    <Content Include="franchiser_index.aspx" />
+    <Content Include="franchiser_info\BaseInfo.aspx" />
+    <Content Include="franchiser_info\franReport.aspx" />
+    <Content Include="franchiser_info\MoneyInfo.aspx" />
+    <Content Include="franchiser_info\OrderInfo.aspx" />
+    <Content Include="franchiser_info\ShowNoEdit.aspx" />
+    <Content Include="franchiser_info\StockInfo.aspx" />
+    <Content Include="franchiser_info\TradeInfo.aspx" />
+    <Content Include="franchiser_money\franchiserMoneyShow.aspx" />
+    <Content Include="franchiser_money\Manage.aspx" />
+    <Content Include="franchiser_order\Add.aspx" />
+    <Content Include="franchiser_order\Add_Type.aspx" />
+    <Content Include="franchiser_order\Modify.aspx" />
+    <Content Include="franchiser_order\myModify.aspx" />
+    <Content Include="franchiser_order\Show.aspx" />
+    <Content Include="franchiser_order_desc\Add.aspx" />
+    <Content Include="franchiser_order_desc\Add_submit.aspx" />
+    <Content Include="franchiser_order_desc\OrderTest.aspx" />
+    <Content Include="franchiser_order_desc\SalesReport.aspx" />
+    <Content Include="franchiser_order_desc\Show_Admin.aspx" />
+    <Content Include="franchiser_trade\ShowM.aspx" />
+    <Content Include="franchiser_trade\TradeTime.aspx" />
+    <Content Include="goldtrade_db_admin\Add.aspx" />
+    <Content Include="images\10_online.gif" />
+    <Content Include="images\200901172113470.gif" />
+    <Content Include="images\kefu.gif" />
+    <Content Include="images\offline.gif" />
+    <Content Include="images\servicepic_01.jpg" />
+    <Content Include="images\servicepic_02.jpg" />
+    <Content Include="images\servicepic_04.jpg" />
+    <Content Include="images\servicepic_05.jpg" />
+    <Content Include="images\servicepic_06.jpg" />
+    <Content Include="images\servicepic_08.jpg" />
+    <Content Include="images\servicepic_09.jpg" />
+    <Content Include="image\1_1.jpg" />
+    <Content Include="image\1_2.jpg" />
+    <Content Include="image\anl.gif" />
+    <Content Include="image\bglogo.bmp" />
+    <Content Include="image\bit06.gif" />
+    <Content Include="image\Calendar_scheduleHS.png" />
+    <Content Include="image\css.css" />
+    <Content Include="image\daoh_bg.gif" />
+    <Content Include="image\dengl_1.gif" />
+    <Content Include="image\dengl_1_r1_c1.gif" />
+    <Content Include="image\dengl_1_r1_c1_r1_c1.gif" />
+    <Content Include="image\dengl_1_r1_c1_r1_c2.gif" />
+    <Content Include="image\dengl_1_r1_c1_r1_c3.gif" />
+    <Content Include="image\dengl_1_r1_c1_r2_c1.gif" />
+    <Content Include="image\dengl_1_r1_c1_r2_c2.gif" />
+    <Content Include="image\dengl_1_r1_c1_r2_c3.gif" />
+    <Content Include="image\dengl_1_r1_c1_r3_c2.gif" />
+    <Content Include="image\dengl_1_r1_c2.gif" />
+    <Content Include="image\dengl_1_r1_c3.gif" />
+    <Content Include="image\dengl_1_r2_c1.gif" />
+    <Content Include="image\dengl_1_r2_c2.gif" />
+    <Content Include="image\dengl_1_r2_c3.gif" />
+    <Content Include="image\dengl_1_r3_c2.gif" />
+    <Content Include="image\dengl_2.gif" />
+    <Content Include="image\dengl_bg.gif" />
+    <Content Include="image\foot.gif" />
+    <Content Include="image\foot_bg.gif" />
+    <Content Include="image\head_1.gif" />
+    <Content Include="image\head_bg.gif" />
+    <Content Include="image\jishu.gif" />
+    <Content Include="image\leftlist_bg.jpg" />
+    <Content Include="image\leftlist_bottom.jpg" />
+    <Content Include="image\leftlist_head.jpg" />
+    <Content Include="image\left_1.gif" />
+    <Content Include="image\Logo.bmp" />
+    <Content Include="image\logoleft.bmp" />
+    <Content Include="image\menu_bg.gif" />
+    <Content Include="image\nei_bg.gif" />
+    <Content Include="image\nei_r1_c2.gif" />
+    <Content Include="image\shij.gif" />
+    <Content Include="image\shouy.gif" />
+    <Content Include="image\suo.gif" />
+    <Content Include="image\top1.gif" />
+    <Content Include="js\goldjs.js" />
+    <Content Include="js\jquery.autocomplete.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\search.js" />
+    <Content Include="product_type\Add_index.aspx" />
+    <Content Include="product_type\Modify_index.aspx" />
+    <Content Include="rl\calendar.js" />
+    <Content Include="rl\config.js" />
+    <Content Include="rl\lang\en.js" />
+    <Content Include="rl\lang\zh-cn.js" />
+    <Content Include="rl\lang\zh-tw.js" />
+    <Content Include="rl\My97DatePicker.htm" />
+    <Content Include="rl\skin\datePicker.gif" />
+    <Content Include="rl\skin\default\datepicker.css" />
+    <Content Include="rl\skin\default\img.gif" />
+    <Content Include="rl\skin\WdatePicker.css" />
+    <Content Include="rl\skin\whyGreen\bg.jpg" />
+    <Content Include="rl\skin\whyGreen\datepicker.css" />
+    <Content Include="rl\skin\whyGreen\img.gif" />
+    <Content Include="rl\WdatePicker.js" />
+    <Content Include="search2.aspx" />
+    <Content Include="send_desc\send_produc_show.aspx" />
+    <Content Include="send_desc\ShowAdmin.aspx" />
+    <Content Include="send_main\myReceive.aspx" />
+    <Content Include="send_main\send_cancel.aspx" />
+    <Content Include="send_main\ShowAdmin.aspx" />
+    <Content Include="stock_main\franchiserStockShow.aspx" />
+    <Content Include="stock_main\receive.aspx" />
+    <Content Include="stock_main\ShowNoEdit.aspx" />
+    <Content Include="stock_main\StockExcel.aspx" />
+    <Content Include="stock_main\stockModifyLog.aspx" />
+    <Content Include="swf\1.swf" />
+    <Content Include="User_Login\AdminChgPswd.aspx" />
+    <Content Include="User_Login\AgreeProtol.aspx" />
+    <Content Include="User_Login\flogin.aspx" />
+    <Content Include="User_Login\FranChgPswd.aspx" />
+    <Content Include="User_Login\fverify.aspx" />
+    <Content Include="Web.Publish.xml" />
+    <Content Include="WebService1.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\Thumbs.db" />
+    <Content Include="bin\MySql.Data.dll" />
+    <Content Include="css\jquery.autocomplete.css" />
+    <Content Include="franchiser_money\Show.aspx" />
+    <Content Include="franchiser_trade\AdminExcel.aspx" />
+    <Content Include="franchiser_trade\FranExcel.aspx" />
+    <Content Include="PrecompiledApp.config" />
+    <Content Include="rl\skin\simple\bg.gif" />
+    <Content Include="rl\skin\simple\bg_calendar.gif" />
+    <Content Include="rl\skin\simple\datepicker.css" />
+    <Content Include="rl\skin\simple\down.jpg" />
+    <Content Include="rl\skin\simple\indexbg.gif" />
+    <Content Include="rl\skin\simple\left.gif" />
+    <Content Include="rl\skin\simple\navLeft.gif" />
+    <Content Include="rl\skin\simple\navRight.gif" />
+    <Content Include="rl\skin\simple\qs.jpg" />
+    <Content Include="rl\skin\simple\right.gif" />
+    <Content Include="rl\skin\simple\up.jpg" />
+    <Content Include="rl\skin\simple\ymbg.jpg" />
+    <Content Include="rl\skin\YcloudRed\bg.gif" />
+    <Content Include="rl\skin\YcloudRed\datepicker.css" />
+    <Content Include="rl\skin\YcloudRed\qs.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" Condition="" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4493</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
