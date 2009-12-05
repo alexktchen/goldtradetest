@@ -86,3 +86,14 @@ E:\Kuitar\myPrograms\GoldSys\DAL\bin\Debug\GoldTradeNaming.Model.pdb
 E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\ResolveAssemblyReference.cache
 E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\GoldTradeNaming.DAL.dll
 E:\Kuitar\myPrograms\GoldSys\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DAL.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\LTP.Common.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\MySql.Data.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.DBUtility.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\bin\Debug\GoldTradeNaming.Model.pdb
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\obj\Debug\ResolveAssemblyReference.cache
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.dll
+D:\Kuitar\goldtradetest\GoldTradeSystem\DAL\obj\Debug\GoldTradeNaming.DAL.pdb
