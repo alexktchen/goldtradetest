@@ -1,185 +1,178 @@
-﻿using System;
-using System.Data;
-using System.Text;
-using System.Data.SqlClient;
-using Maticsoft.DBUtility;
-using GoldTradeNaming.Model;
-using System.Collections.Generic;
 namespace GoldTradeNaming.DAL
 {
-    ///田杰更改，添加取得订单号及交易号的方法
-
-    /// <summary>
-    /// 
-    /// </summary>
-
+    using GoldTradeNaming.Model;
+    using Maticsoft.DBUtility;
+    using System;
+    using System.Data;
+    using System.Data.SqlClient;
+    using System.Text;
 
     public class CommBaseDAL
     {
-        public static DataSet GetStockReportData(string franname,string prdname, string dateS, string dateE)
-        {            
-            string sql = @"
-                   SELECT a.franchiser_name ,
-                    b.product_type_name,b.product_spec_weight,
-                    ordertoal = (SELECT SUM(c.order_product_amount) FROM franchiser_order_desc c,franchiser_order d
-                    WHERE c.franchiser_order_id = d.franchiser_order_id AND c.product_id = b.product_type_id AND c.product_spec_id=b.product_spec_weight 
-                    AND d.franchiser_code = a.franchiser_code AND d.franchiser_order_time >= @start_time AND d.franchiser_order_time<=@end_time
-                    ),
-                    tradetotal = (SELECT SUM(e.trade_amount) FROM franchiser_trade_desc e,franchiser_trade f
-                    WHERE e.trade_id = f.trade_id AND e.product_id = b.product_type_id AND e.product_spec_id = b.product_spec_weight AND f.franchiser_code=a.franchiser_code
-                     AND f.trade_time >= @start_time AND  f.trade_time<=@end_time),
-                    stock_total = (SELECT CAST(g.stock_total/g.product_spec_id AS INT) FROM stock_main g
-                    WHERE g.franchiser_code = a.franchiser_code AND g.product_id = b.product_type_id AND g.product_spec_id =b.product_spec_weight 
-                    ),
-                    stock_left = (SELECT CAST(h.stock_left/h.product_spec_id AS INT) FROM stock_main h 
-                    WHERE h.franchiser_code = a.franchiser_code AND h.product_id = b.product_type_id AND h.product_spec_id =b.product_spec_weight 
-                    )
-                    FROM product_type b ,franchiser_info a
-                    WHERE a.franchiser_name LIKE  @code AND b.product_type_name LIKE @prd_name 
-                    ORDER BY a.franchiser_code,b.product_type_id,b.product_spec_weight
-                    ";
-             SqlParameter[] parameters = {
-					new SqlParameter("@code", SqlDbType.VarChar,100),
-                    new SqlParameter("@prd_name",SqlDbType.VarChar,100),
-                    new SqlParameter("@start_time",SqlDbType.DateTime,20),
-                    new SqlParameter("@end_time",SqlDbType.DateTime,20)
-                     };
-             if (String.IsNullOrEmpty(franname)) parameters[0].Value = "%";
-             else parameters[0].Value = franname;
-             if (String.IsNullOrEmpty(prdname)) parameters[1].Value = "%";
-             else parameters[1].Value = prdname;
-             parameters[2].Value = String.IsNullOrEmpty(dateS) ? new DateTime(2000, 01, 01) : Convert.ToDateTime(dateS);
-             parameters[3].Value = String.IsNullOrEmpty(dateE) ? DateTime.MaxValue : Convert.ToDateTime(dateE).AddMonths(1);
-             return DbHelperSQL.Query(sql, parameters);
+        public static decimal GetAddMoneyTotal(int fran_id)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("SELECT SUM(franchiser_added_money) AS TotalMoney FROM franchiser_money");
+            strSql.Append(" where franchiser_code=@franchiser_code ");
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franchiser_code", SqlDbType.Int, 2) };
+            parameters[0].Value = fran_id;
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if ((ds.Tables.Count > 0) && (ds.Tables[0].Rows.Count > 0))
+            {
+                return Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+            }
+            return 0.00M;
         }
 
-
-
-        public static DataSet GetReportData(string franId, string dateS, string dateE)
+        public static decimal GetBalance(int franID)
         {
-            string sql = @"
-SELECT a.franchiser_name ,a.franchiser_balance_money,
-moneytotal = (SELECT SUM(b.franchiser_added_money) FROM franchiser_money b 
-	WHERE a.franchiser_code = b.franchiser_code AND b.added_time >= @start_time AND b.added_time<=@end_time),
-ordertotal = (SELECT SUM(c.franchiser_order_amount_money) FROM franchiser_order c 
-	WHERE a.franchiser_code = c.franchiser_code  AND c.franchiser_order_time >= @start_time AND c.franchiser_order_time<=@end_time),
-tradetotal = (SELECT SUM(d.trade_total_money) FROM franchiser_trade d 
-	WHERE a.franchiser_code = d.franchiser_code  AND d.trade_time >= @start_time AND  d.trade_time<=@end_time)
-FROM franchiser_info a WHERE a.franchiser_code like  @code";
-
-            SqlParameter[] parameters = {
-					new SqlParameter("@code", SqlDbType.VarChar,20),
-                    new SqlParameter("@start_time",SqlDbType.DateTime,20),
-                    new SqlParameter("@end_time",SqlDbType.DateTime,20)
-                                         };
-            if (String.IsNullOrEmpty(franId)) parameters[0].Value = "%";
-            else parameters[0].Value = franId;
-            parameters[1].Value = String.IsNullOrEmpty(dateS)?new DateTime(2000,01,01):Convert.ToDateTime(dateS);
-            parameters[2].Value = String.IsNullOrEmpty(dateE)?DateTime.MaxValue:Convert.ToDateTime(dateE).AddMonths(1);
-            return DbHelperSQL.Query(sql, parameters);
+            decimal Balance = 0.00M;
+            GoldTradeNaming.Model.franchiser_info franinfo = GetModel(franID);
+            Balance = franinfo.franchiser_balance_money - franinfo.franchiser_asure_money;
+            Balance -= GetStockBalance(franID);
+            Balance -= GetUnreceivedBalance(franID);
+            return (Balance - GetHasSendButUnreceivedBalance(franID));
         }
 
-
-
-        public static int GetNextOrderId()
+        public DataSet getCurrentPrice()
         {
-            int nextorderid = DbHelperSQL.GetMaxID("franchiser_order_id", "franchiser_order");
-            if (nextorderid != 1) nextorderid %= 10000;
-            nextorderid = nextorderid/10 + 1;
-            nextorderid = (DateTime.Now.Year - 2000) * 100000000 + DateTime.Now.Month * 1000000 + DateTime.Now.Day * 10000 + nextorderid*10 ;
-            return nextorderid;
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select realtime_base_price,realtime_time,sys_admin_id from realtime_price");
+            strSql.Append(" where [id] in (select max([id]) as [id] from  realtime_price)");
+            return DbHelperSQL.Query(strSql.ToString());
         }
 
-        public static int GetNextTradeId()
+        public decimal GetGoldNoReceiveValue(string sFranchiser_code)
         {
-            int nextorderid = DbHelperSQL.GetMaxID("trade_id", "franchiser_trade");
-            if (nextorderid != 1) nextorderid %= 1000;
-            nextorderid = nextorderid / 10 + 1;
-            nextorderid = (DateTime.Now.Year - 2000) * 100000000 + DateTime.Now.Month * 1000000 + DateTime.Now.Day * 10000 + nextorderid * 10+1;
-            return nextorderid;
-        }
-
-        /// <summary>
-        /// 获得产品的类型：黄金/白银
-        /// </summary>
-        /// <param name="type_id">产品类别ID</param>
-        /// <returns></returns>
-        public static string GetProductTypeById(string type_id)
-        {
-            string type = null;
-            StringBuilder strQuery = new StringBuilder();
+            decimal i = 0M;
             try
             {
-                strQuery.Append("select type ");
-                strQuery.Append(" FROM product_type ");
-                strQuery.Append("WHERE product_type_id=@type_id");
-                SqlParameter[] parameters = {
-					new SqlParameter("@type_id", SqlDbType.Int)};
-                parameters[0].Value = type_id;
-                DataSet dt = DbHelperSQL.Query(strQuery.ToString(), parameters);
-                if (dt != null && dt.Tables.Count > 0 & dt.Tables[0].Rows.Count > 0)
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format("select sum( a.[count]*(b.trade_add_price+c.realtime_base_price)) as goldValue  from \r\n                                            (\r\n                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc\r\n                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') \r\n                                                and franchiser_code=@franchiser_code) \r\n                                                and product_id in (select product_type_id from product_type where type='0')\r\n                                                group by franchiser_order_id,product_id ,product_spec_id\r\n                                            ) a, product_type b,realtime_price c where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight   and c.[id]=(select max([id]) from realtime_price)", new object[0]);
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franchiser_code", SqlDbType.Int, 2) };
+                parameters[0].Value = franchiser_code;
+                i = Convert.ToDecimal(DbHelperSQL.Query(strSql.ToString(), parameters).Tables[0].Rows[0][0].ToString().Trim());
+            }
+            catch
+            {
+            }
+            return i;
+        }
+
+        public decimal GetGoldStockValue(string sFranchiser_code)
+        {
+            decimal i = 0M;
+            try
+            {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format("select sum((c.realtime_base_price+a.trade_add_price)*b.stock_left) as goldValue \r\n                                                from realtime_price c, product_type a,stock_main b\r\n                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) \r\n                                                and a.type='0' and b.franchiser_code =@franchiser_code\r\n                                                and c.[id]=(select max([id]) as [id] from realtime_price) ", new object[0]);
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franchiser_code", SqlDbType.Int, 2) };
+                parameters[0].Value = franchiser_code;
+                i = Convert.ToDecimal(DbHelperSQL.Query(strSql.ToString(), parameters).Tables[0].Rows[0][0].ToString().Trim());
+            }
+            catch
+            {
+            }
+            return i;
+        }
+
+        private static decimal GetHasSendButUnreceivedBalance(int franID)
+        {
+            decimal unreceivedbalance = 0.00M;
+            try
+            {
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("\r\n              select sum(\r\n\r\n         a.[count]*(b.order_add_price+ c.realtime_base_price)) as goldvalue \r\n        from \r\n        ( \r\n\r\n         select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] \r\n         from send_desc\r\n         where send_id \r\n           in (select send_id from send_main\r\n         \twhere send_state='0'\r\n         \tand franchiser_order_id \r\n\t\t\tin (select franchiser_order_id from franchiser_order where franchiser_code = @franID) --@franID\r\n              ) \r\n         and product_id \r\n         in (select product_type_id from product_type where type='0') --黄金\r\n         group by send_id,product_id ,product_spec_id\r\n\r\n        ) a \r\n        ,product_type b ,realtime_price c\r\n         where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)\r\n                ");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
+                parameters[0].Value = franID;
+                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                strSql = new StringBuilder();
+                strSql.Append("\r\n        select sum( a.[count]*b.order_add_price) as silverValue from \r\n        (\r\n        select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] \r\n\tfrom send_desc\r\n        where send_id in \r\n             (select send_id from send_main \r\n\t      where send_state='0' \r\n              and franchiser_order_id\r\n\t\t  in (select franchiser_order_id from franchiser_order where franchiser_code = @franID)--@franID\r\n\t     )\r\n        and product_id \r\n\tin (select product_type_id from product_type where type='1') --白银\r\n        group by send_id,product_id,product_spec_id \r\n         ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight \r\n");
+                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                if ((goldSet.Tables.Count > 0) && (goldSet.Tables[0].Rows.Count > 0))
                 {
-                    type = dt.Tables[0].Rows[0][0].ToString();
+                    try
+                    {
+                        unreceivedbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
+                    }
+                    catch
+                    {
+                        unreceivedbalance = unreceivedbalance;
+                    }
+                }
+                if ((silverSet.Tables.Count <= 0) || (silverSet.Tables[0].Rows.Count <= 0))
+                {
+                    return unreceivedbalance;
+                }
+                try
+                {
+                    unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+                    unreceivedbalance = unreceivedbalance;
                 }
             }
             catch
             {
-                throw;
+                unreceivedbalance = 0.00M;
             }
-            return type;
+            return unreceivedbalance;
         }
 
-        /// <summary>
-        /// 查询某经销商的订货总额
-        /// </summary>
-        /// <param name="franid">经销商编号</param>
-        /// <returns></returns>
-        public static decimal GetOrderSumByFranId(int franid)
+        private static decimal GetHasSendButUnreceivedBalanceForTrade(int franID)
         {
-            decimal OrderSum = 0.00M;
-            string sql = "SELECT SUM(franchiser_order_amount_money) FROM franchiser_order WHERE franchiser_code = @franID";
-            SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
-            parameters[0].Value = franid;
-            DataSet ds = DbHelperSQL.Query(sql,parameters);
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+            decimal unreceivedbalance = 0.00M;
+            try
             {
-                OrderSum = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("\r\n              select sum(\r\n\r\n         a.[count]*(b.trade_add_price+ c.realtime_base_price)) as goldvalue \r\n        from \r\n        ( \r\n\r\n         select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] \r\n         from send_desc\r\n         where send_id \r\n           in (select send_id from send_main\r\n         \twhere send_state='0'\r\n         \tand franchiser_order_id \r\n\t\t\tin (select franchiser_order_id from franchiser_order where franchiser_code = @franID) --@franID\r\n              ) \r\n         and product_id \r\n         in (select product_type_id from product_type where type='0') --黄金\r\n         group by send_id,product_id ,product_spec_id\r\n\r\n        ) a \r\n        ,product_type b ,realtime_price c\r\n         where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)\r\n                ");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
+                parameters[0].Value = franID;
+                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                strSql = new StringBuilder();
+                strSql.Append("\r\n        select sum( a.[count]*b.trade_add_price) as silverValue from \r\n        (\r\n        select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] \r\n\tfrom send_desc\r\n        where send_id in \r\n             (select send_id from send_main \r\n\t      where send_state='0' \r\n              and franchiser_order_id\r\n\t\t  in (select franchiser_order_id from franchiser_order where franchiser_code = @franID)--@franID\r\n\t     )\r\n        and product_id \r\n\tin (select product_type_id from product_type where type='1') --白银\r\n        group by send_id,product_id,product_spec_id \r\n         ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight \r\n");
+                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                if ((goldSet.Tables.Count > 0) && (goldSet.Tables[0].Rows.Count > 0))
+                {
+                    try
+                    {
+                        unreceivedbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
+                    }
+                    catch
+                    {
+                        unreceivedbalance = unreceivedbalance;
+                    }
+                }
+                if ((silverSet.Tables.Count <= 0) || (silverSet.Tables[0].Rows.Count <= 0))
+                {
+                    return unreceivedbalance;
+                }
+                try
+                {
+                    unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+                    unreceivedbalance = unreceivedbalance;
+                }
             }
-            return OrderSum;
+            catch
+            {
+                unreceivedbalance = 0.00M;
+            }
+            return unreceivedbalance;
         }
 
-        /// <summary>
-        /// 查询某经销商的交易总额
-        /// </summary>
-        /// <param name="franid">经销商编号</param>
-        /// <returns></returns>
-        public static decimal GetTradeSumByFranId(int franid)
+        public DataSet GetLeftStock(string franchiser_code)
         {
-            decimal TradeSum = 0.00M;
-            string sql = "SELECT SUM(trade_total_money) FROM franchiser_trade WHERE franchiser_code = @franID";
-            SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
-            parameters[0].Value = franid;
-            DataSet ds = DbHelperSQL.Query(sql, parameters);
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            {
-                TradeSum = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
-            }
-            return TradeSum;
+            return DbHelperSQL.Query(string.Format("select sum(stock_left) as stock_left from stock_main where franchiser_code=N'" + franchiser_code + "'", new object[0]).ToString());
         }
 
-        /// <summary>
-        /// 获得数据列表
-        /// </summary>
         public DataSet GetList(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"select franchiser_order_id,franchiser_code,franchiser_order_trans_type,
-franchiser_order_address,franchiser_order_postcode,franchiser_order_handle_man,
-franchiser_order_handle_tel,franchiser_order_handle_phone,franchiser_order_price,
-franchiser_order_time,franchiser_order_state,franchiser_order_amount_money,
-canceled_reason,ins_user,ins_date,upd_user,upd_date ");
+            strSql.Append("select franchiser_order_id,franchiser_code,franchiser_order_trans_type,\r\nfranchiser_order_address,franchiser_order_postcode,franchiser_order_handle_man,\r\nfranchiser_order_handle_tel,franchiser_order_handle_phone,franchiser_order_price,\r\nfranchiser_order_time,franchiser_order_state,franchiser_order_amount_money,\r\ncanceled_reason,ins_user,ins_date,upd_user,upd_date ");
             strSql.Append(" FROM franchiser_order ");
             if (strWhere.Trim() != "")
             {
@@ -188,338 +181,13 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
             return DbHelperSQL.Query(strSql.ToString());
         }
 
-        /// <summary> 
-        /// 库存中重量 by yuxiaowei
-        /// </summary>
-        /// <param name="franchiser_code"></param>
-        /// <returns></returns>
-        public DataSet GetLeftStock(string franchiser_code)
-        {
-            string strSql = string.Format("select sum(stock_left) as stock_left from stock_main where franchiser_code=N'" + franchiser_code + "'");
-            return DbHelperSQL.Query(strSql.ToString());
-        }
-
-        /// <summary>
-        /// 获得已定货但未收货的总重量 by yuxiaowei
-        /// </summary>
-        /// <returns></returns>
-        public DataSet GetSumNoReceive(string franchiser_code)
-        {
-            string strSql = string.Format(@"select isnull(sum(product_unreceived),'0') as [sum] 
-                                            from franchiser_order_desc 
-                                            where franchiser_order_id in (select franchiser_order_id from franchiser_order 
-                                            where franchiser_code=N'" + franchiser_code
-                                            + "' and (franchiser_order_state='0' or franchiser_order_state='2'))");
-            return DbHelperSQL.Query(strSql.ToString());
-        }
-
-        /// <summary>
-        /// 获得当前实时金价信息
-        /// </summary>
-        public DataSet getCurrentPrice()
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("select realtime_base_price,realtime_time,sys_admin_id from realtime_price");
-            strSql.Append(" where [id] in (select max([id]) as [id] from  realtime_price)");
-
-            return DbHelperSQL.Query(strSql.ToString());
-        }
-
-        /// <summary>
-        /// 获得当前实时金价
-        /// </summary>
-        public static decimal getRealTimePrice()
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("select realtime_base_price from realtime_price");
-            strSql.Append(" where [id] in (select max([id]) as [id] from  realtime_price)");
-
-            DataSet ds =  DbHelperSQL.Query(strSql.ToString());
-
-            return Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
-        }
-
-        /// <summary>
-        /// 获得定货可用余额
-        /// </summary>
-        /// <param name="franID"></param>
-        public static decimal GetBalance(int franID)
-        {
-            decimal Balance = 0.00M;
-            GoldTradeNaming.Model.franchiser_info franinfo = GetModel(franID);
-            Balance = franinfo.franchiser_balance_money - franinfo.franchiser_asure_money;
-            Balance -= GetStockBalance(franID);
-            Balance -= GetUnreceivedBalance(franID);
-            Balance -= GetHasSendButUnreceivedBalance(franID);
-            return Balance;
-        }
-
-        /// <summary>
-        /// 获得点价可用余额
-        /// </summary>
-        /// <param name="franID"></param>
-        public static decimal GetTradeBalance(int franID)
-        {
-            decimal Balance = 0.00M;
-            GoldTradeNaming.Model.franchiser_info franinfo = GetModel(franID);
-            Balance = franinfo.franchiser_balance_money - franinfo.franchiser_asure_money;
-            Balance -= GetStockBalanceForTrade(franID);
-            Balance -= GetUnreceivedBalanceForTrade(franID);
-            Balance -= GetHasSendButUnreceivedBalanceForTrade(franID);
-            return Balance;
-        }
-
-        /// <summary>
-        /// 获得库存剩余价值
-        /// </summary>
-        /// <param name="franID"></param>
-        /// <returns></returns>
-        private static decimal GetStockBalance(int franID)
-        {
-            decimal stockbalance = 0.00M;
-            try
-            {
-                StringBuilder strSql = new StringBuilder();
-                strSql.Append(@"select SUM((c.realtime_base_price+a.order_add_price)*b.stock_left) as goldValue 
-                            from realtime_price c, product_type a,stock_main b
-                            where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
-                            and a.type='0' and b.franchiser_code =@franID
-                            and c.[id]=(select max([id]) as [id] from realtime_price)");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
-                parameters[0].Value = franID;
-                ///黄金剩余产品总价值
-                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                strSql = new StringBuilder();
-                strSql.Append(@"select total_money = SUM(s.stock_left*p.order_add_price)
-                         from stock_main s,product_type p 
-                        where s.product_id = p.product_type_id and s.product_spec_id = p.product_spec_weight and p.type='1' 
-                        and franchiser_code = @franID");
-                ///白银剩余产品总价值
-                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                if (goldSet.Tables.Count > 0 && goldSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        stockbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        stockbalance += 0;
-                    }
-                }
-                if (silverSet.Tables.Count > 0 && silverSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        stockbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        stockbalance += 0;
-                    }
-                }
-            }
-            catch
-            {
-                stockbalance = 0.00M;
-            }
-            return stockbalance;
-        }
-
-        /// <summary>
-        /// 获得已订货未发货的价值
-        /// </summary>
-        /// <param name="franID"></param>
-        /// <returns></returns>
-        private static decimal GetUnreceivedBalance(int franID)
-        {
-            decimal unreceivedbalance = 0.00M;
-            try
-            {
-                ///黄金已订货未发货产品总价值
-                StringBuilder strSql = new StringBuilder();
-                strSql.Append(@"
-            select sum(
-
-             a.[count]*(b.order_add_price+ c.realtime_base_price)) as goldvalue 
-            from 
-            ( 
-
-            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) 
-             as [count] from franchiser_order_desc
-             where franchiser_order_id 
-             in (select franchiser_order_id from franchiser_order
-             where (franchiser_order_state='1' or franchiser_order_state='0')
-             and franchiser_code=@franID) 
-             and product_id 
-             in (select product_type_id from product_type where type='0')
-             group by franchiser_order_id,product_id ,product_spec_id
-
-            ) a 
-            ,product_type b ,realtime_price c
-             where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)
-                    ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
-                parameters[0].Value = franID;
-                
-                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                ///白银已订货未发货产品总价值
-                strSql = new StringBuilder();
-                strSql.Append(@"select sum( a.[count]*b.order_add_price) as silverValue from 
-                            (
-                            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) as [count] from franchiser_order_desc
-                            where franchiser_order_id in 
-                            (select franchiser_order_id from franchiser_order where  
-                            (franchiser_order_state='1' or franchiser_order_state='0') 
-                             and franchiser_code=@franID) 
-                            and product_id in (select product_type_id from product_type where type='1')
-                            group by franchiser_order_id,product_id,product_spec_id 
-                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
-                
-                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                if (goldSet.Tables.Count > 0 && goldSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
-                }
-                if (silverSet.Tables.Count > 0 && silverSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
-                }
-            }
-            catch
-            {
-                unreceivedbalance = 0.00M;
-            }
-            return unreceivedbalance;
-
-        }
-        
-        /// <summary>
-        /// 获得已发货未收货的价值
-        /// </summary>
-        /// <param name="franID"></param>
-        /// <returns></returns>
-        private static decimal GetHasSendButUnreceivedBalance(int franID)
-        {
-            decimal unreceivedbalance = 0.00M;
-            try
-            {
-                ///黄金已发货未收货产品总价值
-                StringBuilder strSql = new StringBuilder();
-                strSql.Append(@"
-              select sum(
-
-         a.[count]*(b.order_add_price+ c.realtime_base_price)) as goldvalue 
-        from 
-        ( 
-
-         select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] 
-         from send_desc
-         where send_id 
-           in (select send_id from send_main
-         	where send_state='0'
-         	and franchiser_order_id 
-			in (select franchiser_order_id from franchiser_order where franchiser_code = @franID) --@franID
-              ) 
-         and product_id 
-         in (select product_type_id from product_type where type='0') --黄金
-         group by send_id,product_id ,product_spec_id
-
-        ) a 
-        ,product_type b ,realtime_price c
-         where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)
-                ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
-                parameters[0].Value = franID;
-
-                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                ///白银已发货未收货产品总价值
-                strSql = new StringBuilder();
-                strSql.Append(@"
-        select sum( a.[count]*b.order_add_price) as silverValue from 
-        (
-        select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] 
-	from send_desc
-        where send_id in 
-             (select send_id from send_main 
-	      where send_state='0' 
-              and franchiser_order_id
-		  in (select franchiser_order_id from franchiser_order where franchiser_code = @franID)--@franID
-	     )
-        and product_id 
-	in (select product_type_id from product_type where type='1') --白银
-        group by send_id,product_id,product_spec_id 
-         ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight 
-");
-
-                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                if (goldSet.Tables.Count > 0 && goldSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
-                }
-                if (silverSet.Tables.Count > 0 && silverSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
-                }
-            }
-            catch
-            {
-                unreceivedbalance = 0.00M;
-            }
-            return unreceivedbalance;
-
-        }
-        
-        /// <summary>
-        /// 得到经销商信息
-        /// </summary>
         public static GoldTradeNaming.Model.franchiser_info GetModel(int franchiser_code)
         {
-
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 franchiser_code,franchiser_name,franchiser_balance_money,franchiser_asure_money,franchiser_tel,franchiser_cellphone,franchiser_address,ins_user,ins_date,upd_user,upd_date,IA100GUID from franchiser_info ");
             strSql.Append(" where franchiser_code=@franchiser_code ");
-            SqlParameter[] parameters = {
-					new SqlParameter("@franchiser_code", SqlDbType.SmallInt)};
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franchiser_code", SqlDbType.SmallInt) };
             parameters[0].Value = franchiser_code;
-
             GoldTradeNaming.Model.franchiser_info model = new GoldTradeNaming.Model.franchiser_info();
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
             if (ds.Tables[0].Rows.Count > 0)
@@ -556,82 +224,150 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
                 }
                 return model;
             }
-            else
-            {
-                return null;
-            }
+            return null;
         }
 
-        /// <summary>
-        /// 查询某经销商的入帐总额
-        /// </summary>
-        /// <param name="fran_id"></param>
-        /// <returns></returns>
-        public static decimal GetAddMoneyTotal(int fran_id)
+        public static int GetNextOrderId()
+        {
+            int nextorderid = DbHelperSQL.GetMaxID("franchiser_order_id", "franchiser_order");
+            if (nextorderid != 1)
+            {
+                nextorderid = nextorderid % 0x2710;
+            }
+            nextorderid = (nextorderid / 10) + 1;
+            return (((((DateTime.Now.Year - 0x7d0) * 0x5f5e100) + (DateTime.Now.Month * 0xf4240)) + (DateTime.Now.Day * 0x2710)) + (nextorderid * 10));
+        }
+
+        public static int GetNextTradeId()
+        {
+            int nextorderid = DbHelperSQL.GetMaxID("trade_id", "franchiser_trade");
+            if (nextorderid != 1)
+            {
+                nextorderid = nextorderid % 0x3e8;
+            }
+            nextorderid = (nextorderid / 10) + 1;
+            return ((((((DateTime.Now.Year - 0x7d0) * 0x5f5e100) + (DateTime.Now.Month * 0xf4240)) + (DateTime.Now.Day * 0x2710)) + (nextorderid * 10)) + 1);
+        }
+
+        public static decimal GetOrderSumByFranId(int franid)
+        {
+            decimal OrderSum = 0.00M;
+            string sql = "SELECT SUM(franchiser_order_amount_money) FROM franchiser_order WHERE franchiser_code = @franID";
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
+            parameters[0].Value = franid;
+            DataSet ds = DbHelperSQL.Query(sql, parameters);
+            if (((ds != null) && (ds.Tables.Count > 0)) && (ds.Tables[0].Rows.Count > 0))
+            {
+                OrderSum = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+            }
+            return OrderSum;
+        }
+
+        public static string GetProductTypeById(string type_id)
+        {
+            string type = null;
+            StringBuilder strQuery = new StringBuilder();
+            try
+            {
+                strQuery.Append("select type ");
+                strQuery.Append(" FROM product_type ");
+                strQuery.Append("WHERE product_type_id=@type_id");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@type_id", SqlDbType.Int) };
+                parameters[0].Value = type_id;
+                DataSet dt = DbHelperSQL.Query(strQuery.ToString(), parameters);
+                if ((dt != null) && ((dt.Tables.Count > 0) & (dt.Tables[0].Rows.Count > 0)))
+                {
+                    type = dt.Tables[0].Rows[0][0].ToString();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            return type;
+        }
+
+        public static decimal getRealTimePrice()
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append(@"SELECT SUM(franchiser_added_money) AS TotalMoney FROM franchiser_money");
-            strSql.Append(" where franchiser_code=@franchiser_code ");
-            SqlParameter[] parameters = {
-					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
-            parameters[0].Value = fran_id;
-
-            DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
-            if (ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
-            {
-                return Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
-            }
-            return 0.00M;
+            strSql.Append("select realtime_base_price from realtime_price");
+            strSql.Append(" where [id] in (select max([id]) as [id] from  realtime_price)");
+            return Convert.ToDecimal(DbHelperSQL.Query(strSql.ToString()).Tables[0].Rows[0][0]);
         }
 
-        /// <summary>
-        /// 判断管理员是否具有某模块的操作权限
-        /// </summary>
-        /// <param name="sys_admin_id"></param>
-        /// <param name="modelID"></param>
-        /// <returns></returns>
-        public static bool HasRight(int sys_admin_id, string modelID)
+        public static DataSet GetReportData(string franId, string dateS, string dateE, string franName)
         {
-            string strSql = string.Format(@"select * from sys_admin_authority where
-                                            sys_admin_id='{0}' and sys_module='{1}'",
-                                           sys_admin_id, modelID);
-
-            return DbHelperSQL.Exists(strSql.ToString());
+            string sql = "\r\nSELECT a.franchiser_name ,a.franchiser_balance_money,\r\nmoneytotal = (SELECT SUM(b.franchiser_added_money) FROM franchiser_money b \r\n\tWHERE a.franchiser_code = b.franchiser_code AND b.added_time >= @start_time AND b.added_time<=@end_time),\r\nordertotal = (SELECT SUM(c.franchiser_order_amount_money) FROM franchiser_order c \r\n\tWHERE a.franchiser_code = c.franchiser_code  AND c.franchiser_order_time >= @start_time AND c.franchiser_order_time<=@end_time),\r\ntradetotal = (SELECT SUM(d.trade_total_money) FROM franchiser_trade d \r\n\tWHERE a.franchiser_code = d.franchiser_code  AND d.trade_time >= @start_time AND  d.trade_time<=@end_time)\r\nFROM franchiser_info a WHERE a.franchiser_code like  @code AND a.franchiser_name like @name ";
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@code", SqlDbType.VarChar, 20), new SqlParameter("@start_time", SqlDbType.DateTime, 20), new SqlParameter("@end_time", SqlDbType.DateTime, 20), new SqlParameter("@name", SqlDbType.VarChar, 100) };
+            if (string.IsNullOrEmpty(franId))
+            {
+                parameters[0].Value = "%";
+            }
+            else
+            {
+                parameters[0].Value = franId;
+            }
+            parameters[1].Value = string.IsNullOrEmpty(dateS) ? new DateTime(0x7d0, 1, 1) : Convert.ToDateTime(dateS);
+            parameters[2].Value = string.IsNullOrEmpty(dateE) ? DateTime.MaxValue : Convert.ToDateTime(dateE).AddMonths(1);
+            if (string.IsNullOrEmpty(franName))
+            {
+                parameters[3].Value = "%";
+            }
+            else
+            {
+                parameters[3].Value = franName;
+            }
+            return DbHelperSQL.Query(sql, parameters);
         }
 
+        public decimal GetSilverNoReceiveValue(string sFranchiser_code)
+        {
+            decimal i = 0M;
+            try
+            {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format("select sum( a.[count]*b.trade_add_price) as silverValue from \r\n                                            (\r\n                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc\r\n                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') \r\n                                                and franchiser_code=@franchiser_code) \r\n                                                and product_id in (select product_type_id from product_type where type='1')\r\n                                                group by franchiser_order_id,product_id ,product_spec_id\r\n                                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ", new object[0]);
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franchiser_code", SqlDbType.Int, 2) };
+                parameters[0].Value = franchiser_code;
+                i = Convert.ToDecimal(DbHelperSQL.Query(strSql.ToString(), parameters).Tables[0].Rows[0][0].ToString().Trim());
+            }
+            catch
+            {
+            }
+            return i;
+        }
 
-        #region 点价余额计算
-        /// <summary>
-        /// 获得库存剩余价值
-        /// </summary>
-        /// <param name="franID"></param>
-        /// <returns></returns>
-        private static decimal GetStockBalanceForTrade(int franID)
+        public decimal GetSilverStockValue(string sFranchiser_code)
+        {
+            decimal i = 0M;
+            try
+            {
+                int franchiser_code = Convert.ToInt32(sFranchiser_code);
+                string strSql = string.Format("select sum(a.trade_add_price*b.stock_left) as silverValue \r\n                                                from product_type a,stock_main b\r\n                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) \r\n                                                and a.type='1' and b.franchiser_code =@franchiser_code ", new object[0]);
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franchiser_code", SqlDbType.Int, 2) };
+                parameters[0].Value = franchiser_code;
+                i = Convert.ToDecimal(DbHelperSQL.Query(strSql.ToString(), parameters).Tables[0].Rows[0][0].ToString().Trim());
+            }
+            catch
+            {
+            }
+            return i;
+        }
+
+        private static decimal GetStockBalance(int franID)
         {
             decimal stockbalance = 0.00M;
             try
             {
                 StringBuilder strSql = new StringBuilder();
-                strSql.Append(@"select SUM((c.realtime_base_price+a.trade_add_price)*b.stock_left) as goldValue 
-                            from realtime_price c, product_type a,stock_main b
-                            where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
-                            and a.type='0' and b.franchiser_code =@franID
-                            and c.[id]=(select max([id]) as [id] from realtime_price)");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
+                strSql.Append("select SUM((c.realtime_base_price+a.order_add_price)*b.stock_left) as goldValue \r\n                            from realtime_price c, product_type a,stock_main b\r\n                            where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) \r\n                            and a.type='0' and b.franchiser_code =@franID\r\n                            and c.[id]=(select max([id]) as [id] from realtime_price)");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
                 parameters[0].Value = franID;
-                ///黄金剩余产品总价值
                 DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
                 strSql = new StringBuilder();
-                strSql.Append(@"select total_money = SUM(s.stock_left*p.trade_add_price)
-                         from stock_main s,product_type p 
-                        where s.product_id = p.product_type_id and s.product_spec_id = p.product_spec_weight and p.type='1' 
-                        and franchiser_code = @franID");
-                ///白银剩余产品总价值
+                strSql.Append("select total_money = SUM(s.stock_left*p.order_add_price)\r\n                         from stock_main s,product_type p \r\n                        where s.product_id = p.product_type_id and s.product_spec_id = p.product_spec_weight and p.type='1' \r\n                        and franchiser_code = @franID");
                 DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                if (goldSet.Tables.Count > 0 && goldSet.Tables[0].Rows.Count > 0)
+                if ((goldSet.Tables.Count > 0) && (goldSet.Tables[0].Rows.Count > 0))
                 {
                     try
                     {
@@ -639,19 +375,20 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
                     }
                     catch
                     {
-                        stockbalance += 0;
+                        stockbalance = stockbalance;
                     }
                 }
-                if (silverSet.Tables.Count > 0 && silverSet.Tables[0].Rows.Count > 0)
+                if ((silverSet.Tables.Count <= 0) || (silverSet.Tables[0].Rows.Count <= 0))
                 {
-                    try
-                    {
-                        stockbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        stockbalance += 0;
-                    }
+                    return stockbalance;
+                }
+                try
+                {
+                    stockbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+                    stockbalance = stockbalance;
                 }
             }
             catch
@@ -661,61 +398,162 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
             return stockbalance;
         }
 
-        /// <summary>
-        /// 获得已订货未发货的价值
-        /// </summary>
-        /// <param name="franID"></param>
-        /// <returns></returns>
+        private static decimal GetStockBalanceForTrade(int franID)
+        {
+            decimal stockbalance = 0.00M;
+            try
+            {
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("select SUM((c.realtime_base_price+a.trade_add_price)*b.stock_left) as goldValue \r\n                            from realtime_price c, product_type a,stock_main b\r\n                            where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) \r\n                            and a.type='0' and b.franchiser_code =@franID\r\n                            and c.[id]=(select max([id]) as [id] from realtime_price)");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
+                parameters[0].Value = franID;
+                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                strSql = new StringBuilder();
+                strSql.Append("select total_money = SUM(s.stock_left*p.trade_add_price)\r\n                         from stock_main s,product_type p \r\n                        where s.product_id = p.product_type_id and s.product_spec_id = p.product_spec_weight and p.type='1' \r\n                        and franchiser_code = @franID");
+                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                if ((goldSet.Tables.Count > 0) && (goldSet.Tables[0].Rows.Count > 0))
+                {
+                    try
+                    {
+                        stockbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
+                    }
+                    catch
+                    {
+                        stockbalance = stockbalance;
+                    }
+                }
+                if ((silverSet.Tables.Count <= 0) || (silverSet.Tables[0].Rows.Count <= 0))
+                {
+                    return stockbalance;
+                }
+                try
+                {
+                    stockbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+                    stockbalance = stockbalance;
+                }
+            }
+            catch
+            {
+                stockbalance = 0.00M;
+            }
+            return stockbalance;
+        }
+
+        public static DataSet GetStockReportData(string franname, string prdname, string dateS, string dateE)
+        {
+            string sql = "\r\n                   SELECT * FROM (\r\n SELECT a.franchiser_name ,\r\n                    b.product_type_name,b.product_spec_weight,\r\n                    ordertoal = (SELECT SUM(c.order_product_amount) FROM franchiser_order_desc c,franchiser_order d\r\n                    WHERE c.franchiser_order_id = d.franchiser_order_id AND c.product_id = b.product_type_id AND c.product_spec_id=b.product_spec_weight \r\n                    AND d.franchiser_code = a.franchiser_code AND d.franchiser_order_time >= @start_time AND d.franchiser_order_time<=@end_time\r\n                    ),\r\n                    tradetotal = (SELECT SUM(e.trade_amount) FROM franchiser_trade_desc e,franchiser_trade f\r\n                    WHERE e.trade_id = f.trade_id AND e.product_id = b.product_type_id AND e.product_spec_id = b.product_spec_weight AND f.franchiser_code=a.franchiser_code\r\n                     AND f.trade_time >= @start_time AND  f.trade_time<=@end_time),\r\n                    stock_total = (SELECT CAST(g.stock_total/g.product_spec_id AS INT) FROM stock_main g\r\n                    WHERE g.franchiser_code = a.franchiser_code AND g.product_id = b.product_type_id AND g.product_spec_id =b.product_spec_weight \r\n                    ),\r\n                    stock_left = (SELECT CAST(h.stock_left/h.product_spec_id AS INT) FROM stock_main h \r\n                    WHERE h.franchiser_code = a.franchiser_code AND h.product_id = b.product_type_id AND h.product_spec_id =b.product_spec_weight \r\n                    )\r\n                    FROM product_type b ,franchiser_info a\r\n                    WHERE a.franchiser_name LIKE  @code AND b.product_type_name LIKE @prd_name \r\n                   \r\n) AS TBL\r\n WHERE ordertoal>0 OR tradetotal>0 OR stock_left>0 \r\nORDER BY franchiser_name,product_type_name,product_spec_weight\r\n                    ";
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@code", SqlDbType.VarChar, 100), new SqlParameter("@prd_name", SqlDbType.VarChar, 100), new SqlParameter("@start_time", SqlDbType.DateTime, 20), new SqlParameter("@end_time", SqlDbType.DateTime, 20) };
+            if (string.IsNullOrEmpty(franname))
+            {
+                parameters[0].Value = "%";
+            }
+            else
+            {
+                parameters[0].Value = franname;
+            }
+            if (string.IsNullOrEmpty(prdname))
+            {
+                parameters[1].Value = "%";
+            }
+            else
+            {
+                parameters[1].Value = prdname;
+            }
+            parameters[2].Value = string.IsNullOrEmpty(dateS) ? new DateTime(0x7d0, 1, 1) : Convert.ToDateTime(dateS);
+            parameters[3].Value = string.IsNullOrEmpty(dateE) ? DateTime.MaxValue : Convert.ToDateTime(dateE).AddMonths(1);
+            return DbHelperSQL.Query(sql, parameters);
+        }
+
+        public DataSet GetSumNoReceive(string franchiser_code)
+        {
+            return DbHelperSQL.Query(string.Format("select isnull(sum(product_unreceived),'0') as [sum] \r\n                                            from franchiser_order_desc \r\n                                            where franchiser_order_id in (select franchiser_order_id from franchiser_order \r\n                                            where franchiser_code=N'" + franchiser_code + "' and (franchiser_order_state='0' or franchiser_order_state='2'))", new object[0]).ToString());
+        }
+
+        public static decimal GetTradeBalance(int franID)
+        {
+            decimal Balance = 0.00M;
+            GoldTradeNaming.Model.franchiser_info franinfo = GetModel(franID);
+            Balance = franinfo.franchiser_balance_money - franinfo.franchiser_asure_money;
+            Balance -= GetStockBalanceForTrade(franID);
+            Balance -= GetUnreceivedBalanceForTrade(franID);
+            return (Balance - GetHasSendButUnreceivedBalanceForTrade(franID));
+        }
+
+        public static decimal GetTradeSumByFranId(int franid)
+        {
+            decimal TradeSum = 0.00M;
+            string sql = "SELECT SUM(trade_total_money) FROM franchiser_trade WHERE franchiser_code = @franID";
+            SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
+            parameters[0].Value = franid;
+            DataSet ds = DbHelperSQL.Query(sql, parameters);
+            if (((ds != null) && (ds.Tables.Count > 0)) && (ds.Tables[0].Rows.Count > 0))
+            {
+                TradeSum = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+            }
+            return TradeSum;
+        }
+
+        private static decimal GetUnreceivedBalance(int franID)
+        {
+            decimal unreceivedbalance = 0.00M;
+            try
+            {
+                StringBuilder strSql = new StringBuilder();
+                strSql.Append("\r\n            select sum(\r\n\r\n             a.[count]*(b.order_add_price+ c.realtime_base_price)) as goldvalue \r\n            from \r\n            ( \r\n\r\n            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) \r\n             as [count] from franchiser_order_desc\r\n             where franchiser_order_id \r\n             in (select franchiser_order_id from franchiser_order\r\n             where (franchiser_order_state='1' or franchiser_order_state='0')\r\n             and franchiser_code=@franID) \r\n             and product_id \r\n             in (select product_type_id from product_type where type='0')\r\n             group by franchiser_order_id,product_id ,product_spec_id\r\n\r\n            ) a \r\n            ,product_type b ,realtime_price c\r\n             where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)\r\n                    ");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
+                parameters[0].Value = franID;
+                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                strSql = new StringBuilder();
+                strSql.Append("select sum( a.[count]*b.order_add_price) as silverValue from \r\n                            (\r\n                            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) as [count] from franchiser_order_desc\r\n                            where franchiser_order_id in \r\n                            (select franchiser_order_id from franchiser_order where  \r\n                            (franchiser_order_state='1' or franchiser_order_state='0') \r\n                             and franchiser_code=@franID) \r\n                            and product_id in (select product_type_id from product_type where type='1')\r\n                            group by franchiser_order_id,product_id,product_spec_id \r\n                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
+                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
+                if ((goldSet.Tables.Count > 0) && (goldSet.Tables[0].Rows.Count > 0))
+                {
+                    try
+                    {
+                        unreceivedbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
+                    }
+                    catch
+                    {
+                        unreceivedbalance = unreceivedbalance;
+                    }
+                }
+                if ((silverSet.Tables.Count <= 0) || (silverSet.Tables[0].Rows.Count <= 0))
+                {
+                    return unreceivedbalance;
+                }
+                try
+                {
+                    unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+                    unreceivedbalance = unreceivedbalance;
+                }
+            }
+            catch
+            {
+                unreceivedbalance = 0.00M;
+            }
+            return unreceivedbalance;
+        }
+
         private static decimal GetUnreceivedBalanceForTrade(int franID)
         {
             decimal unreceivedbalance = 0.00M;
             try
             {
-                ///黄金已订货未发货产品总价值
                 StringBuilder strSql = new StringBuilder();
-                strSql.Append(@"
-            select sum(
-
-             a.[count]*(b.trade_add_price+ c.realtime_base_price)) as goldvalue 
-            from 
-            ( 
-
-            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) 
-             as [count] from franchiser_order_desc
-             where franchiser_order_id 
-             in (select franchiser_order_id from franchiser_order
-             where (franchiser_order_state='1' or franchiser_order_state='0')
-             and franchiser_code=@franID) 
-             and product_id 
-             in (select product_type_id from product_type where type='0')
-             group by franchiser_order_id,product_id ,product_spec_id
-
-            ) a 
-            ,product_type b ,realtime_price c
-             where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)
-                    ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
+                strSql.Append("\r\n            select sum(\r\n\r\n             a.[count]*(b.trade_add_price+ c.realtime_base_price)) as goldvalue \r\n            from \r\n            ( \r\n\r\n            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) \r\n             as [count] from franchiser_order_desc\r\n             where franchiser_order_id \r\n             in (select franchiser_order_id from franchiser_order\r\n             where (franchiser_order_state='1' or franchiser_order_state='0')\r\n             and franchiser_code=@franID) \r\n             and product_id \r\n             in (select product_type_id from product_type where type='0')\r\n             group by franchiser_order_id,product_id ,product_spec_id\r\n\r\n            ) a \r\n            ,product_type b ,realtime_price c\r\n             where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)\r\n                    ");
+                SqlParameter[] parameters = new SqlParameter[] { new SqlParameter("@franID", SqlDbType.SmallInt) };
                 parameters[0].Value = franID;
-
                 DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                ///白银已订货未发货产品总价值
                 strSql = new StringBuilder();
-                strSql.Append(@"select sum( a.[count]*b.trade_add_price) as silverValue from 
-                            (
-                            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) as [count] from franchiser_order_desc
-                            where franchiser_order_id in 
-                            (select franchiser_order_id from franchiser_order where  
-                            (franchiser_order_state='1' or franchiser_order_state='0') 
-                             and franchiser_code=@franID) 
-                            and product_id in (select product_type_id from product_type where type='1')
-                            group by franchiser_order_id,product_id,product_spec_id 
-                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
-
+                strSql.Append("select sum( a.[count]*b.trade_add_price) as silverValue from \r\n                            (\r\n                            select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),0) as [count] from franchiser_order_desc\r\n                            where franchiser_order_id in \r\n                            (select franchiser_order_id from franchiser_order where  \r\n                            (franchiser_order_state='1' or franchiser_order_state='0') \r\n                             and franchiser_code=@franID) \r\n                            and product_id in (select product_type_id from product_type where type='1')\r\n                            group by franchiser_order_id,product_id,product_spec_id \r\n                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
                 DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                if (goldSet.Tables.Count > 0 && goldSet.Tables[0].Rows.Count > 0)
+                if ((goldSet.Tables.Count > 0) && (goldSet.Tables[0].Rows.Count > 0))
                 {
                     try
                     {
@@ -723,19 +561,20 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
                     }
                     catch
                     {
-                        unreceivedbalance += 0;
+                        unreceivedbalance = unreceivedbalance;
                     }
                 }
-                if (silverSet.Tables.Count > 0 && silverSet.Tables[0].Rows.Count > 0)
+                if ((silverSet.Tables.Count <= 0) || (silverSet.Tables[0].Rows.Count <= 0))
                 {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
+                    return unreceivedbalance;
+                }
+                try
+                {
+                    unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
+                }
+                catch
+                {
+                    unreceivedbalance = unreceivedbalance;
                 }
             }
             catch
@@ -743,232 +582,11 @@ canceled_reason,ins_user,ins_date,upd_user,upd_date ");
                 unreceivedbalance = 0.00M;
             }
             return unreceivedbalance;
-
         }
 
-        /// <summary>
-        /// 获得已发货未收货的价值
-        /// </summary>
-        /// <param name="franID"></param>
-        /// <returns></returns>
-        private static decimal GetHasSendButUnreceivedBalanceForTrade(int franID)
+        public static bool HasRight(int sys_admin_id, string modelID)
         {
-            decimal unreceivedbalance = 0.00M;
-            try
-            {
-                ///黄金已发货未收货产品总价值
-                StringBuilder strSql = new StringBuilder();
-                strSql.Append(@"
-              select sum(
-
-         a.[count]*(b.trade_add_price+ c.realtime_base_price)) as goldvalue 
-        from 
-        ( 
-
-         select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] 
-         from send_desc
-         where send_id 
-           in (select send_id from send_main
-         	where send_state='0'
-         	and franchiser_order_id 
-			in (select franchiser_order_id from franchiser_order where franchiser_code = @franID) --@franID
-              ) 
-         and product_id 
-         in (select product_type_id from product_type where type='0') --黄金
-         group by send_id,product_id ,product_spec_id
-
-        ) a 
-        ,product_type b ,realtime_price c
-         where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight  and c.[id]=(select max([id]) from realtime_price)
-                ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franID", SqlDbType.SmallInt)};
-                parameters[0].Value = franID;
-
-                DataSet goldSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                ///白银已发货未收货产品总价值
-                strSql = new StringBuilder();
-                strSql.Append(@"
-        select sum( a.[count]*b.trade_add_price) as silverValue from 
-        (
-        select send_id,product_id,product_spec_id, isnull(sum(send_amount_weight),0) as [count] 
-	from send_desc
-        where send_id in 
-             (select send_id from send_main 
-	      where send_state='0' 
-              and franchiser_order_id
-		  in (select franchiser_order_id from franchiser_order where franchiser_code = @franID)--@franID
-	     )
-        and product_id 
-	in (select product_type_id from product_type where type='1') --白银
-        group by send_id,product_id,product_spec_id 
-         ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight 
-");
-
-                DataSet silverSet = DbHelperSQL.Query(strSql.ToString(), parameters);
-
-                if (goldSet.Tables.Count > 0 && goldSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(goldSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
-                }
-                if (silverSet.Tables.Count > 0 && silverSet.Tables[0].Rows.Count > 0)
-                {
-                    try
-                    {
-                        unreceivedbalance += Convert.ToDecimal(silverSet.Tables[0].Rows[0][0]);
-                    }
-                    catch
-                    {
-                        unreceivedbalance += 0;
-                    }
-                }
-            }
-            catch
-            {
-                unreceivedbalance = 0.00M;
-            }
-            return unreceivedbalance;
-
+            return DbHelperSQL.Exists(string.Format("select * from sys_admin_authority where\r\n                                            sys_admin_id='{0}' and sys_module='{1}'", sys_admin_id, modelID).ToString());
         }
-
-        #endregion
-
-        #region 晓炜方法
-
-        ///点价余额用
-        ///
-        /// <summary>
-        /// 获得经销商各类已定货但未收货的价值（库存*（金价*销售加价）） //黄金
-        /// </summary>
-        /// <param name="franchiser_code"></param>
-        /// <returns></returns>
-        public decimal GetGoldNoReceiveValue(string sFranchiser_code)
-        {
-            decimal i = 0;
-            try
-            {
-                int franchiser_code = Convert.ToInt32(sFranchiser_code);
-                string strSql = string.Format(@"select sum( a.[count]*(b.trade_add_price+c.realtime_base_price)) as goldValue  from 
-                                            (
-                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
-                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
-                                                and franchiser_code=@franchiser_code) 
-                                                and product_id in (select product_type_id from product_type where type='0')
-                                                group by franchiser_order_id,product_id ,product_spec_id
-                                            ) a, product_type b,realtime_price c where a.product_id=b.product_type_id and a.product_spec_id=b.product_spec_weight   and c.[id]=(select max([id]) from realtime_price)");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
-                parameters[0].Value = franchiser_code;
-                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
-                i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
-            }
-            catch
-            {
-            }
-            return i;
-        }
-
-        /// <summary>
-        /// 获得经销商各类已定货但未收货的价值（库存*固定价格） //白银
-        /// </summary>
-        /// <param name="franchiser_code"></param>
-        /// <returns></returns>
-        public decimal GetSilverNoReceiveValue(string sFranchiser_code)
-        {
-            decimal i = 0;
-            try
-            {
-                int franchiser_code = Convert.ToInt32(sFranchiser_code);
-                string strSql = string.Format(@"select sum( a.[count]*b.trade_add_price) as silverValue from 
-                                            (
-                                                select franchiser_order_id,product_id,product_spec_id, isnull(sum(product_unreceived),'0') as [count] from franchiser_order_desc
-                                                where franchiser_order_id in (select franchiser_order_id from franchiser_order where  (franchiser_order_state='1' or franchiser_order_state='0') 
-                                                and franchiser_code=@franchiser_code) 
-                                                and product_id in (select product_type_id from product_type where type='1')
-                                                group by franchiser_order_id,product_id ,product_spec_id
-                                             ) a ,product_type b where a.product_id=b.product_type_id  and a.product_spec_id=b.product_spec_weight ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
-                parameters[0].Value = franchiser_code;
-                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
-
-
-                i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
-            }
-            catch
-            {
-            }
-            return i;
-        }
-
-        /// <summary>
-        /// 获得经销商库存货物的价值 //黄金
-        /// </summary>
-        /// <param name="franchiser_code"></param>
-        /// <returns></returns>
-        public decimal GetGoldStockValue(string sFranchiser_code)
-        {
-            decimal i = 0;
-            try
-            {
-                int franchiser_code = Convert.ToInt32(sFranchiser_code);
-                string strSql = string.Format(@"select sum((c.realtime_base_price+a.trade_add_price)*b.stock_left) as goldValue 
-                                                from realtime_price c, product_type a,stock_main b
-                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
-                                                and a.type='0' and b.franchiser_code =@franchiser_code
-                                                and c.[id]=(select max([id]) as [id] from realtime_price) ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
-                parameters[0].Value = franchiser_code;
-                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
-
-                i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
-            }
-            catch
-            {
-            }
-            return i;
-        }
-
-        /// <summary>
-        /// 获得经销商库存货物的价值 //白银
-        /// </summary>
-        /// <param name="franchiser_code"></param>
-        /// <returns></returns>
-        public decimal GetSilverStockValue(string sFranchiser_code)
-        {
-            decimal i = 0;
-            try
-            {
-                int franchiser_code = Convert.ToInt32(sFranchiser_code);
-                string strSql = string.Format(@"select sum(a.trade_add_price*b.stock_left) as silverValue 
-                                                from product_type a,stock_main b
-                                                where (a.product_type_id=b.product_id and a.product_spec_weight = b.product_spec_id) 
-                                                and a.type='1' and b.franchiser_code =@franchiser_code ");
-                SqlParameter[] parameters = {
-					new SqlParameter("@franchiser_code", SqlDbType.Int,2)};
-                parameters[0].Value = franchiser_code;
-                DataSet ds = DbHelperSQL.Query(strSql.ToString(),parameters);
-
-                i = Convert.ToDecimal(ds.Tables[0].Rows[0][0].ToString().Trim());
-            }
-            catch
-            {
-            }
-            return i;
-        }
-
-        #endregion
-
-
-
     }
 }
