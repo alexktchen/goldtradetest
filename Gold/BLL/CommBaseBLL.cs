@@ -13,6 +13,11 @@ namespace GoldTradeNaming.BLL
             return CommBaseDAL.GetAddMoneyTotal(fran_id);
         }
 
+        /// <summary>
+        /// 订货可用余额
+        /// </summary>
+        /// <param name="franID"></param>
+        /// <returns></returns>
         public static decimal GetBalance(int franID)
         {
             return CommBaseDAL.GetBalance(franID);
@@ -99,6 +104,11 @@ namespace GoldTradeNaming.BLL
             return this.dal.GetSumNoReceive(franchiser_code);
         }
 
+        /// <summary>
+        /// 点价可用余额
+        /// </summary>
+        /// <param name="franID"></param>
+        /// <returns></returns>
         public static decimal GetTradeBalance(int franID)
         {
             return CommBaseDAL.GetTradeBalance(franID);
