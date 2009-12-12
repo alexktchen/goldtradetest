@@ -24,6 +24,11 @@ namespace GoldTradeNaming.DAL
             return 0.00M;
         }
 
+        /// <summary>
+        /// 订货可用余额
+        /// </summary>
+        /// <param name="franID"></param>
+        /// <returns></returns>
         public static decimal GetBalance(int franID)
         {
             decimal Balance = 0.00M;
@@ -472,6 +477,11 @@ namespace GoldTradeNaming.DAL
             return DbHelperSQL.Query(string.Format("select isnull(sum(product_unreceived),'0') as [sum] \r\n                                            from franchiser_order_desc \r\n                                            where franchiser_order_id in (select franchiser_order_id from franchiser_order \r\n                                            where franchiser_code=N'" + franchiser_code + "' and (franchiser_order_state='0' or franchiser_order_state='2'))", new object[0]).ToString());
         }
 
+        /// <summary>
+        /// 点价可用余额
+        /// </summary>
+        /// <param name="franID"></param>
+        /// <returns></returns>
         public static decimal GetTradeBalance(int franID)
         {
             decimal Balance = 0.00M;
