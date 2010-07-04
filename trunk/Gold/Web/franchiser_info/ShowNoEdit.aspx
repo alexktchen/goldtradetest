@@ -154,7 +154,7 @@
             <tr>
                 <td>
                     <asp:GridView ID="gvList" runat="server" CellPadding="4" BackColor="White" BorderWidth="1px"
-                        AllowPaging="True" DataKeyNames="IA100GUID" BorderStyle="None" BorderColor="#DEDFDE"
+                        AllowPaging="True" DataKeyNames="IA100GUID" BorderStyle="None" BorderColor="#DEDFDE"  OnRowDataBound="gvList_RowDataBound"   
                         AutoGenerateColumns="False" Width="100%" EditRowStyle-BackColor="#3399FF" OnPageIndexChanging="gvList_PageIndexChanging"
                         ForeColor="Black" GridLines="Vertical">
                         <FooterStyle BackColor="#CCCC99" />
@@ -180,6 +180,16 @@
                                 <HeaderStyle Wrap="False" />
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
+                             <asp:TemplateField HeaderText="点价可用余额">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbltrade" runat="server"></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                            <asp:TemplateField HeaderText="订货余额">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblorder" runat="server"></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                             <asp:BoundField DataField="franchiser_asure_money" DataFormatString="{0:#0.00}" HeaderStyle-Wrap="false"
                                 HeaderText="担保款" Visible="False">
                                 <HeaderStyle Wrap="False" />

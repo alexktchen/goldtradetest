@@ -99,6 +99,18 @@ namespace GoldTradeNaming.Web.franchiser_info
             (base.Master.FindControl("lblTitle") as Label).Text = "查看经销商";
         }
 
+        protected void gvList_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            int rowindex = e.Row.RowIndex;
+            if (rowindex>= 0)
+            {
+                int franid = Convert.ToInt32(e.Row.Cells[0].Text);
+                ((Label)e.Row.FindControl("lblorder")).Text = CommBaseBLL.GetBalance(franid).ToString();
+
+                ((Label)e.Row.FindControl("lbltrade")).Text = CommBaseBLL.GetTradeBalance(franid).ToString(); ;
+            }
+        }
+
         private DataSet SearchFranchiserInfo()
         {
             StringBuilder strWhere = new StringBuilder();
