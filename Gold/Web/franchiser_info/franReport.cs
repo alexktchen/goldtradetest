@@ -29,6 +29,8 @@ namespace GoldTradeNaming.Web.franchiser_info
         private decimal totalMoney;
         private decimal totalOrder;
         private decimal totalTrade;
+        private decimal totalTradeBanlance;
+        private decimal totalOrderBanlance;
         protected TextBox txtDateE;
         protected TextBox txtDateS;
         protected TextBox txtfranchiser_code;
@@ -64,20 +66,32 @@ namespace GoldTradeNaming.Web.franchiser_info
 
         protected void gvTradeDesc_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            int rowindex = e.Row.RowIndex;
+            if (rowindex >= 0)
+            {
+                int franid = Convert.ToInt32(e.Row.Cells[0].Text);
+                ((Label)e.Row.FindControl("lblorder")).Text = CommBaseBLL.GetBalance(franid).ToString();
+
+                ((Label)e.Row.FindControl("lbltrade")).Text = CommBaseBLL.GetTradeBalance(franid).ToString(); ;
+            }
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                this.totalBanlance += Convert.ToDecimal(e.Row.Cells[1].Text.Trim());
-                this.totalMoney += Convert.ToDecimal((e.Row.Cells[2].Text.Trim() == "&nbsp;") ? "0" : e.Row.Cells[2].Text.Trim());
-                this.totalOrder += Convert.ToDecimal((e.Row.Cells[3].Text.Trim() == "&nbsp;") ? "0" : e.Row.Cells[3].Text.Trim());
-                this.totalTrade += Convert.ToDecimal((e.Row.Cells[4].Text.Trim() == "&nbsp;") ? "0" : e.Row.Cells[4].Text.Trim());
+                this.totalBanlance += Convert.ToDecimal(e.Row.Cells[2].Text.Trim());
+                this.totalOrderBanlance += Convert.ToDecimal(((Label)e.Row.FindControl("lblorder")).Text == "" ? "0" : ((Label)e.Row.FindControl("lbltrade")).Text);
+                this.totalTradeBanlance += Convert.ToDecimal(((Label)e.Row.FindControl("lbltrade")).Text == "" ? "0" : ((Label)e.Row.FindControl("lbltrade")).Text);
+                this.totalMoney += Convert.ToDecimal((e.Row.Cells[5].Text.Trim() == "&nbsp;") ? "0" : e.Row.Cells[5].Text.Trim());
+                this.totalOrder += Convert.ToDecimal((e.Row.Cells[6].Text.Trim() == "&nbsp;") ? "0" : e.Row.Cells[6].Text.Trim());
+                this.totalTrade += Convert.ToDecimal((e.Row.Cells[7].Text.Trim() == "&nbsp;") ? "0" : e.Row.Cells[7].Text.Trim());
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
                 e.Row.Cells[0].Text = "合计";
-                e.Row.Cells[1].Text = this.totalBanlance.ToString();
-                e.Row.Cells[2].Text = this.totalMoney.ToString();
-                e.Row.Cells[3].Text = this.totalOrder.ToString();
-                e.Row.Cells[4].Text = this.totalTrade.ToString();
+                e.Row.Cells[2].Text = this.totalBanlance.ToString();
+                e.Row.Cells[3].Text = this.totalOrderBanlance.ToString();
+                e.Row.Cells[4].Text = this.totalTradeBanlance.ToString();
+                e.Row.Cells[5].Text = this.totalMoney.ToString();
+                e.Row.Cells[6].Text = this.totalOrder.ToString();
+                e.Row.Cells[7].Text = this.totalTrade.ToString();
             }
         }
 
