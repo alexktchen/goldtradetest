@@ -180,14 +180,14 @@
                                 <HeaderStyle Wrap="False" />
                                 <ItemStyle HorizontalAlign="Center" />
                             </asp:BoundField>
+                            <asp:TemplateField HeaderText="订货可用余额">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblorder" runat="server"></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                              <asp:TemplateField HeaderText="点价可用余额">
                                             <ItemTemplate>
                                                 <asp:Label ID="lbltrade" runat="server"></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                            <asp:TemplateField HeaderText="订货余额">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblorder" runat="server"></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                             <asp:BoundField DataField="franchiser_asure_money" DataFormatString="{0:#0.00}" HeaderStyle-Wrap="false"

@@ -76,9 +76,20 @@
                                     onrowdatabound="gvTradeDesc_RowDataBound" ShowFooter="True">
                                     <FooterStyle BackColor="#CCCC99" />
                                     <RowStyle BackColor="#F7F7DE" />
-                                    <Columns>
+                                    <Columns>                                    
+                                         <asp:BoundField DataField="franchiser_code" HeaderText="经销商编号"/>
                                         <asp:BoundField DataField="franchiser_name" HeaderText="经销商名称" />
                                         <asp:BoundField DataField="franchiser_balance_money" HeaderText="帐面余额" />
+                            <asp:TemplateField HeaderText="订货可用余额">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lblorder" runat="server"></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                          <asp:TemplateField HeaderText="点价可用余额">
+                                            <ItemTemplate>
+                                                <asp:Label ID="lbltrade" runat="server"></asp:Label>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
                                         <asp:BoundField DataField="moneytotal" HeaderText="财务总额"  />
                                         <asp:BoundField DataField="ordertotal" HeaderText="订单总额"  />
                                         <asp:BoundField DataField="tradetotal" HeaderText="交易总额" />
